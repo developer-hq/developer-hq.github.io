@@ -79,15 +79,15 @@
 
 
 
-<meta name="description" content="01优化求解器概述当我们努力用数学编程为一个实际问题建模时，我们写了以下优化问题： 我们知道数学建模完成后，需要解决具体的例子，下一步就是设计相应的算法，然后导入实际数据进行求解。 如果问题是线性规划，因为有对应的多项式时间算法(比如内点算法)，设计实现算法可能没有那么难。 然而，如果问题是整数规划，解决它的基本算法是分枝定界法： 叫做混合整数规划&#x2F;离散优化的精确算法——分支定界法和优化求解器 那">
+<meta name="description" content="工程问题annoconda清华源有问题https:&#x2F;&#x2F;blog.csdn.net&#x2F;weixin_49304494&#x2F;article&#x2F;details&#x2F;122622134打开.condaec 1234567891011121314channels:  - defaultsshow_channel_urls: truedefault_channels:  - http:&#x2F;&#x2F;mirrors.tuna.tsi">
 <meta property="og:type" content="article">
-<meta property="og:title" content="cplex">
-<meta property="og:url" content="https://developer-hq.github.io/2022/11/10/cplex/index.html">
+<meta property="og:title" content="动手学深度学习工程问题">
+<meta property="og:url" content="https://developer-hq.github.io/2023/01/13/%E5%8A%A8%E6%89%8B%E5%AD%A6%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E5%B7%A5%E7%A8%8B%E9%97%AE%E9%A2%98/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="01优化求解器概述当我们努力用数学编程为一个实际问题建模时，我们写了以下优化问题： 我们知道数学建模完成后，需要解决具体的例子，下一步就是设计相应的算法，然后导入实际数据进行求解。 如果问题是线性规划，因为有对应的多项式时间算法(比如内点算法)，设计实现算法可能没有那么难。 然而，如果问题是整数规划，解决它的基本算法是分枝定界法： 叫做混合整数规划&#x2F;离散优化的精确算法——分支定界法和优化求解器 那">
+<meta property="og:description" content="工程问题annoconda清华源有问题https:&#x2F;&#x2F;blog.csdn.net&#x2F;weixin_49304494&#x2F;article&#x2F;details&#x2F;122622134打开.condaec 1234567891011121314channels:  - defaultsshow_channel_urls: truedefault_channels:  - http:&#x2F;&#x2F;mirrors.tuna.tsi">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2022-11-10T08:00:34.000Z">
-<meta property="article:modified_time" content="2023-01-13T07:56:41.378Z">
+<meta property="article:published_time" content="2023-01-13T03:50:17.000Z">
+<meta property="article:modified_time" content="2023-01-13T07:56:24.077Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary">
 
@@ -119,13 +119,13 @@
 
 
 
-  <link rel="canonical" href="https://developer-hq.github.io/2022/11/10/cplex/"/>
+  <link rel="canonical" href="https://developer-hq.github.io/2023/01/13/动手学深度学习工程问题/"/>
 
 
 
 
 
-  <title>cplex | Hexo</title>
+  <title>动手学深度学习工程问题 | Hexo</title>
   
 
 
@@ -232,7 +232,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://developer-hq.github.io/2022/11/10/cplex/">
+    <link itemprop="mainEntityOfPage" href="https://developer-hq.github.io/2023/01/13/%E5%8A%A8%E6%89%8B%E5%AD%A6%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E5%B7%A5%E7%A8%8B%E9%97%AE%E9%A2%98/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="">
@@ -249,7 +249,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">cplex</h1>
+          <h1 class="post-title" itemprop="name headline">动手学深度学习工程问题</h1>
         
 
         <div class="post-meta">
@@ -261,8 +261,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2022-11-10T16:00:34+08:00">
-                2022-11-10
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2023-01-13T11:50:17+08:00">
+                2023-01-13
               </time>
             
 
@@ -299,34 +299,15 @@
       
 
       
-        <h1 id="01优化求解器概述"><a href="#01优化求解器概述" class="headerlink" title="01优化求解器概述"></a>01优化求解器概述</h1><p>当我们努力用数学编程为一个实际问题建模时，我们写了以下优化问题：</p>
-<p>我们知道数学建模完成后，需要解决具体的例子，下一步就是设计相应的算法，然后导入实际数据进行求解。</p>
-<p>如果问题是线性规划，因为有对应的多项式时间算法(比如内点算法)，设计实现算法可能没有那么难。</p>
-<p>然而，如果问题是整数规划，解决它的基本算法是分枝定界法：</p>
-<p><strong>叫做混合整数规划/离散优化的精确算法——分支定界法和优化求解器</strong></p>
-<p>那么，我们是不是必须手动过指数复杂度的分支定界法？</p>
-<p>几十年前，市场上没有优化器的时候，我很不幸的告诉你：有！</p>
-<p>当我和欧洲运筹学协会主席、巴塞罗那理工学院院长埃琳娜费尔南德斯教授(<a target="_blank" rel="noopener" href="https://www/">https://www</a> . eio . UPC . edu/en/home page/Elena)聊天时，我在海德堡大学读书时，她向我抱怨她在大学读书时对分支定界算法的“悲惨”经历。(当时一个运筹学博士研究生对精确算法的毕业难度/代码能力可想而知。)</p>
-<p>现在，正是因为<strong>优化求解器的存在，我们只需要将上述整数规划模型的系数矩阵输入到优化求解器中，它就能快速为我们找到最优解或可行解。</strong></p>
-<p>求解器除了最基本的分支定界方法外，通常还集成了各种“花式”启发式和切割平面算法，大大提高了求解效率！</p>
-<p>因此运筹学博士生的毕业难度大大降低！</p>
-<p>还困惑吗？优化器到底是什么？</p>
-<p>从编程的角度，我们可以把它理解为一个致力于求解优化/整数规划模型的算法库。你可以用任何编程语言(C/C、Java、Python)调用这个包中的方程。<strong>只要你输入你要求解的整数规划模型的目标方程和系数矩阵(告诉它你要求解的具体问题)，它就会为你解出结果。</strong></p>
-<hr>
-<h1 id="流程"><a href="#流程" class="headerlink" title="流程"></a>流程</h1><p>例如，在Python环境中，只需要以下四个步骤：</p>
-<ul>
-<li>个用于导入CPLEX的包<br>导入cplex</li>
-<li>初始化优化模型<br>Prob=cplex。这里的Cplex() # prob可以是任何变量名。</li>
-<li>输入模型的目标函数、约束和可变系数。<ul>
-<li>Prob.objective.set_sense(.)#设置目标方程的取值方向：求最大/最小值。</li>
-<li>Prob.variables.add(.)#添加变量</li>
-<li>Prob.linear _ constraints.add(.)#添加约束</li>
-</ul>
-</li>
-</ul>
-<p>4.直接调用优化求解器的求解方法，一键求解。</p>
-<p>prob.solve()</p>
+        <h1 id="工程问题"><a href="#工程问题" class="headerlink" title="工程问题"></a>工程问题</h1><h3 id="annoconda清华源有问题"><a href="#annoconda清华源有问题" class="headerlink" title="annoconda清华源有问题"></a>annoconda清华源有问题</h3><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_49304494/article/details/122622134">https://blog.csdn.net/weixin_49304494/article/details/122622134</a><br>打开.condaec</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">channels:</span><br><span class="line">  - defaults</span><br><span class="line">show_channel_urls: true</span><br><span class="line">default_channels:</span><br><span class="line">  - http://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main</span><br><span class="line">  - http://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/r</span><br><span class="line">  - http://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/msys2</span><br><span class="line">custom_channels:</span><br><span class="line">  conda-forge: http://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud</span><br><span class="line">  msys2: http://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud</span><br><span class="line">  bioconda: http://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud</span><br><span class="line">  menpo: http://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud</span><br><span class="line">  pytorch: http://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud</span><br><span class="line">  simpleitk: http://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud</span><br></pre></td></tr></table></figure>
 
+<p>快速打开启动文件夹：<br>cmd+r启动输入<br>shell:Common Startup</p>
+<h3 id="torch是否使用gpu"><a href="#torch是否使用gpu" class="headerlink" title="torch是否使用gpu"></a>torch是否使用gpu</h3><p>使用cuda就是使用gpu，即是否使用cuda<br>torch.cuda.is_available()</p>
+<h3 id="bat打开notebook"><a href="#bat打开notebook" class="headerlink" title=".bat打开notebook"></a>.bat打开notebook</h3><p>需要在虚拟环境中先安装ipykernel</p>
+<figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">conda install ipykernel</span><br></pre></td></tr></table></figure>
+<p>bat文件中：</p>
+<figure class="highlight bat"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">call</span> conda activate d2l</span><br><span class="line"><span class="keyword">call</span> jupyter notebook</span><br><span class="line"><span class="built_in">pause</span></span><br></pre></td></tr></table></figure>
       
     </div>
     
@@ -350,8 +331,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2022/11/10/%E7%81%AB%E5%8A%9B%E5%88%86%E9%85%8D/" rel="next" title="火力分配">
-                <i class="fa fa-chevron-left"></i> 火力分配
+              <a href="/2022/12/22/qbittorrent%E8%AE%BE%E7%BD%AE/" rel="next" title="qbittorrent设置">
+                <i class="fa fa-chevron-left"></i> qbittorrent设置
               </a>
             
           </div>
@@ -360,8 +341,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2022/11/14/%E7%99%BB%E9%99%86esxi/" rel="prev" title="登陆esxi">
-                登陆esxi <i class="fa fa-chevron-right"></i>
+              <a href="/2023/01/13/%E5%8A%A8%E6%89%8B%E5%AD%A6%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" rel="prev" title="动手学深度学习">
+                动手学深度学习 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -477,7 +458,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#01%E4%BC%98%E5%8C%96%E6%B1%82%E8%A7%A3%E5%99%A8%E6%A6%82%E8%BF%B0"><span class="nav-number">1.</span> <span class="nav-text">01优化求解器概述</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%B5%81%E7%A8%8B"><span class="nav-number">2.</span> <span class="nav-text">流程</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%B7%A5%E7%A8%8B%E9%97%AE%E9%A2%98"><span class="nav-number">1.</span> <span class="nav-text">工程问题</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#annoconda%E6%B8%85%E5%8D%8E%E6%BA%90%E6%9C%89%E9%97%AE%E9%A2%98"><span class="nav-number">1.0.1.</span> <span class="nav-text">annoconda清华源有问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#torch%E6%98%AF%E5%90%A6%E4%BD%BF%E7%94%A8gpu"><span class="nav-number">1.0.2.</span> <span class="nav-text">torch是否使用gpu</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#bat%E6%89%93%E5%BC%80notebook"><span class="nav-number">1.0.3.</span> <span class="nav-text">.bat打开notebook</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
