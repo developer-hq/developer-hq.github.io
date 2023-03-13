@@ -229,6 +229,152 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://developer-hq.github.io/2022/11/10/cplex/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2022/11/10/cplex/" itemprop="url">cplex</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2022-11-10T16:00:34+08:00">
+                2022-11-10
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="01优化求解器概述"><a href="#01优化求解器概述" class="headerlink" title="01优化求解器概述"></a>01优化求解器概述</h1><p>当我们努力用数学编程为一个实际问题建模时，我们写了以下优化问题：</p>
+<p>我们知道数学建模完成后，需要解决具体的例子，下一步就是设计相应的算法，然后导入实际数据进行求解。</p>
+<p>如果问题是线性规划，因为有对应的多项式时间算法(比如内点算法)，设计实现算法可能没有那么难。</p>
+<p>然而，如果问题是整数规划，解决它的基本算法是分枝定界法：</p>
+<p><strong>叫做混合整数规划/离散优化的精确算法——分支定界法和优化求解器</strong></p>
+<p>那么，我们是不是必须手动过指数复杂度的分支定界法？</p>
+<p>几十年前，市场上没有优化器的时候，我很不幸的告诉你：有！</p>
+<p>当我和欧洲运筹学协会主席、巴塞罗那理工学院院长埃琳娜费尔南德斯教授(<a target="_blank" rel="noopener" href="https://www/">https://www</a> . eio . UPC . edu/en/home page/Elena)聊天时，我在海德堡大学读书时，她向我抱怨她在大学读书时对分支定界算法的“悲惨”经历。(当时一个运筹学博士研究生对精确算法的毕业难度/代码能力可想而知。)</p>
+<p>现在，正是因为<strong>优化求解器的存在，我们只需要将上述整数规划模型的系数矩阵输入到优化求解器中，它就能快速为我们找到最优解或可行解。</strong></p>
+<p>求解器除了最基本的分支定界方法外，通常还集成了各种“花式”启发式和切割平面算法，大大提高了求解效率！</p>
+<p>因此运筹学博士生的毕业难度大大降低！</p>
+<p>还困惑吗？优化器到底是什么？</p>
+<p>从编程的角度，我们可以把它理解为一个致力于求解优化/整数规划模型的算法库。你可以用任何编程语言(C/C、Java、Python)调用这个包中的方程。<strong>只要你输入你要求解的整数规划模型的目标方程和系数矩阵(告诉它你要求解的具体问题)，它就会为你解出结果。</strong></p>
+<hr>
+<h1 id="流程"><a href="#流程" class="headerlink" title="流程"></a>流程</h1><p>例如，在Python环境中，只需要以下四个步骤：</p>
+<ul>
+<li>个用于导入CPLEX的包<br>导入cplex</li>
+<li>初始化优化模型<br>Prob=cplex。这里的Cplex() # prob可以是任何变量名。</li>
+<li>输入模型的目标函数、约束和可变系数。<ul>
+<li>Prob.objective.set_sense(.)#设置目标方程的取值方向：求最大/最小值。</li>
+<li>Prob.variables.add(.)#添加变量</li>
+<li>Prob.linear _ constraints.add(.)#添加约束</li>
+</ul>
+</li>
+</ul>
+<p>4.直接调用优化求解器的求解方法，一键求解。</p>
+<p>prob.solve()</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://developer-hq.github.io/2022/11/10/%E7%81%AB%E5%8A%9B%E5%88%86%E9%85%8D/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1362,126 +1508,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://developer-hq.github.io/2022/10/21/%E4%BF%AE%E6%94%B9%E4%B8%BB%E9%A2%98/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2022/10/21/%E4%BF%AE%E6%94%B9%E4%B8%BB%E9%A2%98/" itemprop="url">修改主题</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2022-10-21T23:24:32+08:00">
-                2022-10-21
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p><a target="_blank" rel="noopener" href="https://blog.csdn.net/tujidi1csd/article/details/120180779">https://blog.csdn.net/tujidi1csd/article/details/120180779</a></p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1533,7 +1559,7 @@
                 <a href="/">
     
               
-                  <span class="site-state-item-count">27</span>
+                  <span class="site-state-item-count">28</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
