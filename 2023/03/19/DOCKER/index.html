@@ -1,0 +1,709 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="en">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="DOCKER教程中文文档https:&#x2F;&#x2F;docker.easydoc.net&#x2F;doc&#x2F;81170005&#x2F;cCewZWoN&#x2F;lTKfePfP 官方文档https:&#x2F;&#x2F;docs.docker.com&#x2F;get-started&#x2F; 加装hyper vhttps:&#x2F;&#x2F;blog.csdn.net&#x2F;null111666&#x2F;article&#x2F;details&#x2F;103958158 123456789pushd &quot;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Docker">
+<meta property="og:url" content="https://developer-hq.github.io/2023/03/19/DOCKER/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="DOCKER教程中文文档https:&#x2F;&#x2F;docker.easydoc.net&#x2F;doc&#x2F;81170005&#x2F;cCewZWoN&#x2F;lTKfePfP 官方文档https:&#x2F;&#x2F;docs.docker.com&#x2F;get-started&#x2F; 加装hyper vhttps:&#x2F;&#x2F;blog.csdn.net&#x2F;null111666&#x2F;article&#x2F;details&#x2F;103958158 123456789pushd &quot;">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2023-03-19T12:39:42.000Z">
+<meta property="article:modified_time" content="2023-03-19T12:54:06.317Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://developer-hq.github.io/2023/03/19/DOCKER/"/>
+
+
+
+
+
+  <title>Docker | Hexo</title>
+  
+
+
+
+
+
+
+
+
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Hexo</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://developer-hq.github.io/2023/03/19/DOCKER/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Docker</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2023-03-19T20:39:42+08:00">
+                2023-03-19
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="DOCKER"><a href="#DOCKER" class="headerlink" title="DOCKER"></a>DOCKER</h1><h2 id="教程"><a href="#教程" class="headerlink" title="教程"></a>教程</h2><h3 id="中文文档"><a href="#中文文档" class="headerlink" title="中文文档"></a>中文文档</h3><p><a target="_blank" rel="noopener" href="https://docker.easydoc.net/doc/81170005/cCewZWoN/lTKfePfP">https://docker.easydoc.net/doc/81170005/cCewZWoN/lTKfePfP</a></p>
+<h3 id="官方文档"><a href="#官方文档" class="headerlink" title="官方文档"></a>官方文档</h3><p><a target="_blank" rel="noopener" href="https://docs.docker.com/get-started/">https://docs.docker.com/get-started/</a></p>
+<h2 id="加装hyper-v"><a href="#加装hyper-v" class="headerlink" title="加装hyper v"></a>加装hyper v</h2><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/null111666/article/details/103958158">https://blog.csdn.net/null111666/article/details/103958158</a></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">pushd &quot;%~dp0&quot;</span><br><span class="line"></span><br><span class="line">dir /b %SystemRoot%\servicing\Packages\*Hyper-V*.mum &gt;hyper-v.txt</span><br><span class="line"></span><br><span class="line">for /f %%i in (&#x27;findstr /i . hyper-v.txt 2^&gt;nul&#x27;) do dism /online /norestart /add-package:&quot;%SystemRoot%\servicing\Packages\%%i&quot;</span><br><span class="line"></span><br><span class="line">del hyper-v.txt</span><br><span class="line"></span><br><span class="line">Dism /online /enable-feature /featurename:Microsoft-Hyper-V-All /LimitAccess /ALL</span><br></pre></td></tr></table></figure>
+
+<h2 id="Ubuntu镜像"><a href="#Ubuntu镜像" class="headerlink" title="Ubuntu镜像"></a>Ubuntu镜像</h2><p><a target="_blank" rel="noopener" href="https://hub.docker.com/_/ubuntu?tab=tags">https://hub.docker.com/_/ubuntu?tab=tags</a></p>
+<p>anaconda镜像</p>
+<p><a target="_blank" rel="noopener" href="https://mirrors.tuna.tsinghua.edu.cn/anaconda/archive/">https://mirrors.tuna.tsinghua.edu.cn/anaconda/archive/</a></p>
+<h2 id="docker-run"><a href="#docker-run" class="headerlink" title="docker run"></a>docker run</h2><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/m0_38027358/article/details/87376517">https://blog.csdn.net/m0_38027358/article/details/87376517</a></p>
+<p>docker run -it -p 180:180 haoquan1999/ai_composer  /bin/bash</p>
+<p>docker run -it -p 180:180 heroku/heroku:18 /bin/bash</p>
+<p>docker run -it -p 180:180 ubuntu:16.04 /bin/bash</p>
+<p>docker run -it -p 180:180 haoquan1999/ai_composer  /bin/bash</p>
+<p>docker run -it -p 80:80 tensorflow/tensorflow:0.8.0 /bin/bash</p>
+<p><strong>-i:</strong> 以交互模式运行容器，通常与 -t 同时使用；</p>
+<p><strong>-t:</strong> 为容器重新分配一个伪输入终端，通常与 -i 同时使用；</p>
+<p><strong>-p:</strong> 指定端口映射，格式为：主机(宿主)端口:容器端口 </p>
+<h2 id="docker-start"><a href="#docker-start" class="headerlink" title="docker start"></a>docker start</h2><p><a target="_blank" rel="noopener" href="https://zhidao.baidu.com/question/245146971591809124.html">https://zhidao.baidu.com/question/245146971591809124.html</a></p>
+<p>docker start -ia <containerid></containerid></p>
+<h2 id="docker位置"><a href="#docker位置" class="headerlink" title="docker位置"></a>docker位置</h2><p>wsl默认保存在C:\Users&lt;主机名&gt;\AppData\Local下</p>
+<h2 id="TensorFlow"><a href="#TensorFlow" class="headerlink" title="TensorFlow"></a>TensorFlow</h2><p><a target="_blank" rel="noopener" href="https://hub.docker.com/r/tensorflow/tensorflow/tags?page=1&amp;ordering=-last_updated">https://hub.docker.com/r/tensorflow/tensorflow/tags?page=1&amp;ordering=-last_updated</a></p>
+<p>docker pull tensorflow/tensorflow:0.8.0</p>
+<p><a target="_blank" rel="noopener" href="https://www.tensorflow.org/install/docker">https://www.tensorflow.org/install/docker</a></p>
+<h2 id="保存镜像"><a href="#保存镜像" class="headerlink" title="保存镜像"></a>保存镜像</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker commit -m=&quot;has update&quot; -a=&quot;hq&quot; e218edb10161 memo:v2</span><br></pre></td></tr></table></figure>
+
+<p>各个参数说明：</p>
+<ul>
+<li><strong>-m:</strong> 提交的描述信息</li>
+<li><strong>-a:</strong> 指定镜像作者</li>
+<li><strong>e218edb10161：</strong>容器 ID</li>
+<li><strong>runoob/ubuntu:v2:</strong> 指定要创建的目标镜像名</li>
+</ul>
+<p>我们可以使用 <strong>docker images</strong> 命令来查看我们的新镜像 <strong>runoob/ubuntu:v2</strong>：</p>
+<p><a target="_blank" rel="noopener" href="https://www.runoob.com/docker/docker-image-usage.html">https://www.runoob.com/docker/docker-image-usage.html</a></p>
+<h2 id="上传镜像"><a href="#上传镜像" class="headerlink" title="上传镜像"></a>上传镜像</h2><p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/lgjlife/p/10982565.html">https://www.cnblogs.com/lgjlife/p/10982565.html</a></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker push haoquan1999S/ubuntu:vim  </span><br></pre></td></tr></table></figure>
+
+<p>必须是dockerhub的用户名/项目名称:版本</p>
+<h2 id="Docker镜像源"><a href="#Docker镜像源" class="headerlink" title="Docker镜像源"></a>Docker镜像源</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  &quot;builder&quot;: &#123;</span><br><span class="line">    &quot;gc&quot;: &#123;</span><br><span class="line">      &quot;defaultKeepStorage&quot;: &quot;20GB&quot;,</span><br><span class="line">      &quot;enabled&quot;: true</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  &quot;experimental&quot;: false,</span><br><span class="line">  &quot;features&quot;: &#123;</span><br><span class="line">    &quot;buildkit&quot;: true</span><br><span class="line">  &#125;,</span><br><span class="line">  &quot;registry-mirrors&quot;: [</span><br><span class="line">    &quot;https://2g028uyf.mirror.aliyuncs.com&quot;</span><br><span class="line">  ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="Docker自启动"><a href="#Docker自启动" class="headerlink" title="Docker自启动"></a>Docker自启动</h2><h3 id="执行多条shell"><a href="#执行多条shell" class="headerlink" title="执行多条shell"></a>执行多条shell</h3><p>sh -c “ls &amp;&amp; echo ‘——-‘ &amp;&amp;  ls”</p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_30642267/article/details/98671653">https://blog.csdn.net/weixin_30642267/article/details/98671653</a></p>
+<h3 id="自启动"><a href="#自启动" class="headerlink" title="自启动"></a>自启动</h3><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_37312838/article/details/115710209">https://blog.csdn.net/qq_37312838/article/details/115710209</a></p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_34173549/article/details/79824541">https://blog.csdn.net/qq_34173549/article/details/79824541</a></p>
+<h3 id="自启动命令-端口转发-挂载文件夹"><a href="#自启动命令-端口转发-挂载文件夹" class="headerlink" title="自启动命令+端口转发+挂载文件夹"></a>自启动命令+端口转发+挂载文件夹</h3><p>docker run -p 5001:5000 -p 1999:1999 –restart=always -v /autorun:/home/autorun  -it ai_composer:v2 </p>
+<h3 id="自启动命令-端口转发-自动运行"><a href="#自启动命令-端口转发-自动运行" class="headerlink" title="自启动命令+端口转发+自动运行"></a>自启动命令+端口转发+自动运行</h3><p>docker run -p 5001:5000 -p 1999:1999 –restart=always  -it interface sh -c “cd home/AI_Composer &amp;&amp; python generateMusicInterFace.py”</p>
+<h3 id="自启动命令-端口转发-自动运行-后台运行（-d）"><a href="#自启动命令-端口转发-自动运行-后台运行（-d）" class="headerlink" title="自启动命令+端口转发+自动运行+后台运行（-d）"></a>自启动命令+端口转发+自动运行+后台运行（-d）</h3><p>docker run -p 5001:5000 -p 1999:1999 –restart=always  -d interface sh -c “cd home/AI_Composer &amp;&amp; python generateMusicInterFace.py”</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2023/03/19/Git/" rel="next" title="Git">
+                <i class="fa fa-chevron-left"></i> Git
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name"></p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/">
+    
+              
+                  <span class="site-state-item-count">31</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#DOCKER"><span class="nav-number">1.</span> <span class="nav-text">DOCKER</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%95%99%E7%A8%8B"><span class="nav-number">1.1.</span> <span class="nav-text">教程</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%AD%E6%96%87%E6%96%87%E6%A1%A3"><span class="nav-number">1.1.1.</span> <span class="nav-text">中文文档</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%98%E6%96%B9%E6%96%87%E6%A1%A3"><span class="nav-number">1.1.2.</span> <span class="nav-text">官方文档</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8A%A0%E8%A3%85hyper-v"><span class="nav-number">1.2.</span> <span class="nav-text">加装hyper v</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Ubuntu%E9%95%9C%E5%83%8F"><span class="nav-number">1.3.</span> <span class="nav-text">Ubuntu镜像</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#docker-run"><span class="nav-number">1.4.</span> <span class="nav-text">docker run</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#docker-start"><span class="nav-number">1.5.</span> <span class="nav-text">docker start</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#docker%E4%BD%8D%E7%BD%AE"><span class="nav-number">1.6.</span> <span class="nav-text">docker位置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#TensorFlow"><span class="nav-number">1.7.</span> <span class="nav-text">TensorFlow</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BF%9D%E5%AD%98%E9%95%9C%E5%83%8F"><span class="nav-number">1.8.</span> <span class="nav-text">保存镜像</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%8A%E4%BC%A0%E9%95%9C%E5%83%8F"><span class="nav-number">1.9.</span> <span class="nav-text">上传镜像</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Docker%E9%95%9C%E5%83%8F%E6%BA%90"><span class="nav-number">1.10.</span> <span class="nav-text">Docker镜像源</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Docker%E8%87%AA%E5%90%AF%E5%8A%A8"><span class="nav-number">1.11.</span> <span class="nav-text">Docker自启动</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%89%A7%E8%A1%8C%E5%A4%9A%E6%9D%A1shell"><span class="nav-number">1.11.1.</span> <span class="nav-text">执行多条shell</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%87%AA%E5%90%AF%E5%8A%A8"><span class="nav-number">1.11.2.</span> <span class="nav-text">自启动</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%87%AA%E5%90%AF%E5%8A%A8%E5%91%BD%E4%BB%A4-%E7%AB%AF%E5%8F%A3%E8%BD%AC%E5%8F%91-%E6%8C%82%E8%BD%BD%E6%96%87%E4%BB%B6%E5%A4%B9"><span class="nav-number">1.11.3.</span> <span class="nav-text">自启动命令+端口转发+挂载文件夹</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%87%AA%E5%90%AF%E5%8A%A8%E5%91%BD%E4%BB%A4-%E7%AB%AF%E5%8F%A3%E8%BD%AC%E5%8F%91-%E8%87%AA%E5%8A%A8%E8%BF%90%E8%A1%8C"><span class="nav-number">1.11.4.</span> <span class="nav-text">自启动命令+端口转发+自动运行</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%87%AA%E5%90%AF%E5%8A%A8%E5%91%BD%E4%BB%A4-%E7%AB%AF%E5%8F%A3%E8%BD%AC%E5%8F%91-%E8%87%AA%E5%8A%A8%E8%BF%90%E8%A1%8C-%E5%90%8E%E5%8F%B0%E8%BF%90%E8%A1%8C%EF%BC%88-d%EF%BC%89"><span class="nav-number">1.11.5.</span> <span class="nav-text">自启动命令+端口转发+自动运行+后台运行（-d）</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2023</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">John Doe</span>
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

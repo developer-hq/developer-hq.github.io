@@ -79,15 +79,15 @@
 
 
 
-<meta name="description" content="01优化求解器概述当我们努力用数学编程为一个实际问题建模时，我们写了以下优化问题： 我们知道数学建模完成后，需要解决具体的例子，下一步就是设计相应的算法，然后导入实际数据进行求解。 如果问题是线性规划，因为有对应的多项式时间算法(比如内点算法)，设计实现算法可能没有那么难。 然而，如果问题是整数规划，解决它的基本算法是分枝定界法： 叫做混合整数规划&#x2F;离散优化的精确算法——分支定界法和优化求解器 那">
+<meta name="description" content="Gitgit init初始化本地仓库 基本配置git config –global user.name “hq” git config –global user.email “&amp;#x37;&amp;#52;&amp;#52;&amp;#x32;&amp;#x30;&amp;#52;&amp;#53;&amp;#x34;&amp;#x31;&amp;#64;&amp;#x71;&amp;#113;&amp;#46;&amp;#x63;&amp;#x6f;&amp;#109;“ ssh-keygen -t rsa -C">
 <meta property="og:type" content="article">
-<meta property="og:title" content="cplex">
-<meta property="og:url" content="https://developer-hq.github.io/2022/11/10/cplex/index.html">
+<meta property="og:title" content="Git">
+<meta property="og:url" content="https://developer-hq.github.io/2023/03/19/Git/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="01优化求解器概述当我们努力用数学编程为一个实际问题建模时，我们写了以下优化问题： 我们知道数学建模完成后，需要解决具体的例子，下一步就是设计相应的算法，然后导入实际数据进行求解。 如果问题是线性规划，因为有对应的多项式时间算法(比如内点算法)，设计实现算法可能没有那么难。 然而，如果问题是整数规划，解决它的基本算法是分枝定界法： 叫做混合整数规划&#x2F;离散优化的精确算法——分支定界法和优化求解器 那">
+<meta property="og:description" content="Gitgit init初始化本地仓库 基本配置git config –global user.name “hq” git config –global user.email “&amp;#x37;&amp;#52;&amp;#52;&amp;#x32;&amp;#x30;&amp;#52;&amp;#53;&amp;#x34;&amp;#x31;&amp;#64;&amp;#x71;&amp;#113;&amp;#46;&amp;#x63;&amp;#x6f;&amp;#109;“ ssh-keygen -t rsa -C">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2022-11-10T08:00:34.000Z">
-<meta property="article:modified_time" content="2023-01-13T07:56:41.378Z">
+<meta property="article:published_time" content="2023-03-19T12:39:42.000Z">
+<meta property="article:modified_time" content="2023-03-19T12:54:27.262Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary">
 
@@ -119,13 +119,13 @@
 
 
 
-  <link rel="canonical" href="https://developer-hq.github.io/2022/11/10/cplex/"/>
+  <link rel="canonical" href="https://developer-hq.github.io/2023/03/19/Git/"/>
 
 
 
 
 
-  <title>cplex | Hexo</title>
+  <title>Git | Hexo</title>
   
 
 
@@ -232,7 +232,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://developer-hq.github.io/2022/11/10/cplex/">
+    <link itemprop="mainEntityOfPage" href="https://developer-hq.github.io/2023/03/19/Git/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="">
@@ -249,7 +249,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">cplex</h1>
+          <h1 class="post-title" itemprop="name headline">Git</h1>
         
 
         <div class="post-meta">
@@ -261,8 +261,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2022-11-10T16:00:34+08:00">
-                2022-11-10
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2023-03-19T20:39:42+08:00">
+                2023-03-19
               </time>
             
 
@@ -299,33 +299,34 @@
       
 
       
-        <h1 id="01优化求解器概述"><a href="#01优化求解器概述" class="headerlink" title="01优化求解器概述"></a>01优化求解器概述</h1><p>当我们努力用数学编程为一个实际问题建模时，我们写了以下优化问题：</p>
-<p>我们知道数学建模完成后，需要解决具体的例子，下一步就是设计相应的算法，然后导入实际数据进行求解。</p>
-<p>如果问题是线性规划，因为有对应的多项式时间算法(比如内点算法)，设计实现算法可能没有那么难。</p>
-<p>然而，如果问题是整数规划，解决它的基本算法是分枝定界法：</p>
-<p><strong>叫做混合整数规划/离散优化的精确算法——分支定界法和优化求解器</strong></p>
-<p>那么，我们是不是必须手动过指数复杂度的分支定界法？</p>
-<p>几十年前，市场上没有优化器的时候，我很不幸的告诉你：有！</p>
-<p>当我和欧洲运筹学协会主席、巴塞罗那理工学院院长埃琳娜费尔南德斯教授(<a target="_blank" rel="noopener" href="https://www/">https://www</a> . eio . UPC . edu/en/home page/Elena)聊天时，我在海德堡大学读书时，她向我抱怨她在大学读书时对分支定界算法的“悲惨”经历。(当时一个运筹学博士研究生对精确算法的毕业难度/代码能力可想而知。)</p>
-<p>现在，正是因为<strong>优化求解器的存在，我们只需要将上述整数规划模型的系数矩阵输入到优化求解器中，它就能快速为我们找到最优解或可行解。</strong></p>
-<p>求解器除了最基本的分支定界方法外，通常还集成了各种“花式”启发式和切割平面算法，大大提高了求解效率！</p>
-<p>因此运筹学博士生的毕业难度大大降低！</p>
-<p>还困惑吗？优化器到底是什么？</p>
-<p>从编程的角度，我们可以把它理解为一个致力于求解优化/整数规划模型的算法库。你可以用任何编程语言(C/C、Java、Python)调用这个包中的方程。<strong>只要你输入你要求解的整数规划模型的目标方程和系数矩阵(告诉它你要求解的具体问题)，它就会为你解出结果。</strong></p>
-<hr>
-<h1 id="流程"><a href="#流程" class="headerlink" title="流程"></a>流程</h1><p>例如，在Python环境中，只需要以下四个步骤：</p>
-<ul>
-<li>个用于导入CPLEX的包<br>导入cplex</li>
-<li>初始化优化模型<br>Prob=cplex。这里的Cplex() # prob可以是任何变量名。</li>
-<li>输入模型的目标函数、约束和可变系数。<ul>
-<li>Prob.objective.set_sense(.)#设置目标方程的取值方向：求最大/最小值。</li>
-<li>Prob.variables.add(.)#添加变量</li>
-<li>Prob.linear _ constraints.add(.)#添加约束</li>
-</ul>
-</li>
-</ul>
-<p>4.直接调用优化求解器的求解方法，一键求解。</p>
-<p>prob.solve()</p>
+        <h1 id="Git"><a href="#Git" class="headerlink" title="Git"></a>Git</h1><h2 id="git-init"><a href="#git-init" class="headerlink" title="git init"></a>git init</h2><p>初始化本地仓库</p>
+<h2 id="基本配置"><a href="#基本配置" class="headerlink" title="基本配置"></a>基本配置</h2><p>git config –global user.name “hq”</p>
+<p>git config –global user.email “<a href="mailto:&#x37;&#52;&#52;&#x32;&#x30;&#52;&#53;&#x34;&#x31;&#64;&#x71;&#113;&#46;&#x63;&#x6f;&#109;">&#x37;&#52;&#52;&#x32;&#x30;&#52;&#53;&#x34;&#x31;&#64;&#x71;&#113;&#46;&#x63;&#x6f;&#109;</a>“</p>
+<p>ssh-keygen -t <a target="_blank" rel="noopener" href="https://so.csdn.net/so/search?q=rsa&spm=1001.2101.3001.7020">rsa</a> -C “<a href="mailto:&#x37;&#x34;&#x34;&#x32;&#x30;&#52;&#x35;&#52;&#49;&#x40;&#113;&#x71;&#46;&#99;&#x6f;&#109;">&#x37;&#x34;&#x34;&#x32;&#x30;&#52;&#x35;&#52;&#49;&#x40;&#113;&#x71;&#46;&#99;&#x6f;&#109;</a>“</p>
+<p>然后打开C:\Users\HQ \ .ssh 里面的id_rsa.pub，复制到</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/settings/keys">https://github.com/settings/keys</a></p>
+<p>（登录github，然点头像，setting，然后左边SSH and GPG keys）</p>
+<h2 id="远程仓库设置"><a href="#远程仓库设置" class="headerlink" title="远程仓库设置"></a>远程仓库设置</h2><p>添加远程版本库：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git remote add [shortname] [url]</span><br></pre></td></tr></table></figure>
+
+<p>shortname 为本地的版本库，例如：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"># 提交到 Github</span><br><span class="line">$ git remote add origin git@github.com:tianqixin/runoob-git-test.git</span><br><span class="line">$ git push -u origin master</span><br></pre></td></tr></table></figure>
+
+<p>其他</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git remote rm name  # 删除远程仓库</span><br><span class="line">git remote rename old_name new_name  # 修改仓库名</span><br></pre></td></tr></table></figure>
+
+<p>在github上创建仓库，复制仓库的ssh地址</p>
+<p>git remote add origin <a href="mailto:&#103;&#105;&#116;&#64;&#x67;&#x69;&#x74;&#x68;&#117;&#x62;&#46;&#x63;&#x6f;&#x6d;">&#103;&#105;&#116;&#64;&#x67;&#x69;&#x74;&#x68;&#117;&#x62;&#46;&#x63;&#x6f;&#x6d;</a>:CHINA-N01/Document.git</p>
+<h2 id="git-add"><a href="#git-add" class="headerlink" title="git add"></a>git add</h2><h2 id="git-commit-m-‘本次提交的说明’"><a href="#git-commit-m-‘本次提交的说明’" class="headerlink" title="git commit -m ‘本次提交的说明’"></a>git commit -m ‘本次提交的说明’</h2><h2 id="git-push"><a href="#git-push" class="headerlink" title="git push"></a>git push</h2><p>git push origin与git push -u origin master的区别</p>
+<p>上面命令表示，将当前分支推送到origin主机的对应分支。 </p>
+<p>如果当前分支只有一个追踪分支，那么<a target="_blank" rel="noopener" href="https://so.csdn.net/so/search?q=%E4%B8%BB%E6%9C%BA%E5%90%8D&spm=1001.2101.3001.7020">主机名</a>都可以省略。 </p>
+<p>$ git push 如果当前分支与多个主机存在追踪关系，那么这个时候-u选项会指定一个默认主机，这样后面就可以不加任何参数使用git push。</p>
+<p>$ git push -u origin master 上面命令将本地的master分支推送到origin主机，同时指定origin为默认主机，后面就可以不加任何参数使用git push了。</p>
+<p> 不带任何参数的git push，默认只推送当前分支，这叫做simple方式。此外，还有一种matching方式，会推送所有有对应的远程分支的本地分支。Git 2.0版本之前，默认采用matching方法，现在改为默认采用simple方式。</p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_15899635/article/details/88421585">https://blog.csdn.net/qq_15899635/article/details/88421585</a></p>
+<p>第一次push用</p>
+<p>git push -u origin master</p>
+<h2 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h2><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/liuweixiao520/article/details/78971221">https://blog.csdn.net/liuweixiao520/article/details/78971221</a></p>
 
       
     </div>
@@ -350,8 +351,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2022/11/10/%E7%81%AB%E5%8A%9B%E5%88%86%E9%85%8D/" rel="next" title="火力分配">
-                <i class="fa fa-chevron-left"></i> 火力分配
+              <a href="/2023/03/18/SwitchOmega%E4%BB%A3%E7%90%86/" rel="next" title="SwitchOmega">
+                <i class="fa fa-chevron-left"></i> SwitchOmega
               </a>
             
           </div>
@@ -360,8 +361,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2022/11/14/%E7%99%BB%E9%99%86esxi/" rel="prev" title="登陆esxi">
-                登陆esxi <i class="fa fa-chevron-right"></i>
+              <a href="/2023/03/19/DOCKER/" rel="prev" title="Docker">
+                Docker <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -477,7 +478,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#01%E4%BC%98%E5%8C%96%E6%B1%82%E8%A7%A3%E5%99%A8%E6%A6%82%E8%BF%B0"><span class="nav-number">1.</span> <span class="nav-text">01优化求解器概述</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%B5%81%E7%A8%8B"><span class="nav-number">2.</span> <span class="nav-text">流程</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Git"><span class="nav-number">1.</span> <span class="nav-text">Git</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#git-init"><span class="nav-number">1.1.</span> <span class="nav-text">git init</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9F%BA%E6%9C%AC%E9%85%8D%E7%BD%AE"><span class="nav-number">1.2.</span> <span class="nav-text">基本配置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BF%9C%E7%A8%8B%E4%BB%93%E5%BA%93%E8%AE%BE%E7%BD%AE"><span class="nav-number">1.3.</span> <span class="nav-text">远程仓库设置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#git-add"><span class="nav-number">1.4.</span> <span class="nav-text">git add</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#git-commit-m-%E2%80%98%E6%9C%AC%E6%AC%A1%E6%8F%90%E4%BA%A4%E7%9A%84%E8%AF%B4%E6%98%8E%E2%80%99"><span class="nav-number">1.5.</span> <span class="nav-text">git commit -m ‘本次提交的说明’</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#git-push"><span class="nav-number">1.6.</span> <span class="nav-text">git push</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%B6%E4%BB%96"><span class="nav-number">1.7.</span> <span class="nav-text">其他</span></a></li></ol></li></ol></div>
             
 
           </div>
