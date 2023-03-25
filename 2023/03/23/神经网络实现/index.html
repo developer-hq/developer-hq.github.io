@@ -79,15 +79,15 @@
 
 
 
-<meta name="description" content="01优化求解器概述当我们努力用数学编程为一个实际问题建模时，我们写了以下优化问题： 我们知道数学建模完成后，需要解决具体的例子，下一步就是设计相应的算法，然后导入实际数据进行求解。 如果问题是线性规划，因为有对应的多项式时间算法(比如内点算法)，设计实现算法可能没有那么难。 然而，如果问题是整数规划，解决它的基本算法是分枝定界法： 叫做混合整数规划&#x2F;离散优化的精确算法——分支定界法和优化求解器 那">
+<meta name="description" content="手推： https:&#x2F;&#x2F;www.bilibili.com&#x2F;video&#x2F;BV14q4y1V7bc&#x2F;?spm_id_from&#x3D;333.337.search-card.all.click&amp;vd_source&#x3D;3d040baeb67aeceb2bba9c7169a67a96 https:&#x2F;&#x2F;www.cnblogs.com&#x2F;jsfantasy&#x2F;p&#x2F;12177275.html https:&#x2F;&#x2F;www.">
 <meta property="og:type" content="article">
-<meta property="og:title" content="cplex">
-<meta property="og:url" content="https://developer-hq.github.io/2022/11/10/cplex/index.html">
+<meta property="og:title" content="神经网络实现">
+<meta property="og:url" content="https://developer-hq.github.io/2023/03/23/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E5%AE%9E%E7%8E%B0/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="01优化求解器概述当我们努力用数学编程为一个实际问题建模时，我们写了以下优化问题： 我们知道数学建模完成后，需要解决具体的例子，下一步就是设计相应的算法，然后导入实际数据进行求解。 如果问题是线性规划，因为有对应的多项式时间算法(比如内点算法)，设计实现算法可能没有那么难。 然而，如果问题是整数规划，解决它的基本算法是分枝定界法： 叫做混合整数规划&#x2F;离散优化的精确算法——分支定界法和优化求解器 那">
+<meta property="og:description" content="手推： https:&#x2F;&#x2F;www.bilibili.com&#x2F;video&#x2F;BV14q4y1V7bc&#x2F;?spm_id_from&#x3D;333.337.search-card.all.click&amp;vd_source&#x3D;3d040baeb67aeceb2bba9c7169a67a96 https:&#x2F;&#x2F;www.cnblogs.com&#x2F;jsfantasy&#x2F;p&#x2F;12177275.html https:&#x2F;&#x2F;www.">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2022-11-10T08:00:34.000Z">
-<meta property="article:modified_time" content="2023-01-13T07:56:41.378Z">
+<meta property="article:published_time" content="2023-03-23T02:11:00.430Z">
+<meta property="article:modified_time" content="2023-03-25T06:43:19.814Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary">
 
@@ -119,13 +119,13 @@
 
 
 
-  <link rel="canonical" href="https://developer-hq.github.io/2022/11/10/cplex/"/>
+  <link rel="canonical" href="https://developer-hq.github.io/2023/03/23/神经网络实现/"/>
 
 
 
 
 
-  <title>cplex | Hexo</title>
+  <title>神经网络实现 | Hexo</title>
   
 
 
@@ -232,7 +232,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://developer-hq.github.io/2022/11/10/cplex/">
+    <link itemprop="mainEntityOfPage" href="https://developer-hq.github.io/2023/03/23/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E5%AE%9E%E7%8E%B0/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="">
@@ -249,7 +249,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">cplex</h1>
+          <h1 class="post-title" itemprop="name headline">神经网络实现</h1>
         
 
         <div class="post-meta">
@@ -261,8 +261,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2022-11-10T16:00:34+08:00">
-                2022-11-10
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2023-03-23T10:11:00+08:00">
+                2023-03-23
               </time>
             
 
@@ -299,33 +299,11 @@
       
 
       
-        <h1 id="01优化求解器概述"><a href="#01优化求解器概述" class="headerlink" title="01优化求解器概述"></a>01优化求解器概述</h1><p>当我们努力用数学编程为一个实际问题建模时，我们写了以下优化问题：</p>
-<p>我们知道数学建模完成后，需要解决具体的例子，下一步就是设计相应的算法，然后导入实际数据进行求解。</p>
-<p>如果问题是线性规划，因为有对应的多项式时间算法(比如内点算法)，设计实现算法可能没有那么难。</p>
-<p>然而，如果问题是整数规划，解决它的基本算法是分枝定界法：</p>
-<p><strong>叫做混合整数规划/离散优化的精确算法——分支定界法和优化求解器</strong></p>
-<p>那么，我们是不是必须手动过指数复杂度的分支定界法？</p>
-<p>几十年前，市场上没有优化器的时候，我很不幸的告诉你：有！</p>
-<p>当我和欧洲运筹学协会主席、巴塞罗那理工学院院长埃琳娜费尔南德斯教授(<a target="_blank" rel="noopener" href="https://www/">https://www</a> . eio . UPC . edu/en/home page/Elena)聊天时，我在海德堡大学读书时，她向我抱怨她在大学读书时对分支定界算法的“悲惨”经历。(当时一个运筹学博士研究生对精确算法的毕业难度/代码能力可想而知。)</p>
-<p>现在，正是因为<strong>优化求解器的存在，我们只需要将上述整数规划模型的系数矩阵输入到优化求解器中，它就能快速为我们找到最优解或可行解。</strong></p>
-<p>求解器除了最基本的分支定界方法外，通常还集成了各种“花式”启发式和切割平面算法，大大提高了求解效率！</p>
-<p>因此运筹学博士生的毕业难度大大降低！</p>
-<p>还困惑吗？优化器到底是什么？</p>
-<p>从编程的角度，我们可以把它理解为一个致力于求解优化/整数规划模型的算法库。你可以用任何编程语言(C/C、Java、Python)调用这个包中的方程。<strong>只要你输入你要求解的整数规划模型的目标方程和系数矩阵(告诉它你要求解的具体问题)，它就会为你解出结果。</strong></p>
-<hr>
-<h1 id="流程"><a href="#流程" class="headerlink" title="流程"></a>流程</h1><p>例如，在Python环境中，只需要以下四个步骤：</p>
-<ul>
-<li>个用于导入CPLEX的包<br>导入cplex</li>
-<li>初始化优化模型<br>Prob=cplex。这里的Cplex() # prob可以是任何变量名。</li>
-<li>输入模型的目标函数、约束和可变系数。<ul>
-<li>Prob.objective.set_sense(.)#设置目标方程的取值方向：求最大/最小值。</li>
-<li>Prob.variables.add(.)#添加变量</li>
-<li>Prob.linear _ constraints.add(.)#添加约束</li>
-</ul>
-</li>
-</ul>
-<p>4.直接调用优化求解器的求解方法，一键求解。</p>
-<p>prob.solve()</p>
+        <p>手推：</p>
+<p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV14q4y1V7bc/?spm_id_from=333.337.search-card.all.click&amp;vd_source=3d040baeb67aeceb2bba9c7169a67a96">https://www.bilibili.com/video/BV14q4y1V7bc/?spm_id_from=333.337.search-card.all.click&amp;vd_source=3d040baeb67aeceb2bba9c7169a67a96</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/jsfantasy/p/12177275.html">https://www.cnblogs.com/jsfantasy/p/12177275.html</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/jsfantasy/p/12177216.html">https://www.cnblogs.com/jsfantasy/p/12177216.html</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/jsfantasy/p/12177275.html">https://www.cnblogs.com/jsfantasy/p/12177275.html</a></p>
 
       
     </div>
@@ -350,8 +328,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2022/11/10/%E7%81%AB%E5%8A%9B%E5%88%86%E9%85%8D/" rel="next" title="火力分配">
-                <i class="fa fa-chevron-left"></i> 火力分配
+              <a href="/2023/03/22/datetime%E6%A0%87%E5%87%86%E5%8C%96%E5%A4%84%E7%90%86%E6%97%B6%E9%97%B4%E6%95%B0%E6%8D%AE/" rel="next" title="处理时间数据">
+                <i class="fa fa-chevron-left"></i> 处理时间数据
               </a>
             
           </div>
@@ -359,10 +337,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2022/11/14/%E7%99%BB%E9%99%86esxi/" rel="prev" title="登陆esxi">
-                登陆esxi <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -414,17 +388,8 @@
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            Table of Contents
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            Overview
-          </li>
-        </ul>
-      
 
-      <section class="site-overview-wrap sidebar-panel">
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -467,22 +432,6 @@
         </div>
       </section>
 
-      
-      <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-              
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#01%E4%BC%98%E5%8C%96%E6%B1%82%E8%A7%A3%E5%99%A8%E6%A6%82%E8%BF%B0"><span class="nav-number">1.</span> <span class="nav-text">01优化求解器概述</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%B5%81%E7%A8%8B"><span class="nav-number">2.</span> <span class="nav-text">流程</span></a></li></ol></div>
-            
-
-          </div>
-        </section>
-      <!--/noindex-->
       
 
       
