@@ -229,6 +229,127 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://developer-hq.github.io/2023/03/22/datetime%E6%A0%87%E5%87%86%E5%8C%96%E5%A4%84%E7%90%86%E6%97%B6%E9%97%B4%E6%95%B0%E6%8D%AE/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2023/03/22/datetime%E6%A0%87%E5%87%86%E5%8C%96%E5%A4%84%E7%90%86%E6%97%B6%E9%97%B4%E6%95%B0%E6%8D%AE/" itemprop="url">处理时间数据</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2023-03-22T16:39:42+08:00">
+                2023-03-22
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"># 处理时间数据</span><br><span class="line">import datetime</span><br><span class="line"></span><br><span class="line"># 年月日</span><br><span class="line">years=features[&#x27;year&#x27;]</span><br><span class="line">months=features[&#x27;month&#x27;]</span><br><span class="line">days=features[&#x27;day&#x27;]</span><br><span class="line"></span><br><span class="line"># 转换为datetime</span><br><span class="line">dates=[str(int(year)) + &#x27;-&#x27; + str(int(month)) + &#x27;-&#x27; + str(int(day)) for year,month,day in zip(years,months,days)]</span><br><span class="line">dates=[datetime.datetime.strptime(date,&#x27;%Y-%m-%d&#x27;) for date in dates]</span><br><span class="line">dates</span><br></pre></td></tr></table></figure>
+
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://developer-hq.github.io/2023/03/20/python%E7%BC%96%E8%BE%91word%E6%96%87%E6%A1%A3/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -590,8 +711,8 @@
           
             <h1 id="Git"><a href="#Git" class="headerlink" title="Git"></a>Git</h1><h2 id="git-init"><a href="#git-init" class="headerlink" title="git init"></a>git init</h2><p>初始化本地仓库</p>
 <h2 id="基本配置"><a href="#基本配置" class="headerlink" title="基本配置"></a>基本配置</h2><p>git config –global user.name “hq”</p>
-<p>git config –global user.email “<a href="mailto:&#55;&#x34;&#52;&#50;&#x30;&#x34;&#53;&#x34;&#x31;&#x40;&#x71;&#113;&#x2e;&#x63;&#x6f;&#109;">&#55;&#x34;&#52;&#50;&#x30;&#x34;&#53;&#x34;&#x31;&#x40;&#x71;&#113;&#x2e;&#x63;&#x6f;&#109;</a>“</p>
-<p>ssh-keygen -t <a target="_blank" rel="noopener" href="https://so.csdn.net/so/search?q=rsa&spm=1001.2101.3001.7020">rsa</a> -C “<a href="mailto:&#x37;&#52;&#x34;&#x32;&#48;&#52;&#x35;&#52;&#49;&#64;&#x71;&#113;&#46;&#99;&#111;&#109;">&#x37;&#52;&#x34;&#x32;&#48;&#52;&#x35;&#52;&#49;&#64;&#x71;&#113;&#46;&#99;&#111;&#109;</a>“</p>
+<p>git config –global user.email “<a href="mailto:&#x37;&#x34;&#52;&#50;&#48;&#52;&#53;&#52;&#49;&#64;&#113;&#x71;&#x2e;&#x63;&#111;&#109;">&#x37;&#x34;&#52;&#50;&#48;&#52;&#53;&#52;&#49;&#64;&#113;&#x71;&#x2e;&#x63;&#111;&#109;</a>“</p>
+<p>ssh-keygen -t <a target="_blank" rel="noopener" href="https://so.csdn.net/so/search?q=rsa&spm=1001.2101.3001.7020">rsa</a> -C “<a href="mailto:&#55;&#x34;&#x34;&#x32;&#48;&#x34;&#x35;&#52;&#x31;&#64;&#x71;&#113;&#46;&#x63;&#111;&#x6d;">&#55;&#x34;&#x34;&#x32;&#48;&#x34;&#x35;&#52;&#x31;&#64;&#x71;&#113;&#46;&#x63;&#111;&#x6d;</a>“</p>
 <p>然后打开C:\Users\HQ \ .ssh 里面的id_rsa.pub，复制到</p>
 <p><a target="_blank" rel="noopener" href="https://github.com/settings/keys">https://github.com/settings/keys</a></p>
 <p>（登录github，然点头像，setting，然后左边SSH and GPG keys）</p>
@@ -605,7 +726,7 @@
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git remote rm name  # 删除远程仓库</span><br><span class="line">git remote rename old_name new_name  # 修改仓库名</span><br></pre></td></tr></table></figure>
 
 <p>在github上创建仓库，复制仓库的ssh地址</p>
-<p>git remote add origin <a href="mailto:&#103;&#x69;&#116;&#64;&#103;&#105;&#x74;&#x68;&#x75;&#98;&#x2e;&#x63;&#x6f;&#x6d;">&#103;&#x69;&#116;&#64;&#103;&#105;&#x74;&#x68;&#x75;&#98;&#x2e;&#x63;&#x6f;&#x6d;</a>:CHINA-N01/Document.git</p>
+<p>git remote add origin <a href="mailto:&#x67;&#105;&#x74;&#64;&#103;&#x69;&#x74;&#x68;&#x75;&#x62;&#x2e;&#99;&#x6f;&#109;">&#x67;&#105;&#x74;&#64;&#103;&#x69;&#x74;&#x68;&#x75;&#x62;&#x2e;&#99;&#x6f;&#109;</a>:CHINA-N01/Document.git</p>
 <h2 id="git-add"><a href="#git-add" class="headerlink" title="git add"></a>git add</h2><h2 id="git-commit-m-‘本次提交的说明’"><a href="#git-commit-m-‘本次提交的说明’" class="headerlink" title="git commit -m ‘本次提交的说明’"></a>git commit -m ‘本次提交的说明’</h2><h2 id="git-push"><a href="#git-push" class="headerlink" title="git push"></a>git push</h2><p>git push origin与git push -u origin master的区别</p>
 <p>上面命令表示，将当前分支推送到origin主机的对应分支。 </p>
 <p>如果当前分支只有一个追踪分支，那么<a target="_blank" rel="noopener" href="https://so.csdn.net/so/search?q=%E4%B8%BB%E6%9C%BA%E5%90%8D&spm=1001.2101.3001.7020">主机名</a>都可以省略。 </p>
@@ -1437,167 +1558,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://developer-hq.github.io/2023/01/13/%E5%8A%A8%E6%89%8B%E5%AD%A6%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E5%B7%A5%E7%A8%8B%E9%97%AE%E9%A2%98/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2023/01/13/%E5%8A%A8%E6%89%8B%E5%AD%A6%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E5%B7%A5%E7%A8%8B%E9%97%AE%E9%A2%98/" itemprop="url">动手学深度学习工程问题</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2023-01-13T11:50:17+08:00">
-                2023-01-13
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="环境问题"><a href="#环境问题" class="headerlink" title="环境问题"></a>环境问题</h1><h3 id="pip-ini"><a href="#pip-ini" class="headerlink" title="pip.ini"></a>pip.ini</h3><p>在用户文件夹下新建pip文件夹，在pip文件夹下新建pip.ini文件</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">[global]</span><br><span class="line">index-url = https://pypi.tuna.tsinghua.edu.cn/simple</span><br><span class="line">proxy     = http://127.0.0.1:7890</span><br><span class="line">[install]</span><br><span class="line">trusted-host=pypi.tuna.tsinghua.edu.cn</span><br></pre></td></tr></table></figure>
-
-
-
-<h3 id="condarc设置"><a href="#condarc设置" class="headerlink" title=".condarc设置"></a>.condarc设置</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">channels:</span><br><span class="line">  - defaults</span><br><span class="line">show_channel_urls: true</span><br><span class="line">default_channels:</span><br><span class="line">  - https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main</span><br><span class="line">  - https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/r</span><br><span class="line">  - https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/msys2</span><br><span class="line">custom_channels:</span><br><span class="line">  conda-forge: http://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud</span><br><span class="line">  msys2: http://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud</span><br><span class="line">  bioconda: http://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud</span><br><span class="line">  menpo: http://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud</span><br><span class="line">  pytorch: http://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud</span><br><span class="line">  pytorch-lts: http://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud</span><br><span class="line">  simpleitk: http://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud</span><br><span class="line">proxy_servers:</span><br><span class="line">  http: socks5://127.0.0.1:7890</span><br><span class="line">  https: socks5://127.0.0.1:7890</span><br><span class="line">ssl_verify: false</span><br></pre></td></tr></table></figure>
-
-
-
-<h3 id="annoconda清华源有问题"><a href="#annoconda清华源有问题" class="headerlink" title="annoconda清华源有问题"></a>annoconda清华源有问题</h3><p>==仍然没有解决conda+清华源安装不了pytorch==</p>
-<p>最终在虚拟环境中使用pip3安装的，虚拟环境中conda list可以显示出来安装的pytorch，同时base中并没有安装，应该是安到虚拟环境下了</p>
-<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_49304494/article/details/122622134">https://blog.csdn.net/weixin_49304494/article/details/122622134</a><br>打开.condaec</p>
-<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">channels:</span><br><span class="line">  - defaults</span><br><span class="line">show_channel_urls: true</span><br><span class="line">default_channels:</span><br><span class="line">  - http://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main</span><br><span class="line">  - http://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/r</span><br><span class="line">  - http://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/msys2</span><br><span class="line">custom_channels:</span><br><span class="line">  conda-forge: http://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud</span><br><span class="line">  msys2: http://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud</span><br><span class="line">  bioconda: http://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud</span><br><span class="line">  menpo: http://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud</span><br><span class="line">  pytorch: http://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud</span><br><span class="line">  simpleitk: http://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud</span><br></pre></td></tr></table></figure>
-
-<p>快速打开启动文件夹：<br>cmd+r启动输入<br>shell:Common Startup</p>
-<h3 id="torch是否使用gpu"><a href="#torch是否使用gpu" class="headerlink" title="torch是否使用gpu"></a>torch是否使用gpu</h3><p>使用cuda就是使用gpu，即是否使用cuda<br>torch.cuda.is_available()</p>
-<h3 id="bat打开notebook"><a href="#bat打开notebook" class="headerlink" title=".bat打开notebook"></a>.bat打开notebook</h3><p>需要在虚拟环境中先安装ipykernel</p>
-<figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">conda install ipykernel</span><br></pre></td></tr></table></figure>
-<p>bat文件中：</p>
-<figure class="highlight bat"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">call</span> conda activate d2l</span><br><span class="line"><span class="keyword">call</span> jupyter notebook</span><br><span class="line"><span class="built_in">pause</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="jupyter-notebook改中文"><a href="#jupyter-notebook改中文" class="headerlink" title="jupyter notebook改中文"></a>jupyter notebook改中文</h3><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/m0_37748381/article/details/121122833">https://blog.csdn.net/m0_37748381/article/details/121122833</a></p>
-<p>增加用户变量<br><img src="/2023/01/13/%E5%8A%A8%E6%89%8B%E5%AD%A6%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E5%B7%A5%E7%A8%8B%E9%97%AE%E9%A2%98/2023-01-16-21-52-48.png"></p>
-<h3 id="jupyter-notebook代码补全"><a href="#jupyter-notebook代码补全" class="headerlink" title="jupyter notebook代码补全"></a>jupyter notebook代码补全</h3><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/m0_45958387/article/details/125836163">https://blog.csdn.net/m0_45958387/article/details/125836163</a></p>
-<p>虚拟环境下安装插件（base中安装好像也行）<br><code>pip install jupyter_contrib_nbextensions</code></p>
-<p>再安装给user<br><code>jupyter contrib nbextension install --user</code></p>
-<p>enable hinterland<br><img src="/2023/01/13/%E5%8A%A8%E6%89%8B%E5%AD%A6%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E5%B7%A5%E7%A8%8B%E9%97%AE%E9%A2%98/2023-01-17-00-02-23.png"></p>
-<h3 id="一部分快捷键"><a href="#一部分快捷键" class="headerlink" title="一部分快捷键"></a>一部分快捷键</h3><p>ctrl + M 进入命令模式<br>enter 进入编辑模式</p>
-<p>编辑模式：<br>删除整行 ctrl</p>
-<p>命令模式：<br>M 转换为 markdown<br>Y 转换为代码块<br>A 上方增加单元格<br>B 下方增加单元格<br>123456 设置1-6级标题<br>X 剪切单元格<br>C 复制单元格<br>V 粘贴到下面<br>shift V 粘贴到上面<br>D D 删除单元格<br>Z 撤销删除单元格<br>H 显示快捷键<br>SPACE 向下滚动<br>shift + SPACE 向上滚动</p>
-<h3 id="jupyter-notebook切换虚拟环境"><a href="#jupyter-notebook切换虚拟环境" class="headerlink" title="jupyter notebook切换虚拟环境"></a>jupyter notebook切换虚拟环境</h3><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/hu_wei123/article/details/127390535">https://blog.csdn.net/hu_wei123/article/details/127390535</a></p>
-<ul>
-<li><p>先在base和虚拟环境中安装ipykernel</p>
-</li>
-<li><p>如果还没有虚拟环境:</p>
-<p>这时，我们 “将计就计” ，就认为是第 3 步出错，我们需要在此虚拟环境中继续执行以下命令，让虚拟环境名称在 Kernel，Change kernel 显示</p>
-<p><code>python -m ipykernel install --user --name 虚拟环境名 --display-name &quot;Python (虚拟环境名)&quot;</code></p>
-<p>cmd终端里安装 ipykernel ，我们看似已经成功安装，但是执行以上命令时仍然报错： 找不到ipykernel 模块</p>
-</li>
-<li><p>eg:<code>python -m ipykernel install --user --name d2l</code></p>
-</li>
-</ul>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1649,7 +1609,7 @@
                 <a href="/">
     
               
-                  <span class="site-state-item-count">32</span>
+                  <span class="site-state-item-count">33</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
