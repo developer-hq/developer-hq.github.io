@@ -229,6 +229,125 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://developer-hq.github.io/2023/03/27/CNN/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2023/03/27/CNN/" itemprop="url">CNN</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2023-03-27T19:21:29+08:00">
+                2023-03-27
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://developer-hq.github.io/2023/03/27/LaTex/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -456,18 +575,50 @@
 <li><p>docker-compose.yml：</p>
 </li>
 </ul>
-<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">version:</span> <span class="string">&#x27;5.7&#x27;</span></span><br><span class="line"><span class="attr">services:</span></span><br><span class="line">  <span class="attr">mysql:</span></span><br><span class="line">    <span class="attr">image:</span> <span class="string">mysql</span></span><br><span class="line">    <span class="attr">hostname:</span> <span class="string">mysql</span></span><br><span class="line">    <span class="attr">ports:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="number">3306</span><span class="string">:3306</span></span><br><span class="line">    <span class="attr">restart:</span> <span class="string">always</span></span><br><span class="line">    <span class="attr">environment:</span></span><br><span class="line">      <span class="attr">MYSQL_ROOT_PASSWORD:</span> <span class="string">abc123</span></span><br><span class="line">    <span class="attr">volumes:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">//d/mysql/data:/var/lib/mysql/</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">//d/mysql/data:/var/log/mysql/</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">version:</span> <span class="string">&#x27;5.7&#x27;</span></span><br><span class="line"><span class="attr">services:</span></span><br><span class="line"><span class="attr">mysql:</span></span><br><span class="line">  <span class="attr">image:</span> <span class="string">mysql</span></span><br><span class="line">  <span class="attr">hostname:</span> <span class="string">mysql</span></span><br><span class="line">  <span class="attr">ports:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="number">3306</span><span class="string">:3306</span></span><br><span class="line">  <span class="attr">restart:</span> <span class="string">always</span></span><br><span class="line">  <span class="attr">environment:</span></span><br><span class="line">    <span class="attr">MYSQL_ROOT_PASSWORD:</span> <span class="string">abc123</span></span><br><span class="line">  <span class="attr">volumes:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">//d/mysql/data:/var/lib/mysql/</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">//d/mysql/data:/var/log/mysql/</span></span><br></pre></td></tr></table></figure>
 
-<p><strong>端口映射</strong></p>
+<ul>
+<li><p><strong>端口映射</strong></p>
 <ul>
 <li>宿主机端口：容器端口</li>
 </ul>
-<p><strong>volumes</strong></p>
-<p>这行就是映射了一下数据库的文件，将数据库文件映射到d盘mysql/data文件夹里面，可以修改成其他的文件夹</p>
-<p><strong>//d就可以表示d盘</strong></p>
-<h3 id="docker-compose"><a href="#docker-compose" class="headerlink" title="docker-compose"></a>docker-compose</h3><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_43296313/article/details/127246893">https://blog.csdn.net/weixin_43296313/article/details/127246893</a></p>
-<h2 id="安装中的问题"><a href="#安装中的问题" class="headerlink" title="安装中的问题"></a>安装中的问题</h2><ul>
-<li>没有mysql驱动</li>
+</li>
+<li><p><strong>volumes</strong></p>
+<ul>
+<li><p>这行就是映射了一下数据库的文件，将数据库文件映射到d盘mysql/data文件夹里面，可以修改成其他的文件夹</p>
+</li>
+<li><p><strong>//d 就可以表示d盘</strong></p>
+</li>
+</ul>
+</li>
+<li><p><strong>docker-compose</strong></p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_43296313/article/details/127246893">https://blog.csdn.net/weixin_43296313/article/details/127246893</a></li>
+</ul>
+</li>
+<li><p>菜鸟教程</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://www.runoob.com/docker/docker-compose.html">https://www.runoob.com/docker/docker-compose.html</a></li>
+</ul>
+</li>
+</ul>
+<hr>
+<h1 id="使用-Compose-命令构建和运行您的应用"><a href="#使用-Compose-命令构建和运行您的应用" class="headerlink" title="使用 Compose 命令构建和运行您的应用"></a>使用 Compose 命令构建和运行您的应用</h1><p>在测试目录中，执行以下命令来启动应用程序：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker-compose up</span><br></pre></td></tr></table></figure>
+
+<p>如果你想在后台执行该服务可以加上 -d 参数：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker-compose up -d</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<hr>
+<h2 id="连接Mysql"><a href="#连接Mysql" class="headerlink" title="连接Mysql"></a>连接Mysql</h2><ul>
+<li><p>默认数据库mysql，密码abc123</p>
+</li>
+<li><p>没有mysql驱动</p>
+</li>
 </ul>
 <p>前往：<a target="_blank" rel="noopener" href="https://downloads.mysql.com/archives/c-j/">https://downloads.mysql.com/archives/c-j/</a></p>
 <p><img src="/2023/03/27/Docker%E5%AE%89%E8%A3%85mysql/image-20230327180443901.png" alt="image-20230327180443901"></p>
@@ -1293,8 +1444,8 @@
           
             <h1 id="Git"><a href="#Git" class="headerlink" title="Git"></a>Git</h1><h2 id="git-init"><a href="#git-init" class="headerlink" title="git init"></a>git init</h2><p>初始化本地仓库</p>
 <h2 id="基本配置"><a href="#基本配置" class="headerlink" title="基本配置"></a>基本配置</h2><p>git config –global user.name “hq”</p>
-<p>git config –global user.email “<a href="mailto:&#55;&#52;&#x34;&#x32;&#48;&#52;&#53;&#52;&#x31;&#x40;&#x71;&#113;&#x2e;&#x63;&#x6f;&#109;">&#55;&#52;&#x34;&#x32;&#48;&#52;&#53;&#52;&#x31;&#x40;&#x71;&#113;&#x2e;&#x63;&#x6f;&#109;</a>“</p>
-<p>ssh-keygen -t <a target="_blank" rel="noopener" href="https://so.csdn.net/so/search?q=rsa&spm=1001.2101.3001.7020">rsa</a> -C “<a href="mailto:&#55;&#52;&#52;&#x32;&#x30;&#52;&#53;&#x34;&#49;&#64;&#x71;&#113;&#x2e;&#99;&#111;&#x6d;">&#55;&#52;&#52;&#x32;&#x30;&#52;&#53;&#x34;&#49;&#64;&#x71;&#113;&#x2e;&#99;&#111;&#x6d;</a>“</p>
+<p>git config –global user.email “<a href="mailto:&#55;&#x34;&#x34;&#x32;&#x30;&#x34;&#x35;&#x34;&#49;&#x40;&#x71;&#x71;&#46;&#x63;&#x6f;&#109;">&#55;&#x34;&#x34;&#x32;&#x30;&#x34;&#x35;&#x34;&#49;&#x40;&#x71;&#x71;&#46;&#x63;&#x6f;&#109;</a>“</p>
+<p>ssh-keygen -t <a target="_blank" rel="noopener" href="https://so.csdn.net/so/search?q=rsa&spm=1001.2101.3001.7020">rsa</a> -C “<a href="mailto:&#x37;&#x34;&#x34;&#x32;&#x30;&#x34;&#x35;&#x34;&#x31;&#64;&#113;&#113;&#x2e;&#99;&#x6f;&#x6d;">&#x37;&#x34;&#x34;&#x32;&#x30;&#x34;&#x35;&#x34;&#x31;&#64;&#113;&#113;&#x2e;&#99;&#x6f;&#x6d;</a>“</p>
 <p>然后打开C:\Users\HQ \ .ssh 里面的id_rsa.pub，复制到</p>
 <p><a target="_blank" rel="noopener" href="https://github.com/settings/keys">https://github.com/settings/keys</a></p>
 <p>（登录github，然点头像，setting，然后左边SSH and GPG keys）</p>
@@ -1308,7 +1459,7 @@
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git remote rm name  # 删除远程仓库</span><br><span class="line">git remote rename old_name new_name  # 修改仓库名</span><br></pre></td></tr></table></figure>
 
 <p>在github上创建仓库，复制仓库的ssh地址</p>
-<p>git remote add origin <a href="mailto:&#x67;&#105;&#x74;&#64;&#103;&#x69;&#x74;&#104;&#x75;&#x62;&#x2e;&#x63;&#111;&#x6d;">&#x67;&#105;&#x74;&#64;&#103;&#x69;&#x74;&#104;&#x75;&#x62;&#x2e;&#x63;&#111;&#x6d;</a>:CHINA-N01/Document.git</p>
+<p>git remote add origin <a href="mailto:&#103;&#x69;&#116;&#x40;&#x67;&#105;&#116;&#x68;&#x75;&#98;&#46;&#99;&#x6f;&#x6d;">&#103;&#x69;&#116;&#x40;&#x67;&#105;&#116;&#x68;&#x75;&#98;&#46;&#99;&#x6f;&#x6d;</a>:CHINA-N01/Document.git</p>
 <h2 id="git-add"><a href="#git-add" class="headerlink" title="git add"></a>git add</h2><h2 id="git-commit-m-‘本次提交的说明’"><a href="#git-commit-m-‘本次提交的说明’" class="headerlink" title="git commit -m ‘本次提交的说明’"></a>git commit -m ‘本次提交的说明’</h2><h2 id="git-push"><a href="#git-push" class="headerlink" title="git push"></a>git push</h2><p>git push origin与git push -u origin master的区别</p>
 <p>上面命令表示，将当前分支推送到origin主机的对应分支。 </p>
 <p>如果当前分支只有一个追踪分支，那么<a target="_blank" rel="noopener" href="https://so.csdn.net/so/search?q=%E4%B8%BB%E6%9C%BA%E5%90%8D&spm=1001.2101.3001.7020">主机名</a>都可以省略。 </p>
@@ -1479,152 +1630,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://developer-hq.github.io/2023/03/13/%E6%BF%80%E6%B4%BBwindows-office/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2023/03/13/%E6%BF%80%E6%B4%BBwindows-office/" itemprop="url">激活windows、office</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2023-03-13T12:39:42+08:00">
-                2023-03-13
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="github仓库"><a href="#github仓库" class="headerlink" title="github仓库"></a>github仓库</h1><p><a target="_blank" rel="noopener" href="https://github.com/massgravel/Microsoft-Activation-Scripts/releases/tag/1.7">Release v1.7 Goodbye to Gatherosstate.exe · massgravel/Microsoft-Activation-Scripts · GitHub</a></p>
-<h4 id="链接"><a href="#链接" class="headerlink" title="链接"></a>链接</h4><p><strong><a target="_blank" rel="noopener" href="https://github.com/massgravel/Microsoft-Activation-Scripts/releases/tag/1.7">https://github.com/massgravel/Microsoft-Activation-Scripts/releases/tag/1.7</a></strong></p>
-<h3 id="Download-How-to-use-it"><a href="#Download-How-to-use-it" class="headerlink" title="Download / How to use it?"></a>Download / How to use it?</h3><h4 id="Method-1-PowerShell"><a href="#Method-1-PowerShell" class="headerlink" title="Method 1 - PowerShell"></a>Method 1 - PowerShell</h4><ul>
-<li>On Windows 10/11, right click on windows start menu, select PowerShell or Terminal.</li>
-<li>Copy-paste the below code and press enter</li>
-</ul>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">irm https://massgrave.dev/get | iex</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>You will see the activation options, follow onscreen instructions.</li>
-<li>That’s all.</li>
-</ul>
-<h4 id="Method-2-Traditional"><a href="#Method-2-Traditional" class="headerlink" title="Method 2 - Traditional"></a>Method 2 - Traditional</h4><ul>
-<li>Download the file named <code>MAS_1.7_Password_1234.7z</code> from here</li>
-<li>Extract this file with a 3rd party archive manager, such as <a target="_blank" rel="noopener" href="https://www.7-zip.org/download.html">7zip</a></li>
-<li>Password is 1234</li>
-<li>In extracted folder, find the folder named All-In-One-Version</li>
-<li>Run the file named MAS_AIO.cmd</li>
-<li>You will see the activation options, follow onscreen instructions.</li>
-<li>That’s all.</li>
-</ul>
-<p>To run the scripts in unattended mode, check <a target="_blank" rel="noopener" href="https://massgrave.dev/command_line_switches.html">here</a></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"> File: MAS_1.7_Password_1234.7z</span><br><span class="line">SHA-1: 67A4D41BBEB8B24A5F893644AC63F91F931A2A75</span><br></pre></td></tr></table></figure>
-
-<p><strong>Password: 1234</strong></p>
-<hr>
-<p>Homepage: <a target="_blank" rel="noopener" href="https://massgrave.dev/">https://massgrave.dev/</a></p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1676,7 +1681,7 @@
                 <a href="/">
     
               
-                  <span class="site-state-item-count">37</span>
+                  <span class="site-state-item-count">38</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
