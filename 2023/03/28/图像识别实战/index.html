@@ -79,15 +79,15 @@
 
 
 
-<meta name="description" content="已知excel密码去除1.安装包pip install pypiwin32 2.import12import win32comfrom win32com.client import DispatchEx 3.删除密码并保存至名为str的excel文件&#x3D;&#x3D;重点：&#x3D;&#x3D;&#x3D;&#x3D;需要try+except来保证每次打开excel进程都关闭&#x3D;&#x3D; 123456789101112131415161718192021d">
+<meta name="description" content="torchvision torchvision.datasets 有常用数据集 常用方法，怎么存放数据   torchvision.models 经典网络实现 可以用来做迁移学习   torchvision.transform 对数据进行预处理，如图像增强">
 <meta property="og:type" content="article">
-<meta property="og:title" content="带密码excel">
-<meta property="og:url" content="https://developer-hq.github.io/2022/10/24/%E5%B8%A6%E5%AF%86%E7%A0%81excel/index.html">
+<meta property="og:title" content="图像识别实战">
+<meta property="og:url" content="https://developer-hq.github.io/2023/03/28/%E5%9B%BE%E5%83%8F%E8%AF%86%E5%88%AB%E5%AE%9E%E6%88%98/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="已知excel密码去除1.安装包pip install pypiwin32 2.import12import win32comfrom win32com.client import DispatchEx 3.删除密码并保存至名为str的excel文件&#x3D;&#x3D;重点：&#x3D;&#x3D;&#x3D;&#x3D;需要try+except来保证每次打开excel进程都关闭&#x3D;&#x3D; 123456789101112131415161718192021d">
+<meta property="og:description" content="torchvision torchvision.datasets 有常用数据集 常用方法，怎么存放数据   torchvision.models 经典网络实现 可以用来做迁移学习   torchvision.transform 对数据进行预处理，如图像增强">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2022-10-24T06:51:30.000Z">
-<meta property="article:modified_time" content="2022-10-25T18:04:55.133Z">
+<meta property="article:published_time" content="2023-03-28T06:22:18.000Z">
+<meta property="article:modified_time" content="2023-03-28T06:35:11.568Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary">
 
@@ -119,13 +119,13 @@
 
 
 
-  <link rel="canonical" href="https://developer-hq.github.io/2022/10/24/带密码excel/"/>
+  <link rel="canonical" href="https://developer-hq.github.io/2023/03/28/图像识别实战/"/>
 
 
 
 
 
-  <title>带密码excel | Hexo</title>
+  <title>图像识别实战 | Hexo</title>
   
 
 
@@ -232,7 +232,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://developer-hq.github.io/2022/10/24/%E5%B8%A6%E5%AF%86%E7%A0%81excel/">
+    <link itemprop="mainEntityOfPage" href="https://developer-hq.github.io/2023/03/28/%E5%9B%BE%E5%83%8F%E8%AF%86%E5%88%AB%E5%AE%9E%E6%88%98/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="">
@@ -249,7 +249,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">带密码excel</h1>
+          <h1 class="post-title" itemprop="name headline">图像识别实战</h1>
         
 
         <div class="post-meta">
@@ -261,8 +261,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2022-10-24T14:51:30+08:00">
-                2022-10-24
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2023-03-28T14:22:18+08:00">
+                2023-03-28
               </time>
             
 
@@ -299,15 +299,22 @@
       
 
       
-        <h1 id="已知excel密码去除"><a href="#已知excel密码去除" class="headerlink" title="已知excel密码去除"></a>已知excel密码去除</h1><h2 id="1-安装包"><a href="#1-安装包" class="headerlink" title="1.安装包"></a>1.安装包</h2><p>pip install pypiwin32</p>
-<h2 id="2-import"><a href="#2-import" class="headerlink" title="2.import"></a>2.import</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> win32com</span><br><span class="line"><span class="keyword">from</span> win32com.client <span class="keyword">import</span> DispatchEx</span><br></pre></td></tr></table></figure>
-<h2 id="3-删除密码并保存至名为str的excel文件"><a href="#3-删除密码并保存至名为str的excel文件" class="headerlink" title="3.删除密码并保存至名为str的excel文件"></a>3.删除密码并保存至名为str的excel文件</h2><p>==重点：==<br>==需要try+except来保证每次打开excel进程都关闭==</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">del_password</span>(<span class="params">filename, password</span>)-&gt;<span class="built_in">bool</span>:</span><br><span class="line"></span><br><span class="line">    excel = DispatchEx(<span class="string">&quot;Excel.Application&quot;</span>)  <span class="comment"># 启动excel</span></span><br><span class="line">    excel.Visible = <span class="literal">False</span>  <span class="comment"># 可视化</span></span><br><span class="line">    excel.DisplayAlerts = <span class="literal">False</span>  <span class="comment"># 是否显示警告</span></span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        path = os.path.dirname(__file__) + <span class="string">&#x27;\\&#x27;</span></span><br><span class="line">        wb = excel.Workbooks.Open(filename, UpdateLinks=<span class="literal">False</span>, ReadOnly=<span class="literal">False</span>, Format=<span class="literal">None</span>, Password=password,</span><br><span class="line">                                  WriteResPassword=password)</span><br><span class="line">        <span class="comment"># 打开文件</span></span><br><span class="line">        <span class="built_in">str</span>=filename.split(<span class="string">&#x27;.&#x27;</span>)[<span class="number">0</span>]+<span class="string">&#x27;+NoPwd&#x27;</span>+<span class="string">&#x27;.xlsx&#x27;</span></span><br><span class="line">        path = <span class="built_in">str</span></span><br><span class="line">        wb.SaveAs(path,<span class="literal">None</span>,<span class="string">&#x27;&#x27;</span>,<span class="string">&#x27;&#x27;</span>)</span><br><span class="line">        wb.Close(SaveChanges=<span class="literal">True</span>)</span><br><span class="line">        excel.Quit()</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">True</span></span><br><span class="line">    <span class="keyword">except</span> Exception <span class="keyword">as</span> e:</span><br><span class="line">        <span class="built_in">print</span>(e)</span><br><span class="line">        excel.Quit()</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">False</span></span><br><span class="line">        <span class="comment"># exit(1)</span></span><br></pre></td></tr></table></figure>
-
-
-<hr>
-<h3 id="原文"><a href="#原文" class="headerlink" title="原文"></a>原文</h3><h2 id="def-del-password"><a href="#def-del-password" class="headerlink" title="def del_password"></a>def del_password</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 已知excel密码去除</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">del_password</span>(<span class="params">filename, password</span>):</span><br><span class="line">    excel = DispatchEx(<span class="string">&quot;Excel.Application&quot;</span>)  <span class="comment"># 启动excel</span></span><br><span class="line">    excel.Visible = visible  <span class="comment"># 可视化</span></span><br><span class="line">    excel.DisplayAlerts = displayalerts  <span class="comment"># 是否显示警告</span></span><br><span class="line">    </span><br><span class="line">    wb = excel.Workbooks.Open(filename, UpdateLinks=<span class="literal">False</span>, ReadOnly=<span class="literal">False</span>, Format=<span class="literal">None</span>, Password=password, WriteResPassword=password)  </span><br><span class="line">    <span class="comment"># 打开文件</span></span><br><span class="line">    <span class="keyword">return</span> wb</span><br></pre></td></tr></table></figure>
-<p><a target="_blank" rel="noopener" href="https://www.shuzhiduo.com/A/GBJrkrxq50/">https://www.shuzhiduo.com/A/GBJrkrxq50/</a></p>
+        <h1 id="torchvision"><a href="#torchvision" class="headerlink" title="torchvision"></a>torchvision</h1><ul>
+<li>torchvision.datasets<ul>
+<li>有常用数据集</li>
+<li>常用方法，怎么存放数据</li>
+</ul>
+</li>
+<li>torchvision.models<ul>
+<li>经典网络实现</li>
+<li>可以用来做迁移学习</li>
+</ul>
+</li>
+<li>torchvision.transform<ul>
+<li>对数据进行预处理，如图像增强</li>
+</ul>
+</li>
+</ul>
 
       
     </div>
@@ -332,8 +339,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2022/10/22/zotero%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE/" rel="next" title="zotero安装配置">
-                <i class="fa fa-chevron-left"></i> zotero安装配置
+              <a href="/2023/03/28/%E6%B3%A8%E5%86%8Cgpt/" rel="next" title="注册gpt">
+                <i class="fa fa-chevron-left"></i> 注册gpt
               </a>
             
           </div>
@@ -342,8 +349,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2022/10/24/openwrt/" rel="prev" title="openwrt">
-                openwrt <i class="fa fa-chevron-right"></i>
+              <a href="/2023/03/28/google%E6%90%9C%E7%B4%A2/" rel="prev" title="google搜索">
+                google搜索 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -459,7 +466,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%B7%B2%E7%9F%A5excel%E5%AF%86%E7%A0%81%E5%8E%BB%E9%99%A4"><span class="nav-number">1.</span> <span class="nav-text">已知excel密码去除</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-%E5%AE%89%E8%A3%85%E5%8C%85"><span class="nav-number">1.1.</span> <span class="nav-text">1.安装包</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-import"><span class="nav-number">1.2.</span> <span class="nav-text">2.import</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-%E5%88%A0%E9%99%A4%E5%AF%86%E7%A0%81%E5%B9%B6%E4%BF%9D%E5%AD%98%E8%87%B3%E5%90%8D%E4%B8%BAstr%E7%9A%84excel%E6%96%87%E4%BB%B6"><span class="nav-number">1.3.</span> <span class="nav-text">3.删除密码并保存至名为str的excel文件</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8E%9F%E6%96%87"><span class="nav-number">1.3.1.</span> <span class="nav-text">原文</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#def-del-password"><span class="nav-number">1.4.</span> <span class="nav-text">def del_password</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#torchvision"><span class="nav-number">1.</span> <span class="nav-text">torchvision</span></a></li></ol></div>
             
 
           </div>
