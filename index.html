@@ -229,6 +229,163 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://developer-hq.github.io/2023/03/30/Jupyter/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2023/03/30/Jupyter/" itemprop="url">Jupyter</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2023-03-30T11:20:57+08:00">
+                2023-03-30
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="no-module-jupyter-client"><a href="#no-module-jupyter-client" class="headerlink" title="no module jupyter_client"></a>no module jupyter_client</h3><p>需要在虚拟环境和base中都安一遍jupyter</p>
+<h3 id="jupyter-notebook改中文"><a href="#jupyter-notebook改中文" class="headerlink" title="jupyter notebook改中文"></a>jupyter notebook改中文</h3><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/m0_37748381/article/details/121122833">https://blog.csdn.net/m0_37748381/article/details/121122833</a></p>
+<p>增加用户变量<br><img src="/2023/03/30/Jupyter/2023-01-16-21-52-48.png"></p>
+<h3 id="jupyter-notebook代码补全"><a href="#jupyter-notebook代码补全" class="headerlink" title="jupyter notebook代码补全"></a>jupyter notebook代码补全</h3><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/m0_45958387/article/details/125836163">https://blog.csdn.net/m0_45958387/article/details/125836163</a></p>
+<p>虚拟环境下安装插件（base中安装好像也行）<br><code>pip install jupyter_contrib_nbextensions</code></p>
+<p>再安装给user<br><code>jupyter contrib nbextension install --user</code></p>
+<p>enable hinterland<br><img src="/2023/03/30/Jupyter/2023-01-17-00-02-23.png"></p>
+<h3 id="一部分快捷键"><a href="#一部分快捷键" class="headerlink" title="一部分快捷键"></a>一部分快捷键</h3><p>ctrl + M 进入命令模式<br>enter 进入编辑模式</p>
+<p>编辑模式：<br>删除整行 ctrl</p>
+<p>命令模式：<br>M 转换为 markdown<br>Y 转换为代码块<br>A 上方增加单元格<br>B 下方增加单元格<br>123456 设置1-6级标题<br>X 剪切单元格<br>C 复制单元格<br>V 粘贴到下面<br>shift V 粘贴到上面<br>D D 删除单元格<br>Z 撤销删除单元格<br>H 显示快捷键<br>SPACE 向下滚动<br>shift + SPACE 向上滚动</p>
+<h3 id="jupyter-notebook切换虚拟环境"><a href="#jupyter-notebook切换虚拟环境" class="headerlink" title="jupyter notebook切换虚拟环境"></a>jupyter notebook切换虚拟环境</h3><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/hu_wei123/article/details/127390535">https://blog.csdn.net/hu_wei123/article/details/127390535</a></p>
+<ul>
+<li><p>先在base和虚拟环境中安装ipykernel</p>
+</li>
+<li><p>如果还没有虚拟环境:</p>
+<p>这时，我们 “将计就计” ，就认为是第 3 步出错，我们需要在此虚拟环境中继续执行以下命令，让虚拟环境名称在 Kernel，Change kernel 显示</p>
+<p><code>python -m ipykernel install --user --name 虚拟环境名 --display-name &quot;Python (虚拟环境名)&quot;</code></p>
+<p>cmd终端里安装 ipykernel ，我们看似已经成功安装，但是执行以上命令时仍然报错： 找不到ipykernel 模块</p>
+</li>
+<li><p>eg:<code>python -m ipykernel install --user --name d2l</code></p>
+</li>
+</ul>
+<h3 id="jupyter-notebook-查看、添加、删除kernel的方法"><a href="#jupyter-notebook-查看、添加、删除kernel的方法" class="headerlink" title="jupyter notebook 查看、添加、删除kernel的方法"></a>jupyter notebook 查看、添加、删除kernel的方法</h3><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/crystal_sugar/article/details/126855682">https://blog.csdn.net/crystal_sugar/article/details/126855682</a></p>
+<p>安装完Anaconda利用conda创建了虚拟环境，但是启动jupyter notebook之后却找不到虚拟环境。</p>
+<p>实际上是由于在虚拟环境下缺少kernel.json文件，解决方法如下：</p>
+<p>首先安装ipykernel：conda install ipykernel</p>
+<p>在虚拟环境下创建kernel文件：conda install -n 环境名称 ipykernel</p>
+<p>激活conda环境： source activate 环境名称</p>
+<p>将环境写入notebook的kernel中</p>
+<p>python -m ipykernel install –user –name 环境名称 –display-name “Python (环境名称)”</p>
+<p>打开notebook服务器：jupyter notebook</p>
+<p>浏览器打开对应地址，新建python，就会有对应的环境提示了</p>
+<p>如果经常需要用jupyter notebook，那么最好在创建虚拟环境的时候便安装好ipykernel，</p>
+<p>命令：conda create -n 环境名称 python=3.5 ipykernel</p>
+<p><strong>删除kernel环境：</strong></p>
+<p>jupyter kernelspec remove 环境名称</p>
+<p><strong>查看kernel环境：</strong></p>
+<p>jupyter kernelspec list</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://developer-hq.github.io/2023/03/30/%E8%BF%81%E7%A7%BB%E5%AD%A6%E4%B9%A0/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1523,164 +1680,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://developer-hq.github.io/2023/03/21/pytorch%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2023/03/21/pytorch%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92/" itemprop="url">pytorch线性回归</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2023-03-21T23:39:42+08:00">
-                2023-03-21
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="pytorch线性回归"><a href="#pytorch线性回归" class="headerlink" title="pytorch线性回归"></a>pytorch线性回归</h1><h2 id="pytorch一般流程："><a href="#pytorch一般流程：" class="headerlink" title="pytorch一般流程："></a>pytorch一般流程：</h2><ul>
-<li><p>定义 &lt; 模型名 &gt;  类</p>
-<ul>
-<li>&lt;模型名&gt; 类的构造函数 __ init __ 中定义模型的各个层次如：全连接层、卷积层、激活层等</li>
-</ul>
-</li>
-<li><p>定义 forward 前向传播函数</p>
-<ul>
-<li>即输入怎么到输入的过程</li>
-</ul>
-</li>
-<li><p>输入数据，将 &lt;模型名&gt; 类实例化</p>
-</li>
-<li><p>连接gpu</p>
-</li>
-<li><p>参数设置：</p>
-<ul>
-<li>选择损失计算方法，如MSEloss</li>
-<li>设置学习率</li>
-<li>设置optimizer，如选择SGD，输入模型中变量和学习率作为参数</li>
-<li>设置epoch数</li>
-</ul>
-</li>
-<li><p>训练：</p>
-<ul>
-<li>将数据输入到gpu</li>
-<li>梯度归零（清除上次计算的梯度）</li>
-<li>计算损失</li>
-<li>反向传播</li>
-<li>优化模型</li>
-</ul>
-</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> torch</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> torch.nn <span class="keyword">as</span> nn</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">LinearRegressionModel</span>(nn.Module):</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self, input_dim,output_dim</span>):</span><br><span class="line">        <span class="built_in">super</span>(LinearRegressionModel,self).__init__()</span><br><span class="line"><span class="comment">#         构造函授中写一个用到全连接层</span></span><br><span class="line">        self.linear=nn.Linear(input_dim,output_dim)</span><br><span class="line">        </span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">forward</span>(<span class="params">self,x</span>):</span><br><span class="line"><span class="comment">#         直接走全连接层，输入x然后得到结果</span></span><br><span class="line">        out = self.linear(x)</span><br><span class="line">        <span class="keyword">return</span> out</span><br><span class="line">    </span><br><span class="line">input_dim=<span class="number">1</span></span><br><span class="line">output_dim=<span class="number">1</span></span><br><span class="line"></span><br><span class="line">model=LinearRegressionModel(input_dim, output_dim)</span><br><span class="line"></span><br><span class="line">device=torch.device(<span class="string">&quot;cuda:0&quot;</span> <span class="keyword">if</span> torch.cuda.is_available() <span class="keyword">else</span> <span class="string">&quot;cpu&quot;</span>)</span><br><span class="line">model.to(device)</span><br><span class="line"></span><br><span class="line">criterion=nn.MSELoss()</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">learning_rate=<span class="number">0.01</span></span><br><span class="line"></span><br><span class="line">optimizer=torch.optim.SGD(model.parameters(),lr=learning_rate)</span><br><span class="line"></span><br><span class="line">epochs=<span class="number">1000</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> epoch <span class="keyword">in</span> <span class="built_in">range</span>(epochs):</span><br><span class="line">    epoch+=<span class="number">1</span></span><br><span class="line"><span class="comment">#     输入和标签要传到device上：.to(device)</span></span><br><span class="line"></span><br><span class="line">    inputs=torch.from_numpy(x_train).to(device)</span><br><span class="line">    labels=torch.from_numpy(y_train).to(device)</span><br><span class="line"></span><br><span class="line">    optimizer.zero_grad()</span><br><span class="line"></span><br><span class="line">    outputs=model(inputs)</span><br><span class="line">    </span><br><span class="line">    loss=criterion(outputs,labels)</span><br><span class="line">    </span><br><span class="line">    loss.backward()</span><br><span class="line">    </span><br><span class="line">    optimizer.step()</span><br><span class="line">    <span class="keyword">if</span> epoch%<span class="number">50</span>==<span class="number">0</span>:</span><br><span class="line"><span class="comment">#         print(&#x27;epoch &#123;&#125;, loss &#123;&#125;, outputs &#123;&#125;&#x27;.format(epoch,loss.item(),outputs))</span></span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&#x27;epoch &#123;&#125;, loss &#123;&#125;&#x27;</span>.<span class="built_in">format</span>(epoch,loss.item()))</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-
-
-<h2 id="保存、读取模型"><a href="#保存、读取模型" class="headerlink" title="保存、读取模型"></a>保存、读取模型</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 模型会保存为字典的形式</span></span><br><span class="line">torch.save(model.state_dict(),<span class="string">&#x27;model.pkl&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 读取保存模型的权重</span></span><br><span class="line">model.load_state_dict(torch.load(<span class="string">&#x27;model.pkl&#x27;</span>))</span><br></pre></td></tr></table></figure>
-
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1732,7 +1731,7 @@
                 <a href="/">
     
               
-                  <span class="site-state-item-count">42</span>
+                  <span class="site-state-item-count">43</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
