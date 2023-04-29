@@ -229,6 +229,125 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://developer-hq.github.io/2023/04/07/expired/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2023/04/07/expired/" itemprop="url">expired</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2023-04-07T10:59:36+08:00">
+                2023-04-07
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://developer-hq.github.io/2023/04/07/typora%E6%89%93%E4%B8%8D%E5%BC%80/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1520,190 +1639,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://developer-hq.github.io/2023/03/27/Docker%E5%AE%89%E8%A3%85mysql/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2023/03/27/Docker%E5%AE%89%E8%A3%85mysql/" itemprop="url">Docker安装mysql</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2023-03-27T12:39:42+08:00">
-                2023-03-27
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="DockerCompose的方式部署mysql"><a href="#DockerCompose的方式部署mysql" class="headerlink" title="DockerCompose的方式部署mysql"></a>DockerCompose的方式部署mysql</h1><ul>
-<li><p>在用户文件夹下新建docker\mysql\</p>
-</li>
-<li><p>在mysql文件夹内新建docker-compose.yml</p>
-</li>
-<li><p>docker-compose.yml：</p>
-</li>
-</ul>
-<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">version:</span> <span class="string">&#x27;5.7&#x27;</span></span><br><span class="line"><span class="attr">services:</span></span><br><span class="line"><span class="attr">mysql:</span></span><br><span class="line">  <span class="attr">image:</span> <span class="string">mysql</span></span><br><span class="line">  <span class="attr">hostname:</span> <span class="string">mysql</span></span><br><span class="line">  <span class="attr">ports:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="number">3306</span><span class="string">:3306</span></span><br><span class="line">  <span class="attr">restart:</span> <span class="string">always</span></span><br><span class="line">  <span class="attr">environment:</span></span><br><span class="line">    <span class="attr">MYSQL_ROOT_PASSWORD:</span> <span class="string">abc123</span></span><br><span class="line">  <span class="attr">volumes:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">//d/mysql/data:/var/lib/mysql/</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">//d/mysql/data:/var/log/mysql/</span></span><br></pre></td></tr></table></figure>
-
-<ul>
-<li><p><strong>端口映射</strong></p>
-<ul>
-<li>宿主机端口：容器端口</li>
-</ul>
-</li>
-<li><p><strong>volumes</strong></p>
-<ul>
-<li><p>这行就是映射了一下数据库的文件，将数据库文件映射到d盘mysql/data文件夹里面，可以修改成其他的文件夹</p>
-</li>
-<li><p><strong>//d 就可以表示d盘</strong></p>
-</li>
-</ul>
-</li>
-<li><p><strong>docker-compose</strong></p>
-<ul>
-<li><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_43296313/article/details/127246893">https://blog.csdn.net/weixin_43296313/article/details/127246893</a></li>
-</ul>
-</li>
-<li><p>菜鸟教程</p>
-<ul>
-<li><a target="_blank" rel="noopener" href="https://www.runoob.com/docker/docker-compose.html">https://www.runoob.com/docker/docker-compose.html</a></li>
-</ul>
-</li>
-</ul>
-<hr>
-<h1 id="使用-Compose-命令构建和运行您的应用"><a href="#使用-Compose-命令构建和运行您的应用" class="headerlink" title="使用 Compose 命令构建和运行您的应用"></a>使用 Compose 命令构建和运行您的应用</h1><p>在测试目录中，执行以下命令来启动应用程序：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker-compose up</span><br></pre></td></tr></table></figure>
-
-<p>如果你想在后台执行该服务可以加上 -d 参数：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker-compose up -d</span><br></pre></td></tr></table></figure>
-
-
-
-
-
-<hr>
-<h2 id="连接Mysql"><a href="#连接Mysql" class="headerlink" title="连接Mysql"></a>连接Mysql</h2><ul>
-<li><p>默认数据库mysql，密码abc123</p>
-</li>
-<li><p>没有mysql驱动</p>
-</li>
-</ul>
-<p>前往：<a target="_blank" rel="noopener" href="https://downloads.mysql.com/archives/c-j/">https://downloads.mysql.com/archives/c-j/</a></p>
-<p><img src="/2023/03/27/Docker%E5%AE%89%E8%A3%85mysql/image-20230327180443901.png" alt="image-20230327180443901"></p>
-<p>选择platform independent，下载zip的那个，解压后得到jar文件</p>
-<img src="/2023/03/27/Docker%E5%AE%89%E8%A3%85mysql/image-20230327180537738.png" alt="image-20230327180537738" style="zoom:50%;">
-
-
-
-<p>在编辑驱动设置-库中</p>
-<img src="/2023/03/27/Docker%E5%AE%89%E8%A3%85mysql/image-20230327180616145.png" alt="image-20230327180616145" style="zoom:50%;">
-
-
-
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1755,7 +1690,7 @@
                 <a href="/">
     
               
-                  <span class="site-state-item-count">55</span>
+                  <span class="site-state-item-count">56</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
