@@ -79,13 +79,15 @@
 
 
 
+<meta name="description" content="移动光猫h3-1prolite用user登陆然后打开telnet http:&#x2F;&#x2F;192.168.1.1&#x2F;usr&#x3D;CMCCAdmin&amp;psw&#x3D;aDm8H%25MdA&amp;cmd&#x3D;1&amp;telnet.gch telnet登陆（windows功能打开telnet）用户名 CMCCAdmin 密码 aDm8H%MdA  修改管理员超级账号为 CMCCAdmin (可自定义) sidbg">
 <meta property="og:type" content="article">
 <meta property="og:title" content="光猫">
 <meta property="og:url" content="https://developer-hq.github.io/2023/05/06/%E5%85%89%E7%8C%AB/index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="移动光猫h3-1prolite用user登陆然后打开telnet http:&#x2F;&#x2F;192.168.1.1&#x2F;usr&#x3D;CMCCAdmin&amp;psw&#x3D;aDm8H%25MdA&amp;cmd&#x3D;1&amp;telnet.gch telnet登陆（windows功能打开telnet）用户名 CMCCAdmin 密码 aDm8H%MdA  修改管理员超级账号为 CMCCAdmin (可自定义) sidbg">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2023-05-06T10:29:26.000Z">
-<meta property="article:modified_time" content="2023-05-06T10:29:26.949Z">
+<meta property="article:modified_time" content="2023-05-07T05:04:27.808Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary">
 
@@ -297,7 +299,31 @@
       
 
       
-        
+        <h1 id="移动光猫h3-1prolite"><a href="#移动光猫h3-1prolite" class="headerlink" title="移动光猫h3-1prolite"></a>移动光猫h3-1prolite</h1><h3 id="用user登陆"><a href="#用user登陆" class="headerlink" title="用user登陆"></a>用user登陆</h3><p>然后打开telnet</p>
+<p><a target="_blank" rel="noopener" href="http://192.168.1.1/usr=CMCCAdmin&amp;psw=aDm8H%25MdA&amp;cmd=1&amp;telnet.gch">http://192.168.1.1/usr=CMCCAdmin&amp;psw=aDm8H%25MdA&amp;cmd=1&amp;telnet.gch</a></p>
+<h3 id="telnet登陆（windows功能打开telnet）"><a href="#telnet登陆（windows功能打开telnet）" class="headerlink" title="telnet登陆（windows功能打开telnet）"></a>telnet登陆（windows功能打开telnet）</h3><p>用户名 CMCCAdmin</p>
+<p>密码 aDm8H%MdA</p>
+<p> 修改管理员超级账号为 CMCCAdmin (可自定义)<br> sidbg 1 DB set DevAuthInfo 0 User CMCCAdmin</p>
+<p> 修改管理员超级账号的密码 aDm8H%MdA (可自定义)<br> sidbg 1 DB set DevAuthInfo 0 Pass aDm8H%MdA</p>
+<h3 id="网关登陆"><a href="#网关登陆" class="headerlink" title="网关登陆"></a>网关登陆</h3><p>用户名 CMCCAdmin</p>
+<p>密码 </p>
+<p>aDm8H%MdA</p>
+<p>user</p>
+<p>wyrfe5rp</p>
+<p><a target="_blank" rel="noopener" href="https://www.right.com.cn/forum/thread-8266942-1-1.html">https://www.right.com.cn/forum/thread-8266942-1-1.html</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.right.com.cn/FORUM/thread-8125150-1-1.html">https://www.right.com.cn/FORUM/thread-8125150-1-1.html</a></p>
+<p>1.获取管理员密码 enable telnet      浏览器输入 ： <a target="_blank" rel="noopener" href="http://192.168.1.1/usr=CMCCAdmin&amp;psw=aDm8H%25MdA&amp;cmd=1&amp;telnet.gch">http://192.168.1.1/usr=CMCCAdmin&amp;psw=aDm8H%25MdA&amp;cmd=1&amp;telnet.gch</a><br> 2.telnet 光猫（192.168.1.1） 默认密码  账号：CMCCAdmin 密码: aDm8H%MdA<br> 3.解密命令<br>   sidbg 1 DB decry /userconfig/cfg/db_user_cfg.xml<br>   log文件在<br>   /tmp/debug-decry-cfg   直接vi 搜索或者cat 出来 用文本搜索，注意这里的密码是临时密码。如果不删除 网络中TR069 此密码会周期被移动修改。<br> 4.更改CMCCAdmin密码并save<br>  sidbg 1 DB set DevAuthInfo 0 Pass fuck;sidbg 1 DB save<br>  其中fuck是你新密码可以改为任何你需要的。<br> 5.删除TR069 网络，切断移动后台控制！ 此处用F12也可以，鼠标在删除（灰色）右键 Inspect （检查），找到源码，把disable 删除。现在删除就可以点了。干掉他！！！<br> 6.配置桥接模式<br>   找到网络里面 Internet连接 把没用的连接拍照记录vlan id后都删除，重新建立一个vlan id=10的 bridge即可。<br> 7待研究，是否可以使能SSID1 为iptv 模式电视看IPTV，明天问下移动客户后在update！！！</p>
+<p> 看到好多要钱分享！！真的不应该。平时好好工作接个私活不行吗。在论坛一块一块的要没啥意思。</p>
+<p> PS：这里感谢下 大神无私分享@oick88<br> PS:给出几个常用的<br> #列出所有表<br> sidbg 1 DB p all<br> #查看 TELNET 信息<br> sidbg 1 DB p TelnetCfg<br> #查看 查看用户 信息<br> sidbg 1 DB p DevAuthInfo</p>
+<p> 修改管理员超级账号为 CMCCAdmin (可自定义)<br> sidbg 1 DB set DevAuthInfo 0 User CMCCAdmin</p>
+<p> 修改管理员超级账号的密码 aDm8H%MdA (可自定义)<br> sidbg 1 DB set DevAuthInfo 0 Pass aDm8H%MdA</p>
+<p> 修改配置 永久 开启 TELNET<br> #开启TELNET<br> sidbg 1 DB set TelnetCfg 0 TS_Enable 1<br> #开放TELNET LAN端口<br> sidbg 1 DB set TelnetCfg 0 Lan_Enable 1</p>
+<p> #关闭TELNET<br> sidbg 1 DB set TelnetCfg 0 TS_Enable 0<br> #关闭TELNET LAN端口<br> sidbg 1 DB set TelnetCfg 0 Lan_Enable 0</p>
+<p> #修改TELNET账号  改为 root (可自定义)<br> sidbg 1 DB set TelnetUser 0 Username root<br> #修改TELNET密码 改为 admin (可自定义)<br> sidbg 1 DB set TelnetUser 0 Password admin</p>
+<p> #修改TELNET账号 改为 root (可自定义)<br> sidbg 1 DB set TelnetUser 1 Username root<br> #修改TELNET密码 改为 admin (可自定义)<br> sidbg 1 DB set TelnetUser 1 Password admin</p>
+<p> #记得最好保存下配置<br> sidbg 1 DB save</p>
+<p>vid10</p>
+
       
     </div>
     
@@ -330,6 +356,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2023/05/10/firefox%E5%9C%B0%E5%9D%80%E6%A0%8F%E6%90%9C%E7%B4%A2%E8%AE%BE%E7%BD%AE/" rel="prev" title="firefox地址栏搜索设置">
+                firefox地址栏搜索设置 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -381,8 +411,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -398,7 +437,7 @@
                 <a href="/">
     
               
-                  <span class="site-state-item-count">58</span>
+                  <span class="site-state-item-count">59</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -425,6 +464,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%A7%BB%E5%8A%A8%E5%85%89%E7%8C%ABh3-1prolite"><span class="nav-number">1.</span> <span class="nav-text">移动光猫h3-1prolite</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%94%A8user%E7%99%BB%E9%99%86"><span class="nav-number">1.0.1.</span> <span class="nav-text">用user登陆</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#telnet%E7%99%BB%E9%99%86%EF%BC%88windows%E5%8A%9F%E8%83%BD%E6%89%93%E5%BC%80telnet%EF%BC%89"><span class="nav-number">1.0.2.</span> <span class="nav-text">telnet登陆（windows功能打开telnet）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BD%91%E5%85%B3%E7%99%BB%E9%99%86"><span class="nav-number">1.0.3.</span> <span class="nav-text">网关登陆</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
