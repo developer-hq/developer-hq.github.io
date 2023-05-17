@@ -229,6 +229,134 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://developer-hq.github.io/2022/10/24/%E5%B8%A6%E5%AF%86%E7%A0%81excel/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2022/10/24/%E5%B8%A6%E5%AF%86%E7%A0%81excel/" itemprop="url">带密码excel</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2022-10-24T14:51:30+08:00">
+                2022-10-24
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="已知excel密码去除"><a href="#已知excel密码去除" class="headerlink" title="已知excel密码去除"></a>已知excel密码去除</h1><h2 id="1-安装包"><a href="#1-安装包" class="headerlink" title="1.安装包"></a>1.安装包</h2><p>pip install pypiwin32</p>
+<h2 id="2-import"><a href="#2-import" class="headerlink" title="2.import"></a>2.import</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> win32com</span><br><span class="line"><span class="keyword">from</span> win32com.client <span class="keyword">import</span> DispatchEx</span><br></pre></td></tr></table></figure>
+<h2 id="3-删除密码并保存至名为str的excel文件"><a href="#3-删除密码并保存至名为str的excel文件" class="headerlink" title="3.删除密码并保存至名为str的excel文件"></a>3.删除密码并保存至名为str的excel文件</h2><p>==重点：==<br>==需要try+except来保证每次打开excel进程都关闭==</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">del_password</span>(<span class="params">filename, password</span>)-&gt;<span class="built_in">bool</span>:</span><br><span class="line"></span><br><span class="line">    excel = DispatchEx(<span class="string">&quot;Excel.Application&quot;</span>)  <span class="comment"># 启动excel</span></span><br><span class="line">    excel.Visible = <span class="literal">False</span>  <span class="comment"># 可视化</span></span><br><span class="line">    excel.DisplayAlerts = <span class="literal">False</span>  <span class="comment"># 是否显示警告</span></span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        path = os.path.dirname(__file__) + <span class="string">&#x27;\\&#x27;</span></span><br><span class="line">        wb = excel.Workbooks.Open(filename, UpdateLinks=<span class="literal">False</span>, ReadOnly=<span class="literal">False</span>, Format=<span class="literal">None</span>, Password=password,</span><br><span class="line">                                  WriteResPassword=password)</span><br><span class="line">        <span class="comment"># 打开文件</span></span><br><span class="line">        <span class="built_in">str</span>=filename.split(<span class="string">&#x27;.&#x27;</span>)[<span class="number">0</span>]+<span class="string">&#x27;+NoPwd&#x27;</span>+<span class="string">&#x27;.xlsx&#x27;</span></span><br><span class="line">        path = <span class="built_in">str</span></span><br><span class="line">        wb.SaveAs(path,<span class="literal">None</span>,<span class="string">&#x27;&#x27;</span>,<span class="string">&#x27;&#x27;</span>)</span><br><span class="line">        wb.Close(SaveChanges=<span class="literal">True</span>)</span><br><span class="line">        excel.Quit()</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">True</span></span><br><span class="line">    <span class="keyword">except</span> Exception <span class="keyword">as</span> e:</span><br><span class="line">        <span class="built_in">print</span>(e)</span><br><span class="line">        excel.Quit()</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">False</span></span><br><span class="line">        <span class="comment"># exit(1)</span></span><br></pre></td></tr></table></figure>
+
+
+<hr>
+<h3 id="原文"><a href="#原文" class="headerlink" title="原文"></a>原文</h3><h2 id="def-del-password"><a href="#def-del-password" class="headerlink" title="def del_password"></a>def del_password</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 已知excel密码去除</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">del_password</span>(<span class="params">filename, password</span>):</span><br><span class="line">    excel = DispatchEx(<span class="string">&quot;Excel.Application&quot;</span>)  <span class="comment"># 启动excel</span></span><br><span class="line">    excel.Visible = visible  <span class="comment"># 可视化</span></span><br><span class="line">    excel.DisplayAlerts = displayalerts  <span class="comment"># 是否显示警告</span></span><br><span class="line">    </span><br><span class="line">    wb = excel.Workbooks.Open(filename, UpdateLinks=<span class="literal">False</span>, ReadOnly=<span class="literal">False</span>, Format=<span class="literal">None</span>, Password=password, WriteResPassword=password)  </span><br><span class="line">    <span class="comment"># 打开文件</span></span><br><span class="line">    <span class="keyword">return</span> wb</span><br></pre></td></tr></table></figure>
+<p><a target="_blank" rel="noopener" href="https://www.shuzhiduo.com/A/GBJrkrxq50/">https://www.shuzhiduo.com/A/GBJrkrxq50/</a></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://developer-hq.github.io/2022/10/22/zotero%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1401,7 +1529,7 @@
                 <a href="/">
     
               
-                  <span class="site-state-item-count">59</span>
+                  <span class="site-state-item-count">60</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
