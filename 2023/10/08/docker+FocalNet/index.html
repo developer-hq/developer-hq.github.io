@@ -1,0 +1,786 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="en">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="docker+FocalNetdocker拉取cuda11.7 1docker pull nvidia&#x2F;cuda:11.7.1-devel-ubuntu22.04  https:&#x2F;&#x2F;zhuanlan.zhihu.com&#x2F;p&#x2F;572320455 运行容器 1docker run --rm --gpus all nvidia&#x2F;cuda:11.0.3-base-ubuntu20.04 nvidia-sm">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="https://developer-hq.github.io/2023/10/08/docker+FocalNet/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="docker+FocalNetdocker拉取cuda11.7 1docker pull nvidia&#x2F;cuda:11.7.1-devel-ubuntu22.04  https:&#x2F;&#x2F;zhuanlan.zhihu.com&#x2F;p&#x2F;572320455 运行容器 1docker run --rm --gpus all nvidia&#x2F;cuda:11.0.3-base-ubuntu20.04 nvidia-sm">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2023-10-08T14:53:12.880Z">
+<meta property="article:modified_time" content="2023-10-09T17:12:05.172Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://developer-hq.github.io/2023/10/08/docker+FocalNet/"/>
+
+
+
+
+
+  <title> | Hexo</title>
+  
+
+
+
+
+
+
+
+
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Hexo</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://developer-hq.github.io/2023/10/08/docker+FocalNet/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline"></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2023-10-08T22:53:12+08:00">
+                2023-10-08
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="docker-FocalNet"><a href="#docker-FocalNet" class="headerlink" title="docker+FocalNet"></a>docker+FocalNet</h1><h1 id="docker"><a href="#docker" class="headerlink" title="docker"></a>docker</h1><p>拉取cuda11.7</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker pull nvidia/cuda:11.7.1-devel-ubuntu22.04</span><br></pre></td></tr></table></figure>
+
+<p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/572320455">https://zhuanlan.zhihu.com/p/572320455</a></p>
+<p>运行容器</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run --rm --gpus all nvidia/cuda:11.0.3-base-ubuntu20.04 nvidia-smi</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run -it --rm --name test --gpus all ubuntu:latest</span><br></pre></td></tr></table></figure>
+
+<p>配置环境</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>注意：</p>
+<p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/linhaifeng/p/16108285.html">https://www.cnblogs.com/linhaifeng/p/16108285.html</a></p>
+<p>\1. 显卡驱动在所有方式中，都要先安装好，容器是不会有显卡驱动的，一台物理机的显卡只对应一个显卡驱动，当显卡驱动安装好后（即使未安装cuda），也可以使用命令nvidia-smi</p>
+<p>\2. nvidia-smi显示的是显卡驱动对应的cuda版本，nvcc -V 显示的运行是cuda的版本<br>补充</p>
+<h3 id="pytorch"><a href="#pytorch" class="headerlink" title="pytorch"></a>pytorch</h3><p>拉取</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker pull pytorch/pytorch:2.0.1-cuda11.7-cudnn8-runtime</span><br></pre></td></tr></table></figure>
+
+<p>运行</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run --rm --gpus all -it --name pytorch_env pytorch/pytorch:2.0.1-cuda11.7-cudnn8-runtime /bin/bash</span><br></pre></td></tr></table></figure>
+
+<p>4.设置映射目录</p>
+<p>在容器中，我们通常需要读取外部主机文件，因此需要在启动时指定映射目录。下面我们将把主机上的/home/user/data目录映射到容器的/data目录。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run -it --name pytorch_env -v /home/user/data:/data pytorch/pytorch:1.4-cuda10.1-cudnn7-runtime /bin/bash</span><br></pre></td></tr></table></figure>
+
+<p>5.进入容器</p>
+<p>最后，我们使用docker exec命令进入容器。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker exec -it --rm --gpus all pytorch_test /bin/bash</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="换源"><a href="#换源" class="headerlink" title="换源"></a>换源</h3><p>更换Ubuntu的软件源可以帮助加速软件包的下载和更新，同时也可以解决一些网络访问问题。以下是在Ubuntu上更换软件源的一般步骤：</p>
+<p><strong>请注意：在更换软件源之前，请确保备份系统数据，以防发生意外情况。</strong></p>
+<ol>
+<li><p><strong>备份源列表文件</strong>：</p>
+<p>在更改软件源之前，首先备份你的源列表文件，以便在需要时恢复到默认设置。你可以使用以下命令备份源列表文件：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bash</span><br></pre></td></tr></table></figure></li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo cp /etc/apt/sources.list /etc/apt/sources.list.backup</span><br></pre></td></tr></table></figure>
+
+<p><strong>选择新的源</strong>：</p>
+<p>你可以根据你的地理位置和网络情况选择一个合适的Ubuntu软件源。以下是一些常见的软件源：</p>
+<ul>
+<li>默认源（官方源）：默认情况下，Ubuntu使用官方源，通常速度较慢。</li>
+<li>阿里云源：适用于中国大陆用户，提供了更快的下载速度。</li>
+<li>清华大学源：提供了较快的下载速度和稳定的服务。</li>
+</ul>
+<p><strong>编辑源列表文件</strong>：</p>
+<p>使用文本编辑器（例如<code>nano</code>或<code>vim</code>）来编辑源列表文件。以下是编辑源列表文件的示例命令：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">bash</span><br><span class="line">sudo vim /etc/apt/sources.list</span><br></pre></td></tr></table></figure>
+
+<p>在编辑器中，将原来的源替换为你选择的新源。例如，如果要使用阿里云源，可以将以下行添加到文件中：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">bash</span><br><span class="line">deb http://mirrors.aliyun.com/ubuntu/ focal main restricted universe multiverse</span><br><span class="line">deb http://mirrors.aliyun.com/ubuntu/ focal-security main restricted universe multiverse</span><br><span class="line">deb http://mirrors.aliyun.com/ubuntu/ focal-updates main restricted universe multiverse</span><br><span class="line">deb http://mirrors.aliyun.com/ubuntu/ focal-proposed main restricted universe multiverse</span><br><span class="line">deb http://mirrors.aliyun.com/ubuntu/ focal-backports main restricted universe multiverse</span><br></pre></td></tr></table></figure>
+
+<p>请根据你选择的源进行相应的修改。</p>
+<p><strong>更新软件包信息</strong>：</p>
+<p>保存源列表文件后，运行以下命令来更新软件包信息：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">bash</span><br><span class="line">sudo apt-get update</span><br></pre></td></tr></table></figure>
+
+<p>这将从新的源获取软件包信息。</p>
+<p><strong>升级系统</strong>：</p>
+<p>如果需要，你可以运行以下命令来升级系统中的所有软件包：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bash</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get upgrade</span><br></pre></td></tr></table></figure>
+
+<p>这将安装新的软件包版本。</p>
+<p>完成以上步骤后，你的Ubuntu系统将使用你选择的新软件源来获取软件包。请注意，根据你的地理位置和网络情况，不同的源可能会有不同的速度和可用性。如果在使用新源后遇到问题，你可以随时恢复到默认的官方源，方法是将备份的源列表文件恢复到<code>/etc/apt/sources.list</code></p>
+<h5 id="待安装包"><a href="#待安装包" class="headerlink" title="待安装包"></a>待安装包</h5><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">apt install vim &amp;&amp;</span><br><span class="line">apt install docker &amp;&amp;</span><br><span class="line">apt install git &amp;&amp;</span><br></pre></td></tr></table></figure>
+
+
+
+<h1 id="FocalNet"><a href="#FocalNet" class="headerlink" title="FocalNet"></a>FocalNet</h1><h2 id="win下socket有问题，转到linux下"><a href="#win下socket有问题，转到linux下" class="headerlink" title="win下socket有问题，转到linux下"></a>win下socket有问题，转到linux下</h2><p>把项目挂载过去</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker cp C:\Users\74420\Desktop\focalnet 582d:/workspace/focalnet</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<h3 id="Test"><a href="#Test" class="headerlink" title="Test"></a>Test</h3><p>To evaluate a pre-trained FocalNets on ImageNet val, run:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python -m torch.distributed.launch --nproc_per_node &lt;num-of-gpus-to-use&gt; --master_port 12345 main.py --eval --cfg &lt;config-file&gt; --resume &lt;checkpoint&gt; --data-path &lt;imagenet-path&gt; </span><br></pre></td></tr></table></figure>
+
+<p>​    </p>
+<p>For example, to evaluate the <code>FocalNet-B</code> with a single GPU:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python -m torch.distributed.launch --nproc_per_node 1 --master_port 12345 main.py --eval --cfg configs/focalnet_base_srf.yaml --resume focalnet_base_srf.pth --data-path &lt;imagenet-path&gt;</span><br></pre></td></tr></table></figure>
+
+<p>​    </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python -m torch.distributed.launch --nproc_per_node 1 --master_port 12345 main.py --eval --cfg configs/focalnet_base_srf.yaml --resume focalnet_base_srf.pth --data-path C:\Users\74420\Desktop\focalnet\dataset\dataset_1010</span><br></pre></td></tr></table></figure>
+
+
+
+<h1 id="todo"><a href="#todo" class="headerlink" title="todo"></a>todo</h1><ul>
+<li>实验室电脑配置NVIDIA Container Toolkit</li>
+<li>本地ubuntu打包项目及环境，设计挂载目录</li>
+</ul>
+<h1 id="yolo"><a href="#yolo" class="headerlink" title="yolo"></a>yolo</h1><p>best model</p>
+<p>D:\ST_train_LBN\yolov5-6.1-backbone\runs\train\finetune_pruned_exp\competation_yolov5m\weights</p>
+<p>augmentations.py/letterbox</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br></pre></td><td class="code"><pre><span class="line"># Process predictions</span><br><span class="line">       for i, det in enumerate(pred):  # per image</span><br><span class="line">           seen += 1</span><br><span class="line">           if webcam:  # batch_size &gt;= 1</span><br><span class="line">               p, im0, frame = path[i], im0s[i].copy(), dataset.count</span><br><span class="line">               s += f&#x27;&#123;i&#125;: &#x27;</span><br><span class="line">           else:</span><br><span class="line">               p, im0, frame = path, im0s.copy(), getattr(dataset, &#x27;frame&#x27;, 0)</span><br><span class="line"></span><br><span class="line">           p = Path(p)  # to Path</span><br><span class="line">           save_path = str(save_dir / p.name)  # im.jpg</span><br><span class="line">           txt_path = str(save_dir / &#x27;labels&#x27; / p.stem) + (&#x27;&#x27; if dataset.mode == &#x27;image&#x27; else f&#x27;_&#123;frame&#125;&#x27;)  # im.txt</span><br><span class="line">           s += &#x27;%gx%g &#x27; % im.shape[2:]  # print string</span><br><span class="line">           imc = im0.copy() if save_crop else im0  # for save_crop</span><br><span class="line">           annotator = Annotator(im0, line_width=line_thickness, example=str(names))</span><br><span class="line">           if len(det):</span><br><span class="line">               if retina_masks:</span><br><span class="line">                   # scale bbox first the crop masks</span><br><span class="line">                   det[:, :4] = scale_boxes(im.shape[2:], det[:, :4], im0.shape).round()  # rescale boxes to im0 size</span><br><span class="line">                   masks = process_mask_native(proto[i], det[:, 6:], det[:, :4], im0.shape[:2])  # HWC</span><br><span class="line">               else:</span><br><span class="line">                   masks = process_mask(proto[i], det[:, 6:], det[:, :4], im.shape[2:], upsample=True)  # HWC</span><br><span class="line">                   det[:, :4] = scale_boxes(im.shape[2:], det[:, :4], im0.shape).round()  # rescale boxes to im0 size</span><br><span class="line"></span><br><span class="line">               # Segments</span><br><span class="line">               if save_txt:</span><br><span class="line">                   segments = [</span><br><span class="line">                       scale_segments(im0.shape if retina_masks else im.shape[2:], x, im0.shape, normalize=True)</span><br><span class="line">                       for x in reversed(masks2segments(masks))]</span><br><span class="line"></span><br><span class="line">               # Print results</span><br><span class="line">               for c in det[:, 5].unique():</span><br><span class="line">                   n = (det[:, 5] == c).sum()  # detections per class</span><br><span class="line">                   s += f&quot;&#123;n&#125; &#123;names[int(c)]&#125;&#123;&#x27;s&#x27; * (n &gt; 1)&#125;, &quot;  # add to string</span><br><span class="line"></span><br><span class="line">               # Mask plotting</span><br><span class="line">               annotator.masks(</span><br><span class="line">                   masks,</span><br><span class="line">                   colors=[colors(x, True) for x in det[:, 5]],</span><br><span class="line">                   im_gpu=torch.as_tensor(im0, dtype=torch.float16).to(device).permute(2, 0, 1).flip(0).contiguous() /</span><br><span class="line">                   255 if retina_masks else im[i])</span><br><span class="line"></span><br><span class="line">               # Write results</span><br><span class="line">               for j, (*xyxy, conf, cls) in enumerate(reversed(det[:, :6])):</span><br><span class="line">                   if save_txt:  # Write to file</span><br><span class="line">                       seg = segments[j].reshape(-1)  # (n,2) to (n*2)</span><br><span class="line">                       line = (cls, *seg, conf) if save_conf else (cls, *seg)  # label format</span><br><span class="line">                       with open(f&#x27;&#123;txt_path&#125;.txt&#x27;, &#x27;a&#x27;) as f:</span><br><span class="line">                           f.write((&#x27;%g &#x27; * len(line)).rstrip() % line + &#x27;\n&#x27;)</span><br><span class="line"></span><br><span class="line">                   if save_img or save_crop or view_img:  # Add bbox to image</span><br><span class="line">                       c = int(cls)  # integer class</span><br><span class="line">                       label = None if hide_labels else (names[c] if hide_conf else f&#x27;&#123;names[c]&#125; &#123;conf:.2f&#125;&#x27;)</span><br><span class="line">                       annotator.box_label(xyxy, label, color=colors(c, True))</span><br><span class="line">                       # annotator.draw.polygon(segments[j], outline=colors(c, True), width=3)</span><br><span class="line">                   if save_crop:</span><br><span class="line">                       save_one_box(xyxy, imc, file=save_dir / &#x27;crops&#x27; / names[c] / f&#x27;&#123;p.stem&#125;.jpg&#x27;, BGR=True)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<h3 id="try"><a href="#try" class="headerlink" title="try"></a>try</h3><p>输出txt：</p>
+<p>predict.py parser –save-txt default true</p>
+<p>save-conf true 置信度</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">parser.add_argument(&#x27;--save-txt&#x27;, default=True, help=&#x27;save results to *.txt&#x27;)</span><br><span class="line">parser.add_argument(&#x27;--save-conf&#x27;, default=True, help=&#x27;save confidences in --save-txt labels&#x27;)</span><br></pre></td></tr></table></figure>
+
+
+
+<p>修改输出坐标</p>
+<p>不输出seg，输出xyxy</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"># Write results</span><br><span class="line">                for j, (*xyxy, conf, cls) in enumerate(reversed(det[:, :6])):</span><br><span class="line">                    # xyxy是目标坐标x1y1,x2y2，左上角0,0</span><br><span class="line">                    if save_txt:  # Write to file</span><br><span class="line">                        seg = segments[j].reshape(-1)  # (n,2) to (n*2)</span><br><span class="line">                        line0 = (cls, *seg, conf) if save_conf else (cls, *seg)  # label format</span><br><span class="line">                        # with open(f&#x27;&#123;txt_path&#125;.txt&#x27;, &#x27;a&#x27;) as f:</span><br><span class="line">                        #     f.write((&#x27;%g &#x27; * len(line)).rstrip() % line + &#x27;\n&#x27;)</span><br><span class="line">                        # 上面的line:cls类别，seg目标的分割信息，目标的边界框/轮廓，conf置信度，需要将save_conf设为TRUE</span><br><span class="line"></span><br><span class="line">                        line = (cls, *xyxy, conf) if save_conf else (cls, *xyxy)</span><br><span class="line">                        with open(f&#x27;&#123;txt_path&#125;.txt&#x27;, &#x27;a&#x27;) as f:</span><br><span class="line">                            formatted_line = &#x27; &#x27;.join([&#x27;%g&#x27; % item for item in line]) + &#x27;\n&#x27;</span><br><span class="line">                            f.write(formatted_line)</span><br><span class="line"></span><br><span class="line">                    if save_img or save_crop or view_img:  # Add bbox to image</span><br><span class="line">                        c = int(cls)  # integer class</span><br><span class="line">                        label = None if hide_labels else (names[c] if hide_conf else f&#x27;&#123;names[c]&#125; &#123;conf:.2f&#125;&#x27;)</span><br><span class="line">                        annotator.box_label(xyxy, label, color=colors(c, True))</span><br><span class="line">                        # annotator.draw.polygon(segments[j], outline=colors(c, True), width=3)</span><br><span class="line">                    if save_crop:</span><br><span class="line">                        save_one_box(xyxy, imc, file=save_dir / &#x27;crops&#x27; / names[c] / f&#x27;&#123;p.stem&#125;.jpg&#x27;, BGR=True)</span><br></pre></td></tr></table></figure>
+
+
+
+<h1 id="预测"><a href="#预测" class="headerlink" title="预测"></a>预测</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">$ python segment/predict.py --weights yolov5s-seg.pt --source 0                               # webcam</span><br><span class="line">                                                              img.jpg                         # image</span><br><span class="line">                                                              vid.mp4                         # video</span><br><span class="line">                                                              screen                          # screenshot</span><br><span class="line">                                                              path/                           # directory</span><br><span class="line">                                                              list.txt                        # list of images</span><br><span class="line">                                                              list.streams                    # list of streams</span><br><span class="line">                                                              &#x27;path/*.jpg&#x27;                    # glob</span><br><span class="line">                                                              &#x27;https://youtu.be/LNwODJXcvt4&#x27;  # YouTube</span><br><span class="line">                                                              &#x27;rtsp://example.com/media.mp4&#x27;  # RTSP, RTMP, HTTP stream</span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2023/10/07/HomeAssistant/" rel="next" title="HomeAssistant">
+                <i class="fa fa-chevron-left"></i> HomeAssistant
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2023/10/09/yolo/" rel="prev" title="yolo">
+                yolo <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name"></p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/">
+    
+              
+                  <span class="site-state-item-count">75</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#docker-FocalNet"><span class="nav-number">1.</span> <span class="nav-text">docker+FocalNet</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#docker"><span class="nav-number">2.</span> <span class="nav-text">docker</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#pytorch"><span class="nav-number">2.0.1.</span> <span class="nav-text">pytorch</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%8D%A2%E6%BA%90"><span class="nav-number">2.0.2.</span> <span class="nav-text">换源</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%BE%85%E5%AE%89%E8%A3%85%E5%8C%85"><span class="nav-number">2.0.2.0.1.</span> <span class="nav-text">待安装包</span></a></li></ol></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#FocalNet"><span class="nav-number">3.</span> <span class="nav-text">FocalNet</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#win%E4%B8%8Bsocket%E6%9C%89%E9%97%AE%E9%A2%98%EF%BC%8C%E8%BD%AC%E5%88%B0linux%E4%B8%8B"><span class="nav-number">3.1.</span> <span class="nav-text">win下socket有问题，转到linux下</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Test"><span class="nav-number">3.1.1.</span> <span class="nav-text">Test</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#todo"><span class="nav-number">4.</span> <span class="nav-text">todo</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#yolo"><span class="nav-number">5.</span> <span class="nav-text">yolo</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#try"><span class="nav-number">5.0.1.</span> <span class="nav-text">try</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%A2%84%E6%B5%8B"><span class="nav-number">6.</span> <span class="nav-text">预测</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2023</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">John Doe</span>
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

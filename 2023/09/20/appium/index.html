@@ -1,0 +1,723 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="en">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="1.配环境appium，sdk环境https:&#x2F;&#x2F;www.byhy.net&#x2F;tut&#x2F;auto&#x2F;appium&#x2F;01&#x2F; https:&#x2F;&#x2F;www.bilibili.com&#x2F;video&#x2F;BV1tE411n7rV&#x2F;?p&#x3D;4&amp;vd_source&#x3D;3d040baeb67aeceb2bba9c7169a67a96 夜神模拟器https:&#x2F;&#x2F;support.yeshen.com&#x2F;zh-CN&#x2F;often&#x2F;vt">
+<meta property="og:type" content="article">
+<meta property="og:title" content="appium">
+<meta property="og:url" content="https://developer-hq.github.io/2023/09/20/appium/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="1.配环境appium，sdk环境https:&#x2F;&#x2F;www.byhy.net&#x2F;tut&#x2F;auto&#x2F;appium&#x2F;01&#x2F; https:&#x2F;&#x2F;www.bilibili.com&#x2F;video&#x2F;BV1tE411n7rV&#x2F;?p&#x3D;4&amp;vd_source&#x3D;3d040baeb67aeceb2bba9c7169a67a96 夜神模拟器https:&#x2F;&#x2F;support.yeshen.com&#x2F;zh-CN&#x2F;often&#x2F;vt">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://developer-hq.github.io/2023/09/20/appium/3da35e70a2804dfd87c4f21ab08b422e.png">
+<meta property="og:image" content="https://developer-hq.github.io/2023/09/20/appium/1240.webp">
+<meta property="og:image" content="https://developer-hq.github.io/2023/09/20/appium/1240-16952199938301.webp">
+<meta property="og:image" content="https://developer-hq.github.io/2023/09/20/appium/1240-16952199938312.webp">
+<meta property="og:image" content="https://developer-hq.github.io/2023/09/20/appium/1240-16952199938313.webp">
+<meta property="og:image" content="https://developer-hq.github.io/2023/09/20/appium/1240-16952199938314.webp">
+<meta property="og:image" content="https://developer-hq.github.io/2023/09/20/appium/1240-16952199938315.webp">
+<meta property="og:image" content="https://developer-hq.github.io/2023/09/20/appium/1240-16952199938316.webp">
+<meta property="og:image" content="https://developer-hq.github.io/2023/09/20/appium/1240-16952199938317.webp">
+<meta property="og:image" content="https://developer-hq.github.io/2023/09/20/appium/1240-16952199938318.webp">
+<meta property="article:published_time" content="2023-09-20T12:54:46.000Z">
+<meta property="article:modified_time" content="2023-09-21T08:04:09.862Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://developer-hq.github.io/2023/09/20/appium/3da35e70a2804dfd87c4f21ab08b422e.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://developer-hq.github.io/2023/09/20/appium/"/>
+
+
+
+
+
+  <title>appium | Hexo</title>
+  
+
+
+
+
+
+
+
+
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Hexo</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://developer-hq.github.io/2023/09/20/appium/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">appium</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2023-09-20T20:54:46+08:00">
+                2023-09-20
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="1-配环境"><a href="#1-配环境" class="headerlink" title="1.配环境"></a>1.配环境</h1><h2 id="appium，sdk环境"><a href="#appium，sdk环境" class="headerlink" title="appium，sdk环境"></a>appium，sdk环境</h2><p><a target="_blank" rel="noopener" href="https://www.byhy.net/tut/auto/appium/01/">https://www.byhy.net/tut/auto/appium/01/</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1tE411n7rV/?p=4&amp;vd_source=3d040baeb67aeceb2bba9c7169a67a96">https://www.bilibili.com/video/BV1tE411n7rV/?p=4&amp;vd_source=3d040baeb67aeceb2bba9c7169a67a96</a></p>
+<h2 id="夜神模拟器"><a href="#夜神模拟器" class="headerlink" title="夜神模拟器"></a>夜神模拟器</h2><p><a target="_blank" rel="noopener" href="https://support.yeshen.com/zh-CN/often/vt">https://support.yeshen.com/zh-CN/often/vt</a></p>
+<h3 id="二，夜神模拟器"><a href="#二，夜神模拟器" class="headerlink" title="二，夜神模拟器"></a>二，夜神模拟器</h3><h4 id="1，下载、安装"><a href="#1，下载、安装" class="headerlink" title="1，下载、安装"></a>1，下载、安装</h4><p>1.1，下载。官网下载地址：<a target="_blank" rel="noopener" href="https://www.yeshen.com/">https://www.yeshen.com/</a></p>
+<p>1.2，安装。可自定义安装路径，过程简单。安装完成后电脑桌面会出现两个快捷方式，如下：</p>
+<p><img src="/2023/09/20/appium/3da35e70a2804dfd87c4f21ab08b422e.png" alt="微信图片_20220424200650.png"></p>
+<h1 id="第一个程序"><a href="#第一个程序" class="headerlink" title="第一个程序"></a>第一个程序</h1><h2 id="Python-Appium自动化测试-2-appium连接真机启动app"><a href="#Python-Appium自动化测试-2-appium连接真机启动app" class="headerlink" title="Python+Appium自动化测试(2)-appium连接真机启动app"></a>Python+Appium自动化测试(2)-appium连接真机启动app</h2><p>app自动化测试的第一步，是启动被测app。<a target="_blank" rel="noopener" href="https://www.cnblogs.com/lfr0123/p/13512668.html?spm=a2c6h.12873639.article-detail.9.e7a81fe5W1WtFO#">appium环境搭建</a>好后，我们就可以连接真机启动app了。环境为windows，Appium1.18.0，Android手机，被测app为今日头条app，让我们开始吧。</p>
+<h3 id="一，连接手机（测试机）"><a href="#一，连接手机（测试机）" class="headerlink" title="一，连接手机（测试机）"></a>一，连接手机（测试机）</h3><ul>
+<li>通过USB线连接Android手机和电脑，打开手机的开发者模式，开启USB调试模式（方法自行百度）。</li>
+<li>打开cmd输入命令<code>adb devices</code>，显示连接手机的udid即为连接成功。</li>
+</ul>
+<p><img src="/2023/09/20/appium/1240.webp" alt="img"></p>
+<ul>
+<li><p>输入adb devices后如果List of devices attached下为空，说明手机连接电脑没有成功。可做如下尝试：</p>
+<p>1，拔掉手机重新连接</p>
+<p>2，更换USB线</p>
+<p>3，重启adb。先杀死adb进程<strong>adb kill-server</strong>，再重启<strong>adb start-server</strong></p>
+<p>4，检查adb版本，版本太低则更新</p>
+<p>还未解决的话，可以网上查找其他方法。</p>
+</li>
+</ul>
+<h3 id="二，获取测试手机及被测app的相应信息（即capability配置内容）"><a href="#二，获取测试手机及被测app的相应信息（即capability配置内容）" class="headerlink" title="二，获取测试手机及被测app的相应信息（即capability配置内容）"></a>二，获取测试手机及被测app的相应信息（即capability配置内容）</h3><p>platformName，声明被测手机系统是ios还是Android。</p>
+<p>platformVersion，即测试手机的Android版本号。可在手机设置里面查看，也可以通过命令<strong>adb shell getprop ro.build.version.release</strong>查看。</p>
+<p><img src="/2023/09/20/appium/1240-16952199938301.webp" alt="img"></p>
+<p>deviceName，即测试手机的名称。可在手机设置里面查看，也可以通过命令<strong>adb devices -l</strong>查看，其中model即为连接的测试机的名称。</p>
+<p><img src="/2023/09/20/appium/1240-16952199938312.webp" alt="img"></p>
+<p>appPackage，即被测app的包名。</p>
+<p>appActivity，即被测app的launcherActivity。通过命令<strong>adb shell dumpsys activity | findstr “mResume”</strong>查看（先在手机上打开app，再输入命令）。以今日头条app为例。</p>
+<p><img src="/2023/09/20/appium/1240-16952199938313.webp" alt="img"></p>
+<p>如果手机系统在Android 8.1以下，则需使用命令<strong>adb shell dumpsys activity | findstr “mFocus”</strong>查看。</p>
+<h3 id="三，appium启动app"><a href="#三，appium启动app" class="headerlink" title="三，appium启动app"></a>三，appium启动app</h3><p>电脑打开appium，点击“Start Server”</p>
+<p><img src="/2023/09/20/appium/1240-16952199938314.webp" alt="img"></p>
+<p>出现如下页面，再点击“Start Inspector Session”按钮</p>
+<p><img src="/2023/09/20/appium/1240-16952199938315.webp" alt="img"></p>
+<p>输入第二步获取的配置内容，点击“Start Session”按钮（可先点击3所指的按钮保存，下次直接选择即可）。</p>
+<p><img src="/2023/09/20/appium/1240-16952199938316.webp" alt="img"></p>
+<p>此时，如果测试机是第一次连接appium的话，手机上会提示安装两个应用：Appium settings、io.appium.uiautomator2.server，容许安装，且必须安装成功。</p>
+<p>再次点击上图中4所指的“Start Session”按钮，我们会发现手机上会自动启动今日头条app，且appium会出现如下窗口。</p>
+<p><img src="/2023/09/20/appium/1240-16952199938317.webp" alt="img"></p>
+<p>至此，我们就成功地通过appium启动了测试机上的app。我们可以在这个页面查看app当前页面的元素的属性，如下图，3所指便是弹窗【我知道了】按钮的元素属性，用于后面自动化测试过程中元素定位。</p>
+<p><img src="/2023/09/20/appium/1240-16952199938318.webp" alt="img"></p>
+<h4 id="4，python-appium启动夜神模拟器中的APP"><a href="#4，python-appium启动夜神模拟器中的APP" class="headerlink" title="4，python+appium启动夜神模拟器中的APP"></a>4，python+appium启动夜神模拟器中的APP</h4><p>4.1，获取夜神模模拟器的设备信息，以及被测app的信息（以今日头条APP为例）。获取方法跟博客<a target="_blank" rel="noopener" href="https://www.cnblogs.com/lfr0123/p/13512668.html?spm=a2c6h.12873639.article-detail.9.e7a81fe5W1WtFO">appium连接真机启动app</a>中第二部分的方法一样。</p>
+<p>4.2，根据获取到的参数信息，编写示例脚本如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"># -*- coding:utf-8 -*-</span><br><span class="line"># @author: 给你一页白纸</span><br><span class="line">from appium import webdriver</span><br><span class="line">desired_caps = &#123;</span><br><span class="line">    &quot;platformName&quot;: &quot;Android&quot;,</span><br><span class="line">    &quot;platformVersion&quot;: &quot;7.1.2&quot;,</span><br><span class="line">    &quot;deviceName&quot;: &quot;VOG_AL10&quot;,</span><br><span class="line">    &quot;appPackage&quot;: &quot;com.ss.android.article.news&quot;,</span><br><span class="line">    &quot;appActivity&quot;: &quot;.activity.MainActivity&quot;,</span><br><span class="line">    &quot;unicodeKeyboard&quot;: True,</span><br><span class="line">    &quot;resetKeyboard&quot;: True,</span><br><span class="line">    &quot;noReset&quot;: True,</span><br><span class="line">&#125;</span><br><span class="line"># 启动app</span><br><span class="line">driver = webdriver.Remote(&#x27;http://127.0.0.1:4723/wd/hub&#x27;, desired_caps)</span><br></pre></td></tr></table></figure>
+
+<h1 id="版本需要对应！"><a href="#版本需要对应！" class="headerlink" title="==版本需要对应！=="></a>==版本需要对应！==</h1><p>目前selenium4.12 appium-python-client2.11.1</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2023/09/06/%E9%9F%B3%E4%B9%90%E8%B5%84%E6%BA%90/" rel="next" title="音乐资源">
+                <i class="fa fa-chevron-left"></i> 音乐资源
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2023/09/21/pdf%E5%85%A8%E6%96%87%E7%BF%BB%E8%AF%91/" rel="prev" title="pdf全文翻译">
+                pdf全文翻译 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name"></p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/">
+    
+              
+                  <span class="site-state-item-count">75</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-%E9%85%8D%E7%8E%AF%E5%A2%83"><span class="nav-number">1.</span> <span class="nav-text">1.配环境</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#appium%EF%BC%8Csdk%E7%8E%AF%E5%A2%83"><span class="nav-number">1.1.</span> <span class="nav-text">appium，sdk环境</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A4%9C%E7%A5%9E%E6%A8%A1%E6%8B%9F%E5%99%A8"><span class="nav-number">1.2.</span> <span class="nav-text">夜神模拟器</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BA%8C%EF%BC%8C%E5%A4%9C%E7%A5%9E%E6%A8%A1%E6%8B%9F%E5%99%A8"><span class="nav-number">1.2.1.</span> <span class="nav-text">二，夜神模拟器</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1%EF%BC%8C%E4%B8%8B%E8%BD%BD%E3%80%81%E5%AE%89%E8%A3%85"><span class="nav-number">1.2.1.1.</span> <span class="nav-text">1，下载、安装</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%AC%AC%E4%B8%80%E4%B8%AA%E7%A8%8B%E5%BA%8F"><span class="nav-number">2.</span> <span class="nav-text">第一个程序</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Python-Appium%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95-2-appium%E8%BF%9E%E6%8E%A5%E7%9C%9F%E6%9C%BA%E5%90%AF%E5%8A%A8app"><span class="nav-number">2.1.</span> <span class="nav-text">Python+Appium自动化测试(2)-appium连接真机启动app</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%80%EF%BC%8C%E8%BF%9E%E6%8E%A5%E6%89%8B%E6%9C%BA%EF%BC%88%E6%B5%8B%E8%AF%95%E6%9C%BA%EF%BC%89"><span class="nav-number">2.1.1.</span> <span class="nav-text">一，连接手机（测试机）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BA%8C%EF%BC%8C%E8%8E%B7%E5%8F%96%E6%B5%8B%E8%AF%95%E6%89%8B%E6%9C%BA%E5%8F%8A%E8%A2%AB%E6%B5%8Bapp%E7%9A%84%E7%9B%B8%E5%BA%94%E4%BF%A1%E6%81%AF%EF%BC%88%E5%8D%B3capability%E9%85%8D%E7%BD%AE%E5%86%85%E5%AE%B9%EF%BC%89"><span class="nav-number">2.1.2.</span> <span class="nav-text">二，获取测试手机及被测app的相应信息（即capability配置内容）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%89%EF%BC%8Cappium%E5%90%AF%E5%8A%A8app"><span class="nav-number">2.1.3.</span> <span class="nav-text">三，appium启动app</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#4%EF%BC%8Cpython-appium%E5%90%AF%E5%8A%A8%E5%A4%9C%E7%A5%9E%E6%A8%A1%E6%8B%9F%E5%99%A8%E4%B8%AD%E7%9A%84APP"><span class="nav-number">2.1.3.1.</span> <span class="nav-text">4，python+appium启动夜神模拟器中的APP</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%89%88%E6%9C%AC%E9%9C%80%E8%A6%81%E5%AF%B9%E5%BA%94%EF%BC%81"><span class="nav-number">3.</span> <span class="nav-text">&#x3D;&#x3D;版本需要对应！&#x3D;&#x3D;</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2023</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">John Doe</span>
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

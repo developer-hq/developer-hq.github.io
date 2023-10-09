@@ -1,0 +1,868 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="en">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="x-ui 系统：debian 11.6  安装指令1bash &lt;(curl -Ls https:&#x2F;raw.githubusercontent.com&#x2F;vaxilu&#x2F;x-ui&#x2F;master&#x2F;install.sh)    打开面板vps安全组策略需要打开54321端口 1运行x-ui看程序有没有在运行。 2.netstat -tlnp | egrep 端口号，看端口 3.防火墙有没有放行该端口，">
+<meta property="og:type" content="article">
+<meta property="og:title" content="vps">
+<meta property="og:url" content="https://developer-hq.github.io/2023/05/17/vps/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="x-ui 系统：debian 11.6  安装指令1bash &lt;(curl -Ls https:&#x2F;raw.githubusercontent.com&#x2F;vaxilu&#x2F;x-ui&#x2F;master&#x2F;install.sh)    打开面板vps安全组策略需要打开54321端口 1运行x-ui看程序有没有在运行。 2.netstat -tlnp | egrep 端口号，看端口 3.防火墙有没有放行该端口，">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://developer-hq.github.io/2023/05/17/vps/image-20230606113906038.png">
+<meta property="article:published_time" content="2023-05-17T04:28:56.000Z">
+<meta property="article:modified_time" content="2023-09-18T14:52:20.939Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://developer-hq.github.io/2023/05/17/vps/image-20230606113906038.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://developer-hq.github.io/2023/05/17/vps/"/>
+
+
+
+
+
+  <title>vps | Hexo</title>
+  
+
+
+
+
+
+
+
+
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Hexo</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://developer-hq.github.io/2023/05/17/vps/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">vps</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2023-05-17T12:28:56+08:00">
+                2023-05-17
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="x-ui"><a href="#x-ui" class="headerlink" title="x-ui"></a>x-ui</h1><ul>
+<li>系统：debian 11.6</li>
+</ul>
+<h3 id="安装指令"><a href="#安装指令" class="headerlink" title="安装指令"></a>安装指令</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bash &lt;(curl -Ls https:/raw.githubusercontent.com/vaxilu/x-ui/master/install.sh)</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="打开面板"><a href="#打开面板" class="headerlink" title="打开面板"></a>打开面板</h3><p><strong>vps安全组策略需要打开54321端口</strong></p>
+<p>1运行x-ui看程序有没有在运行。</p>
+<p>2.netstat -tlnp | egrep 端口号，看端口</p>
+<p>3.防火墙有没有放行该端口，有的系统默认开启ufw的，需要ufw allow 端口号。</p>
+<h2 id="使用X-UI搭建代理服务，具有以下优点："><a href="#使用X-UI搭建代理服务，具有以下优点：" class="headerlink" title="使用X-UI搭建代理服务，具有以下优点："></a>使用X-UI搭建代理服务，具有以下优点：</h2><ul>
+<li>支持系统状态监控：如CPU、内存、硬盘等状态</li>
+<li>支持多用户多协议，网页可视化操作</li>
+<li>支持流量统计</li>
+<li>支持自定义Xray配置模板</li>
+<li>支持HTTPS访问面板</li>
+<li>支持面板自定义端口，账号与密码</li>
+<li>快速生成分享连接或二维码</li>
+<li>支持CDN套用</li>
+<li>支持Fallback分流设置</li>
+</ul>
+<h2 id="一、-准备工作"><a href="#一、-准备工作" class="headerlink" title="一、 准备工作"></a>一、 准备工作</h2><ul>
+<li>1、已经解析的域名，Win+R输入CMD 回车：键入ping 空格输入你的域名，检查一下是否可以ping通</li>
+<li>2、一台境外VPS主流系统，例如：Debian/Ubuntu/CentOS</li>
+<li>3、下载并安装FinalShell SSH工具</li>
+</ul>
+<p>官网下载地址: <a target="_blank" rel="noopener" href="https://www.hostbuf.com/c/131.html">https://www.hostbuf.com/c/131.html</a></p>
+<h2 id="二、安装更新运行环境"><a href="#二、安装更新运行环境" class="headerlink" title="二、安装更新运行环境"></a>二、安装更新运行环境</h2><h2 id="安装-X-ui-面板"><a href="#安装-X-ui-面板" class="headerlink" title="安装 X-ui 面板"></a>安装 X-ui 面板</h2><h3 id="申请-SSL-证书"><a href="#申请-SSL-证书" class="headerlink" title="申请 SSL 证书"></a>申请 SSL 证书</h3><p>下面环境的安装方式，大家根据自己的系统选择命令安装就好了。</p>
+<h3 id="1、Debian-Ubuntu系统执行以下命令："><a href="#1、Debian-Ubuntu系统执行以下命令：" class="headerlink" title="1、Debian/Ubuntu系统执行以下命令："></a>1、Debian/Ubuntu系统执行以下命令：</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt update -y &amp;&amp; apt install -y curl &amp;&amp; apt install -y socat</span><br></pre></td></tr></table></figure>
+
+<h3 id="2、CentOS系统执行以下命令："><a href="#2、CentOS系统执行以下命令：" class="headerlink" title="2、CentOS系统执行以下命令："></a>2、CentOS系统执行以下命令：</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum update -y &amp;&amp; yum update -y &amp;&amp; yum install -y socat</span><br></pre></td></tr></table></figure>
+
+<h3 id="运行Acme脚本"><a href="#运行Acme脚本" class="headerlink" title="运行Acme脚本"></a>运行Acme脚本</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl https://get.acme.sh | sh</span><br></pre></td></tr></table></figure>
+
+<h3 id="申请证书及密钥"><a href="#申请证书及密钥" class="headerlink" title="申请证书及密钥"></a>申请证书及密钥</h3><p>【将代码中注释的邮箱和域名，改为你自己的】</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">~/.acme.sh/acme.sh --register-account -m xxxx@gmail.com</span><br></pre></td></tr></table></figure>
+
+<hr>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">~/.acme.sh/acme.sh  --issue -d 输入你的域名  --standalone</span><br></pre></td></tr></table></figure>
+
+<h3 id="下载证书及密钥"><a href="#下载证书及密钥" class="headerlink" title="下载证书及密钥"></a>下载证书及密钥</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">~/.acme.sh/acme.sh --installcert -d 输入你的域名 --key-file /root/private.key --fullchain-file /root/cert.crt</span><br></pre></td></tr></table></figure>
+
+<h3 id="安装-amp-升级x-ui面板一键脚本"><a href="#安装-amp-升级x-ui面板一键脚本" class="headerlink" title="安装&amp;升级x-ui面板一键脚本"></a>安装&amp;升级x-ui面板一键脚本</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bash &lt;(curl -Ls https://raw.githubusercontent.com/vaxilu/x-ui/master/install.sh)</span><br></pre></td></tr></table></figure>
+
+<h3 id="BBR2加速"><a href="#BBR2加速" class="headerlink" title="BBR2加速"></a>BBR2加速</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget --no-check-certificate -q -O bbr2.sh &quot;https://github.com/yeyingorg/bbr2.sh/raw/master/bbr2.sh&quot; &amp;&amp; chmod +x bbr2.sh &amp;&amp; bash bbr2.sh auto</span><br></pre></td></tr></table></figure>
+
+<h2 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h2><ul>
+<li>1、如何在申请证书及密钥这一步搭建失败，检查并放行端口，口令如下：</li>
+</ul>
+<h3 id="放行80端口，放行443端口，把80改成443"><a href="#放行80端口，放行443端口，把80改成443" class="headerlink" title="放行80端口，放行443端口，把80改成443"></a>放行80端口，放行443端口，把80改成443</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">iptables -I INPUT -p tcp --dport 80 -j ACCEPT &amp;&amp; iptables -I INPUT -p tcp --dport 443 -j ACCEPT &amp;&amp; iptables -I INPUT -p tcp --dport 49999 -j ACCEPT</span><br></pre></td></tr></table></figure>
+
+<h3 id="放行监听端口"><a href="#放行监听端口" class="headerlink" title="放行监听端口"></a>放行监听端口</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">iptables -I INPUT -p tcp --dport 56789 -j ACCEPT &amp;&amp; iptables -I INPUT -p tcp --dport 56790 -j ACCEPT &amp;&amp; iptables -I INPUT -p tcp --dport 56791 -j ACCEPT</span><br></pre></td></tr></table></figure>
+
+<p>查看已开放的端口</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">firewall-cmd --list-ports</span><br></pre></td></tr></table></figure>
+
+<p>开放端口（开放后需要要重启防火墙才生效）</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">firewall-cmd --zone=public --add-port=3338/tcp --permanent</span><br></pre></td></tr></table></figure>
+
+<p>重启防火墙</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">firewall-cmd --reload</span><br></pre></td></tr></table></figure>
+
+<p>停止防火墙</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl stop firewalld</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>2、如果是全新安装，默认网页端口为 54321，用户名和密码默认都是 admin ， 如何遇到打不开的情况，可能是端口没有放行，用【方法1】键入停止防火墙代码，或键入开放端口代码。</li>
+<li>3、V2ray软件：设置——参数设置——V2rayN设置——Core类型改为Xray_Core</li>
+</ul>
+<h1 id="Cloudflare-Warp-原生-IP"><a href="#Cloudflare-Warp-原生-IP" class="headerlink" title="Cloudflare Warp 原生 IP"></a>Cloudflare Warp 原生 IP</h1><p>很多我们需要访问的网站都需要使用“原生 IP”，比如：<a target="_blank" rel="noopener" href="https://www.disneyplus.com/">Disney+</a>， <a target="_blank" rel="noopener" href="https://chat.openai.com/">ChatGPT</a>，<a target="_blank" rel="noopener" href="https://www.bing.com/">New Bing</a> 等。</p>
+<p>所谓“原生 IP”就是指该网站的 IP 地址和其机房的 IP 地址是一致的，但是，很多 IDC 提供商的 IP  都是从其它国家调配来的，这导致我们就算是翻墙了，也是使用了美国的 VPS，但是还是访问不了相关的服务。所以，我们需要使用 Cloudflare  Warp 来访问这些网站。</p>
+<p>下面有几种安装方式：</p>
+<ul>
+<li>全局模式。这种模式下，所有流量都会通过 Cloudflare 的网络，相当于VPN。</li>
+<li>代理模式。通过在服务器本机启动一个 SOCKS5 代理，然后把需要的流量转发到这个代理上。</li>
+</ul>
+<h4 id="10-4-1-WARP-模式"><a href="#10-4-1-WARP-模式" class="headerlink" title="10.4.1 WARP 模式"></a>10.4.1 WARP 模式</h4><p>WARP 模式是 Cloudflare 提供的一种全局代理模式，就是一个客户端的 VPN，它会将你的所有流量都通过 Cloudflare 的网络，这样就能访问到原生 IP 了。</p>
+<p>你可以使用这个一键安装的脚本来快速完成安装 <a target="_blank" rel="noopener" href="https://github.com/P3TERX/warp.sh">https://github.com/P3TERX/warp.sh</a></p>
+<p>下载脚本 运行脚本 中文菜单</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget git.io/warp.sh &amp;&amp; chmod +x warp.sh </span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./warp.sh menu</span><br></pre></td></tr></table></figure>
+
+<p>先后执行如下安装：</p>
+<ul>
+<li>1 - 安装 Cloudflare WARP 官方客户端</li>
+<li>4 - 安装 WireGuard 相关组件</li>
+<li>7 - 自动配置 WARP WireGuard 双栈全局网络</li>
+</ul>
+<blockquote>
+</blockquote>
+<blockquote>
+<p>Note</p>
+<ol>
+<li><p>如果没有 IPv6 网络，那么第 7 步可以换成第 5 步 自动配置 WARP WireGuard IPv4 网络，或是执行 <code>./warp.sh 4</code>。</p>
+</li>
+<li><p>你需要备份一下你的帐号和配置文件，在 <code>/etc/warp/</code> 目录下，主要是两个文件，一个是 <code>wgcf-account.toml</code>，一个是 <code>wgcf-profile.conf</code></p>
+</li>
+<li><p>这个脚本会启动两个 Systemd 服务，一个是 <code>warp-svc</code>，另一个是 <code>wg-quick@wgcf</code>。第一个是 Cloudflare Warp 的服务，第二个是 WireGuard 的服务。</p>
+</li>
+<li><p>你可以使用 <code>./warp.sh status</code> 来查看服务的状态，如果正常的话，会显示如下的信息。如果你的服务没有正常启动，那么会自动 <code>disable wg-quick@wgcf</code>，如果这样的话，你可以使用 <code>./warp.sh d</code>（IPv4 + IPv6 双栈网格）或是 <code>./warp.sh 4</code>（IPv4 网络） 来重头走一遍所有的安装过程。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">WireGuard	: Running</span><br><span class="line">IPv4 Network	: WARP</span><br><span class="line">IPv6 Network	: WARP</span><br></pre></td></tr></table></figure></li>
+</ol>
+</blockquote>
+<p>使用 <code>curl ipinfo.io</code> 命令来检查你的 IP 地址，如果显示的是 Cloudflare 的 IP 地址，那么恭喜你，你已经成功了。如：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  &quot;ip&quot;: &quot;104.28.227.191&quot;,</span><br><span class="line">  &quot;city&quot;: &quot;Los Angeles&quot;,</span><br><span class="line">  &quot;region&quot;: &quot;California&quot;,</span><br><span class="line">  &quot;country&quot;: &quot;US&quot;,</span><br><span class="line">  &quot;loc&quot;: &quot;34.0522,-118.2437&quot;,</span><br><span class="line">  &quot;org&quot;: &quot;AS13335 Cloudflare, Inc.&quot;,</span><br><span class="line">  &quot;postal&quot;: &quot;90009&quot;,</span><br><span class="line">  &quot;timezone&quot;: &quot;America/Los_Angeles&quot;,</span><br><span class="line">  &quot;readme&quot;: &quot;https://ipinfo.io/missingauth&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="trojan-panel"><a href="#trojan-panel" class="headerlink" title="trojan-panel"></a>trojan-panel</h1><h3 id="云解析"><a href="#云解析" class="headerlink" title="云解析"></a>云解析</h3><p>阿里云把域名解析到服务器ip</p>
+<h3 id="关闭防火墙"><a href="#关闭防火墙" class="headerlink" title="关闭防火墙"></a>关闭防火墙</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ufw disable</span><br></pre></td></tr></table></figure>
+
+<h3 id="放行80-443-8888以及监听端口"><a href="#放行80-443-8888以及监听端口" class="headerlink" title="放行80 443 8888以及监听端口"></a>放行80 443 8888以及监听端口</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">iptables -I INPUT -p tcp --dport 80 -j ACCEPT &amp;&amp; iptables -I INPUT -p tcp --dport 443 -j ACCEPT &amp;&amp; iptables -I INPUT -p tcp --dport 8888 -j ACCEPT &amp;&amp; iptables -I INPUT -p tcp --dport 6500 -j ACCEPT &amp;&amp; iptables -I INPUT -p tcp --dport 6501 -j ACCEPT &amp;&amp; iptables -I INPUT -p tcp --dport 6502 -j ACCEPT &amp;&amp; iptables -I INPUT -p tcp --dport 8100 -j ACCEPT</span><br></pre></td></tr></table></figure>
+
+<h3 id="先安trojan-panel"><a href="#先安trojan-panel" class="headerlink" title="先安trojan panel"></a>先安trojan panel</h3><p><a target="_blank" rel="noopener" href="https://trojanpanel.github.io/install-tutorial/installation.html#%E5%87%86%E5%A4%87">https://trojanpanel.github.io/install-tutorial/installation.html#%E5%87%86%E5%A4%87</a></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">source &lt;(curl -L https://github.com/trojanpanel/install-script/raw/main/install_script.sh)</span><br></pre></td></tr></table></figure>
+
+<p>运行123，安装前后端和内核</p>
+<p>运行这个命令来安装前后端，安装一部分就要运行一次这个</p>
+<p><img src="/2023/05/17/vps/image-20230606113906038.png" alt="image-20230606113906038"></p>
+<h3 id="Warp-cloudflare"><a href="#Warp-cloudflare" class="headerlink" title="Warp cloudflare"></a>Warp cloudflare</h3><p>下载脚本 运行脚本 中文菜单</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget git.io/warp.sh &amp;&amp; chmod +x warp.sh </span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./warp.sh menu</span><br></pre></td></tr></table></figure>
+
+<p>先后执行如下安装：</p>
+<ul>
+<li>1 - 安装 Cloudflare WARP 官方客户端</li>
+<li>4 - 安装 WireGuard 相关组件</li>
+<li>7 - 自动配置 WARP WireGuard 双栈全局网络</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl ipinfo.io</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">curl https://www.bing.com/search?q=why -I</span><br><span class="line">curl -x socks5://127.0.0.1:40000 https://www.bing.com/search?q=why -I</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+<p>看一下ip</p>
+<h3 id="网页端设置"><a href="#网页端设置" class="headerlink" title="网页端设置"></a>网页端设置</h3><p>先设置服务器</p>
+<p>再设置节点</p>
+<h1 id="BBR2加速-1"><a href="#BBR2加速-1" class="headerlink" title="BBR2加速"></a>BBR2加速</h1><p>trojan-panel不能用bbr2，开了就崩</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget --no-check-certificate -q -O bbr2.sh &quot;https://github.com/yeyingorg/bbr2.sh/raw/master/bbr2.sh&quot; &amp;&amp; chmod +x bbr2.sh &amp;&amp; bash bbr2.sh auto</span><br></pre></td></tr></table></figure>
+
+
+
+<h1 id="移动端vpn配置"><a href="#移动端vpn配置" class="headerlink" title="移动端vpn配置"></a>移动端vpn配置</h1><p>==<strong>使用shadowrock</strong>==</p>
+<p><a target="_blank" rel="noopener" href="https://johnshall.github.io/Shadowrocket-ADBlock-Rules-Forever/#">https://johnshall.github.io/Shadowrocket-ADBlock-Rules-Forever/#</a></p>
+<h2 id="规则使用方法"><a href="#规则使用方法" class="headerlink" title="规则使用方法"></a>规则使用方法</h2><p>方法一：用 Safari 或 ShadowRocket 扫描二维码即可。<br> 方法二：在 ShadowRocket 应用中，进入 [配置] 页面，点击右上角加号，将规则文件地址粘贴到 url 处，点击“下载”即可。</p>
+<p>最好让 ShadowRocket 断开并重新连接一次，以确保新的规则文件生效。</p>
+<h2 id="如何自动更新"><a href="#如何自动更新" class="headerlink" title="如何自动更新"></a>如何自动更新</h2><p>步骤一：安装<a target="_blank" rel="noopener" href="https://www.icloud.com/shortcuts/20bd590bc99e4ef0a157d2fe6e8c273d">捷径</a>，并填写规则文件地址；<br> 步骤二：打开“快捷指令”下方的“自动化”，轻击右上角加号，点击“创建个人自动化”，选择“特定时间”，设定时间为 8:05  或更晚的时间（规则生成需要一定时间），点击下一步，点击添加操作，选择 APP  栏，找到快捷指令，选择“运行快捷指令”，点击浅色“快捷指令”，选择“Shadowrocket  规则自动更新”，点击下一步，关闭运行前询问（可选），点击完成即可。</p>
+<p>如果出现无法正常跳转 Safari 对 google.cn 的请求的情况，请在每次更新后点击规则后方的ℹ️，点击 HTTPS 解密，将 HTTPS 解密关闭，返回，再开启，即可正常跳转。</p>
+<p><strong>==使用黑名单模式==</strong></p>
+<h2 id="黑名单过滤-广告"><a href="#黑名单过滤-广告" class="headerlink" title="黑名单过滤 + 广告"></a>黑名单过滤 + 广告</h2><p>黑名单中包含了境外网站中无法访问的那些，对不确定的网站则默认直连。</p>
+<ul>
+<li>代理：被墙的网站（GFWList）</li>
+<li>直连：正常的网站</li>
+<li>包含广告过滤</li>
+</ul>
+<p>规则地址：<a target="_blank" rel="noopener" href="https://johnshall.github.io/Shadowrocket-ADBlock-Rules-Forever/sr_top500_banlist_ad.conf">https://johnshall.github.io/Shadowrocket-ADBlock-Rules-Forever/sr_top500_banlist_ad.conf</a></p>
+<h1 id="trojan"><a href="#trojan" class="headerlink" title="trojan"></a>trojan</h1><p><a target="_blank" rel="noopener" href="https://github.com/Jrohy/trojan">https://github.com/Jrohy/trojan</a></p>
+<h1 id="bbr"><a href="#bbr" class="headerlink" title="bbr"></a>bbr</h1><p><a target="_blank" rel="noopener" href="https://teddysun.com/489.html">https://teddysun.com/489.html</a> </p>
+<h1 id="RackNerd"><a href="#RackNerd" class="headerlink" title="RackNerd"></a>RackNerd</h1><h2 id="1-没有curl，apt-update报错"><a href="#1-没有curl，apt-update报错" class="headerlink" title="1.没有curl，apt update报错"></a>1.没有curl，apt update报错</h2><p>换源</p>
+<ol>
+<li><p>方式1： 更换/etc/apt/sources.list文件里的源</p>
+<p> 备份源列表</p>
+<p> Linux配置的默认源并不是国内的服务器，下载更新软件都比较慢。首先备份源列表文件sources.list：</p>
+<p> <strong>sudo cp /etc/apt/sources.list /etc/apt/sources.list_backup20221122 #备份源列表</strong></p>
+<p> 修改源列表文件</p>
+<p> <strong>sudo gedit /etc/apt/sources.list # 打开sources.list文件</strong></p>
+<p> 编辑/etc/apt/sources.list文件, 在文件最前面添加镜像源:</p>
+</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">deb http://httpredir.debian.org/debian-debug buster-debug main contrib non-free</span><br><span class="line">deb http://httpredir.debian.org/debian buster main contrib non-free</span><br><span class="line">deb-src http://ftp.debian.org/debian buster main contrib non-free</span><br><span class="line"></span><br><span class="line">deb http://security.debian.org/ buster/updates main contrib non-free</span><br><span class="line">deb-src http://security.debian.org/ buster/updates main contrib non-free</span><br><span class="line"></span><br><span class="line">deb http://deb.debian.org/debian stretch-updates main contrib non-free</span><br><span class="line">deb-src http://deb.debian.org/debian stretch-updates main contrib non-free</span><br><span class="line"></span><br><span class="line">deb http://www.bchemnet.com/suldr/ debian extra</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="2-安装trojan"><a href="#2-安装trojan" class="headerlink" title="2.安装trojan"></a>2.安装trojan</h2><p>放行防火墙</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">iptables -I INPUT -p tcp --dport 80 -j ACCEPT &amp;&amp; iptables -I INPUT -p tcp --dport 443 -j ACCEPT &amp;&amp; iptables -I INPUT -p tcp --dport 8888 -j ACCEPT &amp;&amp; iptables -I INPUT -p tcp --dport 6500 -j ACCEPT &amp;&amp; iptables -I INPUT -p tcp --dport 6501 -j ACCEPT &amp;&amp; iptables -I INPUT -p tcp --dport 6502 -j ACCEPT &amp;&amp; iptables -I INPUT -p tcp --dport 8100 -j ACCEPT</span><br></pre></td></tr></table></figure>
+
+<p>安装</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">source &lt;(curl -sL https://git.io/trojan-install)</span><br></pre></td></tr></table></figure>
+
+<p>安装mysql</p>
+<p>随便选个证书</p>
+<h2 id="3-chatgpt-newbing"><a href="#3-chatgpt-newbing" class="headerlink" title="3.chatgpt newbing"></a>3.chatgpt newbing</h2><h3 id="Warp-cloudflare-1"><a href="#Warp-cloudflare-1" class="headerlink" title="Warp cloudflare"></a>Warp cloudflare</h3><p>下载脚本 运行脚本 中文菜单</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget git.io/warp.sh &amp;&amp; chmod +x warp.sh </span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./warp.sh menu</span><br></pre></td></tr></table></figure>
+
+<p>先后执行如下安装：</p>
+<ul>
+<li>1 - 安装 Cloudflare WARP 官方客户端</li>
+<li>4 - 安装 WireGuard 相关组件</li>
+<li>7 - 自动配置 WARP WireGuard 双栈全局网络</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl ipinfo.io</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">curl https://www.bing.com/search?q=why -I</span><br><span class="line">curl -x socks5://127.0.0.1:40000 https://www.bing.com/search?q=why -I</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="bbr-1"><a href="#bbr-1" class="headerlink" title="bbr"></a>bbr</h2>
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2023/05/10/Transformer/" rel="next" title="Transformer">
+                <i class="fa fa-chevron-left"></i> Transformer
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2023/06/03/%E6%A8%A1%E5%9E%8B%E4%BF%9D%E5%AD%98%E4%B8%8E%E8%AF%BB%E5%8F%96/" rel="prev" title="模型保存与读取">
+                模型保存与读取 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name"></p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/">
+    
+              
+                  <span class="site-state-item-count">75</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#x-ui"><span class="nav-number">1.</span> <span class="nav-text">x-ui</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%89%E8%A3%85%E6%8C%87%E4%BB%A4"><span class="nav-number">1.0.1.</span> <span class="nav-text">安装指令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%89%93%E5%BC%80%E9%9D%A2%E6%9D%BF"><span class="nav-number">1.0.2.</span> <span class="nav-text">打开面板</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8X-UI%E6%90%AD%E5%BB%BA%E4%BB%A3%E7%90%86%E6%9C%8D%E5%8A%A1%EF%BC%8C%E5%85%B7%E6%9C%89%E4%BB%A5%E4%B8%8B%E4%BC%98%E7%82%B9%EF%BC%9A"><span class="nav-number">1.1.</span> <span class="nav-text">使用X-UI搭建代理服务，具有以下优点：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%80%E3%80%81-%E5%87%86%E5%A4%87%E5%B7%A5%E4%BD%9C"><span class="nav-number">1.2.</span> <span class="nav-text">一、 准备工作</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%8C%E3%80%81%E5%AE%89%E8%A3%85%E6%9B%B4%E6%96%B0%E8%BF%90%E8%A1%8C%E7%8E%AF%E5%A2%83"><span class="nav-number">1.3.</span> <span class="nav-text">二、安装更新运行环境</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%89%E8%A3%85-X-ui-%E9%9D%A2%E6%9D%BF"><span class="nav-number">1.4.</span> <span class="nav-text">安装 X-ui 面板</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%94%B3%E8%AF%B7-SSL-%E8%AF%81%E4%B9%A6"><span class="nav-number">1.4.1.</span> <span class="nav-text">申请 SSL 证书</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1%E3%80%81Debian-Ubuntu%E7%B3%BB%E7%BB%9F%E6%89%A7%E8%A1%8C%E4%BB%A5%E4%B8%8B%E5%91%BD%E4%BB%A4%EF%BC%9A"><span class="nav-number">1.4.2.</span> <span class="nav-text">1、Debian&#x2F;Ubuntu系统执行以下命令：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2%E3%80%81CentOS%E7%B3%BB%E7%BB%9F%E6%89%A7%E8%A1%8C%E4%BB%A5%E4%B8%8B%E5%91%BD%E4%BB%A4%EF%BC%9A"><span class="nav-number">1.4.3.</span> <span class="nav-text">2、CentOS系统执行以下命令：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BF%90%E8%A1%8CAcme%E8%84%9A%E6%9C%AC"><span class="nav-number">1.4.4.</span> <span class="nav-text">运行Acme脚本</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%94%B3%E8%AF%B7%E8%AF%81%E4%B9%A6%E5%8F%8A%E5%AF%86%E9%92%A5"><span class="nav-number">1.4.5.</span> <span class="nav-text">申请证书及密钥</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%8B%E8%BD%BD%E8%AF%81%E4%B9%A6%E5%8F%8A%E5%AF%86%E9%92%A5"><span class="nav-number">1.4.6.</span> <span class="nav-text">下载证书及密钥</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%89%E8%A3%85-amp-%E5%8D%87%E7%BA%A7x-ui%E9%9D%A2%E6%9D%BF%E4%B8%80%E9%94%AE%E8%84%9A%E6%9C%AC"><span class="nav-number">1.4.7.</span> <span class="nav-text">安装&amp;升级x-ui面板一键脚本</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#BBR2%E5%8A%A0%E9%80%9F"><span class="nav-number">1.4.8.</span> <span class="nav-text">BBR2加速</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9"><span class="nav-number">1.5.</span> <span class="nav-text">注意事项</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%94%BE%E8%A1%8C80%E7%AB%AF%E5%8F%A3%EF%BC%8C%E6%94%BE%E8%A1%8C443%E7%AB%AF%E5%8F%A3%EF%BC%8C%E6%8A%8A80%E6%94%B9%E6%88%90443"><span class="nav-number">1.5.1.</span> <span class="nav-text">放行80端口，放行443端口，把80改成443</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%94%BE%E8%A1%8C%E7%9B%91%E5%90%AC%E7%AB%AF%E5%8F%A3"><span class="nav-number">1.5.2.</span> <span class="nav-text">放行监听端口</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Cloudflare-Warp-%E5%8E%9F%E7%94%9F-IP"><span class="nav-number">2.</span> <span class="nav-text">Cloudflare Warp 原生 IP</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#10-4-1-WARP-%E6%A8%A1%E5%BC%8F"><span class="nav-number">2.0.0.1.</span> <span class="nav-text">10.4.1 WARP 模式</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#trojan-panel"><span class="nav-number">3.</span> <span class="nav-text">trojan-panel</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BA%91%E8%A7%A3%E6%9E%90"><span class="nav-number">3.0.1.</span> <span class="nav-text">云解析</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%85%B3%E9%97%AD%E9%98%B2%E7%81%AB%E5%A2%99"><span class="nav-number">3.0.2.</span> <span class="nav-text">关闭防火墙</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%94%BE%E8%A1%8C80-443-8888%E4%BB%A5%E5%8F%8A%E7%9B%91%E5%90%AC%E7%AB%AF%E5%8F%A3"><span class="nav-number">3.0.3.</span> <span class="nav-text">放行80 443 8888以及监听端口</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%85%88%E5%AE%89trojan-panel"><span class="nav-number">3.0.4.</span> <span class="nav-text">先安trojan panel</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Warp-cloudflare"><span class="nav-number">3.0.5.</span> <span class="nav-text">Warp cloudflare</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BD%91%E9%A1%B5%E7%AB%AF%E8%AE%BE%E7%BD%AE"><span class="nav-number">3.0.6.</span> <span class="nav-text">网页端设置</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#BBR2%E5%8A%A0%E9%80%9F-1"><span class="nav-number">4.</span> <span class="nav-text">BBR2加速</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%A7%BB%E5%8A%A8%E7%AB%AFvpn%E9%85%8D%E7%BD%AE"><span class="nav-number">5.</span> <span class="nav-text">移动端vpn配置</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%84%E5%88%99%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95"><span class="nav-number">5.1.</span> <span class="nav-text">规则使用方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A6%82%E4%BD%95%E8%87%AA%E5%8A%A8%E6%9B%B4%E6%96%B0"><span class="nav-number">5.2.</span> <span class="nav-text">如何自动更新</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%BB%91%E5%90%8D%E5%8D%95%E8%BF%87%E6%BB%A4-%E5%B9%BF%E5%91%8A"><span class="nav-number">5.3.</span> <span class="nav-text">黑名单过滤 + 广告</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#trojan"><span class="nav-number">6.</span> <span class="nav-text">trojan</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#bbr"><span class="nav-number">7.</span> <span class="nav-text">bbr</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#RackNerd"><span class="nav-number">8.</span> <span class="nav-text">RackNerd</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-%E6%B2%A1%E6%9C%89curl%EF%BC%8Capt-update%E6%8A%A5%E9%94%99"><span class="nav-number">8.1.</span> <span class="nav-text">1.没有curl，apt update报错</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-%E5%AE%89%E8%A3%85trojan"><span class="nav-number">8.2.</span> <span class="nav-text">2.安装trojan</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-chatgpt-newbing"><span class="nav-number">8.3.</span> <span class="nav-text">3.chatgpt newbing</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Warp-cloudflare-1"><span class="nav-number">8.3.1.</span> <span class="nav-text">Warp cloudflare</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#bbr-1"><span class="nav-number">8.4.</span> <span class="nav-text">bbr</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2023</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">John Doe</span>
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

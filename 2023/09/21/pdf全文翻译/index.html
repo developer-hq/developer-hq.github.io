@@ -1,0 +1,728 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="en">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="先说大佬写的太强了 使用 把要翻译的文件复制到trans&#x2F;input_file文件夹 打开trans_file.py ，第39行，修改文件名 现在默认test，也可以直接改名为test 运行trans_file.py 输出文件在output_file文件夹  可维护： 重写一下路径，网页版不知道怎么弄 https:&#x2F;&#x2F;github.com&#x2F;QPromise&#x2F;EasyTrans EasyTrans2">
+<meta property="og:type" content="article">
+<meta property="og:title" content="pdf全文翻译">
+<meta property="og:url" content="https://developer-hq.github.io/2023/09/21/pdf%E5%85%A8%E6%96%87%E7%BF%BB%E8%AF%91/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="先说大佬写的太强了 使用 把要翻译的文件复制到trans&#x2F;input_file文件夹 打开trans_file.py ，第39行，修改文件名 现在默认test，也可以直接改名为test 运行trans_file.py 输出文件在output_file文件夹  可维护： 重写一下路径，网页版不知道怎么弄 https:&#x2F;&#x2F;github.com&#x2F;QPromise&#x2F;EasyTrans EasyTrans2">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://developer-hq.github.io/2023/09/21/pdf%E5%85%A8%E6%96%87%E7%BF%BB%E8%AF%91/68747470733a2f2f692e6c6f6c692e6e65742f323031392f30352f32342f3563653766306138323566363832303039332e676966.gif">
+<meta property="og:image" content="https://developer-hq.github.io/2023/09/21/pdf%E5%85%A8%E6%96%87%E7%BF%BB%E8%AF%91/68747470733a2f2f73322e617831782e636f6d2f323031392f30352f32342f5669376a79742e676966.gif">
+<meta property="og:image" content="https://developer-hq.github.io/2023/09/21/pdf%E5%85%A8%E6%96%87%E7%BF%BB%E8%AF%91/68747470733a2f2f692e6c6f6c692e6e65742f323031392f30352f32332f3563653661663039623464643634353336342e676966.gif">
+<meta property="og:image" content="https://developer-hq.github.io/2023/09/21/pdf%E5%85%A8%E6%96%87%E7%BF%BB%E8%AF%91/68747470733a2f2f692e6c6f6c692e6e65742f323031392f30352f32342f3563653736313234626435653035383435302e706e67.png">
+<meta property="article:published_time" content="2023-09-21T14:45:19.000Z">
+<meta property="article:modified_time" content="2023-09-21T14:49:47.540Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://developer-hq.github.io/2023/09/21/pdf%E5%85%A8%E6%96%87%E7%BF%BB%E8%AF%91/68747470733a2f2f692e6c6f6c692e6e65742f323031392f30352f32342f3563653766306138323566363832303039332e676966.gif">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://developer-hq.github.io/2023/09/21/pdf全文翻译/"/>
+
+
+
+
+
+  <title>pdf全文翻译 | Hexo</title>
+  
+
+
+
+
+
+
+
+
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Hexo</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://developer-hq.github.io/2023/09/21/pdf%E5%85%A8%E6%96%87%E7%BF%BB%E8%AF%91/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">pdf全文翻译</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2023-09-21T22:45:19+08:00">
+                2023-09-21
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>先说大佬写的太强了</p>
+<h1 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h1><ul>
+<li>把要翻译的文件复制到trans/input_file文件夹</li>
+<li>打开trans_file.py ，第39行，修改文件名</li>
+<li>现在默认test，也可以直接改名为test</li>
+<li>运行trans_file.py</li>
+<li>输出文件在output_file文件夹</li>
+</ul>
+<p>可维护：</p>
+<p>重写一下路径，网页版不知道怎么弄</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/QPromise/EasyTrans">https://github.com/QPromise/EasyTrans</a></p>
+<h1 id="EasyTrans"><a href="#EasyTrans" class="headerlink" title="EasyTrans"></a><a target="_blank" rel="noopener" href="https://github.com/QPromise/EasyTrans#easytrans">EasyTrans</a></h1><h2 id="2019-12-14说明"><a href="#2019-12-14说明" class="headerlink" title="2019.12.14说明"></a><a target="_blank" rel="noopener" href="https://github.com/QPromise/EasyTrans#20191214%E8%AF%B4%E6%98%8E">2019.12.14说明</a></h2><ul>
+<li>由于之前<a target="_blank" rel="noopener" href="https://github.com/pymupdf/PyMuPDF">PyMupDF</a>包更新到1.16.9版本，函数进行了改动造成了程序运行错误，未及时跟进更新给各位带来的不便深感抱歉，当前已进行修复。</li>
+<li>必应翻译接口现在已不能使用，新增百度翻译接口，需要换成自己的API，申请点<a target="_blank" rel="noopener" href="http://api.fanyi.baidu.com/api/trans">这里</a></li>
+</ul>
+<h2 id="目的"><a href="#目的" class="headerlink" title="目的"></a><a target="_blank" rel="noopener" href="https://github.com/QPromise/EasyTrans#%E7%9B%AE%E7%9A%84">目的</a></h2><ul>
+<li>看英文论文去各个翻译网站对比翻译结果的时间消耗。</li>
+<li>下载翻译后的pdf以及word要花钱，如翻译狗，有道等。</li>
+<li>必应的英译汉翻译文档时个人认为比较好用。（原来的必应翻译已弃用，可自己实现）</li>
+</ul>
+<h2 id="实现"><a href="#实现" class="headerlink" title="实现"></a><a target="_blank" rel="noopener" href="https://github.com/QPromise/EasyTrans#%E5%AE%9E%E7%8E%B0">实现</a></h2><ul>
+<li>基于django、PyMuPdf、谷歌、有道翻译实现了pdf英译汉的功能，翻译后的pdf格式基本保持不变，可以下载docx和pdf格式的翻译文档，简单的满足看论文以及写总结的需求。</li>
+</ul>
+<h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a><a target="_blank" rel="noopener" href="https://github.com/QPromise/EasyTrans#%E9%97%AE%E9%A2%98">问题</a></h2><ul>
+<li>word不能实现pdf一样的排版，翻译后的pdf还是存在样式问题（需要考虑的很多，慢慢做优化）。</li>
+<li>表格无法写入，公示混乱。</li>
+<li>搜狗翻译接口未实现。</li>
+<li>有道翻译长句子有问题，建议使用谷歌、百度。</li>
+</ul>
+<h2 id="环境"><a href="#环境" class="headerlink" title="环境"></a><a target="_blank" rel="noopener" href="https://github.com/QPromise/EasyTrans#%E7%8E%AF%E5%A2%83">环境</a></h2><blockquote>
+<p>开发环境的系统平台为 Windows 10 （64 位），Python 版本为 3.6 （64 位），Django版本为 2.2</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">atomicwrites==1.3.0</span><br><span class="line">attrs==19.1.0</span><br><span class="line">certifi==2019.3.9</span><br><span class="line">chardet==3.0.4</span><br><span class="line">colorama==0.4.1</span><br><span class="line">Django==2.2.1</span><br><span class="line">docx==0.2.4</span><br><span class="line">idna==2.8</span><br><span class="line">Js2Py==0.63</span><br><span class="line">lxml==4.3.3</span><br><span class="line">more-itertools==7.0.0</span><br><span class="line">pdfminer3k==1.3.1</span><br><span class="line">Pillow==6.0.0</span><br><span class="line">pluggy==0.11.0</span><br><span class="line">ply==3.11</span><br><span class="line">py==1.8.0</span><br><span class="line">PyExecJS==1.5.1</span><br><span class="line">pyjsparser==2.7.1</span><br><span class="line">PyMuPDF==1.16.9</span><br><span class="line">PyPDF2==1.26.0</span><br><span class="line">pytest==4.5.0</span><br><span class="line">python-docx==0.8.10</span><br><span class="line">pytz==2019.1</span><br><span class="line">requests==2.21.0</span><br><span class="line">six==1.12.0</span><br><span class="line">sqlparse==0.3.0</span><br><span class="line">tzlocal==1.5.1</span><br><span class="line">urllib3==1.24.3</span><br><span class="line">wcwidth==0.1.7</span><br></pre></td></tr></table></figure>
+
+<p>​      </p>
+<h2 id="展示"><a href="#展示" class="headerlink" title="展示"></a><a target="_blank" rel="noopener" href="https://github.com/QPromise/EasyTrans#%E5%B1%95%E7%A4%BA">展示</a></h2><p><a target="_blank" rel="noopener" href="https://camo.githubusercontent.com/c1423fec0aafbd703f7842b0f4a68167b1ccec49625df8d3e7a4a76688026531/68747470733a2f2f692e6c6f6c692e6e65742f323031392f30352f32342f3563653766306138323566363832303039332e676966"><img src="/2023/09/21/pdf%E5%85%A8%E6%96%87%E7%BF%BB%E8%AF%91/68747470733a2f2f692e6c6f6c692e6e65742f323031392f30352f32342f3563653766306138323566363832303039332e676966.gif" alt="yanshi4.gif"></a>       </p>
+<p> <a target="_blank" rel="noopener" href="https://camo.githubusercontent.com/59523b04de707bc6fe6fee24444cf69a1cce81742bf3bbe2b4c6bf8ba8ca1148/68747470733a2f2f73322e617831782e636f6d2f323031392f30352f32342f5669376a79742e676966"><img src="/2023/09/21/pdf%E5%85%A8%E6%96%87%E7%BF%BB%E8%AF%91/68747470733a2f2f73322e617831782e636f6d2f323031392f30352f32342f5669376a79742e676966.gif" alt="Vi7jyt.gif"></a>       </p>
+<p> <a target="_blank" rel="noopener" href="https://camo.githubusercontent.com/be900bd6ee70870b4ba7e576359b5ad84bdeb89622e89c69aa8ec0acd7312689/68747470733a2f2f692e6c6f6c692e6e65742f323031392f30352f32332f3563653661663039623464643634353336342e676966"><img src="/2023/09/21/pdf%E5%85%A8%E6%96%87%E7%BF%BB%E8%AF%91/68747470733a2f2f692e6c6f6c692e6e65742f323031392f30352f32332f3563653661663039623464643634353336342e676966.gif" alt="yasnhi.gif"></a>      </p>
+<h2 id="参考文档"><a href="#参考文档" class="headerlink" title="参考文档"></a><a target="_blank" rel="noopener" href="https://github.com/QPromise/EasyTrans#%E5%8F%82%E8%80%83%E6%96%87%E6%A1%A3">参考文档</a></h2><p><a target="_blank" rel="noopener" href="https://pymupdf.readthedocs.io/en/latest/">PyMuPDF参考文档</a></p>
+<h2 id="只使用pdf翻译"><a href="#只使用pdf翻译" class="headerlink" title="只使用pdf翻译"></a><a target="_blank" rel="noopener" href="https://github.com/QPromise/EasyTrans#%E5%8F%AA%E4%BD%BF%E7%94%A8pdf%E7%BF%BB%E8%AF%91">只使用pdf翻译</a></h2><blockquote>
+<h3 id="如果只是想要拿来翻译论文的同学看这里"><a href="#如果只是想要拿来翻译论文的同学看这里" class="headerlink" title="如果只是想要拿来翻译论文的同学看这里"></a><a target="_blank" rel="noopener" href="https://github.com/QPromise/EasyTrans#%E5%A6%82%E6%9E%9C%E5%8F%AA%E6%98%AF%E6%83%B3%E8%A6%81%E6%8B%BF%E6%9D%A5%E7%BF%BB%E8%AF%91%E8%AE%BA%E6%96%87%E7%9A%84%E5%90%8C%E5%AD%A6%E7%9C%8B%E8%BF%99%E9%87%8C">如果只是想要拿来翻译论文的同学看这里</a></h3></blockquote>
+<ul>
+<li>下载该项目后记得将文件夹名由Easy-Trans-master改为EasyTrans。</li>
+<li>将要翻译的文件放到<a target="_blank" rel="noopener" href="https://github.com/QPromise/Easy-Trans/tree/master/trans/input_file">input_file</a>这个目录中，将39行的代码最后的pdf名字修改为要翻译的pdf名字。</li>
+<li>运行<a target="_blank" rel="noopener" href="https://github.com/QPromise/Easy-Trans/blob/master/trans_file.py">trans_file.py</a>等代码执行结束，翻译后的文档就在<a target="_blank" rel="noopener" href="https://github.com/QPromise/Easy-Trans/tree/master/trans/output_file">output_file</a>这个目录下面。</li>
+<li>这里采用的是必应翻译，也可以自己修改为其它自己想用的翻译方式，也可以修改目录，方便自己运行翻译就可以了。如果有好的改进pdf翻译效果的建议或者问题联系<a href="mailto:qcs@stu.ouc.edu.cn">qcs@stu.ouc.edu.cn</a>。</li>
+</ul>
+<h2 id="在本地运行项目"><a href="#在本地运行项目" class="headerlink" title="在本地运行项目"></a><a target="_blank" rel="noopener" href="https://github.com/QPromise/EasyTrans#%E5%9C%A8%E6%9C%AC%E5%9C%B0%E8%BF%90%E8%A1%8C%E9%A1%B9%E7%9B%AE">在本地运行项目</a></h2><h3 id="1-克隆项目到本地-不使用git工具的话，直接下载就ok"><a href="#1-克隆项目到本地-不使用git工具的话，直接下载就ok" class="headerlink" title="1.克隆项目到本地(不使用git工具的话，直接下载就ok)"></a><a target="_blank" rel="noopener" href="https://github.com/QPromise/EasyTrans#1%E5%85%8B%E9%9A%86%E9%A1%B9%E7%9B%AE%E5%88%B0%E6%9C%AC%E5%9C%B0%E4%B8%8D%E4%BD%BF%E7%94%A8git%E5%B7%A5%E5%85%B7%E7%9A%84%E8%AF%9D%E7%9B%B4%E6%8E%A5%E4%B8%8B%E8%BD%BD%E5%B0%B1ok">1.克隆项目到本地(不使用git工具的话，直接下载就ok)</a></h3><p>打开命令行，进入到保存项目的文件夹，输入如下命令：<br> <code>https://github.com/QPromise/Easy-Trans.git</code> </p>
+<h3 id="2-创建并激活虚拟环境（不使用可以跳过这里）"><a href="#2-创建并激活虚拟环境（不使用可以跳过这里）" class="headerlink" title="2.创建并激活虚拟环境（不使用可以跳过这里）"></a><a target="_blank" rel="noopener" href="https://github.com/QPromise/EasyTrans#2%E5%88%9B%E5%BB%BA%E5%B9%B6%E6%BF%80%E6%B4%BB%E8%99%9A%E6%8B%9F%E7%8E%AF%E5%A2%83%E4%B8%8D%E4%BD%BF%E7%94%A8%E5%8F%AF%E4%BB%A5%E8%B7%B3%E8%BF%87%E8%BF%99%E9%87%8C">2.创建并激活虚拟环境（不使用可以跳过这里）</a></h3><p>强烈推荐在 Virtualenv 下进行 Django 的开发。Virtualenv 是一个 Python 工具，使用它可以创建一个独立的 Python 环境。</p>
+<p>在命令行进入到保存虚拟环境的文件夹，输入如下命令创建并激活虚拟环境：<br> <code>C:\WINDOWS\system32&gt;pip install virtualenv</code><br> <code>C:\WINDOWS\system32&gt;virtualenv C:\Users\Envs\EasyTrans_env</code><br> <code>C:\WINDOWS\system32&gt;C:\Users\Envs\EasyTrans_env\Scripts\activate</code><br> <code>(EasyTrans_env) C:\WINDOWS\system32&gt;</code></p>
+<h3 id="3-安装项目依赖"><a href="#3-安装项目依赖" class="headerlink" title="3.安装项目依赖"></a><a target="_blank" rel="noopener" href="https://github.com/QPromise/EasyTrans#3%E5%AE%89%E8%A3%85%E9%A1%B9%E7%9B%AE%E4%BE%9D%E8%B5%96">3.安装项目依赖</a></h3><p><a target="_blank" rel="noopener" href="https://camo.githubusercontent.com/1be68a4c5470edba37add88a66eee1e6ddcf71357d22678bfdddcbf1a4126971/68747470733a2f2f692e6c6f6c692e6e65742f323031392f30352f32342f3563653736313234626435653035383435302e706e67"><img src="/2023/09/21/pdf%E5%85%A8%E6%96%87%E7%BF%BB%E8%AF%91/68747470733a2f2f692e6c6f6c692e6e65742f323031392f30352f32342f3563653736313234626435653035383435302e706e67.png" alt="%(POS)~0M$(N5HXNAR$BUM.png"></a></p>
+<p>如果使用了虚拟环境，确保激活并进入了虚拟环境，在命令行进入项目所在的 Easy-Trans 文件夹，运行如下命令：<br> <code>pip install -r requirements.txt</code></p>
+<h3 id="4-数据库迁移"><a href="#4-数据库迁移" class="headerlink" title="4.数据库迁移"></a><a target="_blank" rel="noopener" href="https://github.com/QPromise/EasyTrans#4%E6%95%B0%E6%8D%AE%E5%BA%93%E8%BF%81%E7%A7%BB">4.数据库迁移</a></h3><p>命令行输入<br> <code>python manage.py makemigrations</code><br> <code>python manage.py migrate</code></p>
+<h3 id="5-创建后台管理员用户"><a href="#5-创建后台管理员用户" class="headerlink" title="5.创建后台管理员用户"></a><a target="_blank" rel="noopener" href="https://github.com/QPromise/EasyTrans#5%E5%88%9B%E5%BB%BA%E5%90%8E%E5%8F%B0%E7%AE%A1%E7%90%86%E5%91%98%E7%94%A8%E6%88%B7">5.创建后台管理员用户</a></h3><p>命令行输入<br> <code>python manage.py createsuperuser</code></p>
+<h3 id="6-运行开发服务器"><a href="#6-运行开发服务器" class="headerlink" title="6.运行开发服务器"></a><a target="_blank" rel="noopener" href="https://github.com/QPromise/EasyTrans#6%E8%BF%90%E8%A1%8C%E5%BC%80%E5%8F%91%E6%9C%8D%E5%8A%A1%E5%99%A8">6.运行开发服务器</a></h3><p>命令行输入<br> <code>python manage.py runserver</code><br> 在浏览器输入：127.0.0.1:8000 就可以看到主页了。</p>
+<h2 id="建议"><a href="#建议" class="headerlink" title="建议"></a><a target="_blank" rel="noopener" href="https://github.com/QPromise/EasyTrans#%E5%BB%BA%E8%AE%AE">建议</a></h2><p>欢迎各位给出建议或者方法，邮箱：<a href="mailto:qcs@stu.ouc.edu.cn">qcs@stu.ouc.edu.cn</a></p>
+<h2 id="注意"><a href="#注意" class="headerlink" title="注意"></a><a target="_blank" rel="noopener" href="https://github.com/QPromise/EasyTrans#%E6%B3%A8%E6%84%8F">注意</a></h2><p>fitz这个包是PyMuPDF的，只要安装PyMuPDF就可以正常导入了。</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2023/09/20/appium/" rel="next" title="appium">
+                <i class="fa fa-chevron-left"></i> appium
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2023/10/03/esp32/" rel="prev" title="esp32">
+                esp32 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name"></p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/">
+    
+              
+                  <span class="site-state-item-count">75</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8"><span class="nav-number">1.</span> <span class="nav-text">使用</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#EasyTrans"><span class="nav-number">2.</span> <span class="nav-text">EasyTrans</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#2019-12-14%E8%AF%B4%E6%98%8E"><span class="nav-number">2.1.</span> <span class="nav-text">2019.12.14说明</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%9B%AE%E7%9A%84"><span class="nav-number">2.2.</span> <span class="nav-text">目的</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9E%E7%8E%B0"><span class="nav-number">2.3.</span> <span class="nav-text">实现</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%97%AE%E9%A2%98"><span class="nav-number">2.4.</span> <span class="nav-text">问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%8E%AF%E5%A2%83"><span class="nav-number">2.5.</span> <span class="nav-text">环境</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B1%95%E7%A4%BA"><span class="nav-number">2.6.</span> <span class="nav-text">展示</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%82%E8%80%83%E6%96%87%E6%A1%A3"><span class="nav-number">2.7.</span> <span class="nav-text">参考文档</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%AA%E4%BD%BF%E7%94%A8pdf%E7%BF%BB%E8%AF%91"><span class="nav-number">2.8.</span> <span class="nav-text">只使用pdf翻译</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%A6%82%E6%9E%9C%E5%8F%AA%E6%98%AF%E6%83%B3%E8%A6%81%E6%8B%BF%E6%9D%A5%E7%BF%BB%E8%AF%91%E8%AE%BA%E6%96%87%E7%9A%84%E5%90%8C%E5%AD%A6%E7%9C%8B%E8%BF%99%E9%87%8C"><span class="nav-number">2.8.1.</span> <span class="nav-text">如果只是想要拿来翻译论文的同学看这里</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9C%A8%E6%9C%AC%E5%9C%B0%E8%BF%90%E8%A1%8C%E9%A1%B9%E7%9B%AE"><span class="nav-number">2.9.</span> <span class="nav-text">在本地运行项目</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-%E5%85%8B%E9%9A%86%E9%A1%B9%E7%9B%AE%E5%88%B0%E6%9C%AC%E5%9C%B0-%E4%B8%8D%E4%BD%BF%E7%94%A8git%E5%B7%A5%E5%85%B7%E7%9A%84%E8%AF%9D%EF%BC%8C%E7%9B%B4%E6%8E%A5%E4%B8%8B%E8%BD%BD%E5%B0%B1ok"><span class="nav-number">2.9.1.</span> <span class="nav-text">1.克隆项目到本地(不使用git工具的话，直接下载就ok)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-%E5%88%9B%E5%BB%BA%E5%B9%B6%E6%BF%80%E6%B4%BB%E8%99%9A%E6%8B%9F%E7%8E%AF%E5%A2%83%EF%BC%88%E4%B8%8D%E4%BD%BF%E7%94%A8%E5%8F%AF%E4%BB%A5%E8%B7%B3%E8%BF%87%E8%BF%99%E9%87%8C%EF%BC%89"><span class="nav-number">2.9.2.</span> <span class="nav-text">2.创建并激活虚拟环境（不使用可以跳过这里）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-%E5%AE%89%E8%A3%85%E9%A1%B9%E7%9B%AE%E4%BE%9D%E8%B5%96"><span class="nav-number">2.9.3.</span> <span class="nav-text">3.安装项目依赖</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-%E6%95%B0%E6%8D%AE%E5%BA%93%E8%BF%81%E7%A7%BB"><span class="nav-number">2.9.4.</span> <span class="nav-text">4.数据库迁移</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-%E5%88%9B%E5%BB%BA%E5%90%8E%E5%8F%B0%E7%AE%A1%E7%90%86%E5%91%98%E7%94%A8%E6%88%B7"><span class="nav-number">2.9.5.</span> <span class="nav-text">5.创建后台管理员用户</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-%E8%BF%90%E8%A1%8C%E5%BC%80%E5%8F%91%E6%9C%8D%E5%8A%A1%E5%99%A8"><span class="nav-number">2.9.6.</span> <span class="nav-text">6.运行开发服务器</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BB%BA%E8%AE%AE"><span class="nav-number">2.10.</span> <span class="nav-text">建议</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%B3%A8%E6%84%8F"><span class="nav-number">2.11.</span> <span class="nav-text">注意</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2023</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">John Doe</span>
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

@@ -229,7 +229,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://developer-hq.github.io/2023/05/10/Transformer/">
+    <link itemprop="mainEntityOfPage" href="https://developer-hq.github.io/2023/10/09/yolo/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="">
@@ -248,7 +248,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2023/05/10/Transformer/" itemprop="url">Transformer</a></h1>
+                <a class="post-title-link" href="/2023/10/09/yolo/" itemprop="url">yolo</a></h1>
         
 
         <div class="post-meta">
@@ -260,8 +260,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2023-05-10T12:27:03+08:00">
-                2023-05-10
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2023-10-09T19:24:17+08:00">
+                2023-10-09
               </time>
             
 
@@ -300,7 +300,48 @@
       
         
           
-            <p><a target="_blank" rel="noopener" href="http://nlp.seas.harvard.edu/annotated-transformer/">http://nlp.seas.harvard.edu/annotated-transformer/</a></p>
+            <h1 id="环境"><a href="#环境" class="headerlink" title="环境"></a>环境</h1><h3 id="官方项目"><a href="#官方项目" class="headerlink" title="官方项目"></a>官方项目</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone https://github.com/ultralytics/yolov5</span><br></pre></td></tr></table></figure>
+
+<p>用哪个模型就把<code>.pt</code>模型下载下来放到models文件夹</p>
+<p><img src="/2023/10/09/yolo/image-20231009192605348.png" alt="image-20231009192605348"></p>
+<h3 id="video"><a href="#video" class="headerlink" title="video"></a>video</h3><p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1tM411a7it/?spm_id_from=333.999.0.0&amp;vd_source=3d040baeb67aeceb2bba9c7169a67a96">https://www.bilibili.com/video/BV1tM411a7it/?spm_id_from=333.999.0.0&amp;vd_source=3d040baeb67aeceb2bba9c7169a67a96</a></p>
+<h3 id="script"><a href="#script" class="headerlink" title="script"></a>script</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone https://github.com/z1069614715/objectdetection_script/tree/master/yolo</span><br></pre></td></tr></table></figure>
+
+<h3 id="dataset"><a href="#dataset" class="headerlink" title="dataset"></a>dataset</h3><p>type:</p>
+<ul>
+<li>VOC<ul>
+<li>xml2txt.py<ul>
+<li>postfix-&gt; image type, jpg or png</li>
+<li>image, xml, txt path</li>
+<li>run: python xml2txt.py</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>yolo格式直接改这个<ul>
+<li>data.yaml<ul>
+<li>类别数nc</li>
+<li>类别名称names</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="train"><a href="#train" class="headerlink" title="train"></a>train</h3><p>设置参数，快速上手</p>
+<p>weight权重，刚才下载的yolov5n.pt</p>
+<p>cfg配置文件，models里面，对应权重</p>
+<p>data，数据集文件</p>
+<p>hyp，超参数</p>
+<p>epoch</p>
+<p>device，显卡，cpu</p>
+<p>worker，线程，可以填0（慢，但不会报错）</p>
+<p>改完就可以训练了</p>
+<p>训练好的权重可以在runs/train/exp/weights下找到</p>
+<h3 id="validation"><a href="#validation" class="headerlink" title="validation"></a>validation</h3><p>导入训练好的权重（改weight）</p>
+<p>精度：数据集很密集，调iou-thres</p>
+<p>task</p>
+<h1 id="预测"><a href="#预测" class="headerlink" title="预测"></a>预测</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">$ python segment/predict.py --weights yolov5s-seg.pt --source 0                               # webcam</span><br><span class="line">                                                              img.jpg                         # image</span><br><span class="line">                                                              vid.mp4                         # video</span><br><span class="line">                                                              screen                          # screenshot</span><br><span class="line">                                                              path/                           # directory</span><br><span class="line">                                                              list.txt                        # list of images</span><br><span class="line">                                                              list.streams                    # list of streams</span><br><span class="line">                                                              &#x27;path/*.jpg&#x27;                    # glob</span><br><span class="line">                                                              &#x27;https://youtu.be/LNwODJXcvt4&#x27;  # YouTube</span><br><span class="line">                                                              &#x27;rtsp://example.com/media.mp4&#x27;  # RTSP, RTMP, HTTP stream</span><br></pre></td></tr></table></figure>
+
 
           
         
@@ -349,7 +390,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://developer-hq.github.io/2023/05/10/firefox%E5%9C%B0%E5%9D%80%E6%A0%8F%E6%90%9C%E7%B4%A2%E8%AE%BE%E7%BD%AE/">
+    <link itemprop="mainEntityOfPage" href="https://developer-hq.github.io/2023/10/08/docker+FocalNet/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="">
@@ -368,7 +409,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2023/05/10/firefox%E5%9C%B0%E5%9D%80%E6%A0%8F%E6%90%9C%E7%B4%A2%E8%AE%BE%E7%BD%AE/" itemprop="url">firefox地址栏搜索设置</a></h1>
+                <a class="post-title-link" href="/2023/10/08/docker+FocalNet/" itemprop="url">Untitled</a></h1>
         
 
         <div class="post-meta">
@@ -380,8 +421,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2023-05-10T12:20:01+08:00">
-                2023-05-10
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2023-10-08T22:53:12+08:00">
+                2023-10-08
               </time>
             
 
@@ -420,785 +461,717 @@
       
         
           
-            <h3 id="【Firefox-问题解决】在新标签页搜索栏中输入直接跳到地址栏【firefox吧】-百度贴吧-16"><a href="#【Firefox-问题解决】在新标签页搜索栏中输入直接跳到地址栏【firefox吧】-百度贴吧-16" class="headerlink" title="【Firefox 问题解决】在新标签页搜索栏中输入直接跳到地址栏【firefox吧】_百度贴吧 16"></a><a target="_blank" rel="noopener" href="https://tieba.baidu.com/p/7393128083">【Firefox 问题解决】在新标签页搜索栏中输入直接跳到地址栏【firefox吧】_百度贴吧 16</a></h3><p>【Firefox 问..地址栏输入  about:config  ，回车，搜索 browser.newtabpage.activity-stream.improvesearch.handoffToAwesomebar  切换为 false  。即时生效</p>
+            <h1 id="docker-FocalNet"><a href="#docker-FocalNet" class="headerlink" title="docker+FocalNet"></a>docker+FocalNet</h1><h1 id="docker"><a href="#docker" class="headerlink" title="docker"></a>docker</h1><p>拉取cuda11.7</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker pull nvidia/cuda:11.7.1-devel-ubuntu22.04</span><br></pre></td></tr></table></figure>
 
-          
-        
-      
-    </div>
-    
-    
-    
+<p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/572320455">https://zhuanlan.zhihu.com/p/572320455</a></p>
+<p>运行容器</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run --rm --gpus all nvidia/cuda:11.0.3-base-ubuntu20.04 nvidia-smi</span><br></pre></td></tr></table></figure>
 
-    
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run -it --rm --name test --gpus all ubuntu:latest</span><br></pre></td></tr></table></figure>
 
-    
+<p>配置环境</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"></span><br></pre></td></tr></table></figure>
 
-    
+<p>注意：</p>
+<p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/linhaifeng/p/16108285.html">https://www.cnblogs.com/linhaifeng/p/16108285.html</a></p>
+<p>\1. 显卡驱动在所有方式中，都要先安装好，容器是不会有显卡驱动的，一台物理机的显卡只对应一个显卡驱动，当显卡驱动安装好后（即使未安装cuda），也可以使用命令nvidia-smi</p>
+<p>\2. nvidia-smi显示的是显卡驱动对应的cuda版本，nvcc -V 显示的运行是cuda的版本<br>补充</p>
+<h3 id="pytorch"><a href="#pytorch" class="headerlink" title="pytorch"></a>pytorch</h3><p>拉取</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker pull pytorch/pytorch:2.0.1-cuda11.7-cudnn8-runtime</span><br></pre></td></tr></table></figure>
 
-    <footer class="post-footer">
-      
+<p>运行</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run --rm --gpus all -it --name pytorch_env pytorch/pytorch:2.0.1-cuda11.7-cudnn8-runtime /bin/bash</span><br></pre></td></tr></table></figure>
 
-      
+<p>4.设置映射目录</p>
+<p>在容器中，我们通常需要读取外部主机文件，因此需要在启动时指定映射目录。下面我们将把主机上的/home/user/data目录映射到容器的/data目录。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run -it --name pytorch_env -v /home/user/data:/data pytorch/pytorch:1.4-cuda10.1-cudnn7-runtime /bin/bash</span><br></pre></td></tr></table></figure>
 
-      
+<p>5.进入容器</p>
+<p>最后，我们使用docker exec命令进入容器。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker exec -it --rm --gpus all pytorch_test /bin/bash</span><br></pre></td></tr></table></figure>
 
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
 
 
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://developer-hq.github.io/2023/05/06/%E5%85%89%E7%8C%AB/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2023/05/06/%E5%85%89%E7%8C%AB/" itemprop="url">光猫</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2023-05-06T18:29:26+08:00">
-                2023-05-06
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="移动光猫h3-1prolite"><a href="#移动光猫h3-1prolite" class="headerlink" title="移动光猫h3-1prolite"></a>移动光猫h3-1prolite</h1><h3 id="用user登陆"><a href="#用user登陆" class="headerlink" title="用user登陆"></a>用user登陆</h3><p>然后打开telnet</p>
-<p><a target="_blank" rel="noopener" href="http://192.168.1.1/usr=CMCCAdmin&amp;psw=aDm8H%25MdA&amp;cmd=1&amp;telnet.gch">http://192.168.1.1/usr=CMCCAdmin&amp;psw=aDm8H%25MdA&amp;cmd=1&amp;telnet.gch</a></p>
-<h3 id="telnet登陆（windows功能打开telnet）"><a href="#telnet登陆（windows功能打开telnet）" class="headerlink" title="telnet登陆（windows功能打开telnet）"></a>telnet登陆（windows功能打开telnet）</h3><p>用户名 CMCCAdmin</p>
-<p>密码 aDm8H%MdA</p>
-<p> 修改管理员超级账号为 CMCCAdmin (可自定义)<br> sidbg 1 DB set DevAuthInfo 0 User CMCCAdmin</p>
-<p> 修改管理员超级账号的密码 aDm8H%MdA (可自定义)<br> sidbg 1 DB set DevAuthInfo 0 Pass aDm8H%MdA</p>
-<h3 id="网关登陆"><a href="#网关登陆" class="headerlink" title="网关登陆"></a>网关登陆</h3><p>用户名 CMCCAdmin</p>
-<p>密码 </p>
-<p>aDm8H%MdA</p>
-<p>user</p>
-<p>wyrfe5rp</p>
-<p><a target="_blank" rel="noopener" href="https://www.right.com.cn/forum/thread-8266942-1-1.html">https://www.right.com.cn/forum/thread-8266942-1-1.html</a></p>
-<p><a target="_blank" rel="noopener" href="https://www.right.com.cn/FORUM/thread-8125150-1-1.html">https://www.right.com.cn/FORUM/thread-8125150-1-1.html</a></p>
-<p>1.获取管理员密码 enable telnet      浏览器输入 ： <a target="_blank" rel="noopener" href="http://192.168.1.1/usr=CMCCAdmin&amp;psw=aDm8H%25MdA&amp;cmd=1&amp;telnet.gch">http://192.168.1.1/usr=CMCCAdmin&amp;psw=aDm8H%25MdA&amp;cmd=1&amp;telnet.gch</a><br> 2.telnet 光猫（192.168.1.1） 默认密码  账号：CMCCAdmin 密码: aDm8H%MdA<br> 3.解密命令<br>   sidbg 1 DB decry /userconfig/cfg/db_user_cfg.xml<br>   log文件在<br>   /tmp/debug-decry-cfg   直接vi 搜索或者cat 出来 用文本搜索，注意这里的密码是临时密码。如果不删除 网络中TR069 此密码会周期被移动修改。<br> 4.更改CMCCAdmin密码并save<br>  sidbg 1 DB set DevAuthInfo 0 Pass fuck;sidbg 1 DB save<br>  其中fuck是你新密码可以改为任何你需要的。<br> 5.删除TR069 网络，切断移动后台控制！ 此处用F12也可以，鼠标在删除（灰色）右键 Inspect （检查），找到源码，把disable 删除。现在删除就可以点了。干掉他！！！<br> 6.配置桥接模式<br>   找到网络里面 Internet连接 把没用的连接拍照记录vlan id后都删除，重新建立一个vlan id=10的 bridge即可。<br> 7待研究，是否可以使能SSID1 为iptv 模式电视看IPTV，明天问下移动客户后在update！！！</p>
-<p> 看到好多要钱分享！！真的不应该。平时好好工作接个私活不行吗。在论坛一块一块的要没啥意思。</p>
-<p> PS：这里感谢下 大神无私分享@oick88<br> PS:给出几个常用的<br> #列出所有表<br> sidbg 1 DB p all<br> #查看 TELNET 信息<br> sidbg 1 DB p TelnetCfg<br> #查看 查看用户 信息<br> sidbg 1 DB p DevAuthInfo</p>
-<p> 修改管理员超级账号为 CMCCAdmin (可自定义)<br> sidbg 1 DB set DevAuthInfo 0 User CMCCAdmin</p>
-<p> 修改管理员超级账号的密码 aDm8H%MdA (可自定义)<br> sidbg 1 DB set DevAuthInfo 0 Pass aDm8H%MdA</p>
-<p> 修改配置 永久 开启 TELNET<br> #开启TELNET<br> sidbg 1 DB set TelnetCfg 0 TS_Enable 1<br> #开放TELNET LAN端口<br> sidbg 1 DB set TelnetCfg 0 Lan_Enable 1</p>
-<p> #关闭TELNET<br> sidbg 1 DB set TelnetCfg 0 TS_Enable 0<br> #关闭TELNET LAN端口<br> sidbg 1 DB set TelnetCfg 0 Lan_Enable 0</p>
-<p> #修改TELNET账号  改为 root (可自定义)<br> sidbg 1 DB set TelnetUser 0 Username root<br> #修改TELNET密码 改为 admin (可自定义)<br> sidbg 1 DB set TelnetUser 0 Password admin</p>
-<p> #修改TELNET账号 改为 root (可自定义)<br> sidbg 1 DB set TelnetUser 1 Username root<br> #修改TELNET密码 改为 admin (可自定义)<br> sidbg 1 DB set TelnetUser 1 Password admin</p>
-<p> #记得最好保存下配置<br> sidbg 1 DB save</p>
-<p>vid10</p>
-<p>桥接：</p>
-<p><img src="/2023/05/06/%E5%85%89%E7%8C%AB/image-20230513005047164.png" alt="image-20230513005047164"></p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://developer-hq.github.io/2023/04/29/%E5%9C%A8%E8%B5%84%E6%BA%90%E7%AE%A1%E7%90%86%E5%99%A8%E4%B8%AD%E6%89%93%E5%BC%80%E5%BD%93%E5%89%8D%E8%B7%AF%E5%BE%84/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2023/04/29/%E5%9C%A8%E8%B5%84%E6%BA%90%E7%AE%A1%E7%90%86%E5%99%A8%E4%B8%AD%E6%89%93%E5%BC%80%E5%BD%93%E5%89%8D%E8%B7%AF%E5%BE%84/" itemprop="url">CMD在资源管理器中打开当前路径</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2023-04-29T23:40:10+08:00">
-                2023-04-29
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="【Windows-命令行】CMD-在资源管理器中打开当前路径"><a href="#【Windows-命令行】CMD-在资源管理器中打开当前路径" class="headerlink" title="【Windows 命令行】CMD 在资源管理器中打开当前路径"></a>【Windows 命令行】CMD 在资源管理器中打开当前路径</h1><p>输出：<code>explorer %cd%</code>回车</p>
-<hr>
-<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/u014636245/article/details/89889671">https://blog.csdn.net/u014636245/article/details/89889671</a></p>
-<p>CMD中利用资源管理器打开当前路径</p>
-<p>在cmd中需要查看文件夹对应资源时，手动打开十分不便，利用explorer命令可以便捷的打开对应的路径：</p>
-<p>输出：explorer %cd%回车<br>在这里插入图片描述<br>效果：<br>在这里插入图片描述<br>解释</p>
-<p>%cd%为current directory,系统环境变量，表示当前目录位置，可以输出确认：<br>在这里插入图片描述<br>exploreor是资源管理器的命令，可以接受path路径作为输入。</p>
-<p>ref:<br><a target="_blank" rel="noopener" href="https://wenwen.sogou.com/z/q825809466.htm">https://wenwen.sogou.com/z/q825809466.htm</a><br><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/30219402">https://zhuanlan.zhihu.com/p/30219402</a><br>explorer params:<br><a target="_blank" rel="noopener" href="https://blog.csdn.net/yunyu5120/article/details/6024506">https://blog.csdn.net/yunyu5120/article/details/6024506</a><br><a target="_blank" rel="noopener" href="https://blog.csdn.net/zhuzhuyule/article/details/51063148">https://blog.csdn.net/zhuzhuyule/article/details/51063148</a></p>
-<p>在这里插入图片描述</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://developer-hq.github.io/2023/04/26/Nas/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2023/04/26/Nas/" itemprop="url">Nas</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2023-04-26T19:09:51+08:00">
-                2023-04-26
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="ikuai"><a href="#ikuai" class="headerlink" title="ikuai"></a>ikuai</h1><p>http:</p>
-<p>192.168.0.107:8881</p>
-<p>https:</p>
-<p>192.168.0.107:4443</p>
-<p><img src="/2023/04/26/Nas/image-20230502140849515.png" alt="image-20230502140849515"></p>
-<p><img src="/2023/04/26/Nas/image-20230502140813570.png" alt="image-20230502140813570"></p>
-<p><img src="/2023/04/26/Nas/image-20230502140806094.png" alt="image-20230502140758186"></p>
-<p>bash设置lan，wan</p>
-<p>进来设置dhcp，lan</p>
-<p>重启本地网络</p>
-<h1 id="群晖"><a href="#群晖" class="headerlink" title="群晖"></a>群晖</h1><p>192.168.0.107:5000</p>
-<p>samba也打开了</p>
-<h1 id="esxi"><a href="#esxi" class="headerlink" title="esxi"></a>esxi</h1><p>DMZ主机</p>
-<p>直接访问</p>
-<p>192.168.0.107</p>
-<h2 id="rdm硬盘直通"><a href="#rdm硬盘直通" class="headerlink" title="rdm硬盘直通"></a>rdm硬盘直通</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">vmkfstools -z /vmfs/devices/disks/t10.ATA_____ST4000VX0152D3CU104__________________________________WW6083E7 /vmfs/volumes/6449615b-232b02f8-41d2-309c23af5243/HDD1.vmdk &amp;&amp;</span><br><span class="line"></span><br><span class="line">vmkfstools -z /vmfs/devices/disks/t10.ATA_____ST4000VX0152D3CU104__________________________________WW607DYE /vmfs/volumes/6449615b-232b02f8-41d2-309c23af5243/HDD2.vmdk &amp;&amp;</span><br><span class="line"></span><br><span class="line">vmkfstools -z /vmfs/devices/disks/t10.ATA_____ST4000VX0152D3CU104__________________________________WW607DVN /vmfs/volumes/6449615b-232b02f8-41d2-309c23af5243/HDD3.vmdk &amp;&amp;</span><br><span class="line"></span><br><span class="line">vmkfstools -z /vmfs/devices/disks/t10.ATA_____ST4000VX0152D3CU104__________________________________WW6083GG /vmfs/volumes/6449615b-232b02f8-41d2-309c23af5243/HDD4.vmdk &amp;&amp;</span><br><span class="line"></span><br><span class="line">vmkfstools -z /vmfs/devices/disks/t10.ATA_____ST4000VX0152D3CU104__________________________________WW606EX1 /vmfs/volumes/6449615b-232b02f8-41d2-309c23af5243/HDD5.vmdk</span><br></pre></td></tr></table></figure>
-
-
-
-
-
-
-
-<h2 id="网卡？"><a href="#网卡？" class="headerlink" title="网卡？"></a>网卡？</h2><p>INT_bootbank_ixgben_1.12.3.0-1OEM.700.1.0.15843807.vib</p>
-<p>esxcli software vib install -v /tmp/INT_bootbank_ixgben_1.12.3.0-1OEM.700.1.0.15843807.vib</p>
-<p>esxupdate –bundle=Intel-ixgben_1.12.2.0-1OEM.700.1.0.15843807_19203188-package.zip update</p>
-<h1 id="端口映射"><a href="#端口映射" class="headerlink" title="端口映射"></a>端口映射</h1><p>  5000,137-139,445,3389,21,22,55536-55791,5005,5006,3000-3003</p>
-<p>  3300,8082,8999,8085,9091,19035,19037,8096</p>
-<h1 id="esxi-ikuai-openwrt"><a href="#esxi-ikuai-openwrt" class="headerlink" title="esxi+ikuai+openwrt"></a>esxi+ikuai+openwrt</h1><p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Ba4y1f7Kb/?is_story_h5=false&amp;p=1&amp;share_from=ugc&amp;share_medium=iphone&amp;share_plat=ios&amp;share_session_id=48E8BBDC-1B4A-490C-867B-43A67A2671E9&amp;share_source=WEIXIN&amp;share_tag=s_i&amp;timestamp=1667907084&amp;unique_k=GdAAja4&amp;wxfid=o7omF0erHEf20s-zaKvo15-BZZVU&amp;share_times=1">https://www.bilibili.com/video/BV1Ba4y1f7Kb/?is_story_h5=false&amp;p=1&amp;share_from=ugc&amp;share_medium=iphone&amp;share_plat=ios&amp;share_session_id=48E8BBDC-1B4A-490C-867B-43A67A2671E9&amp;share_source=WEIXIN&amp;share_tag=s_i&amp;timestamp=1667907084&amp;unique_k=GdAAja4&amp;wxfid=o7omF0erHEf20s-zaKvo15-BZZVU&amp;share_times=1</a></p>
-<h1 id="arpl黑群晖"><a href="#arpl黑群晖" class="headerlink" title="arpl黑群晖"></a>arpl黑群晖</h1><p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1xx4y1N7ME/?buvid=ZC42C6CE32ABEA014D229DBE452EDDF6071D&amp;is_story_h5=false&amp;mid=PWVGiYRDijlmlaFjoG8Siw==&amp;p=1&amp;plat_id=114&amp;share_from=ugc&amp;share_medium=iphone&amp;share_plat=ios&amp;share_session_id=D71AA741-B89A-45C8-8565-1EED5B88C614&amp;share_source=WEIXIN&amp;share_tag=s_i&amp;timestamp=1682507419&amp;unique_k=V4uumVd&amp;up_id=248592535">https://www.bilibili.com/video/BV1xx4y1N7ME/?buvid=ZC42C6CE32ABEA014D229DBE452EDDF6071D&amp;is_story_h5=false&amp;mid=PWVGiYRDijlmlaFjoG8Siw%3D%3D&amp;p=1&amp;plat_id=114&amp;share_from=ugc&amp;share_medium=iphone&amp;share_plat=ios&amp;share_session_id=D71AA741-B89A-45C8-8565-1EED5B88C614&amp;share_source=WEIXIN&amp;share_tag=s_i&amp;timestamp=1682507419&amp;unique_k=V4uumVd&amp;up_id=248592535</a></p>
-<p>arpl用cd驱动器打开</p>
-<p>直接安装，选择ds920+</p>
-<h1 id="群晖硬盘rdm直通"><a href="#群晖硬盘rdm直通" class="headerlink" title="群晖硬盘rdm直通"></a>群晖硬盘rdm直通</h1><p>1.安装DS920+ 7.1</p>
-<p>arpl安装DS920+</p>
-<p>选择DSM_DS920+_42962.pat</p>
-<p>2.putty ssh esxi创建磁盘</p>
-<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_34208844/article/details/108261126?app_version=5.15.3&amp;csdn_share_tail=%7B%22type%22:%22blog%22,%22rType%22:%22article%22,%22rId%22:%22108261126%22,%22source%22:%22weixin_45725190%22%7D&amp;utm_source=app">https://blog.csdn.net/qq_34208844/article/details/108261126?app_version=5.15.3&amp;csdn_share_tail=%7B%22type%22%3A%22blog%22%2C%22rType%22%3A%22article%22%2C%22rId%22%3A%22108261126%22%2C%22source%22%3A%22weixin_45725190%22%7D&amp;utm_source=app</a></p>
-<p><img src="/2023/04/26/Nas/image-20230427152859022.png" alt="image-20230427152859022"></p>
-<p>==<strong>使用命令挂载硬盘</strong>==：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vmkfstools -z /vmfs/devices/disks/未格式化硬盘标识符 /vmfs/volumes/ESXI系统盘路径/自定义名称.vmdk</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">vmkfstools -z /vmfs/devices/disks/t10.ATA_____ST4000VX0152D3CU104__________________________________WW6083E7 /vmfs/volumes/6449615b-232b02f8-41d2-309c23af5243/HDD1.vmdk &amp;&amp;</span><br><span class="line"></span><br><span class="line">vmkfstools -z /vmfs/devices/disks/t10.ATA_____ST4000VX0152D3CU104__________________________________WW607DYE /vmfs/volumes/6449615b-232b02f8-41d2-309c23af5243/HDD2.vmdk &amp;&amp;</span><br><span class="line"></span><br><span class="line">vmkfstools -z /vmfs/devices/disks/t10.ATA_____ST4000VX0152D3CU104__________________________________WW607DVN /vmfs/volumes/6449615b-232b02f8-41d2-309c23af5243/HDD3.vmdk &amp;&amp;</span><br><span class="line">vmkfstools -z /vmfs/devices/disks/t10.ATA_____ST4000VX0152D3CU104__________________________________WW6083GG /vmfs/volumes/6449615b-232b02f8-41d2-309c23af5243/HDD4.vmdk &amp;&amp;</span><br><span class="line">vmkfstools -z /vmfs/devices/disks/t10.ATA_____ST4000VX0152D3CU104__________________________________WW606EX1 /vmfs/volumes/6449615b-232b02f8-41d2-309c23af5243/HDD5.vmdk</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-
-
-
-
-<h2 id="群晖里"><a href="#群晖里" class="headerlink" title="群晖里"></a>群晖里</h2><p>存储管理器-存储空间-创建存储池-选择raid模式</p>
-<h1 id="ups自动关机"><a href="#ups自动关机" class="headerlink" title="ups自动关机"></a>ups自动关机</h1><h2 id="1-自动关机"><a href="#1-自动关机" class="headerlink" title="1.自动关机"></a>1.自动关机</h2><p><a target="_blank" rel="noopener" href="https://wp.gxnas.com/10572.html">https://wp.gxnas.com/10572.html</a></p>
-<p>虚拟机添加usb设备，选择ups的usb，并在虚拟机中安装配套的ups软件，设置断电自动关机，比如10分钟。<br> 如果主板支持通电开机，ups虚拟机还需要设置自动启动，时间和顺序自行掌控。<br> 所有虚拟机尽量安装vmtools，调用系统的关机，而不是关闭电源。<br> 系统-自动启动，配置安装了vmtools的虚拟机，停止操作设置为关机，等待信号检测：是。</p>
-<hr>
-<p><strong>先简单了解一下几条命令：</strong></p>
-<p>1、获取ESXI上的所有虚拟机VMID的值</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim-cmd vmsvc/getallvms</span><br></pre></td></tr></table></figure>
-
-<p>2、把虚拟机正常关机</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim-cmd vmsvc/power.shutdown vmid的值</span><br></pre></td></tr></table></figure>
-
-<p>3、把虚拟机强制关闭电源</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim-cmd vmsvc/power.off vmid的值</span><br></pre></td></tr></table></figure>
-
-<hr>
-<p><strong>开始干活：</strong></p>
-<p>#进入ESXI的存储盘</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cd /vmfs/volumes/datastore1</span><br></pre></td></tr></table></figure>
-
-<p>#建立ups文件夹</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mkdir ups</span><br></pre></td></tr></table></figure>
-
-<p>#进入ups文件夹</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cd ups</span><br></pre></td></tr></table></figure>
-
-<p>#编辑ups.sh文件</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vi ups.sh</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">#以下为 ups.sh 的内容，请酌情修改。</span><br><span class="line">#其中：10.10.10.1 为主路由的IP，sleep 为稍等时间（秒），vmid的值请根据自己的实际情况修改。</span><br><span class="line">#示例：每分钟ping主路由的IP，如果ping不通的话（停电就断网了）5分钟后会再次检测。再次检测如依然不通，则ESXI依次关闭虚拟机后，宿主关机。</span><br><span class="line">#!/bin/sh</span><br><span class="line">while</span><br><span class="line">ping -c 1 10.10.10.1 &gt; /dev/null</span><br><span class="line">[ $? -eq 0 ];</span><br><span class="line">do</span><br><span class="line">    echo &#x27;AC Power OK !&#x27; &gt;&gt; /vmfs/volumes/datastore1/ups/ups.log;date &gt;&gt; /vmfs/volumes/datastore1/ups/ups.log</span><br><span class="line">    sleep 60</span><br><span class="line">done</span><br><span class="line">echo &#x27;AC Power maybe off, checking again after 5 minutes !&#x27; &gt;&gt; /vmfs/volumes/datastore1/ups/ups.log;date &gt;&gt; /vmfs/volumes/datastore1/ups/ups.log</span><br><span class="line">sleep 300</span><br><span class="line">ping -c 1 10.10.10.1 &gt; /dev/null</span><br><span class="line">if [ $? -eq 0 ]</span><br><span class="line">    then</span><br><span class="line">        echo &#x27;Checkagain, AC Power OK !&#x27; &gt;&gt; /vmfs/volumes/datastore1/ups/ups.log;date &gt;&gt; /vmfs/volumes/datastore1/ups/ups.log</span><br><span class="line">    else</span><br><span class="line">        echo &#x27;AC Power is already off, shut down Esxi Now!&#x27; &gt;&gt; /vmfs/volumes/datastore1/ups/ups.log;date &gt;&gt; /vmfs/volumes/datastore1/ups/ups.log</span><br><span class="line">        vim-cmd vmsvc/power.shutdown 11</span><br><span class="line">        sleep 60</span><br><span class="line">        vim-cmd vmsvc/power.shutdown 10</span><br><span class="line">        sleep 60</span><br><span class="line">        vim-cmd vmsvc/power.shutdown 6</span><br><span class="line">        sleep 60</span><br><span class="line">        vim-cmd vmsvc/power.shutdown 3</span><br><span class="line">        sleep 60</span><br><span class="line">        vim-cmd vmsvc/power.off 2</span><br><span class="line">        sleep 60</span><br><span class="line">        poweroff</span><br><span class="line">fi</span><br><span class="line">#ups.sh 的内容结束</span><br></pre></td></tr></table></figure>
-
-
-<p> #编辑monitor.sh，守护ups.sh这个脚本正常运行 vi monitor.sh # monitor.sh 的内容开始</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">NUM=`ps -c | grep ups.sh | grep -v grep |wc -l`</span><br><span class="line">echo $&#123;NUM&#125;</span><br><span class="line">if [ &quot;$&#123;NUM&#125;&quot; -lt &quot;1&quot; ];then</span><br><span class="line">     /vmfs/volumes/datastore1/ups/ups.sh &amp;</span><br><span class="line">     echo &#x27;monitor start&#x27; &gt;&gt; /vmfs/volumes/datastore1/ups/ups.log;date &gt;&gt; /vmfs/volumes/datastore1/ups/ups.log</span><br><span class="line">fi</span><br><span class="line">exit 0</span><br><span class="line">#monitor.sh 的内容结束 </span><br></pre></td></tr></table></figure>
-<p>#调整两个脚本的权限 </p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">chmod 755 monitor.sh</span><br><span class="line">chmod 755 ups.sh </span><br></pre></td></tr></table></figure>
-<p>#esxi重启后引导会自动恢复初始状态 需要添加一个每次启动自动写引导 </p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vi /etc/rc.local.d/local.sh  </span><br></pre></td></tr></table></figure>
-<p>#在exit之前添加以下cron代码，3分钟执行一次守护进程 </p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">/bin/kill $(cat /var/run/crond.pid)</span><br><span class="line">/bin/echo &#x27;*/3 * * * * /vmfs/volumes/datastore1/ups/monitor.sh&#x27; &gt;&gt; /var/spool/cron/crontabs/root</span><br><span class="line">/usr/lib/vmware/busybox/bin/busybox crond </span><br></pre></td></tr></table></figure>
-<p>#需要执行一次</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/sbin/auto-backup.sh</span><br></pre></td></tr></table></figure>
-<p>命令，我们上面编辑的脚本才真正的保存 /sbin/auto-backup.sh</p>
-<p><img src="/2023/04/26/Nas/image-20230502152007791.png" alt="image-20230502152007791"></p>
-<p><a target="_blank" rel="noopener" href="http://t.csdn.cn/ezOwY">http://t.csdn.cn/ezOwY</a></p>
-<h2 id="2-关机脚本"><a href="#2-关机脚本" class="headerlink" title="2.关机脚本"></a>2.关机脚本</h2><p>#!/bin/sh</p>
-<p>#shutdown all VMs(2,3,9 is VMID,add your VMIDs here)<br>vim-cmd vmsvc/power.off 2<br>vim-cmd vmsvc/power.off 3<br>vim-cmd vmsvc/power.off 9</p>
-<p>#Poweroff Host<br>/sbin/poweroff</p>
-<p>脚本中的vim-cmd vmsvc/power.off 2是关机命令，将对指定的虚拟机VMID号发送关机命令，在宿主机关机前关闭所有虚拟机。<br>最后是关机命令。</p>
-<p>poweroff就相当于直接拔插头，应该用power.shutdown</p>
-<p>几个相关命令：<br>vim-cmd vmsvc/getallvms 查询所有已配置的虚拟机，可获得VMID<br>vim-cmd vmsvc/power.getstate VMID 通过VMID查询相应的虚拟机的当前状态（开关机）<br>vim-cmd vmsvc/power.shutdown VMID发送关机信号(命令），但操作系统未必会真正关机，所以可以接下面的命令。<br>vim-cmd vmsvc/power.off VMID 直接关机（相当于关电源）<br>————————————————<br>版权声明：本文为CSDN博主「快乐的命令行」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。<br>原文链接：<a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_45229597/article/details/121120798">https://blog.csdn.net/qq_45229597/article/details/121120798</a></p>
-<h1 id="ikuai-1"><a href="#ikuai-1" class="headerlink" title="ikuai"></a>ikuai</h1><h2 id="LAN设置"><a href="#LAN设置" class="headerlink" title="LAN设置"></a>LAN设置</h2><p><img src="/2023/04/26/Nas/image-20230501000251430.png" alt="image-20230501000251430"></p>
-<p>==高级选上俩网口==</p>
-<h2 id="修改ikuai控制台端口"><a href="#修改ikuai控制台端口" class="headerlink" title="修改ikuai控制台端口"></a>修改ikuai控制台端口</h2><p>ikuai 8881</p>
-<p><img src="/2023/04/26/Nas/image-20230501000437137.png" alt="image-20230501000437137"></p>
-<h2 id="端口映射-1"><a href="#端口映射-1" class="headerlink" title="端口映射"></a>端口映射</h2><p>esxi 443——9090，esxi只支持https，必须得用443端口</p>
-<img src="/2023/04/26/Nas/image-20230501000220896.png" alt="image-20230501000220896" style="zoom:200%;">
-
-
-
-<h1 id="群晖-1"><a href="#群晖-1" class="headerlink" title="群晖"></a>群晖</h1><h3 id="群晖NAS内网速度测试"><a href="#群晖NAS内网速度测试" class="headerlink" title="群晖NAS内网速度测试"></a>群晖NAS内网速度测试</h3><ol>
-<li>SSH登录群晖NAS，并切换到管理员权限sudo -i</li>
-<li>安装Diagnosis Tool，sudo synogear install</li>
-<li>运行/var/packages/DiagnosisTool/target/tool/iperf3 -c 192.168.188.1</li>
+<h3 id="换源"><a href="#换源" class="headerlink" title="换源"></a>换源</h3><p>更换Ubuntu的软件源可以帮助加速软件包的下载和更新，同时也可以解决一些网络访问问题。以下是在Ubuntu上更换软件源的一般步骤：</p>
+<p><strong>请注意：在更换软件源之前，请确保备份系统数据，以防发生意外情况。</strong></p>
+<ol>
+<li><p><strong>备份源列表文件</strong>：</p>
+<p>在更改软件源之前，首先备份你的源列表文件，以便在需要时恢复到默认设置。你可以使用以下命令备份源列表文件：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bash</span><br></pre></td></tr></table></figure></li>
 </ol>
-<h3 id="群晖NAS外网速度测试"><a href="#群晖NAS外网速度测试" class="headerlink" title="群晖NAS外网速度测试"></a>群晖NAS外网速度测试</h3><ul>
-<li>运行：/var/packages/DiagnosisTool/target/tool/speedtest-cli.py</li>
-<li>会在结果可以找到Download: 138.89 Mbit/s；Upload: 63.01 Mbit/s（这是我千兆移动的测试结果）</li>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo cp /etc/apt/sources.list /etc/apt/sources.list.backup</span><br></pre></td></tr></table></figure>
+
+<p><strong>选择新的源</strong>：</p>
+<p>你可以根据你的地理位置和网络情况选择一个合适的Ubuntu软件源。以下是一些常见的软件源：</p>
+<ul>
+<li>默认源（官方源）：默认情况下，Ubuntu使用官方源，通常速度较慢。</li>
+<li>阿里云源：适用于中国大陆用户，提供了更快的下载速度。</li>
+<li>清华大学源：提供了较快的下载速度和稳定的服务。</li>
 </ul>
-<p>如果不想使用synogear了， 一个命令就可移除：</p>
-<p>作者：ITGeeker<br>链接：<a target="_blank" rel="noopener" href="https://www.jianshu.com/p/e34384e25196">https://www.jianshu.com/p/e34384e25196</a><br>来源：简书<br>著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。</p>
-<h1 id="NAS-TOOL"><a href="#NAS-TOOL" class="headerlink" title="NAS-TOOL"></a>NAS-TOOL</h1><p>==<strong>所有文件夹修改权限！</strong>==</p>
-<h2 id="群晖hosts配置"><a href="#群晖hosts配置" class="headerlink" title="群晖hosts配置"></a>群晖hosts配置</h2><p><code>sudo -i</code></p>
-<p>``vi /etc/hosts`</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">13.225.89.239 api.thetvdb.com</span><br><span class="line"></span><br><span class="line">13.249.175.212 api.thetvdb.com</span><br><span class="line"></span><br><span class="line">13.35.161.120 api.thetvdb.com</span><br><span class="line"></span><br><span class="line">13.226.238.76 api.themoviedb.org</span><br><span class="line"></span><br><span class="line">13.35.7.102 api.themoviedb.org</span><br><span class="line"></span><br><span class="line">13.225.103.26 api.themoviedb.org</span><br><span class="line"></span><br><span class="line">13.226.191.85 api.themoviedb.org</span><br><span class="line"></span><br><span class="line">13.225.103.110 api.themoviedb.org</span><br><span class="line"></span><br><span class="line">52.85.79.89 api.themoviedb.org</span><br><span class="line"></span><br><span class="line">13.225.41.40 api.themoviedb.org</span><br><span class="line"></span><br><span class="line">14.226.251.88 api.themoviedb.org</span><br></pre></td></tr></table></figure>
+<p><strong>编辑源列表文件</strong>：</p>
+<p>使用文本编辑器（例如<code>nano</code>或<code>vim</code>）来编辑源列表文件。以下是编辑源列表文件的示例命令：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">bash</span><br><span class="line">sudo vim /etc/apt/sources.list</span><br></pre></td></tr></table></figure>
+
+<p>在编辑器中，将原来的源替换为你选择的新源。例如，如果要使用阿里云源，可以将以下行添加到文件中：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">bash</span><br><span class="line">deb http://mirrors.aliyun.com/ubuntu/ focal main restricted universe multiverse</span><br><span class="line">deb http://mirrors.aliyun.com/ubuntu/ focal-security main restricted universe multiverse</span><br><span class="line">deb http://mirrors.aliyun.com/ubuntu/ focal-updates main restricted universe multiverse</span><br><span class="line">deb http://mirrors.aliyun.com/ubuntu/ focal-proposed main restricted universe multiverse</span><br><span class="line">deb http://mirrors.aliyun.com/ubuntu/ focal-backports main restricted universe multiverse</span><br></pre></td></tr></table></figure>
+
+<p>请根据你选择的源进行相应的修改。</p>
+<p><strong>更新软件包信息</strong>：</p>
+<p>保存源列表文件后，运行以下命令来更新软件包信息：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">bash</span><br><span class="line">sudo apt-get update</span><br></pre></td></tr></table></figure>
+
+<p>这将从新的源获取软件包信息。</p>
+<p><strong>升级系统</strong>：</p>
+<p>如果需要，你可以运行以下命令来升级系统中的所有软件包：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bash</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get upgrade</span><br></pre></td></tr></table></figure>
+
+<p>这将安装新的软件包版本。</p>
+<p>完成以上步骤后，你的Ubuntu系统将使用你选择的新软件源来获取软件包。请注意，根据你的地理位置和网络情况，不同的源可能会有不同的速度和可用性。如果在使用新源后遇到问题，你可以随时恢复到默认的官方源，方法是将备份的源列表文件恢复到<code>/etc/apt/sources.list</code></p>
+<h5 id="待安装包"><a href="#待安装包" class="headerlink" title="待安装包"></a>待安装包</h5><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">apt install vim &amp;&amp;</span><br><span class="line">apt install docker &amp;&amp;</span><br><span class="line">apt install git &amp;&amp;</span><br></pre></td></tr></table></figure>
+
+
+
+<h1 id="FocalNet"><a href="#FocalNet" class="headerlink" title="FocalNet"></a>FocalNet</h1><h2 id="win下socket有问题，转到linux下"><a href="#win下socket有问题，转到linux下" class="headerlink" title="win下socket有问题，转到linux下"></a>win下socket有问题，转到linux下</h2><p>把项目挂载过去</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker cp C:\Users\74420\Desktop\focalnet 582d:/workspace/focalnet</span><br></pre></td></tr></table></figure>
 
 
 
 
 
+<h3 id="Test"><a href="#Test" class="headerlink" title="Test"></a>Test</h3><p>To evaluate a pre-trained FocalNets on ImageNet val, run:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python -m torch.distributed.launch --nproc_per_node &lt;num-of-gpus-to-use&gt; --master_port 12345 main.py --eval --cfg &lt;config-file&gt; --resume &lt;checkpoint&gt; --data-path &lt;imagenet-path&gt; </span><br></pre></td></tr></table></figure>
+
+<p>​    </p>
+<p>For example, to evaluate the <code>FocalNet-B</code> with a single GPU:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python -m torch.distributed.launch --nproc_per_node 1 --master_port 12345 main.py --eval --cfg configs/focalnet_base_srf.yaml --resume focalnet_base_srf.pth --data-path &lt;imagenet-path&gt;</span><br></pre></td></tr></table></figure>
+
+<p>​    </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python -m torch.distributed.launch --nproc_per_node 1 --master_port 12345 main.py --eval --cfg configs/focalnet_base_srf.yaml --resume focalnet_base_srf.pth --data-path C:\Users\74420\Desktop\focalnet\dataset\dataset_1010</span><br></pre></td></tr></table></figure>
 
 
-<h2 id="1-bt版本nastool"><a href="#1-bt版本nastool" class="headerlink" title="1.bt版本nastool"></a>1.bt版本nastool</h2><p>ip:3000</p>
-<img src="/2023/04/26/Nas/image-20230430234544318.png" alt="image-20230430234544318" style="zoom:200%;">
 
-<p>高级-</p>
-<p><img src="/2023/04/26/Nas/image-20230430234612203.png" alt="image-20230430234612203"></p>
-<p>uid/gid通过ssh，bash输入id获取</p>
-<p><img src="/2023/04/26/Nas/image-20230430234636316.png" alt="image-20230430234636316"></p>
-<p><img src="/2023/04/26/Nas/image-20230430234647301.png" alt="image-20230430234647301"></p>
-<p><img src="/2023/04/26/Nas/image-20230430234654707.png" alt="image-20230430234654707"></p>
-<h2 id="2-TMDB-API"><a href="#2-TMDB-API" class="headerlink" title="2.TMDB API"></a>2.TMDB API</h2><p><a target="_blank" rel="noopener" href="https://www.themoviedb.org/settings/api">https://www.themoviedb.org/settings/api</a></p>
-<p>api</p>
-<h2 id="3-Transmission"><a href="#3-Transmission" class="headerlink" title="3.Transmission"></a>3.Transmission</h2><p><img src="/2023/04/26/Nas/image-20230430235039505.png" alt="image-20230430235039505"></p>
-<p><img src="/2023/04/26/Nas/image-20230430235059741.png"></p>
-<h2 id="4-chinesesubfinder字幕"><a href="#4-chinesesubfinder字幕" class="headerlink" title="4.chinesesubfinder字幕"></a>4.chinesesubfinder字幕</h2><p>IP:19035</p>
-<p>用户名admin</p>
-<p><img src="/2023/04/26/Nas/image-20230430234710623.png" alt="image-20230430234710623"></p>
-<p><img src="/2023/04/26/Nas/image-20230430234717306.png" alt="image-20230430234717306"></p>
-<p><img src="/2023/04/26/Nas/image-20230430234729513.png" alt="image-20230430234729513"></p>
-<p><img src="/2023/04/26/Nas/image-20230430234738546.png" alt="image-20230430234738546"></p>
-<h2 id="矿神软件包"><a href="#矿神软件包" class="headerlink" title="矿神软件包"></a>矿神软件包</h2><p><img src="/2023/04/26/Nas/image-20230501002206137.png" alt="image-20230501002206137"></p>
-<p><a target="_blank" rel="noopener" href="https://spk7.imnks.com/">https://spk7.imnks.com/</a></p>
-<p>社群下载</p>
-<p><img src="/2023/04/26/Nas/image-20230501002245641.png" alt="image-20230501002245641"></p>
-<h4 id="jellyfin"><a href="#jellyfin" class="headerlink" title="jellyfin"></a>jellyfin</h4><p>ip:8096</p>
-<h2 id="jackett"><a href="#jackett" class="headerlink" title="jackett"></a>jackett</h2><p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/511104984">https://zhuanlan.zhihu.com/p/511104984</a></p>
-<p>==限制性能==</p>
-<p><img src="/2023/04/26/Nas/image-20230501003002339.png" alt="image-20230501003002339"></p>
-<p>高级加上uid，gid</p>
-<p><img src="/2023/04/26/Nas/image-20230501003028600.png" alt="image-20230501003028600"></p>
-<p><img src="/2023/04/26/Nas/image-20230501002954192.png" alt="image-20230501002954192"></p>
-<p>加一个映射，radarr？</p>
-<p><img src="/2023/04/26/Nas/image-20230501002946885.png" alt="image-20230501002946885"></p>
-<p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1dv4y1b78H/?vd_source=3d040baeb67aeceb2bba9c7169a67a96">https://www.bilibili.com/video/BV1dv4y1b78H/?vd_source=3d040baeb67aeceb2bba9c7169a67a96</a></p>
-<h1 id="clash"><a href="#clash" class="headerlink" title="clash"></a>clash</h1><p><a target="_blank" rel="noopener" href="https://fugary.com/?p=363">https://fugary.com/?p=363</a></p>
-<h3 id="准备Clash配置文件"><a href="#准备Clash配置文件" class="headerlink" title="准备Clash配置文件"></a>准备Clash配置文件</h3><p>新增一个<code>config.yaml</code>文件，需要上传到群晖的<code>/docker/clash/config.yaml</code>，这个<code>yaml</code>文件可以从本地电脑的<code>Clash</code>中复制出来：</p>
-<p><img src="/2023/04/26/Nas/image-20220703164622625.png" alt="image-20220703164622625"></p>
-<p>**注意：这里只能用<code>config.yaml不</code>能用<code>config.yml</code>**，可以适当修改部分信息，也可以不修改：</p>
-<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment"># Port of HTTP(S) proxy server on the local end（默认）</span></span><br><span class="line"></span><br><span class="line"><span class="attr">port:</span> <span class="number">7890</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Port of SOCKS5 proxy server on the local end（默认）</span></span><br><span class="line"></span><br><span class="line"><span class="attr">socks-port:</span> <span class="number">7891</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 开启局域网代理，这个要配置true</span></span><br><span class="line"></span><br><span class="line"><span class="attr">allow-lan:</span> <span class="literal">true</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#UI监听端口，可以改成0.0.0.0:9090，改后可以通过ui界面访问</span></span><br><span class="line"></span><br><span class="line"><span class="attr">external-controller:</span> <span class="number">0.0</span><span class="number">.0</span><span class="number">.0</span><span class="string">:9090</span></span><br></pre></td></tr></table></figure>
+<h1 id="todo"><a href="#todo" class="headerlink" title="todo"></a>todo</h1><ul>
+<li>实验室电脑配置NVIDIA Container Toolkit</li>
+<li>本地ubuntu打包项目及环境，设计挂载目录</li>
+</ul>
+<h1 id="yolo"><a href="#yolo" class="headerlink" title="yolo"></a>yolo</h1><p>best model</p>
+<p>D:\ST_train_LBN\yolov5-6.1-backbone\runs\train\finetune_pruned_exp\competation_yolov5m\weights</p>
+<p>augmentations.py/letterbox</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br></pre></td><td class="code"><pre><span class="line"># Process predictions</span><br><span class="line">       for i, det in enumerate(pred):  # per image</span><br><span class="line">           seen += 1</span><br><span class="line">           if webcam:  # batch_size &gt;= 1</span><br><span class="line">               p, im0, frame = path[i], im0s[i].copy(), dataset.count</span><br><span class="line">               s += f&#x27;&#123;i&#125;: &#x27;</span><br><span class="line">           else:</span><br><span class="line">               p, im0, frame = path, im0s.copy(), getattr(dataset, &#x27;frame&#x27;, 0)</span><br><span class="line"></span><br><span class="line">           p = Path(p)  # to Path</span><br><span class="line">           save_path = str(save_dir / p.name)  # im.jpg</span><br><span class="line">           txt_path = str(save_dir / &#x27;labels&#x27; / p.stem) + (&#x27;&#x27; if dataset.mode == &#x27;image&#x27; else f&#x27;_&#123;frame&#125;&#x27;)  # im.txt</span><br><span class="line">           s += &#x27;%gx%g &#x27; % im.shape[2:]  # print string</span><br><span class="line">           imc = im0.copy() if save_crop else im0  # for save_crop</span><br><span class="line">           annotator = Annotator(im0, line_width=line_thickness, example=str(names))</span><br><span class="line">           if len(det):</span><br><span class="line">               if retina_masks:</span><br><span class="line">                   # scale bbox first the crop masks</span><br><span class="line">                   det[:, :4] = scale_boxes(im.shape[2:], det[:, :4], im0.shape).round()  # rescale boxes to im0 size</span><br><span class="line">                   masks = process_mask_native(proto[i], det[:, 6:], det[:, :4], im0.shape[:2])  # HWC</span><br><span class="line">               else:</span><br><span class="line">                   masks = process_mask(proto[i], det[:, 6:], det[:, :4], im.shape[2:], upsample=True)  # HWC</span><br><span class="line">                   det[:, :4] = scale_boxes(im.shape[2:], det[:, :4], im0.shape).round()  # rescale boxes to im0 size</span><br><span class="line"></span><br><span class="line">               # Segments</span><br><span class="line">               if save_txt:</span><br><span class="line">                   segments = [</span><br><span class="line">                       scale_segments(im0.shape if retina_masks else im.shape[2:], x, im0.shape, normalize=True)</span><br><span class="line">                       for x in reversed(masks2segments(masks))]</span><br><span class="line"></span><br><span class="line">               # Print results</span><br><span class="line">               for c in det[:, 5].unique():</span><br><span class="line">                   n = (det[:, 5] == c).sum()  # detections per class</span><br><span class="line">                   s += f&quot;&#123;n&#125; &#123;names[int(c)]&#125;&#123;&#x27;s&#x27; * (n &gt; 1)&#125;, &quot;  # add to string</span><br><span class="line"></span><br><span class="line">               # Mask plotting</span><br><span class="line">               annotator.masks(</span><br><span class="line">                   masks,</span><br><span class="line">                   colors=[colors(x, True) for x in det[:, 5]],</span><br><span class="line">                   im_gpu=torch.as_tensor(im0, dtype=torch.float16).to(device).permute(2, 0, 1).flip(0).contiguous() /</span><br><span class="line">                   255 if retina_masks else im[i])</span><br><span class="line"></span><br><span class="line">               # Write results</span><br><span class="line">               for j, (*xyxy, conf, cls) in enumerate(reversed(det[:, :6])):</span><br><span class="line">                   if save_txt:  # Write to file</span><br><span class="line">                       seg = segments[j].reshape(-1)  # (n,2) to (n*2)</span><br><span class="line">                       line = (cls, *seg, conf) if save_conf else (cls, *seg)  # label format</span><br><span class="line">                       with open(f&#x27;&#123;txt_path&#125;.txt&#x27;, &#x27;a&#x27;) as f:</span><br><span class="line">                           f.write((&#x27;%g &#x27; * len(line)).rstrip() % line + &#x27;\n&#x27;)</span><br><span class="line"></span><br><span class="line">                   if save_img or save_crop or view_img:  # Add bbox to image</span><br><span class="line">                       c = int(cls)  # integer class</span><br><span class="line">                       label = None if hide_labels else (names[c] if hide_conf else f&#x27;&#123;names[c]&#125; &#123;conf:.2f&#125;&#x27;)</span><br><span class="line">                       annotator.box_label(xyxy, label, color=colors(c, True))</span><br><span class="line">                       # annotator.draw.polygon(segments[j], outline=colors(c, True), width=3)</span><br><span class="line">                   if save_crop:</span><br><span class="line">                       save_one_box(xyxy, imc, file=save_dir / &#x27;crops&#x27; / names[c] / f&#x27;&#123;p.stem&#125;.jpg&#x27;, BGR=True)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
-<p>配置文件准备好，上传到群晖之后，就可以开始了。</p>
-<h3 id="Docker安装Clash镜像"><a href="#Docker安装Clash镜像" class="headerlink" title="Docker安装Clash镜像"></a>Docker安装Clash镜像</h3><p>进入群晖<code>Docker</code>套件，搜素<code>clash</code>，可以看到<code>dreamacro/clash</code>，双击下载下来。</p>
-<p><img src="/2023/04/26/Nas/image-20220703140044584.png" alt="image-20220703140044584"></p>
-<p>对应开源地址：</p>
-<p>GitHub地址：<a target="_blank" rel="noopener" href="https://github.com/Dreamacro/clash">https://github.com/Dreamacro/clash</a><br> Docker地址：<a target="_blank" rel="noopener" href="https://registry.hub.docker.com/r/dreamacro/clash/">https://registry.hub.docker.com/r/dreamacro/clash/</a></p>
-<p>参考配置文件：<a target="_blank" rel="noopener" href="https://github.com/Dreamacro/clash/wiki/configuration">https://github.com/Dreamacro/clash/wiki/configuration</a></p>
-<h3 id="配置Clash容器"><a href="#配置Clash容器" class="headerlink" title="配置Clash容器"></a>配置Clash容器</h3><p>找到刚才下载的镜像，现在可以开始配置<code>Clash</code>容器了，点击【启动】，再下一步：</p>
-<p><img src="/2023/04/26/Nas/image-20220703142612130.png" alt="image-20220703142612130"></p>
-<p>配置端口，目前开放的端口最好映射出来，根据实际情况配置本地端口，容器端口是固定的，如果是<code>mixed-port: 7890</code>，可以少暴露端口：</p>
-<p><img src="/2023/04/26/Nas/image-20220703143036183.png" alt="image-20220703143036183"></p>
-<p>然后映射配置文件，本地配置文件<code>/docker/clash/config.yaml</code>映射到容器的<code>/root/.config/clash/config.yaml</code></p>
-<p><img src="/2023/04/26/Nas/image-20220703143230426.png" alt="image-20220703143230426"></p>
-<p>配置完成可以启动了。</p>
-<p>其实<code>clash</code>代理已经可以使用了，不过为了方便查看，可以再用<code>UI</code>工具查看一下。</p>
-<h3 id="使用UI界面"><a href="#使用UI界面" class="headerlink" title="使用UI界面"></a>使用UI界面</h3><p>在线版<code>UI</code>界面：<a target="_blank" rel="noopener" href="http://yacd.haishan.me/">http://yacd.haishan.me/</a> （目前似乎有兼容问题）</p>
-<p>输入对应的地址即可，比如本地的：<code>http://192.168.31.126:9090</code></p>
-<p>也可以自己安装一个<code>UI</code>容器，名字叫：haishanh/yacd，搜索后下载安装</p>
-<p><img src="/2023/04/26/Nas/image-20220703165059849.png" alt="image-20220703165059849"></p>
-<p>下载后，进入启动配置，配置自动重新启动：</p>
-<p><img src="/2023/04/26/Nas/image-20220703165339662.png" alt="image-20220703165339662"></p>
-<p>配置端口：</p>
-<p><img src="/2023/04/26/Nas/image-20220703165555219.png" alt="image-20220703165555219"></p>
-<p>启动完毕。</p>
-<p>访问：<a target="_blank" rel="noopener" href="http://192.168.31.126:9080/">http://192.168.31.126:9080/</a> 添加clash服务的地址</p>
-<p><img src="/2023/04/26/Nas/image-20220703170428513.png" alt="image-20220703170428513"></p>
-<p>进入之后可以看到clash的订阅信息了：</p>
-<p><img src="/2023/04/26/Nas/image-20220703170538462.png" alt="image-20220703170538462"></p>
-<p><code>UI</code>安装配置完成。</p>
-<h3 id="代理使用"><a href="#代理使用" class="headerlink" title="代理使用"></a>代理使用</h3><p>以<code>iOS</code>手机为例，在【无线局域网】设置中，已连接的<code>WIFI</code>右边的信息图标：</p>
-<p>配置<code>HTTP</code>代理：</p>
-<p><img src="/2023/04/26/Nas/image-20220703170819896.png" alt="image-20220703170819896"></p>
-<p>然后就可以尝试访问<a target="_blank" rel="noopener" href="https://google.com测试一下了./">https://google.com测试一下了。</a></p>
-<h3 id="自动更新"><a href="#自动更新" class="headerlink" title="自动更新"></a>自动更新</h3><p>目前这种操作方式不能自动更新代理，可以考虑使用定时任务来更新，编写定时任务脚本，并存放到<code>/docker/clash/reload-clash.sh</code>：</p>
-<p><strong>注意：如果订阅地址用浏览器打开不是<code>yml</code>格式，不能使用这个方法，可以尝试在<code>url</code>后面增加参数：<code>?target=clash</code>或者<code>clash=1</code>之类的看看是否能转换出<code>yml</code>数据。</strong></p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment"># 下载节点配置文件，根据实际的订阅地址填写</span></span><br><span class="line"></span><br><span class="line">wget -O /volume1/docker/clash/config.yaml https://xxxxxx</span><br><span class="line"></span><br><span class="line"><span class="comment"># external-controller地址为0.0.0.0:9090，方便UI访问（可选）</span></span><br><span class="line"></span><br><span class="line">sed -i <span class="string">&#x27;s/127.0.0.1:9090/0.0.0.0:9090/g&#x27;</span> /volume1/docker/clash/config.yaml</span><br><span class="line"></span><br><span class="line"><span class="comment"># 增加安全性，配置使用代理的用户名和密码（可选）</span></span><br><span class="line"></span><br><span class="line">sed -i <span class="string">&#x27;s/allow-lan: true/allow-lan: true\r\nauthentication:\r\n - &quot;user1:password1&quot;\r\n - &quot;user2:password2&quot;/g&#x27;</span> /volume1/docker/clash/config.yaml</span><br><span class="line"></span><br><span class="line"><span class="comment"># 重启 clash 容器，名字为实际的容器名字</span></span><br><span class="line"></span><br><span class="line">docker container restart dreamarco-clash1</span><br></pre></td></tr></table></figure>
 
-<p>配置群晖定时任务，进入【控制面板】-&gt;【任务计划】：</p>
-<p><img src="/2023/04/26/Nas/image-20220703175703733.png" alt="image-20220703175703733"></p>
-<p>然后新增一个任务，【用户定义的脚本】任务，并配置名称等</p>
-<p><img src="/2023/04/26/Nas/chrome_NvhlmHcwVn.png" alt="chrome_NvhlmHcwVn"></p>
-<p>配置运行频率：</p>
-<p><img src="/2023/04/26/Nas/image-20220704085518944.png" alt="image-20220704085518944"></p>
-<p>配置运行脚本<code>bash /volume1/docker/clash/reload-clash.sh</code>：</p>
-<p><img src="/2023/04/26/Nas/chrome_MLTqofS0wr.png" alt="chrome_MLTqofS0wr"></p>
-<p><strong>需要注意路径，完整路径是要包含<code>/volume1</code>的</strong></p>
-<p>可以先运行一次测试看看。</p>
-<p>至此算是完全配置完成了。</p>
-<h4 id="常见问题"><a href="#常见问题" class="headerlink" title="常见问题"></a>常见问题</h4><p>运行脚本提示没有权限运行docker：</p>
-<blockquote>
-<p>Got permission denied while trying to connect to the Docker daemon socket at unix:///var/run/docker.sock: Post “http://%2Fvar%2Frun%2Fdocker.sock/v1.24/containers/dreamacro-clash1/restart”: dial unix /var/run/docker.sock: connect: permission denied</p>
+
+
+
+<h3 id="try"><a href="#try" class="headerlink" title="try"></a>try</h3><p>输出txt：</p>
+<p>predict.py parser –save-txt default true</p>
+<p>save-conf true 置信度</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">parser.add_argument(&#x27;--save-txt&#x27;, default=True, help=&#x27;save results to *.txt&#x27;)</span><br><span class="line">parser.add_argument(&#x27;--save-conf&#x27;, default=True, help=&#x27;save confidences in --save-txt labels&#x27;)</span><br></pre></td></tr></table></figure>
+
+
+
+<p>修改输出坐标</p>
+<p>不输出seg，输出xyxy</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"># Write results</span><br><span class="line">                for j, (*xyxy, conf, cls) in enumerate(reversed(det[:, :6])):</span><br><span class="line">                    # xyxy是目标坐标x1y1,x2y2，左上角0,0</span><br><span class="line">                    if save_txt:  # Write to file</span><br><span class="line">                        seg = segments[j].reshape(-1)  # (n,2) to (n*2)</span><br><span class="line">                        line0 = (cls, *seg, conf) if save_conf else (cls, *seg)  # label format</span><br><span class="line">                        # with open(f&#x27;&#123;txt_path&#125;.txt&#x27;, &#x27;a&#x27;) as f:</span><br><span class="line">                        #     f.write((&#x27;%g &#x27; * len(line)).rstrip() % line + &#x27;\n&#x27;)</span><br><span class="line">                        # 上面的line:cls类别，seg目标的分割信息，目标的边界框/轮廓，conf置信度，需要将save_conf设为TRUE</span><br><span class="line"></span><br><span class="line">                        line = (cls, *xyxy, conf) if save_conf else (cls, *xyxy)</span><br><span class="line">                        with open(f&#x27;&#123;txt_path&#125;.txt&#x27;, &#x27;a&#x27;) as f:</span><br><span class="line">                            formatted_line = &#x27; &#x27;.join([&#x27;%g&#x27; % item for item in line]) + &#x27;\n&#x27;</span><br><span class="line">                            f.write(formatted_line)</span><br><span class="line"></span><br><span class="line">                    if save_img or save_crop or view_img:  # Add bbox to image</span><br><span class="line">                        c = int(cls)  # integer class</span><br><span class="line">                        label = None if hide_labels else (names[c] if hide_conf else f&#x27;&#123;names[c]&#125; &#123;conf:.2f&#125;&#x27;)</span><br><span class="line">                        annotator.box_label(xyxy, label, color=colors(c, True))</span><br><span class="line">                        # annotator.draw.polygon(segments[j], outline=colors(c, True), width=3)</span><br><span class="line">                    if save_crop:</span><br><span class="line">                        save_one_box(xyxy, imc, file=save_dir / &#x27;crops&#x27; / names[c] / f&#x27;&#123;p.stem&#125;.jpg&#x27;, BGR=True)</span><br></pre></td></tr></table></figure>
+
+
+
+<h1 id="预测"><a href="#预测" class="headerlink" title="预测"></a>预测</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">$ python segment/predict.py --weights yolov5s-seg.pt --source 0                               # webcam</span><br><span class="line">                                                              img.jpg                         # image</span><br><span class="line">                                                              vid.mp4                         # video</span><br><span class="line">                                                              screen                          # screenshot</span><br><span class="line">                                                              path/                           # directory</span><br><span class="line">                                                              list.txt                        # list of images</span><br><span class="line">                                                              list.streams                    # list of streams</span><br><span class="line">                                                              &#x27;path/*.jpg&#x27;                    # glob</span><br><span class="line">                                                              &#x27;https://youtu.be/LNwODJXcvt4&#x27;  # YouTube</span><br><span class="line">                                                              &#x27;rtsp://example.com/media.mp4&#x27;  # RTSP, RTMP, HTTP stream</span><br></pre></td></tr></table></figure>
+
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://developer-hq.github.io/2023/10/07/HomeAssistant/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2023/10/07/HomeAssistant/" itemprop="url">HomeAssistant</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2023-10-07T15:49:48+08:00">
+                2023-10-07
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p><a target="_blank" rel="noopener" href="https://www.bilibili.com/read/cv15944396/">https://www.bilibili.com/read/cv15944396/</a></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://developer-hq.github.io/2023/10/07/Assistant/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2023/10/07/Assistant/" itemprop="url">Assistant</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2023-10-07T14:01:59+08:00">
+                2023-10-07
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://developer-hq.github.io/2023/10/03/esp32/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2023/10/03/esp32/" itemprop="url">esp32</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2023-10-03T14:32:10+08:00">
+                2023-10-03
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="环境搭建"><a href="#环境搭建" class="headerlink" title="环境搭建"></a>环境搭建</h1><h3 id="Ardunio"><a href="#Ardunio" class="headerlink" title="Ardunio"></a>Ardunio</h3><p><a target="_blank" rel="noopener" href="https://www.arduino.cc/en/donate/">https://www.arduino.cc/en/donate/</a></p>
+<p>选just download</p>
+<p>arduino ide下载</p>
+<p>点灯科技，下载离线包，安装</p>
+<p><a target="_blank" rel="noopener" href="https://diandeng.tech/dev">https://diandeng.tech/dev</a></p>
+<p>file-preference-添加url</p>
+<p>用法：</p>
+<p>选择合适的开发板</p>
+<p><img src="/2023/10/03/esp32/image-20231004120828505.png" alt="image-20231004120828505"></p>
+<p>file-example有示例</p>
+<h3 id="vscode-platform-Ardunio"><a href="#vscode-platform-Ardunio" class="headerlink" title="vscode platform Ardunio"></a>vscode platform Ardunio</h3><p>下载扩展-platformio ide</p>
+<p><img src="/2023/10/03/esp32/image-20231004115737807.png" alt="image-20231004115737807"></p>
+<p>进入PIO HOME-new project</p>
+<p>选择对应固件，设置文件路径</p>
+<p><img src="/2023/10/03/esp32/image-20231004115838083.png" alt="image-20231004115838083"></p>
+<p>src/main.cpp</p>
+<p><img src="/2023/10/03/esp32/image-20231004115651990.png" alt="image-20231004115651990"></p>
+<h3 id="python"><a href="#python" class="headerlink" title="python"></a>python</h3><h5 id="ide"><a href="#ide" class="headerlink" title="ide"></a>ide</h5><p>thonny</p>
+<h5 id="py解释器"><a href="#py解释器" class="headerlink" title="py解释器"></a>py解释器</h5><p>micro-python</p>
+<p><a target="_blank" rel="noopener" href="https://micropython.org/download/?port=esp32">https://micropython.org/download/?port=esp32</a></p>
+<p>下载时需查看是否支持开发板</p>
+<h1 id="esp32cam"><a href="#esp32cam" class="headerlink" title="esp32cam"></a>esp32cam</h1><h3 id="教程"><a href="#教程" class="headerlink" title="教程"></a>教程</h3><p>视频</p>
+<p><a target="_blank" rel="noopener" href="https://b23.tv/KhJSCsR">https://b23.tv/KhJSCsR</a></p>
+<p>课件</p>
+<p><a target="_blank" rel="noopener" href="https://doc.itprojects.cn/0006.zhishi.esp32/02.doc/index.html#/">https://doc.itprojects.cn/0006.zhishi.esp32/02.doc/index.html#/</a></p>
+<h3 id="几个报错"><a href="#几个报错" class="headerlink" title="几个报错"></a>几个报错</h3><h5 id="内存不足"><a href="#内存不足" class="headerlink" title="内存不足"></a>内存不足</h5><p>改成huge app</p>
+<h5 id="乱码"><a href="#乱码" class="headerlink" title="乱码"></a>乱码</h5><p>调整字符编码和波特率</p>
+<p><img src="/2023/10/03/esp32/image-20231004125235603.png" alt="image-20231004125235603"></p>
+<h3 id="编码"><a href="#编码" class="headerlink" title="编码"></a>编码</h3><p><img src="/2023/10/03/esp32/image-20231006122136425.png" alt="image-20231006122136425"></p>
+<p>修改ssid password</p>
+<p><img src="/2023/10/03/esp32/image-20231006122227618.png" alt="image-20231006122227618"></p>
+<p>model选择ai thinker</p>
+<p>烧进去</p>
+<p>在串口监视器看返回的信息，就有监控页的ip</p>
+<h1 id="esp32学习"><a href="#esp32学习" class="headerlink" title="esp32学习"></a>esp32学习</h1><p>面包板</p>
+<p>杜邦线，分公母头</p>
+<h2 id="Arduino语法"><a href="#Arduino语法" class="headerlink" title="Arduino语法"></a>Arduino语法</h2><h3 id="基本框架"><a href="#基本框架" class="headerlink" title="基本框架"></a>基本框架</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">setup</span><span class="params">()</span> </span>&#123;</span><br><span class="line">  <span class="comment">// put your setup code here, to run once:</span></span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">loop</span><span class="params">()</span> </span>&#123;</span><br><span class="line">  <span class="comment">// put your main code here, to run repeatedly:</span></span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>先执行一遍setup，再循环执行loop</p>
+<h3 id="常用函数"><a href="#常用函数" class="headerlink" title="常用函数"></a>常用函数</h3><p><img src="/2023/10/03/esp32/image-20231006123405470.png" alt="image-20231006123405470"></p>
+<h2 id="gpio控制led"><a href="#gpio控制led" class="headerlink" title="gpio控制led"></a>gpio控制led</h2><p>gpio复制输入输出电压，开发板上D开头的都是这种</p>
+<h3 id="电平"><a href="#电平" class="headerlink" title="电平"></a>电平</h3><p>某点的电压（对公共参考点）是高还是低</p>
+<p>esp32中高电平大于2.5v，低电平小于0.5v</p>
+<h3 id="LED"><a href="#LED" class="headerlink" title="LED"></a>LED</h3><p>发光二极管</p>
+<p>通过5ma电流就可以发光，工作电流3ma-29ma之间，电流过大会烧毁</p>
+<p>一般在led管脚串联一个电阻，避免电流过大，【限流电阻】</p>
+<p>led发光时，两端电压1.7v，导通压降</p>
+<p><img src="/2023/10/03/esp32/image-20231006122854715.png" alt="image-20231006122854715"></p>
+<p>阳极vcc接电源，阴极gnd接地</p>
+<h3 id="电路"><a href="#电路" class="headerlink" title="电路"></a>电路</h3><p><img src="/2023/10/03/esp32/image-20231006122951871.png" alt="image-20231006122951871"></p>
+<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><h5 id="点亮"><a href="#点亮" class="headerlink" title="点亮"></a>点亮</h5><p><img src="/2023/10/03/esp32/image-20231006123610487.png" alt="image-20231006123610487"></p>
+<p>烧录时按住boot按键？</p>
+<p>闪烁</p>
+<p> <img src="/2023/10/03/esp32/image-20231006123801187.png" alt="image-20231006123801187"></p>
+<h5 id="流水灯"><a href="#流水灯" class="headerlink" title="流水灯"></a>流水灯</h5><p>把pin写到数组里</p>
+<p><img src="/2023/10/03/esp32/image-20231006124015151.png" alt="image-20231006124015151"></p>
+<p><img src="/2023/10/03/esp32/image-20231006124119941.png" alt="image-20231006124119941"></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://developer-hq.github.io/2023/09/21/pdf%E5%85%A8%E6%96%87%E7%BF%BB%E8%AF%91/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2023/09/21/pdf%E5%85%A8%E6%96%87%E7%BF%BB%E8%AF%91/" itemprop="url">pdf全文翻译</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2023-09-21T22:45:19+08:00">
+                2023-09-21
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>先说大佬写的太强了</p>
+<h1 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h1><ul>
+<li>把要翻译的文件复制到trans/input_file文件夹</li>
+<li>打开trans_file.py ，第39行，修改文件名</li>
+<li>现在默认test，也可以直接改名为test</li>
+<li>运行trans_file.py</li>
+<li>输出文件在output_file文件夹</li>
+</ul>
+<p>可维护：</p>
+<p>重写一下路径，网页版不知道怎么弄</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/QPromise/EasyTrans">https://github.com/QPromise/EasyTrans</a></p>
+<h1 id="EasyTrans"><a href="#EasyTrans" class="headerlink" title="EasyTrans"></a><a target="_blank" rel="noopener" href="https://github.com/QPromise/EasyTrans#easytrans">EasyTrans</a></h1><h2 id="2019-12-14说明"><a href="#2019-12-14说明" class="headerlink" title="2019.12.14说明"></a><a target="_blank" rel="noopener" href="https://github.com/QPromise/EasyTrans#20191214%E8%AF%B4%E6%98%8E">2019.12.14说明</a></h2><ul>
+<li>由于之前<a target="_blank" rel="noopener" href="https://github.com/pymupdf/PyMuPDF">PyMupDF</a>包更新到1.16.9版本，函数进行了改动造成了程序运行错误，未及时跟进更新给各位带来的不便深感抱歉，当前已进行修复。</li>
+<li>必应翻译接口现在已不能使用，新增百度翻译接口，需要换成自己的API，申请点<a target="_blank" rel="noopener" href="http://api.fanyi.baidu.com/api/trans">这里</a></li>
+</ul>
+<h2 id="目的"><a href="#目的" class="headerlink" title="目的"></a><a target="_blank" rel="noopener" href="https://github.com/QPromise/EasyTrans#%E7%9B%AE%E7%9A%84">目的</a></h2><ul>
+<li>看英文论文去各个翻译网站对比翻译结果的时间消耗。</li>
+<li>下载翻译后的pdf以及word要花钱，如翻译狗，有道等。</li>
+<li>必应的英译汉翻译文档时个人认为比较好用。（原来的必应翻译已弃用，可自己实现）</li>
+</ul>
+<h2 id="实现"><a href="#实现" class="headerlink" title="实现"></a><a target="_blank" rel="noopener" href="https://github.com/QPromise/EasyTrans#%E5%AE%9E%E7%8E%B0">实现</a></h2><ul>
+<li>基于django、PyMuPdf、谷歌、有道翻译实现了pdf英译汉的功能，翻译后的pdf格式基本保持不变，可以下载docx和pdf格式的翻译文档，简单的满足看论文以及写总结的需求。</li>
+</ul>
+<h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a><a target="_blank" rel="noopener" href="https://github.com/QPromise/EasyTrans#%E9%97%AE%E9%A2%98">问题</a></h2><ul>
+<li>word不能实现pdf一样的排版，翻译后的pdf还是存在样式问题（需要考虑的很多，慢慢做优化）。</li>
+<li>表格无法写入，公示混乱。</li>
+<li>搜狗翻译接口未实现。</li>
+<li>有道翻译长句子有问题，建议使用谷歌、百度。</li>
+</ul>
+<h2 id="环境"><a href="#环境" class="headerlink" title="环境"></a><a target="_blank" rel="noopener" href="https://github.com/QPromise/EasyTrans#%E7%8E%AF%E5%A2%83">环境</a></h2><blockquote>
+<p>开发环境的系统平台为 Windows 10 （64 位），Python 版本为 3.6 （64 位），Django版本为 2.2</p>
 </blockquote>
-<p>可以尝试把脚本修改一下，把<code>sudo</code>需要的密码放进去：</p>
-<p><code>sudo -S</code>是表示<code>sudo</code>从标准输入<code>STDIN</code>读入密码而不是从终端读取。</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;YourPWD&quot;</span> | sudo -S docker container restart dreamarco-clash1</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">atomicwrites==1.3.0</span><br><span class="line">attrs==19.1.0</span><br><span class="line">certifi==2019.3.9</span><br><span class="line">chardet==3.0.4</span><br><span class="line">colorama==0.4.1</span><br><span class="line">Django==2.2.1</span><br><span class="line">docx==0.2.4</span><br><span class="line">idna==2.8</span><br><span class="line">Js2Py==0.63</span><br><span class="line">lxml==4.3.3</span><br><span class="line">more-itertools==7.0.0</span><br><span class="line">pdfminer3k==1.3.1</span><br><span class="line">Pillow==6.0.0</span><br><span class="line">pluggy==0.11.0</span><br><span class="line">ply==3.11</span><br><span class="line">py==1.8.0</span><br><span class="line">PyExecJS==1.5.1</span><br><span class="line">pyjsparser==2.7.1</span><br><span class="line">PyMuPDF==1.16.9</span><br><span class="line">PyPDF2==1.26.0</span><br><span class="line">pytest==4.5.0</span><br><span class="line">python-docx==0.8.10</span><br><span class="line">pytz==2019.1</span><br><span class="line">requests==2.21.0</span><br><span class="line">six==1.12.0</span><br><span class="line">sqlparse==0.3.0</span><br><span class="line">tzlocal==1.5.1</span><br><span class="line">urllib3==1.24.3</span><br><span class="line">wcwidth==0.1.7</span><br></pre></td></tr></table></figure>
 
-<h4 id="新自动刷新"><a href="#新自动刷新" class="headerlink" title="新自动刷新"></a>新自动刷新</h4><p>运行发现，重启<code>Docker</code>方式刷新并不是很好，参考了<code>API</code>文档，发现可以用另外的方式更新：</p>
-<p><a target="_blank" rel="noopener" href="https://clash.gitbook.io/doc/restful-api/config">https://clash.gitbook.io/doc/restful-api/config</a></p>
-<p>文件路径：<code>/docker/clash/reload-clash.sh</code></p>
-<p>实际配置到【任务计划】中需要全路径<code>bash /volume1/docker/clash/reload-clash.sh</code>：</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment"># 下载节点配置文件，根据实际的订阅地址填写</span></span><br><span class="line"></span><br><span class="line">wget -O /volume1/docker/clash/config.yaml https://xxxxxx</span><br><span class="line"></span><br><span class="line"><span class="comment"># external-controller地址为0.0.0.0:9090，方便UI访问（可选）</span></span><br><span class="line"></span><br><span class="line">sed -i <span class="string">&#x27;s/127.0.0.1:9090/0.0.0.0:9090/g&#x27;</span> /volume1/docker/clash/config.yaml</span><br><span class="line"></span><br><span class="line"><span class="comment"># 增加安全性，配置使用代理的用户名和密码（可选）</span></span><br><span class="line"></span><br><span class="line">sed -i <span class="string">&#x27;s/allow-lan: true/allow-lan: true\r\nauthentication:\r\n - &quot;user1:password1&quot;\r\n - &quot;user2:password2&quot;/g&#x27;</span> /volume1/docker/clash/config.yaml</span><br><span class="line"></span><br><span class="line"><span class="comment"># 去掉重启Docker，调用API刷新：</span></span><br><span class="line"></span><br><span class="line">curl --location --request PUT <span class="string">&#x27;http://localhost:9090/configs&#x27;</span> \</span><br><span class="line"></span><br><span class="line">--header <span class="string">&#x27;Content-Type: application/json&#x27;</span> \</span><br><span class="line"></span><br><span class="line">--data-raw <span class="string">&#x27;&#123;&quot;path&quot;: &quot;/root/.config/clash/config.yaml&quot;&#125;&#x27;</span></span><br></pre></td></tr></table></figure>
-
-<p><strong>注意：代理端口不要使用默认的7890，暴露外网可能会被扫描到，出现流量偷跑的情况，另外UI界面并不需要，可以测试完后停止UI相关容器</strong></p>
-<h1 id="webdav挂载阿里云盘"><a href="#webdav挂载阿里云盘" class="headerlink" title="webdav挂载阿里云盘"></a>webdav挂载阿里云盘</h1><p><a target="_blank" rel="noopener" href="https://imnks.com/3939.html">https://imnks.com/3939.html</a></p>
-<p>矿神SPK源内安装</p>
-<p><a target="_blank" rel="noopener" href="https://imnks.com/1780.html">矿神群晖SPK套件中心 上线啦！支持DSM6、DSM7</a></p>
-<p>矿神群晖SPK套件中心 提供各类国内常用的DSM6、DSM7套件，目前上架DSM7套件：Aria2、ffmpeg、Jellyfin、qBittorrent、Syncthing、Transmission等等，持续更….</p>
-<h3 id="套件截图"><a href="#套件截图" class="headerlink" title="套件截图"></a>套件截图</h3><p><img src="/2023/04/26/Nas/1390102933.png!1" alt="1390102933.png"></p>
-<h3 id="安装界面"><a href="#安装界面" class="headerlink" title="安装界面"></a>安装界面</h3><p>端口和Webdav登录的用户名密码可以自定义（非登录群晖的，随便搞个！注意密码不要带特殊符号！！！）</p>
-<p>注意端口9080一般不建议修改，但是更不要和系统的其它套件端口冲突！</p>
-<p><img src="/2023/04/26/Nas/2082164222.png!1" alt="2082164222.png"></p>
-<h3 id="获取refresh-token-（和AList的不通用！！！）"><a href="#获取refresh-token-（和AList的不通用！！！）" class="headerlink" title="获取refresh_token （和AList的不通用！！！）"></a>获取refresh_token （和AList的不通用！！！）</h3><h4 id="使用中如果连不上，重新获取refresh-token，UI界面修改后保存即可，套件会自动重启。"><a href="#使用中如果连不上，重新获取refresh-token，UI界面修改后保存即可，套件会自动重启。" class="headerlink" title="使用中如果连不上，重新获取refresh_token，UI界面修改后保存即可，套件会自动重启。"></a>使用中如果连不上，重新获取refresh_token，UI界面修改后保存即可，套件会自动重启。</h4><h6 id="2023-3-7更新V2-切换到阿里云盘开放平台接口，refreshToken需要重新获取！！！"><a href="#2023-3-7更新V2-切换到阿里云盘开放平台接口，refreshToken需要重新获取！！！" class="headerlink" title="2023.3.7更新V2: 切换到阿里云盘开放平台接口，refreshToken需要重新获取！！！"></a>2023.3.7更新V2: 切换到阿里云盘开放平台接口，refreshToken需要重新获取！！！</h6><h6 id="2023-3-7更新V2-切换到阿里云盘开放平台接口，refreshToken需要重新获取！！！-1"><a href="#2023-3-7更新V2-切换到阿里云盘开放平台接口，refreshToken需要重新获取！！！-1" class="headerlink" title="2023.3.7更新V2: 切换到阿里云盘开放平台接口，refreshToken需要重新获取！！！"></a>2023.3.7更新V2: 切换到阿里云盘开放平台接口，refreshToken需要重新获取！！！</h6><h6 id="2023-3-7更新V2-切换到阿里云盘开放平台接口，refreshToken需要重新获取！！！-2"><a href="#2023-3-7更新V2-切换到阿里云盘开放平台接口，refreshToken需要重新获取！！！-2" class="headerlink" title="2023.3.7更新V2: 切换到阿里云盘开放平台接口，refreshToken需要重新获取！！！"></a>2023.3.7更新V2: 切换到阿里云盘开放平台接口，refreshToken需要重新获取！！！</h6><h5 id="方法1：网页扫码获取"><a href="#方法1：网页扫码获取" class="headerlink" title="方法1：网页扫码获取"></a>方法1：网页扫码获取</h5><p>访问专用的扫码：<a target="_blank" rel="noopener" href="https://imnks.com/go/aHR0cHM6Ly9tZXNzZW5zZS1hbGl5dW5kcml2ZS13ZWJkYXYtYmFja2VuZHJlZnJlc2gtdG9rZW4tdWNzMHduLnN0cmVhbWxpdC5hcHAv">https://messense-aliyundrive-webdav-backendrefresh-token-ucs0wn.streamlit.app/</a></p>
-<h5 id="方法2：ssh扫码获取"><a href="#方法2：ssh扫码获取" class="headerlink" title="方法2：ssh扫码获取"></a>方法2：ssh扫码获取</h5><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/var/packages/aliyundrive-webdav/target/bin/aliyundrive-webdav qr login</span><br></pre></td></tr></table></figure>
-
-<p><img src="/2023/04/26/Nas/4157882280.png!1" alt="4157882280.png"></p>
-<p> （已屏蔽旧内容）</p>
-<h3 id="FileStation挂载文件夹"><a href="#FileStation挂载文件夹" class="headerlink" title="FileStation挂载文件夹"></a>FileStation挂载文件夹</h3><h5 id="列表默认过期时间是10分钟，意思阿里云盘上改动后最多要10分钟套件才会刷新。"><a href="#列表默认过期时间是10分钟，意思阿里云盘上改动后最多要10分钟套件才会刷新。" class="headerlink" title="列表默认过期时间是10分钟，意思阿里云盘上改动后最多要10分钟套件才会刷新。"></a>列表默认过期时间是10分钟，意思阿里云盘上改动后最多要10分钟套件才会刷新。</h5><p><img src="/2023/04/26/Nas/2364865078.png!1" alt="2364865078.png"></p>
-<p><img src="/2023/04/26/Nas/1027107723.png!1" alt="1027107723.png"></p>
-<p>127.0.0.1指NAS本身，如图就填这个！</p>
-<p><img src="/2023/04/26/Nas/2349678443.png!1" alt="2349678443.png"></p>
-<p><img src="/2023/04/26/Nas/1323421312.png!1" alt="1323421312.png"></p>
-<h3 id="CloudSync同步阿里云盘，支持双向单向-V2已测试恢复支持加密同步"><a href="#CloudSync同步阿里云盘，支持双向单向-V2已测试恢复支持加密同步" class="headerlink" title="CloudSync同步阿里云盘，支持双向单向(V2已测试恢复支持加密同步)"></a>CloudSync同步阿里云盘，支持双向单向(V2已测试恢复支持加密同步)</h3><h5 id="列表默认过期时间是10分钟，意思阿里云盘上改动后最多要10分钟套件才会刷新。-1"><a href="#列表默认过期时间是10分钟，意思阿里云盘上改动后最多要10分钟套件才会刷新。-1" class="headerlink" title="列表默认过期时间是10分钟，意思阿里云盘上改动后最多要10分钟套件才会刷新。"></a>列表默认过期时间是10分钟，意思阿里云盘上改动后最多要10分钟套件才会刷新。</h5><p><img src="/2023/04/26/Nas/4201491998.png!1" alt="4201491998.png"></p>
-<p><img src="/2023/04/26/Nas/745550632.png!1" alt="745550632.png"></p>
-<p><img src="/2023/04/26/Nas/2651402882.png!1" alt="2651402882.png"></p>
-<p><img src="/2023/04/26/Nas/3029018314.png!1" alt="3029018314.png"></p>
-<h2 id="端口9080"><a href="#端口9080" class="headerlink" title="端口9080"></a>端口9080</h2><h2 id="网盘搜索：奈斯搜索"><a href="#网盘搜索：奈斯搜索" class="headerlink" title="网盘搜索：奈斯搜索"></a>网盘搜索：奈斯搜索</h2><h1 id="ikuai-MAC地址"><a href="#ikuai-MAC地址" class="headerlink" title="ikuai MAC地址"></a>ikuai MAC地址</h1><p>  <strong>==00:0C:29:10:F4:8A==</strong></p>
-<h1 id="ipv6-DDNS-群晖反向代理"><a href="#ipv6-DDNS-群晖反向代理" class="headerlink" title="ipv6+DDNS+群晖反向代理"></a>ipv6+DDNS+群晖反向代理</h1><p>网络结构：光猫拨号——AP（小米ax6s）——ikuai——群晖</p>
-<p>相当于光猫直接接ikuai，才能把ipv6前缀发给ikuai</p>
-<p>然后在ikuai上做ikuai本机的ddns</p>
-<p><img src="/2023/04/26/Nas/image-20230513134922842.png" alt="image-20230513134922842"></p>
-<p>然后做群晖的ddns</p>
-<p>参考<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/626478402?utm_id=0">https://zhuanlan.zhihu.com/p/626478402?utm_id=0</a></p>
-<h3 id="本文通过DDNS-GO实现ipv6地址动态解析，并通过反向代理使docker容器服务能够通过独立ip在外放进行访问如"><a href="#本文通过DDNS-GO实现ipv6地址动态解析，并通过反向代理使docker容器服务能够通过独立ip在外放进行访问如" class="headerlink" title="本文通过DDNS-GO实现ipv6地址动态解析，并通过反向代理使docker容器服务能够通过独立ip在外放进行访问如"></a>本文通过DDNS-GO实现ipv6地址动态解析，并通过反向代理使docker容器服务能够通过独立ip在外放进行访问如</h3><figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">gitlab.yourdomain.cn 直接访问内网中的gitlab服务</span><br><span class="line">jellyfin.yourdomain.cn 直接访问内网中的jellyfin服务</span><br></pre></td></tr></table></figure>
-
-<h3 id="一：-前置条件"><a href="#一：-前置条件" class="headerlink" title="一： 前置条件"></a>一： 前置条件</h3><ul>
-<li>群晖具备公网ipv6地址</li>
-</ul>
-<p>ipv6由上级路由器拨号并下发地址，具体实现此文不做描述</p>
-<p><img src="/2023/04/26/Nas/v2-d6e28faa03c13671eb6011094312bf3b_720w.webp" alt="img"></p>
+<p>​      </p>
+<h2 id="展示"><a href="#展示" class="headerlink" title="展示"></a><a target="_blank" rel="noopener" href="https://github.com/QPromise/EasyTrans#%E5%B1%95%E7%A4%BA">展示</a></h2><p><a target="_blank" rel="noopener" href="https://camo.githubusercontent.com/c1423fec0aafbd703f7842b0f4a68167b1ccec49625df8d3e7a4a76688026531/68747470733a2f2f692e6c6f6c692e6e65742f323031392f30352f32342f3563653766306138323566363832303039332e676966"><img src="/2023/09/21/pdf%E5%85%A8%E6%96%87%E7%BF%BB%E8%AF%91/68747470733a2f2f692e6c6f6c692e6e65742f323031392f30352f32342f3563653766306138323566363832303039332e676966.gif" alt="yanshi4.gif"></a>       </p>
+<p> <a target="_blank" rel="noopener" href="https://camo.githubusercontent.com/59523b04de707bc6fe6fee24444cf69a1cce81742bf3bbe2b4c6bf8ba8ca1148/68747470733a2f2f73322e617831782e636f6d2f323031392f30352f32342f5669376a79742e676966"><img src="/2023/09/21/pdf%E5%85%A8%E6%96%87%E7%BF%BB%E8%AF%91/68747470733a2f2f73322e617831782e636f6d2f323031392f30352f32342f5669376a79742e676966.gif" alt="Vi7jyt.gif"></a>       </p>
+<p> <a target="_blank" rel="noopener" href="https://camo.githubusercontent.com/be900bd6ee70870b4ba7e576359b5ad84bdeb89622e89c69aa8ec0acd7312689/68747470733a2f2f692e6c6f6c692e6e65742f323031392f30352f32332f3563653661663039623464643634353336342e676966"><img src="/2023/09/21/pdf%E5%85%A8%E6%96%87%E7%BF%BB%E8%AF%91/68747470733a2f2f692e6c6f6c692e6e65742f323031392f30352f32332f3563653661663039623464643634353336342e676966.gif" alt="yasnhi.gif"></a>      </p>
+<h2 id="参考文档"><a href="#参考文档" class="headerlink" title="参考文档"></a><a target="_blank" rel="noopener" href="https://github.com/QPromise/EasyTrans#%E5%8F%82%E8%80%83%E6%96%87%E6%A1%A3">参考文档</a></h2><p><a target="_blank" rel="noopener" href="https://pymupdf.readthedocs.io/en/latest/">PyMuPDF参考文档</a></p>
+<h2 id="只使用pdf翻译"><a href="#只使用pdf翻译" class="headerlink" title="只使用pdf翻译"></a><a target="_blank" rel="noopener" href="https://github.com/QPromise/EasyTrans#%E5%8F%AA%E4%BD%BF%E7%94%A8pdf%E7%BF%BB%E8%AF%91">只使用pdf翻译</a></h2><blockquote>
+<h3 id="如果只是想要拿来翻译论文的同学看这里"><a href="#如果只是想要拿来翻译论文的同学看这里" class="headerlink" title="如果只是想要拿来翻译论文的同学看这里"></a><a target="_blank" rel="noopener" href="https://github.com/QPromise/EasyTrans#%E5%A6%82%E6%9E%9C%E5%8F%AA%E6%98%AF%E6%83%B3%E8%A6%81%E6%8B%BF%E6%9D%A5%E7%BF%BB%E8%AF%91%E8%AE%BA%E6%96%87%E7%9A%84%E5%90%8C%E5%AD%A6%E7%9C%8B%E8%BF%99%E9%87%8C">如果只是想要拿来翻译论文的同学看这里</a></h3></blockquote>
 <ul>
-<li>已有阿里云DDNS子账号AccessToken</li>
+<li>下载该项目后记得将文件夹名由Easy-Trans-master改为EasyTrans。</li>
+<li>将要翻译的文件放到<a target="_blank" rel="noopener" href="https://github.com/QPromise/Easy-Trans/tree/master/trans/input_file">input_file</a>这个目录中，将39行的代码最后的pdf名字修改为要翻译的pdf名字。</li>
+<li>运行<a target="_blank" rel="noopener" href="https://github.com/QPromise/Easy-Trans/blob/master/trans_file.py">trans_file.py</a>等代码执行结束，翻译后的文档就在<a target="_blank" rel="noopener" href="https://github.com/QPromise/Easy-Trans/tree/master/trans/output_file">output_file</a>这个目录下面。</li>
+<li>这里采用的是必应翻译，也可以自己修改为其它自己想用的翻译方式，也可以修改目录，方便自己运行翻译就可以了。如果有好的改进pdf翻译效果的建议或者问题联系<a href="mailto:qcs@stu.ouc.edu.cn">qcs@stu.ouc.edu.cn</a>。</li>
 </ul>
-<p>步骤可参考 <a href="https://link.zhihu.com/?target=https://blog.csdn.net/qq_42628989/article/details/124845455">网友方案</a></p>
-<h3 id="二：-DDNS解析域名"><a href="#二：-DDNS解析域名" class="headerlink" title="二： DDNS解析域名"></a>二： DDNS解析域名</h3><h3 id="1-安装DDNS-GO容器"><a href="#1-安装DDNS-GO容器" class="headerlink" title="1. 安装DDNS-GO容器"></a>1. 安装DDNS-GO容器</h3><p><img src="/2023/04/26/Nas/v2-8898004e58acf6cb7b809d72945495a0_720w.webp" alt="img"></p>
-<p>创建镜像时只需要新建一个<strong>ddns-go</strong>的文件夹映射到**/root**路径就行</p>
-<p><img src="/2023/04/26/Nas/v2-c020379325d603a437944f03096efc7f_720w.webp" alt="img"></p>
-<h3 id="2-启动并配置DDNS-GO"><a href="#2-启动并配置DDNS-GO" class="headerlink" title="2. 启动并配置DDNS-GO"></a>2. 启动并配置DDNS-GO</h3><p>创建完镜像后运行，浏览器中输入 http://“NAS的本地IP”:9876/ 即可访问</p>
-<p><img src="/2023/04/26/Nas/v2-ea7ee00bfa56429824dcadfae2ed06ab_720w.webp" alt="img"></p>
-<h3 id="3-配置ipv6映射"><a href="#3-配置ipv6映射" class="headerlink" title="3. 配置ipv6映射"></a>3. 配置ipv6映射</h3><p><img src="/2023/04/26/Nas/v2-8e3bc8b37db8e89c9fbfb856d27576e8_720w.webp" alt="img"></p>
-<p>由于我这边ipv4虽然是公网但是80端口被ban，只需要开启ipv6即可，在下方domains中填入各个二级域名，一行一个</p>
-<h3 id="4-验证解析是否成功"><a href="#4-验证解析是否成功" class="headerlink" title="4. 验证解析是否成功"></a>4. 验证解析是否成功</h3><p>这边可以看DDNS-GO日志，也可以直接去阿里云DNS解析的地方看</p>
-<p><img src="/2023/04/26/Nas/v2-0153025c02eb93bcf933f3e3990b28da_720w.webp" alt="img"></p>
-<p><img src="/2023/04/26/Nas/v2-98a6739b4fbc1ff0b0f5f95cba9d9a37_720w.webp" alt="img"></p>
-<p>然后输入其中一个域名，此时所有域名都应该会打到群晖服务器上，然后重定向到5000去登录</p>
-<p><img src="/2023/04/26/Nas/v2-9898195a79a37dc8412430901f281705_720w.webp" alt="img"></p>
-<p>注意验证外网是否也能正常访问，可以用手机开移动流量试一下，ipv6解析可能会慢一点，要稍等一会</p>
-<h3 id="三-反向代理"><a href="#三-反向代理" class="headerlink" title="三: 反向代理"></a>三: 反向代理</h3><p>反向代理即通过nginx实现代理服务，目前各个二级域名均打到群晖服务器，需要反向代理将来自不同域名的请求再转发到各个docker服务上去，这个过程用群晖自带的反向代理工具就可以实现</p>
-<p><img src="/2023/04/26/Nas/v2-29db1a969008f010e12163c0ac3da7c7_720w.webp" alt="img"></p>
-<p>下面以jellyfin为例，配置其中一条反向代理规则,其中主机名为各服务二级域名，目的地为docker服务地址及端口</p>
-<p><img src="/2023/04/26/Nas/v2-aacf4aace6f453ecc1e553b7c3615ec0_720w.webp" alt="img"></p>
-<p>此时保存并访问，可以发现服务还是会重定向到登录页，这是因为群晖代理默认会把80重定向http登录端口5000，443打到https登录，那么此时我们需要修改这个逻辑，并保证反向代理服务器能够正常去转发80端口的请求。</p>
-<h3 id="四-禁用群晖默认重定向"><a href="#四-禁用群晖默认重定向" class="headerlink" title="四: 禁用群晖默认重定向"></a>四: 禁用群晖默认重定向</h3><p>实现这个能力需要修改<strong>server.mustache DSM.mustache</strong> 和 <strong>WWWService.mustache</strong> 这三个文件，将其中的80修改为88，443修改为4430，下面为详细步骤</p>
-<h3 id="1-开启群晖ssh"><a href="#1-开启群晖ssh" class="headerlink" title="1. 开启群晖ssh"></a>1. 开启群晖ssh</h3><p><img src="/2023/04/26/Nas/v2-fcd08f5c4dced01774ba1a49c7f8163c_720w.webp" alt="img"></p>
-<h3 id="2-Xshell修改文件"><a href="#2-Xshell修改文件" class="headerlink" title="2. Xshell修改文件"></a>2. Xshell修改文件</h3><p>文件均在/usr/syno/share/nginx下, 我们先在上级目录备份一下</p>
-<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo tar -czvf nginx_config.tar.gz nginx</span><br></pre></td></tr></table></figure>
-
-<p><img src="/2023/04/26/Nas/v2-f23084583d23836f63a0b11a2f80f571_720w.webp" alt="img"></p>
-<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd nginx</span><br><span class="line">sudo vim 文件一个一个来</span><br></pre></td></tr></table></figure>
-
-<p>然后就是替换其中的80和443端口</p>
-<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">:%s/80/88/g</span><br><span class="line">:%s/443/4430/g</span><br><span class="line">:wq</span><br></pre></td></tr></table></figure>
-
-<p>如上即可实现文件内的全局替换，检查下没问题就可以保存了</p>
-<p><img src="/2023/04/26/Nas/v2-b8ae7bf7270ebe14b17f1ad2b0ada258_720w.webp" alt="img"></p>
-<p>全都改完后重启群晖网络服务即可</p>
-<h3 id="完毕"><a href="#完毕" class="headerlink" title="完毕!"></a>完毕!</h3><h3 id="远程访问jellyfin、nplayer"><a href="#远程访问jellyfin、nplayer" class="headerlink" title="远程访问jellyfin、nplayer"></a>远程访问jellyfin、nplayer</h3><p>infuse不支持ipv6</p>
-<h3 id="阿里云盘同步"><a href="#阿里云盘同步" class="headerlink" title="阿里云盘同步"></a>阿里云盘同步</h3><p>1.用阿里云webdav套件先把盘挂载到群晖</p>
-<p>2.cloud sync webdav同步</p>
-<p><img src="/2023/04/26/Nas/image-20230513152937903.png" alt="image-20230513152937903"><img src="/2023/04/26/Nas/image-20230513152953594.png" alt="image-20230513152953594"></p>
-<h1 id="小米AX6S刷机"><a href="#小米AX6S刷机" class="headerlink" title="小米AX6S刷机"></a>小米AX6S刷机</h1><h3 id="为什么刷机："><a href="#为什么刷机：" class="headerlink" title="为什么刷机："></a>为什么刷机：</h3><p>原有的光猫拨号——小米AP——ikuai——nas模式下，可能443/80端口被AP拦截了，于是刷机改用openwrt拨号，并使用动态DNS、Socat实现相应功能</p>
-<h3 id="简要流程"><a href="#简要流程" class="headerlink" title="简要流程"></a>简要流程</h3><p>1.刷1.2.7固件，然后计算root密码，在这一级打开ssh，命令：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nvram set ssh_en=1 &amp;&amp; nvram set uart_en=1 &amp;&amp; nvram set  boot_wait=on &amp;&amp; nvram set bootdelay=3 &amp;&amp; nvram set  flag_try_sys1_failed=0 &amp;&amp; nvram set flag_try_sys2_failed=1 nvram set flag_boot_rootfs=0 &amp;&amp; nvram set &quot;boot_fw1=run boot_rd_img;bootm&quot; nvram set flag_boot_success=1 &amp;&amp; nvram commit &amp;&amp; /etc/init.d/dropbear enable &amp;&amp; /etc/init.d/dropbear start</span><br></pre></td></tr></table></figure>
-
-<p>2.刷factory底包，ssh进去，将factory.bin上传到tmp文件夹</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mtd -r write /tmp/factory.bin firmware</span><br></pre></td></tr></table></figure>
-
-<p>3.刷目标固件</p>
-<p>底包登录openwrt，然后选择刷固件不保留配置</p>
-<h3 id="刷机："><a href="#刷机：" class="headerlink" title="刷机："></a>刷机：</h3><p>转换SN码和root密码</p>
-<p><a target="_blank" rel="noopener" href="https://miwifi.dev/ssh">https://miwifi.dev/ssh</a></p>
-<h3 id="273大神固件"><a href="#273大神固件" class="headerlink" title="273大神固件"></a>273大神固件</h3><p><a target="_blank" rel="noopener" href="https://www.right.com.cn/forum/thread-8187405-1-1.html">https://www.right.com.cn/forum/thread-8187405-1-1.html</a></p>
-<p>机器马上出掉，更新最后一版固件，同步上游硬件加速驱动。建议连续刷入两次升级包，避免出现断电掉配置，</p>
-<p>2-2 同步上游坏块管理驱动,修复wifi上传速度限速70M的bug。pppoe不自动重拨的可在pppoe高级设置里设置lcp为5。</p>
-<p> 闭源无线版本换用mtk SDK提供的有线和硬件加速驱动无线支持whnat，5g下行测速900+时cpu占用同样为个位数。mtk sdk的驱动稳定性应该会比op开源的好点，只是会比开源的多占用30多M内存。<br> sdk驱动版固件源码地址 <a target="_blank" rel="noopener" href="https://github.com/padavanonly/immortalwrtARM">https://github.com/padavanonly/immortalwrtARM</a> 自己编译的话不要开启op自己的flow offload，否则冲突。<br> mtk sdk源码：<a target="_blank" rel="noopener" href="https://git01.mediatek.com/plugins/gitiles/openwrt/feeds/mtk-openwrt-feeds/">https://git01.mediatek.com/plugi … /mtk-openwrt-feeds/</a></p>
-<p> 刷入教程：<br> 0.<a target="_blank" rel="noopener" href="https://www.right.com.cn/forum/thread-8173581-1-1.html">https://www.right.com.cn/forum/thread-8173581-1-1.html</a> 官方固件下刷入这个帖子的1.2.7固件<br> 1.<a target="_blank" rel="noopener" href="https://www.oxygen7.cn/miwifi/">https://www.oxygen7.cn/miwifi/</a> 这个网站输入SN码，算出自己的密码<br> 2.telnet连接路由器，用户名root，密码是上面算出来的密码，执行以下命令</p>
-<p>nvram set ssh_en=1 &amp;&amp; nvram set uart_en=1 &amp;&amp; nvram set  boot_wait=on &amp;&amp; nvram set bootdelay=3 &amp;&amp; nvram set  flag_try_sys1_failed=0 &amp;&amp; nvram set flag_try_sys2_failed=1 </p>
-<p>nvram set flag_boot_rootfs=0 &amp;&amp; nvram set “boot_fw1=run boot_rd_img;bootm” </p>
-<p>nvram set flag_boot_success=1 &amp;&amp; nvram commit &amp;&amp; /etc/init.d/dropbear enable &amp;&amp; /etc/init.d/dropbear start</p>
-<p>3.ssh连接路由器，用户名root，密码还是刚才算出来的密码，windows用winscp这个软件连接路由器，将压缩包里的factory固件上传到tmp目录</p>
-<p>4.执行下面这条，路由器会自动重启进入op，默认ip 192.168.6.1，用户名root，密码password<br> mtd -r write /tmp/factory.bin firmware</p>
-<p> 5.重启后按照自己需求，将ax6s-full.bin或者ax6s-mini.bin作为升级包在op下不保留配置升级，刷入成功</p>
-<p>底包只是第一次需要 ，后续升级直接刷sys即可。建议修改无线设置后重启下路由器。</p>
-<p><img src="/2023/04/26/Nas/105919usdfvfenvffzzcec.png" alt="img"></p>
-<p> 遇到手机app加载速度异常的，可尝试DHCP/DNS的高级设置里，启用禁止解析ipv6<br> 如果有遇到重启或者不稳定的，ssh里运行cat /sys/fs/pstore/* 发出日志。</p>
-<p> 下载地址<a target="_blank" rel="noopener" href="https://sssddddff.lanzouo.com/ibIns0me47mf">https://sssddddff.lanzouo.com/ibIns0me47mf</a></p>
-<h1 id="openwrt"><a href="#openwrt" class="headerlink" title="openwrt"></a>openwrt</h1><p>1.光猫关了ipv6 ra使能，dhcpv6使能</p>
-<p>2.pppoe拨号只拨了wan口，不知道能不能拨wan6</p>
-<p>3.默认192.168.6.1</p>
-<h3 id="安装socat"><a href="#安装socat" class="headerlink" title="安装socat"></a>安装socat</h3><p><img src="/2023/04/26/Nas/image-20230515005559345.png" alt="image-20230515005559345"></p>
-<p>上传ipk文件</p>
-<p>ssh连接192.168.6.1</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">cd /tmp/upload/</span><br><span class="line">opkg install luci-app-socat_20200824-5_all.ipk</span><br><span class="line">opkg install luci-i18n-zn-cn-socat_20200824-5_all.ipk</span><br></pre></td></tr></table></figure>
-
-
-
-
-
-<h3 id="动态dns设置"><a href="#动态dns设置" class="headerlink" title="动态dns设置"></a>动态dns设置</h3><p>主机名：xxx.fun</p>
-<p>域名：abc.xxx.fun</p>
-<p><img src="/2023/04/26/Nas/image-20230515005836066.png" alt="image-20230515005836066"></p>
-<h4 id="一个脚本解决单lan口旁路由ipv6-动态dns不自动更新IP烦恼"><a href="#一个脚本解决单lan口旁路由ipv6-动态dns不自动更新IP烦恼" class="headerlink" title="一个脚本解决单lan口旁路由ipv6 动态dns不自动更新IP烦恼"></a>一个脚本解决单lan口旁路由ipv6 动态dns不自动更新IP烦恼</h4><p><a target="_blank" rel="noopener" href="https://www.bilibili.com/read/cv5294558/">https://www.bilibili.com/read/cv5294558/</a></p>
-<p>把ddns重启写成脚本，在openwrt中的计划任务（crontab服务）添加定时执行，设置每隔十分钟执行一次</p>
-<p>shell脚本</p>
-<p>#!/bin/sh<br>#source/etc/profile<br>/etc/init.d/ddns restart</p>
-<p>crontab执行命令</p>
-<p>*/10 * * * * /usr/lib/ddns/restart_ddns.sh</p>
-<p>shell脚本放在/usr/lib/ddns目录下（其他目录也可以，记得在crontab执行文件里更改目录）</p>
-<p>重启crontab服务既可</p>
-<p> 作者：进击的王总丶 <a target="_blank" rel="noopener" href="https://www.bilibili.com/read/cv5294558/">https://www.bilibili.com/read/cv5294558/</a> 出处：bilibili</p>
-<h3 id="防火墙"><a href="#防火墙" class="headerlink" title="防火墙"></a>防火墙</h3><p>网络-防火墙-端口转发</p>
-<p><img src="/2023/04/26/Nas/image-20230515005946194.png" alt="image-20230515005946194"></p>
-<p>但是这个感觉没用</p>
-<p>防火墙入站，转发打开</p>
-<p><img src="/2023/04/26/Nas/image-20230515010025006.png" alt="image-20230515010025006"></p>
-<h3 id="socat端口转发"><a href="#socat端口转发" class="headerlink" title="socat端口转发"></a>socat端口转发</h3><p><img src="/2023/04/26/Nas/image-20230515010035429.png" alt="image-20230515010035429"></p>
-<h3 id="dns设置"><a href="#dns设置" class="headerlink" title="dns设置"></a>dns设置</h3><p>ssh进去</p>
-<p>vi etc/config/dhcp</p>
-<p>修改start值</p>
-<h3 id="smartDns"><a href="#smartDns" class="headerlink" title="smartDns"></a>smartDns</h3><ul>
-<li>dns转发添加127.0.0.0#6053<img src="/2023/04/26/Nas/image-20230516155337346.png" alt="image-20230516155337346"></li>
-<li>关闭dnsmasq缓存</li>
-</ul>
-<p>高级——dns查询缓存的大小——0</p>
-<ul>
-<li>开启smartdns</li>
-</ul>
-<p><img src="/2023/04/26/Nas/image-20230516155524130.png" alt="image-20230516155524130"></p>
-<p><img src="/2023/04/26/Nas/image-20230516155536850.png" alt="image-20230516155536850"></p>
-<ul>
-<li>smartdns高级设置</li>
-</ul>
-<p><img src="/2023/04/26/Nas/image-20230516155708375.png" alt="image-20230516155708375"></p>
-<p><strong>回传ttl=10，缓存=10240，没ipv6就不要开双栈优选</strong></p>
-<ul>
-<li>第二dns服务器</li>
-</ul>
-<p><img src="/2023/04/26/Nas/image-20230516155724116.png" alt="image-20230516155724116"></p>
-<ul>
-<li>还可配置局域网代理</li>
-</ul>
+<h2 id="在本地运行项目"><a href="#在本地运行项目" class="headerlink" title="在本地运行项目"></a><a target="_blank" rel="noopener" href="https://github.com/QPromise/EasyTrans#%E5%9C%A8%E6%9C%AC%E5%9C%B0%E8%BF%90%E8%A1%8C%E9%A1%B9%E7%9B%AE">在本地运行项目</a></h2><h3 id="1-克隆项目到本地-不使用git工具的话，直接下载就ok"><a href="#1-克隆项目到本地-不使用git工具的话，直接下载就ok" class="headerlink" title="1.克隆项目到本地(不使用git工具的话，直接下载就ok)"></a><a target="_blank" rel="noopener" href="https://github.com/QPromise/EasyTrans#1%E5%85%8B%E9%9A%86%E9%A1%B9%E7%9B%AE%E5%88%B0%E6%9C%AC%E5%9C%B0%E4%B8%8D%E4%BD%BF%E7%94%A8git%E5%B7%A5%E5%85%B7%E7%9A%84%E8%AF%9D%E7%9B%B4%E6%8E%A5%E4%B8%8B%E8%BD%BD%E5%B0%B1ok">1.克隆项目到本地(不使用git工具的话，直接下载就ok)</a></h3><p>打开命令行，进入到保存项目的文件夹，输入如下命令：<br> <code>https://github.com/QPromise/Easy-Trans.git</code> </p>
+<h3 id="2-创建并激活虚拟环境（不使用可以跳过这里）"><a href="#2-创建并激活虚拟环境（不使用可以跳过这里）" class="headerlink" title="2.创建并激活虚拟环境（不使用可以跳过这里）"></a><a target="_blank" rel="noopener" href="https://github.com/QPromise/EasyTrans#2%E5%88%9B%E5%BB%BA%E5%B9%B6%E6%BF%80%E6%B4%BB%E8%99%9A%E6%8B%9F%E7%8E%AF%E5%A2%83%E4%B8%8D%E4%BD%BF%E7%94%A8%E5%8F%AF%E4%BB%A5%E8%B7%B3%E8%BF%87%E8%BF%99%E9%87%8C">2.创建并激活虚拟环境（不使用可以跳过这里）</a></h3><p>强烈推荐在 Virtualenv 下进行 Django 的开发。Virtualenv 是一个 Python 工具，使用它可以创建一个独立的 Python 环境。</p>
+<p>在命令行进入到保存虚拟环境的文件夹，输入如下命令创建并激活虚拟环境：<br> <code>C:\WINDOWS\system32&gt;pip install virtualenv</code><br> <code>C:\WINDOWS\system32&gt;virtualenv C:\Users\Envs\EasyTrans_env</code><br> <code>C:\WINDOWS\system32&gt;C:\Users\Envs\EasyTrans_env\Scripts\activate</code><br> <code>(EasyTrans_env) C:\WINDOWS\system32&gt;</code></p>
+<h3 id="3-安装项目依赖"><a href="#3-安装项目依赖" class="headerlink" title="3.安装项目依赖"></a><a target="_blank" rel="noopener" href="https://github.com/QPromise/EasyTrans#3%E5%AE%89%E8%A3%85%E9%A1%B9%E7%9B%AE%E4%BE%9D%E8%B5%96">3.安装项目依赖</a></h3><p><a target="_blank" rel="noopener" href="https://camo.githubusercontent.com/1be68a4c5470edba37add88a66eee1e6ddcf71357d22678bfdddcbf1a4126971/68747470733a2f2f692e6c6f6c692e6e65742f323031392f30352f32342f3563653736313234626435653035383435302e706e67"><img src="/2023/09/21/pdf%E5%85%A8%E6%96%87%E7%BF%BB%E8%AF%91/68747470733a2f2f692e6c6f6c692e6e65742f323031392f30352f32342f3563653736313234626435653035383435302e706e67.png" alt="%(POS)~0M$(N5HXNAR$BUM.png"></a></p>
+<p>如果使用了虚拟环境，确保激活并进入了虚拟环境，在命令行进入项目所在的 Easy-Trans 文件夹，运行如下命令：<br> <code>pip install -r requirements.txt</code></p>
+<h3 id="4-数据库迁移"><a href="#4-数据库迁移" class="headerlink" title="4.数据库迁移"></a><a target="_blank" rel="noopener" href="https://github.com/QPromise/EasyTrans#4%E6%95%B0%E6%8D%AE%E5%BA%93%E8%BF%81%E7%A7%BB">4.数据库迁移</a></h3><p>命令行输入<br> <code>python manage.py makemigrations</code><br> <code>python manage.py migrate</code></p>
+<h3 id="5-创建后台管理员用户"><a href="#5-创建后台管理员用户" class="headerlink" title="5.创建后台管理员用户"></a><a target="_blank" rel="noopener" href="https://github.com/QPromise/EasyTrans#5%E5%88%9B%E5%BB%BA%E5%90%8E%E5%8F%B0%E7%AE%A1%E7%90%86%E5%91%98%E7%94%A8%E6%88%B7">5.创建后台管理员用户</a></h3><p>命令行输入<br> <code>python manage.py createsuperuser</code></p>
+<h3 id="6-运行开发服务器"><a href="#6-运行开发服务器" class="headerlink" title="6.运行开发服务器"></a><a target="_blank" rel="noopener" href="https://github.com/QPromise/EasyTrans#6%E8%BF%90%E8%A1%8C%E5%BC%80%E5%8F%91%E6%9C%8D%E5%8A%A1%E5%99%A8">6.运行开发服务器</a></h3><p>命令行输入<br> <code>python manage.py runserver</code><br> 在浏览器输入：127.0.0.1:8000 就可以看到主页了。</p>
+<h2 id="建议"><a href="#建议" class="headerlink" title="建议"></a><a target="_blank" rel="noopener" href="https://github.com/QPromise/EasyTrans#%E5%BB%BA%E8%AE%AE">建议</a></h2><p>欢迎各位给出建议或者方法，邮箱：<a href="mailto:qcs@stu.ouc.edu.cn">qcs@stu.ouc.edu.cn</a></p>
+<h2 id="注意"><a href="#注意" class="headerlink" title="注意"></a><a target="_blank" rel="noopener" href="https://github.com/QPromise/EasyTrans#%E6%B3%A8%E6%84%8F">注意</a></h2><p>fitz这个包是PyMuPDF的，只要安装PyMuPDF就可以正常导入了。</p>
 
           
         
@@ -1247,7 +1220,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://developer-hq.github.io/2023/04/24/%E5%A4%A7%E8%AF%AD%E8%A8%80%E6%A8%A1%E5%9E%8B/">
+    <link itemprop="mainEntityOfPage" href="https://developer-hq.github.io/2023/09/20/appium/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="">
@@ -1266,7 +1239,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2023/04/24/%E5%A4%A7%E8%AF%AD%E8%A8%80%E6%A8%A1%E5%9E%8B/" itemprop="url">大语言模型</a></h1>
+                <a class="post-title-link" href="/2023/09/20/appium/" itemprop="url">appium</a></h1>
         
 
         <div class="post-meta">
@@ -1278,8 +1251,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2023-04-24T17:28:14+08:00">
-                2023-04-24
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2023-09-20T20:54:46+08:00">
+                2023-09-20
               </time>
             
 
@@ -1318,10 +1291,52 @@
       
         
           
-            <p>gpt4</p>
-<p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1vM4y1U7b5/?spm_id_from=333.337.search-card.all.click&amp;vd_source=3d040baeb67aeceb2bba9c7169a67a96">https://www.bilibili.com/video/BV1vM4y1U7b5/?spm_id_from=333.337.search-card.all.click&amp;vd_source=3d040baeb67aeceb2bba9c7169a67a96</a></p>
-<h1 id="三个月时间做175B的模型"><a href="#三个月时间做175B的模型" class="headerlink" title="三个月时间做175B的模型"></a>三个月时间做175B的模型</h1><p>干货多</p>
-<p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1XT411v7c9/?share_source=copy_web&amp;vd_source=29489718d77abc8aa57a22525c511957">https://www.bilibili.com/video/BV1XT411v7c9/?share_source=copy_web&amp;vd_source=29489718d77abc8aa57a22525c511957</a></p>
+            <h1 id="1-配环境"><a href="#1-配环境" class="headerlink" title="1.配环境"></a>1.配环境</h1><h2 id="appium，sdk环境"><a href="#appium，sdk环境" class="headerlink" title="appium，sdk环境"></a>appium，sdk环境</h2><p><a target="_blank" rel="noopener" href="https://www.byhy.net/tut/auto/appium/01/">https://www.byhy.net/tut/auto/appium/01/</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1tE411n7rV/?p=4&amp;vd_source=3d040baeb67aeceb2bba9c7169a67a96">https://www.bilibili.com/video/BV1tE411n7rV/?p=4&amp;vd_source=3d040baeb67aeceb2bba9c7169a67a96</a></p>
+<h2 id="夜神模拟器"><a href="#夜神模拟器" class="headerlink" title="夜神模拟器"></a>夜神模拟器</h2><p><a target="_blank" rel="noopener" href="https://support.yeshen.com/zh-CN/often/vt">https://support.yeshen.com/zh-CN/often/vt</a></p>
+<h3 id="二，夜神模拟器"><a href="#二，夜神模拟器" class="headerlink" title="二，夜神模拟器"></a>二，夜神模拟器</h3><h4 id="1，下载、安装"><a href="#1，下载、安装" class="headerlink" title="1，下载、安装"></a>1，下载、安装</h4><p>1.1，下载。官网下载地址：<a target="_blank" rel="noopener" href="https://www.yeshen.com/">https://www.yeshen.com/</a></p>
+<p>1.2，安装。可自定义安装路径，过程简单。安装完成后电脑桌面会出现两个快捷方式，如下：</p>
+<p><img src="/2023/09/20/appium/3da35e70a2804dfd87c4f21ab08b422e.png" alt="微信图片_20220424200650.png"></p>
+<h1 id="第一个程序"><a href="#第一个程序" class="headerlink" title="第一个程序"></a>第一个程序</h1><h2 id="Python-Appium自动化测试-2-appium连接真机启动app"><a href="#Python-Appium自动化测试-2-appium连接真机启动app" class="headerlink" title="Python+Appium自动化测试(2)-appium连接真机启动app"></a>Python+Appium自动化测试(2)-appium连接真机启动app</h2><p>app自动化测试的第一步，是启动被测app。<a target="_blank" rel="noopener" href="https://www.cnblogs.com/lfr0123/p/13512668.html?spm=a2c6h.12873639.article-detail.9.e7a81fe5W1WtFO#">appium环境搭建</a>好后，我们就可以连接真机启动app了。环境为windows，Appium1.18.0，Android手机，被测app为今日头条app，让我们开始吧。</p>
+<h3 id="一，连接手机（测试机）"><a href="#一，连接手机（测试机）" class="headerlink" title="一，连接手机（测试机）"></a>一，连接手机（测试机）</h3><ul>
+<li>通过USB线连接Android手机和电脑，打开手机的开发者模式，开启USB调试模式（方法自行百度）。</li>
+<li>打开cmd输入命令<code>adb devices</code>，显示连接手机的udid即为连接成功。</li>
+</ul>
+<p><img src="/2023/09/20/appium/1240.webp" alt="img"></p>
+<ul>
+<li><p>输入adb devices后如果List of devices attached下为空，说明手机连接电脑没有成功。可做如下尝试：</p>
+<p>1，拔掉手机重新连接</p>
+<p>2，更换USB线</p>
+<p>3，重启adb。先杀死adb进程<strong>adb kill-server</strong>，再重启<strong>adb start-server</strong></p>
+<p>4，检查adb版本，版本太低则更新</p>
+<p>还未解决的话，可以网上查找其他方法。</p>
+</li>
+</ul>
+<h3 id="二，获取测试手机及被测app的相应信息（即capability配置内容）"><a href="#二，获取测试手机及被测app的相应信息（即capability配置内容）" class="headerlink" title="二，获取测试手机及被测app的相应信息（即capability配置内容）"></a>二，获取测试手机及被测app的相应信息（即capability配置内容）</h3><p>platformName，声明被测手机系统是ios还是Android。</p>
+<p>platformVersion，即测试手机的Android版本号。可在手机设置里面查看，也可以通过命令<strong>adb shell getprop ro.build.version.release</strong>查看。</p>
+<p><img src="/2023/09/20/appium/1240-16952199938301.webp" alt="img"></p>
+<p>deviceName，即测试手机的名称。可在手机设置里面查看，也可以通过命令<strong>adb devices -l</strong>查看，其中model即为连接的测试机的名称。</p>
+<p><img src="/2023/09/20/appium/1240-16952199938312.webp" alt="img"></p>
+<p>appPackage，即被测app的包名。</p>
+<p>appActivity，即被测app的launcherActivity。通过命令<strong>adb shell dumpsys activity | findstr “mResume”</strong>查看（先在手机上打开app，再输入命令）。以今日头条app为例。</p>
+<p><img src="/2023/09/20/appium/1240-16952199938313.webp" alt="img"></p>
+<p>如果手机系统在Android 8.1以下，则需使用命令<strong>adb shell dumpsys activity | findstr “mFocus”</strong>查看。</p>
+<h3 id="三，appium启动app"><a href="#三，appium启动app" class="headerlink" title="三，appium启动app"></a>三，appium启动app</h3><p>电脑打开appium，点击“Start Server”</p>
+<p><img src="/2023/09/20/appium/1240-16952199938314.webp" alt="img"></p>
+<p>出现如下页面，再点击“Start Inspector Session”按钮</p>
+<p><img src="/2023/09/20/appium/1240-16952199938315.webp" alt="img"></p>
+<p>输入第二步获取的配置内容，点击“Start Session”按钮（可先点击3所指的按钮保存，下次直接选择即可）。</p>
+<p><img src="/2023/09/20/appium/1240-16952199938316.webp" alt="img"></p>
+<p>此时，如果测试机是第一次连接appium的话，手机上会提示安装两个应用：Appium settings、io.appium.uiautomator2.server，容许安装，且必须安装成功。</p>
+<p>再次点击上图中4所指的“Start Session”按钮，我们会发现手机上会自动启动今日头条app，且appium会出现如下窗口。</p>
+<p><img src="/2023/09/20/appium/1240-16952199938317.webp" alt="img"></p>
+<p>至此，我们就成功地通过appium启动了测试机上的app。我们可以在这个页面查看app当前页面的元素的属性，如下图，3所指便是弹窗【我知道了】按钮的元素属性，用于后面自动化测试过程中元素定位。</p>
+<p><img src="/2023/09/20/appium/1240-16952199938318.webp" alt="img"></p>
+<h4 id="4，python-appium启动夜神模拟器中的APP"><a href="#4，python-appium启动夜神模拟器中的APP" class="headerlink" title="4，python+appium启动夜神模拟器中的APP"></a>4，python+appium启动夜神模拟器中的APP</h4><p>4.1，获取夜神模模拟器的设备信息，以及被测app的信息（以今日头条APP为例）。获取方法跟博客<a target="_blank" rel="noopener" href="https://www.cnblogs.com/lfr0123/p/13512668.html?spm=a2c6h.12873639.article-detail.9.e7a81fe5W1WtFO">appium连接真机启动app</a>中第二部分的方法一样。</p>
+<p>4.2，根据获取到的参数信息，编写示例脚本如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"># -*- coding:utf-8 -*-</span><br><span class="line"># @author: 给你一页白纸</span><br><span class="line">from appium import webdriver</span><br><span class="line">desired_caps = &#123;</span><br><span class="line">    &quot;platformName&quot;: &quot;Android&quot;,</span><br><span class="line">    &quot;platformVersion&quot;: &quot;7.1.2&quot;,</span><br><span class="line">    &quot;deviceName&quot;: &quot;VOG_AL10&quot;,</span><br><span class="line">    &quot;appPackage&quot;: &quot;com.ss.android.article.news&quot;,</span><br><span class="line">    &quot;appActivity&quot;: &quot;.activity.MainActivity&quot;,</span><br><span class="line">    &quot;unicodeKeyboard&quot;: True,</span><br><span class="line">    &quot;resetKeyboard&quot;: True,</span><br><span class="line">    &quot;noReset&quot;: True,</span><br><span class="line">&#125;</span><br><span class="line"># 启动app</span><br><span class="line">driver = webdriver.Remote(&#x27;http://127.0.0.1:4723/wd/hub&#x27;, desired_caps)</span><br></pre></td></tr></table></figure>
+
+<h1 id="版本需要对应！"><a href="#版本需要对应！" class="headerlink" title="==版本需要对应！=="></a>==版本需要对应！==</h1><p>目前selenium4.12 appium-python-client2.11.1</p>
 
           
         
@@ -1370,7 +1385,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://developer-hq.github.io/2023/04/24/%E5%A4%9A%E5%8D%A1%E5%B9%B6%E8%A1%8C/">
+    <link itemprop="mainEntityOfPage" href="https://developer-hq.github.io/2023/09/06/%E9%9F%B3%E4%B9%90%E8%B5%84%E6%BA%90/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="">
@@ -1389,7 +1404,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2023/04/24/%E5%A4%9A%E5%8D%A1%E5%B9%B6%E8%A1%8C/" itemprop="url">多卡并行</a></h1>
+                <a class="post-title-link" href="/2023/09/06/%E9%9F%B3%E4%B9%90%E8%B5%84%E6%BA%90/" itemprop="url">音乐资源</a></h1>
         
 
         <div class="post-meta">
@@ -1401,8 +1416,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2023-04-24T16:02:20+08:00">
-                2023-04-24
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2023-09-06T16:15:56+08:00">
+                2023-09-06
               </time>
             
 
@@ -1441,8 +1456,12 @@
       
         
           
-            <h2 id="一、多卡训练原理"><a href="#一、多卡训练原理" class="headerlink" title="一、多卡训练原理"></a>一、多卡训练原理</h2><p><a target="_blank" rel="noopener" href="https://jmxgodlz.xyz/2021/09/12/2021-09-12-Pytorch%E5%A4%9A%E5%8D%A1%E8%AE%AD%E7%BB%83%E5%8E%9F%E7%90%86/#more">https://jmxgodlz.xyz/2021/09/12/2021-09-12-Pytorch%E5%A4%9A%E5%8D%A1%E8%AE%AD%E7%BB%83%E5%8E%9F%E7%90%86/#more</a></p>
-<p><a target="_blank" rel="noopener" href="https://www.zhihu.com/question/453920336">https://www.zhihu.com/question/453920336</a></p>
+            <p><img src="/2023/09/06/%E9%9F%B3%E4%B9%90%E8%B5%84%E6%BA%90/image-20230906161613137.png" alt="image-20230906161613137"></p>
+<p><img src="/2023/09/06/%E9%9F%B3%E4%B9%90%E8%B5%84%E6%BA%90/image-20230906161647852.png" alt="image-20230906161647852"></p>
+<p><img src="/2023/09/06/%E9%9F%B3%E4%B9%90%E8%B5%84%E6%BA%90/image-20230906161714180.png" alt="image-20230906161714180"></p>
+<p><img src="/2023/09/06/%E9%9F%B3%E4%B9%90%E8%B5%84%E6%BA%90/image-20230906161736465.png" alt="image-20230906161736465"></p>
+<p><img src="/2023/09/06/%E9%9F%B3%E4%B9%90%E8%B5%84%E6%BA%90/image-20230906161818825.png" alt="image-20230906161818825"></p>
+<p><img src="/2023/09/06/%E9%9F%B3%E4%B9%90%E8%B5%84%E6%BA%90/image-20230906161834264.png" alt="image-20230906161834264"></p>
 
           
         
@@ -1491,7 +1510,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://developer-hq.github.io/2023/04/16/%E7%A0%94%E7%A9%B6%E7%94%9F%E8%AE%BA%E6%96%87%E5%86%99%E4%BD%9C/">
+    <link itemprop="mainEntityOfPage" href="https://developer-hq.github.io/2023/06/14/ESXI6-7%E8%9E%83%E8%9F%B9%E7%BD%91%E5%8D%A18111/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="">
@@ -1510,7 +1529,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2023/04/16/%E7%A0%94%E7%A9%B6%E7%94%9F%E8%AE%BA%E6%96%87%E5%86%99%E4%BD%9C/" itemprop="url">研究生论文写作</a></h1>
+                <a class="post-title-link" href="/2023/06/14/ESXI6-7%E8%9E%83%E8%9F%B9%E7%BD%91%E5%8D%A18111/" itemprop="url">ESXI6.7螃蟹网卡8111</a></h1>
         
 
         <div class="post-meta">
@@ -1522,8 +1541,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2023-04-16T12:35:43+08:00">
-                2023-04-16
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2023-06-14T23:37:25+08:00">
+                2023-06-14
               </time>
             
 
@@ -1562,130 +1581,34 @@
       
         
           
-            
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
+            <h1 id="网卡"><a href="#网卡" class="headerlink" title="网卡"></a>网卡</h1><p>==螃蟹卡只有6.7有支持==</p>
+<p><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/b7be4ae3c76e">https://www.jianshu.com/p/b7be4ae3c76e</a></p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/Lakers_66/article/details/125454642">https://blog.csdn.net/Lakers_66/article/details/125454642</a></p>
+<p>救命了：</p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/lmlinli/article/details/126825648">https://blog.csdn.net/lmlinli/article/details/126825648</a></p>
+<h1 id="直通sata"><a href="#直通sata" class="headerlink" title="直通sata"></a>直通sata</h1><ul>
+<li><p>ssh到esxi</p>
+</li>
+<li><p>输入vi /etc/vmware/passthru.map</p>
+</li>
+<li><p>添加以下代码，注意对齐，如图：</p>
+<p>#Intel Corporation Device a382</p>
+<p>8086 a382 d3d0   fasle</p>
+</li>
+</ul>
+<img src="/2023/06/14/ESXI6-7%E8%9E%83%E8%9F%B9%E7%BD%91%E5%8D%A18111/image-20230615113605605.png" alt="image-20230615113605605" style="zoom:80%;">
 
 
-    
-      
 
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://developer-hq.github.io/2023/04/12/tensorboard/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2023/04/12/tensorboard/" itemprop="url">tensorboard</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2023-04-12T15:22:34+08:00">
-                2023-04-12
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="1安装"><a href="#1安装" class="headerlink" title="1安装"></a>1安装</h1><p>pip install tensorboard</p>
-<p>pip install tensorboardX</p>
-<h1 id="2使用"><a href="#2使用" class="headerlink" title="2使用"></a>2使用</h1><p>(base) PS C:\Users\74420&gt; tensorboard –logdir=Apr12_11-44-30_HQ</p>
-<p><img src="/2023/04/12/tensorboard/image-20230412152327035.png" alt="image-20230412152327035"></p>
-<p><code>tensorboard --logdir=保存的文件夹路径</code></p>
+<h1 id="ASM1166直通"><a href="#ASM1166直通" class="headerlink" title="ASM1166直通"></a>ASM1166直通</h1><p>需要在</p>
+<ul>
+<li>/etc/vmware/passthru.map</li>
+</ul>
+<p>加上asm的控制器</p>
+<p><img src="/2023/06/14/ESXI6-7%E8%9E%83%E8%9F%B9%E7%BD%91%E5%8D%A18111/image-20230618232249464.png" alt="image-20230618232249464"></p>
+<h1 id="esxi读进来u盘"><a href="#esxi读进来u盘" class="headerlink" title="esxi读进来u盘"></a>esxi读进来u盘</h1><p><a target="_blank" rel="noopener" href="https://wp.gxnas.com/8228.html">https://wp.gxnas.com/8228.html</a></p>
+<h1 id="ESXI使用系统U盘做存储"><a href="#ESXI使用系统U盘做存储" class="headerlink" title="ESXI使用系统U盘做存储"></a>ESXI使用系统U盘做存储</h1><p> a.打开esxi ssh并root登录<br> b.进入/vmfs/devices/disks目录。shell:cd /vmfs/devices/disks<br>  c.列出磁盘 shell:ls<br>    6.0通常是mpx.vmhba32:C0:T0:L0，但6.5不不同，可能是以naa开始。通常规律是有一个前缀想同，后面带有：1,5,6,7,8类似的:数字很可能就是<br>    esxi的系统盘（不带”:数字”的那个）。本文以mpx.vmhba32:C0:T0:L0为例<br>    还可通过partedUtil getptbl mpx.vmhba32:C0:T0:L0 查看分区信息以确认设备<br>   d.查看分区<br>     shell:partedUtil getptbl mpx.vmhba32:C0:T0:L0<br>     显示输出：<br>     gpt<br>   2088 255 63 <strong>33554432</strong><br>   1 64 8191 C12A7328F81F11D2BA4B00A0C93EC93B systemPartition 128<br>   5 8224 520191 EBD0A0A2B9E5443387C068B6B72699C7 linuxNative 0<br>   6 520224 1032191 EBD0A0A2B9E5443387C068B6B72699C7 linuxNative 0<br>   7 1032224 1257471 9D27538040AD11DBBF97000C2911D1B8 vmkDiagnostic 0<br>   8 1257504 1843199 EBD0A0A2B9E5443387C068B6B72699C7 linuxNative 0<br>   9 1843200 7086079 9D27538040AD11DBBF97000C2911D1B8 vmkDiagnostic 0<br> c.获取上文中红色部分值（红色部分每个人是不同的），将其-34 (减34) 替换如下shell中的红色的数字（复制出shell部分到写字板，然后将上面的数字减去34以后的值，复制到esxi shell中执行）<br>     为什么是34，我也不清楚，我是试出来的最小值，还有个-48出现的也比较频繁。网上大都说是-2048.这都没问题。<br> partedUtil setptbl mpx.vmhba32:C0:T0:L0 gpt <br> “1 64 8191 C12A7328F81F11D2BA4B00A0C93EC93B 128” <br> “5 8224 520191 EBD0A0A2B9E5443387C068B6B72699C7 0” <br> “6 520224 1032191 EBD0A0A2B9E5443387C068B6B72699C7 0” <br> “7 1032224 1257471 9D27538040AD11DBBF97000C2911D1B8 0” <br> “8 1257504 1843199 EBD0A0A2B9E5443387C068B6B72699C7 0” <br> “9 1843200 7086079 9D27538040AD11DBBF97000C2911D1B8 0” <br> “2 7086080 15472639 EBD0A0A2B9E5443387C068B6B72699C7 0” <br> “3 15472640 <strong>33554398</strong> AA31E02A400F11DB9590000C2911D1B8 0”<br> d.创建存储：<br> shell:vmkfstools -C vmfs5 -b 1m -S UsbDatastore mpx.vmhba32:C0:T0:L0:3<br> 完成后即可在client里看到一个UsbDatastore的存储了，可在上面建虚拟机。<br> 4.总结<br>     u盘由于速度原因，建议不要其建立大的虚拟机文件，否则经常会导致存储丢失（也可能是我u盘有点问题）。比合适的是做黑裙虚拟机，通过iso启动，当然像ros，openwrt这类小的系统也是没问题的，总之就是减少u盘操作。</p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/RGBBB/article/details/125556676">https://blog.csdn.net/RGBBB/article/details/125556676</a></p>
 
           
         
@@ -1734,7 +1657,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://developer-hq.github.io/2023/04/09/chatglm/">
+    <link itemprop="mainEntityOfPage" href="https://developer-hq.github.io/2023/06/12/j4125%E5%AE%89%E8%A3%85esxi/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="">
@@ -1753,7 +1676,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2023/04/09/chatglm/" itemprop="url">chatglm</a></h1>
+                <a class="post-title-link" href="/2023/06/12/j4125%E5%AE%89%E8%A3%85esxi/" itemprop="url">j4125安装esxi</a></h1>
         
 
         <div class="post-meta">
@@ -1765,8 +1688,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2023-04-09T17:26:35+08:00">
-                2023-04-09
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2023-06-12T12:45:20+08:00">
+                2023-06-12
               </time>
             
 
@@ -1805,7 +1728,7 @@
       
         
           
-            <h1 id="模型保存路径"><a href="#模型保存路径" class="headerlink" title="模型保存路径"></a>模型保存路径</h1><p>C:\Users\74420.cache\huggingface\modules\transformers_modules</p>
+            <p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1y14y1A7at/?spm_id_from=333.788.recommend_more_video.0&amp;vd_source=3d040baeb67aeceb2bba9c7169a67a96">https://www.bilibili.com/video/BV1y14y1A7at/?spm_id_from=333.788.recommend_more_video.0&amp;vd_source=3d040baeb67aeceb2bba9c7169a67a96</a></p>
 
           
         
@@ -1845,7 +1768,7 @@
 
   
   <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/2/">&lt;i class&#x3D;&quot;fa fa-angle-right&quot;&gt;&lt;&#x2F;i&gt;</a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/8/">8</a><a class="extend next" rel="next" href="/page/2/">&lt;i class&#x3D;&quot;fa fa-angle-right&quot;&gt;&lt;&#x2F;i&gt;</a>
   </nav>
 
 
@@ -1892,7 +1815,7 @@
                 <a href="/">
     
               
-                  <span class="site-state-item-count">60</span>
+                  <span class="site-state-item-count">75</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>

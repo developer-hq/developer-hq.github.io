@@ -229,7 +229,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://developer-hq.github.io/2023/03/19/Git/">
+    <link itemprop="mainEntityOfPage" href="https://developer-hq.github.io/2023/04/07/typora%E6%89%93%E4%B8%8D%E5%BC%80/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="">
@@ -248,7 +248,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2023/03/19/Git/" itemprop="url">Git</a></h1>
+                <a class="post-title-link" href="/2023/04/07/typora%E6%89%93%E4%B8%8D%E5%BC%80/" itemprop="url">typora打不开</a></h1>
         
 
         <div class="post-meta">
@@ -260,8 +260,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2023-03-19T20:39:42+08:00">
-                2023-03-19
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2023-04-07T10:58:37+08:00">
+                2023-04-07
               </time>
             
 
@@ -300,34 +300,127 @@
       
         
           
-            <h1 id="Git"><a href="#Git" class="headerlink" title="Git"></a>Git</h1><h2 id="git-init"><a href="#git-init" class="headerlink" title="git init"></a>git init</h2><p>初始化本地仓库</p>
-<h2 id="基本配置"><a href="#基本配置" class="headerlink" title="基本配置"></a>基本配置</h2><p>git config –global user.name “hq”</p>
-<p>git config –global user.email “<a href="mailto:&#x37;&#52;&#52;&#50;&#48;&#52;&#53;&#52;&#49;&#x40;&#113;&#x71;&#46;&#99;&#111;&#x6d;">&#x37;&#52;&#52;&#50;&#48;&#52;&#53;&#52;&#49;&#x40;&#113;&#x71;&#46;&#99;&#111;&#x6d;</a>“</p>
-<p>ssh-keygen -t <a target="_blank" rel="noopener" href="https://so.csdn.net/so/search?q=rsa&spm=1001.2101.3001.7020">rsa</a> -C “<a href="mailto:&#x37;&#52;&#x34;&#x32;&#48;&#52;&#53;&#52;&#x31;&#64;&#x71;&#113;&#x2e;&#99;&#111;&#109;">&#x37;&#52;&#x34;&#x32;&#48;&#52;&#53;&#52;&#x31;&#64;&#x71;&#113;&#x2e;&#99;&#111;&#109;</a>“</p>
-<p>然后打开C:\Users\HQ \ .ssh 里面的id_rsa.pub，复制到</p>
-<p><a target="_blank" rel="noopener" href="https://github.com/settings/keys">https://github.com/settings/keys</a></p>
-<p>（登录github，然点头像，setting，然后左边SSH and GPG keys）</p>
-<h2 id="远程仓库设置"><a href="#远程仓库设置" class="headerlink" title="远程仓库设置"></a>远程仓库设置</h2><p>添加远程版本库：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git remote add [shortname] [url]</span><br></pre></td></tr></table></figure>
+            
+          
+        
+      
+    </div>
+    
+    
+    
 
-<p>shortname 为本地的版本库，例如：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"># 提交到 Github</span><br><span class="line">$ git remote add origin git@github.com:tianqixin/runoob-git-test.git</span><br><span class="line">$ git push -u origin master</span><br></pre></td></tr></table></figure>
+    
 
-<p>其他</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git remote rm name  # 删除远程仓库</span><br><span class="line">git remote rename old_name new_name  # 修改仓库名</span><br></pre></td></tr></table></figure>
+    
 
-<p>在github上创建仓库，复制仓库的ssh地址</p>
-<p>git remote add origin <a href="mailto:&#x67;&#x69;&#116;&#x40;&#x67;&#x69;&#116;&#x68;&#x75;&#98;&#46;&#99;&#111;&#x6d;">&#x67;&#x69;&#116;&#x40;&#x67;&#x69;&#116;&#x68;&#x75;&#98;&#46;&#99;&#111;&#x6d;</a>:CHINA-N01/Document.git</p>
-<h2 id="git-add"><a href="#git-add" class="headerlink" title="git add"></a>git add</h2><h2 id="git-commit-m-‘本次提交的说明’"><a href="#git-commit-m-‘本次提交的说明’" class="headerlink" title="git commit -m ‘本次提交的说明’"></a>git commit -m ‘本次提交的说明’</h2><h2 id="git-push"><a href="#git-push" class="headerlink" title="git push"></a>git push</h2><p>git push origin与git push -u origin master的区别</p>
-<p>上面命令表示，将当前分支推送到origin主机的对应分支。 </p>
-<p>如果当前分支只有一个追踪分支，那么<a target="_blank" rel="noopener" href="https://so.csdn.net/so/search?q=%E4%B8%BB%E6%9C%BA%E5%90%8D&spm=1001.2101.3001.7020">主机名</a>都可以省略。 </p>
-<p>$ git push 如果当前分支与多个主机存在追踪关系，那么这个时候-u选项会指定一个默认主机，这样后面就可以不加任何参数使用git push。</p>
-<p>$ git push -u origin master 上面命令将本地的master分支推送到origin主机，同时指定origin为默认主机，后面就可以不加任何参数使用git push了。</p>
-<p> 不带任何参数的git push，默认只推送当前分支，这叫做simple方式。此外，还有一种matching方式，会推送所有有对应的远程分支的本地分支。Git 2.0版本之前，默认采用matching方法，现在改为默认采用simple方式。</p>
-<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_15899635/article/details/88421585">https://blog.csdn.net/qq_15899635/article/details/88421585</a></p>
-<p>第一次push用</p>
-<p>git push -u origin master</p>
-<h2 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h2><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/liuweixiao520/article/details/78971221">https://blog.csdn.net/liuweixiao520/article/details/78971221</a></p>
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://developer-hq.github.io/2023/03/30/pycharm%E8%AE%BE%E7%BD%AE%E9%95%9C%E5%83%8F%E6%BA%90/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2023/03/30/pycharm%E8%AE%BE%E7%BD%AE%E9%95%9C%E5%83%8F%E6%BA%90/" itemprop="url">pycharm设置镜像源</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2023-03-30T12:28:49+08:00">
+                2023-03-30
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>package那点击齿轮，然后添加镜像源</p>
+<p><img src="/2023/03/30/pycharm%E8%AE%BE%E7%BD%AE%E9%95%9C%E5%83%8F%E6%BA%90/image-20230330122854913.png" alt="image-20230330122854913"></p>
 
           
         
@@ -376,7 +469,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://developer-hq.github.io/2023/03/18/SwitchOmega%E4%BB%A3%E7%90%86/">
+    <link itemprop="mainEntityOfPage" href="https://developer-hq.github.io/2023/03/30/Jupyter/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="">
@@ -395,7 +488,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2023/03/18/SwitchOmega%E4%BB%A3%E7%90%86/" itemprop="url">SwitchOmega</a></h1>
+                <a class="post-title-link" href="/2023/03/30/Jupyter/" itemprop="url">Jupyter</a></h1>
         
 
         <div class="post-meta">
@@ -407,8 +500,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2023-03-18T14:39:42+08:00">
-                2023-03-18
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2023-03-30T11:20:57+08:00">
+                2023-03-30
               </time>
             
 
@@ -447,831 +540,13 @@
       
         
           
-            <p>规则列表</p>
-<p><a target="_blank" rel="noopener" href="http://raw.githubusercontent.com/gfwlist/gfwlist/master/gfwlist.txt">http://raw.githubusercontent.com/gfwlist/gfwlist/master/gfwlist.txt</a></p>
-<p>仓库</p>
-<p><a target="_blank" rel="noopener" href="https://github.com/developer-hq/SwitchOmegaBackup">https://github.com/developer-hq/SwitchOmegaBackup</a></p>
-<p>原始文件</p>
-<p><a target="_blank" rel="noopener" href="https://raw.githubusercontent.com/developer-hq/SwitchOmegaBackup/master/OmegaOptions.bak">https://raw.githubusercontent.com/developer-hq/SwitchOmegaBackup/master/OmegaOptions.bak</a></p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://developer-hq.github.io/2023/03/13/%E6%BF%80%E6%B4%BBwindows-office/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2023/03/13/%E6%BF%80%E6%B4%BBwindows-office/" itemprop="url">激活windows、office</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2023-03-13T12:39:42+08:00">
-                2023-03-13
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="github仓库"><a href="#github仓库" class="headerlink" title="github仓库"></a>github仓库</h1><p><a target="_blank" rel="noopener" href="https://github.com/massgravel/Microsoft-Activation-Scripts/releases/tag/1.7">Release v1.7 Goodbye to Gatherosstate.exe · massgravel/Microsoft-Activation-Scripts · GitHub</a></p>
-<h4 id="链接"><a href="#链接" class="headerlink" title="链接"></a>链接</h4><p><strong><a target="_blank" rel="noopener" href="https://github.com/massgravel/Microsoft-Activation-Scripts/releases/tag/1.7">https://github.com/massgravel/Microsoft-Activation-Scripts/releases/tag/1.7</a></strong></p>
-<h3 id="Download-How-to-use-it"><a href="#Download-How-to-use-it" class="headerlink" title="Download / How to use it?"></a>Download / How to use it?</h3><h4 id="Method-1-PowerShell"><a href="#Method-1-PowerShell" class="headerlink" title="Method 1 - PowerShell"></a>Method 1 - PowerShell</h4><ul>
-<li>On Windows 10/11, right click on windows start menu, select PowerShell or Terminal.</li>
-<li>Copy-paste the below code and press enter</li>
-</ul>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">irm https://massgrave.dev/get | iex</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>You will see the activation options, follow onscreen instructions.</li>
-<li>That’s all.</li>
-</ul>
-<h4 id="Method-2-Traditional"><a href="#Method-2-Traditional" class="headerlink" title="Method 2 - Traditional"></a>Method 2 - Traditional</h4><ul>
-<li>Download the file named <code>MAS_1.7_Password_1234.7z</code> from here</li>
-<li>Extract this file with a 3rd party archive manager, such as <a target="_blank" rel="noopener" href="https://www.7-zip.org/download.html">7zip</a></li>
-<li>Password is 1234</li>
-<li>In extracted folder, find the folder named All-In-One-Version</li>
-<li>Run the file named MAS_AIO.cmd</li>
-<li>You will see the activation options, follow onscreen instructions.</li>
-<li>That’s all.</li>
-</ul>
-<p>To run the scripts in unattended mode, check <a target="_blank" rel="noopener" href="https://massgrave.dev/command_line_switches.html">here</a></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"> File: MAS_1.7_Password_1234.7z</span><br><span class="line">SHA-1: 67A4D41BBEB8B24A5F893644AC63F91F931A2A75</span><br></pre></td></tr></table></figure>
-
-<p><strong>Password: 1234</strong></p>
-<hr>
-<p>Homepage: <a target="_blank" rel="noopener" href="https://massgrave.dev/">https://massgrave.dev/</a></p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://developer-hq.github.io/2023/01/25/word%E5%AE%8F%E8%AE%BE%E7%BD%AE/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2023/01/25/word%E5%AE%8F%E8%AE%BE%E7%BD%AE/" itemprop="url">word宏设置</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2023-01-25T23:39:42+08:00">
-                2023-01-25
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="normal-dotm位置："><a href="#normal-dotm位置：" class="headerlink" title="normal.dotm位置："></a>normal.dotm位置：</h1><p>C:\Users\74420\AppData\Roaming\Microsoft\Templates</p>
-<p>C:\Users \ {username} \ AppData\Roaming\Microsoft\Templates</p>
-<h1 id="快捷键设置"><a href="#快捷键设置" class="headerlink" title="快捷键设置"></a>快捷键设置</h1><p><img src="/2023/01/25/word%E5%AE%8F%E8%AE%BE%E7%BD%AE/image-20230125233705531.png" alt="image-20230125233705531"></p>
-<p>zotero引用：ctrl alt z</p>
-<p>插入引用的参考文献表：ctrl alt a</p>
-<h2 id="如何给word中的zotero插件添加快捷键"><a href="#如何给word中的zotero插件添加快捷键" class="headerlink" title="如何给word中的zotero插件添加快捷键"></a>如何给word中的zotero插件添加快捷键</h2><p><a target="_blank" rel="noopener" href="http://www.360doc.com/content/22/1121/17/73176036_1056951157.shtml">http://www.360doc.com/content/22/1121/17/73176036_1056951157.shtml</a></p>
-<p>利用word自带的快捷键设置功能：</p>
-<p>主要是为添加文献、添加笔记、添加参考目录、刷新和更改参考样式等。</p>
-<p>解决每次添加文献需要重复用鼠标点击添加文献按钮的操作用快捷键代替；</p>
-<p>步骤一；关闭所有的打开word文档，在Word中点击依次点击“文件”-“选项”-“自定义功能区”-键盘快捷方式后面的“自定义”。</p>
-<p>步骤二：在“类别”下面找到“宏”，在右侧找到需要添加快捷键的zotero命令，有如下命令可以选择。</p>
-<p>此处以“ZoteroAddEditionCitation”为例，,再点击“请按新快捷键”下面的空白框。然后在键盘上按下需要设置的键盘，如Alt+M（指同时按下Alt和M键），然后点击“指定”</p>
-<p>注意所设定快捷键为word软件内的快捷键，可以与全局与快捷键冲突，但是不要与word中其他的操作快捷键冲突。</p>
-<p>本文为window操作系统的操作：</p>
-<p><img src="/2023/01/25/word%E5%AE%8F%E8%AE%BE%E7%BD%AE/image-20230408144135330.png" alt="image-20230408144135330"></p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://developer-hq.github.io/2023/01/21/typora/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2023/01/21/typora/" itemprop="url">typora</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2023-01-21T17:07:46+08:00">
-                2023-01-21
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p><a target="_blank" rel="noopener" href="https://www.52pojie.cn/thread-1552190-1-1.html">https://www.52pojie.cn/thread-1552190-1-1.html</a></p>
-<h1 id="下载链接"><a href="#下载链接" class="headerlink" title="下载链接"></a>下载链接</h1><p><a target="_blank" rel="noopener" href="https://www.typora.io/windows/dev_release.html">https://www.typora.io/windows/dev_release.html</a></p>
-<h1 id="快速打开"><a href="#快速打开" class="headerlink" title="快速打开"></a>快速打开</h1><p><img src="/2023/01/21/typora/image-20230327214449911.png" alt="image-20230327214449911"></p>
-<p>将<strong>启动选项</strong>改为打开上次的目录，可以用==ctrl+p==快速打开博客文件夹的文件</p>
-<h1 id="windows注册表处理"><a href="#windows注册表处理" class="headerlink" title="windows注册表处理"></a>windows注册表处理</h1><p>将typora升级的服务关掉</p>
-<h1 id="插入图片"><a href="#插入图片" class="headerlink" title="插入图片"></a>插入图片</h1><h2 id="本地图片"><a href="#本地图片" class="headerlink" title="本地图片"></a>本地图片</h2><p>博客的 Markdown 文档都存储在 <code>source/_posts</code> 下，然后博客相关图片都存在 <code>source/images</code> 下，接着来修改 typora 的设置。</p>
-<p>打开 <code>文件 - 偏好设置 - 图像</code> 进行修改如下图修改</p>
-<p><img src="/2023/01/21/typora/image-20221026151600614.png" alt="image-20221026151600614"></p>
-<p>这样拖拽或粘贴过来的图片会自动复制到 <code>source/images</code> 下面，不过这样只是可以在 typora 中查看图片了，要想在 hexo 中查看就需要图片路径与服务器中相符合， <code>source/images</code> 文件夹下的图片在 hexo 中可以用如 <code>/images/abc.png</code> 的路径访问到，而 typora 可以设置图片根目录，设置完了后图片路径都是 <code>/images/abc.png</code> 这样的，这样一配合就解决了图片路径问题，具体做法是在 <code>格式 - 图像 - 设置图片根目录</code> 中 将 <code>source</code> 文件夹设置为图片根目录，也可在每篇 Markdown 文档中 YAML Front Matter 中添加 <code>typora-root-url: ..</code>，或者直接在 <code>scaffolds</code> 中的模板里直接添加，这样每次 <code>hexo new post</code> 时就会自动生成了。</p>
-<h1 id="我的修改："><a href="#我的修改：" class="headerlink" title="我的修改："></a>我的修改：</h1><p><img src="/2023/01/21/typora/image-20230121171131496.png" alt="image-20230121171131496"></p>
-<h1 id="高亮-高亮快捷键"><a href="#高亮-高亮快捷键" class="headerlink" title="高亮+高亮快捷键"></a>高亮+高亮快捷键</h1><p>偏好设置-markdown-markdown扩展语法</p>
-<p>打开高亮</p>
-<p><img src="/2023/01/21/typora/image-20230121172108685.png" alt="image-20230121172108685"></p>
-<p>打开C:\Users\74420\AppData\Roaming\Typora\conf</p>
-<p>conf.user.json</p>
-<p><a target="_blank" rel="noopener" href="https://support.typora.io/Shortcut-Keys/#windows--linux">https://support.typora.io/Shortcut-Keys/#windows--linux</a></p>
-<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">&quot;keyBinding&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span>            </span><br><span class="line">  <span class="attr">&quot;Highlight&quot;</span><span class="punctuation">:</span> <span class="string">&quot;Ctrl+H&quot;</span>    </span><br><span class="line"><span class="punctuation">&#125;</span><span class="punctuation">,</span>   </span><br></pre></td></tr></table></figure>
-
-<p>keybinding中增加highlight项</p>
-<h1 id="typora常用快捷键"><a href="#typora常用快捷键" class="headerlink" title="typora常用快捷键"></a>typora常用快捷键</h1><p>1.自己设置的高亮：CTRL+H</p>
-<p>2.打开文件，可以直接搜索所有md文件：CTRL+P</p>
-<h1 id="typora-win-hexo快捷使用配置"><a href="#typora-win-hexo快捷使用配置" class="headerlink" title="typora + win + hexo快捷使用配置"></a>typora + win + hexo快捷使用配置</h1><h2 id="bat文件："><a href="#bat文件：" class="headerlink" title="bat文件："></a>bat文件：</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cmd /k <span class="string">&quot;start C:\Users\74420\blog\source\_posts\_newblog.md&quot;</span></span><br></pre></td></tr></table></figure>
-
-<p>打开hexo文件夹中的博客，便可以用ctrl p快捷打开其他md文件</p>
-<h2 id="bat文件修改图标："><a href="#bat文件修改图标：" class="headerlink" title="bat文件修改图标："></a>bat文件修改图标：</h2><p><a target="_blank" rel="noopener" href="https://zhidao.baidu.com/question/1891961152976068668.html">https://zhidao.baidu.com/question/1891961152976068668.html</a></p>
-<p>bat文件修改不了，可以创建快捷方式，修改快捷方式的图标</p>
-<p><img src="/2023/01/21/typora/image-20230121211002217.png" alt="image-20230121211002217"></p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://developer-hq.github.io/2023/01/17/%E7%81%AB%E7%8B%90%E4%BE%BF%E6%8D%B7%E4%BD%BF%E7%94%A8/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2023/01/17/%E7%81%AB%E7%8B%90%E4%BE%BF%E6%8D%B7%E4%BD%BF%E7%94%A8/" itemprop="url">火狐便捷使用</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2023-01-17T13:31:19+08:00">
-                2023-01-17
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p><a target="_blank" rel="noopener" href="https://xiazai.zol.com.cn/jiqiao/40369.html">https://xiazai.zol.com.cn/jiqiao/40369.html</a></p>
-<p>2：Alt+D</p>
-<p>　　你可以使用该快捷键直接把光标转到火狐的地址栏。</p>
-<p>6：Ctrl+Tab</p>
-<p>　　Ctrl+Tab可以帮你在不同火狐标签间轻松切换。</p>
-<p>6：Ctrl+Shift+Tab</p>
-<p>　　向上切换标签页</p>
-<p>9：鼠标中键</p>
-<p>　　这不是一个键盘快捷键但是是一个很好的快捷键。指向任何一个链接并按下鼠标中键（即滚轮），然后该页面会在新标签打开。</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://developer-hq.github.io/2023/01/13/%E5%8A%A8%E6%89%8B%E5%AD%A6%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2023/01/13/%E5%8A%A8%E6%89%8B%E5%AD%A6%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" itemprop="url">动手学深度学习</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2023-01-13T11:50:17+08:00">
-                2023-01-13
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="学习内容"><a href="#学习内容" class="headerlink" title="学习内容"></a>学习内容</h1>
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://developer-hq.github.io/2023/01/13/%E5%8A%A8%E6%89%8B%E5%AD%A6%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E5%B7%A5%E7%A8%8B%E9%97%AE%E9%A2%98/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2023/01/13/%E5%8A%A8%E6%89%8B%E5%AD%A6%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E5%B7%A5%E7%A8%8B%E9%97%AE%E9%A2%98/" itemprop="url">动手学深度学习工程问题</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2023-01-13T11:50:17+08:00">
-                2023-01-13
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="环境问题"><a href="#环境问题" class="headerlink" title="环境问题"></a>环境问题</h1><h3 id="pip-ini"><a href="#pip-ini" class="headerlink" title="pip.ini"></a>pip.ini</h3><p>在用户文件夹下新建pip文件夹，在pip文件夹下新建pip.ini文件</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">[global]</span><br><span class="line">index-url = https://pypi.tuna.tsinghua.edu.cn/simple</span><br><span class="line">proxy     = http://127.0.0.1:7890</span><br><span class="line">[install]</span><br><span class="line">trusted-host=pypi.tuna.tsinghua.edu.cn</span><br></pre></td></tr></table></figure>
-
-
-
-<h3 id="condarc设置"><a href="#condarc设置" class="headerlink" title=".condarc设置"></a>.condarc设置</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">channels:</span><br><span class="line">  - defaults</span><br><span class="line">show_channel_urls: true</span><br><span class="line">default_channels:</span><br><span class="line">  - https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main</span><br><span class="line">  - https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/r</span><br><span class="line">  - https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/msys2</span><br><span class="line">custom_channels:</span><br><span class="line">  conda-forge: http://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud</span><br><span class="line">  msys2: http://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud</span><br><span class="line">  bioconda: http://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud</span><br><span class="line">  menpo: http://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud</span><br><span class="line">  pytorch: http://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud</span><br><span class="line">  pytorch-lts: http://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud</span><br><span class="line">  simpleitk: http://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud</span><br><span class="line">proxy_servers:</span><br><span class="line">  http: socks5://127.0.0.1:7890</span><br><span class="line">  https: socks5://127.0.0.1:7890</span><br><span class="line">ssl_verify: false</span><br></pre></td></tr></table></figure>
-
-
-
-<h3 id="annoconda清华源有问题"><a href="#annoconda清华源有问题" class="headerlink" title="annoconda清华源有问题"></a>annoconda清华源有问题</h3><p>==仍然没有解决conda+清华源安装不了pytorch==</p>
-<p>最终在虚拟环境中使用pip3安装的，虚拟环境中conda list可以显示出来安装的pytorch，同时base中并没有安装，应该是安到虚拟环境下了</p>
-<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_49304494/article/details/122622134">https://blog.csdn.net/weixin_49304494/article/details/122622134</a><br>打开.condaec</p>
-<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">channels:</span><br><span class="line">  - defaults</span><br><span class="line">show_channel_urls: true</span><br><span class="line">default_channels:</span><br><span class="line">  - http://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main</span><br><span class="line">  - http://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/r</span><br><span class="line">  - http://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/msys2</span><br><span class="line">custom_channels:</span><br><span class="line">  conda-forge: http://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud</span><br><span class="line">  msys2: http://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud</span><br><span class="line">  bioconda: http://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud</span><br><span class="line">  menpo: http://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud</span><br><span class="line">  pytorch: http://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud</span><br><span class="line">  simpleitk: http://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud</span><br></pre></td></tr></table></figure>
-
-<p>快速打开启动文件夹：<br>cmd+r启动输入<br>shell:Common Startup</p>
-<h3 id="torch是否使用gpu"><a href="#torch是否使用gpu" class="headerlink" title="torch是否使用gpu"></a>torch是否使用gpu</h3><p>使用cuda就是使用gpu，即是否使用cuda<br>torch.cuda.is_available()</p>
-<h3 id="bat打开notebook"><a href="#bat打开notebook" class="headerlink" title=".bat打开notebook"></a>.bat打开notebook</h3><p>需要在虚拟环境中先安装ipykernel</p>
-<figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">conda install ipykernel</span><br></pre></td></tr></table></figure>
-<p>bat文件中：</p>
-<figure class="highlight bat"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">call</span> conda activate d2l</span><br><span class="line"><span class="keyword">call</span> jupyter notebook</span><br><span class="line"><span class="built_in">pause</span></span><br></pre></td></tr></table></figure>
-
+            <h3 id="no-module-jupyter-client"><a href="#no-module-jupyter-client" class="headerlink" title="no module jupyter_client"></a>no module jupyter_client</h3><p>需要在虚拟环境和base中都安一遍jupyter</p>
 <h3 id="jupyter-notebook改中文"><a href="#jupyter-notebook改中文" class="headerlink" title="jupyter notebook改中文"></a>jupyter notebook改中文</h3><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/m0_37748381/article/details/121122833">https://blog.csdn.net/m0_37748381/article/details/121122833</a></p>
-<p>增加用户变量<br><img src="/2023/01/13/%E5%8A%A8%E6%89%8B%E5%AD%A6%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E5%B7%A5%E7%A8%8B%E9%97%AE%E9%A2%98/2023-01-16-21-52-48.png"></p>
+<p>增加用户变量<br><img src="/2023/03/30/Jupyter/2023-01-16-21-52-48.png"></p>
 <h3 id="jupyter-notebook代码补全"><a href="#jupyter-notebook代码补全" class="headerlink" title="jupyter notebook代码补全"></a>jupyter notebook代码补全</h3><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/m0_45958387/article/details/125836163">https://blog.csdn.net/m0_45958387/article/details/125836163</a></p>
 <p>虚拟环境下安装插件（base中安装好像也行）<br><code>pip install jupyter_contrib_nbextensions</code></p>
 <p>再安装给user<br><code>jupyter contrib nbextension install --user</code></p>
-<p>enable hinterland<br><img src="/2023/01/13/%E5%8A%A8%E6%89%8B%E5%AD%A6%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E5%B7%A5%E7%A8%8B%E9%97%AE%E9%A2%98/2023-01-17-00-02-23.png"></p>
+<p>enable hinterland<br><img src="/2023/03/30/Jupyter/2023-01-17-00-02-23.png"></p>
 <h3 id="一部分快捷键"><a href="#一部分快捷键" class="headerlink" title="一部分快捷键"></a>一部分快捷键</h3><p>ctrl + M 进入命令模式<br>enter 进入编辑模式</p>
 <p>编辑模式：<br>删除整行 ctrl</p>
 <p>命令模式：<br>M 转换为 markdown<br>Y 转换为代码块<br>A 上方增加单元格<br>B 下方增加单元格<br>123456 设置1-6级标题<br>X 剪切单元格<br>C 复制单元格<br>V 粘贴到下面<br>shift V 粘贴到上面<br>D D 删除单元格<br>Z 撤销删除单元格<br>H 显示快捷键<br>SPACE 向下滚动<br>shift + SPACE 向上滚动</p>
@@ -1287,6 +562,22 @@
 <li><p>eg:<code>python -m ipykernel install --user --name d2l</code></p>
 </li>
 </ul>
+<h3 id="jupyter-notebook-查看、添加、删除kernel的方法"><a href="#jupyter-notebook-查看、添加、删除kernel的方法" class="headerlink" title="jupyter notebook 查看、添加、删除kernel的方法"></a>jupyter notebook 查看、添加、删除kernel的方法</h3><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/crystal_sugar/article/details/126855682">https://blog.csdn.net/crystal_sugar/article/details/126855682</a></p>
+<p>安装完Anaconda利用conda创建了虚拟环境，但是启动jupyter notebook之后却找不到虚拟环境。</p>
+<p>实际上是由于在虚拟环境下缺少kernel.json文件，解决方法如下：</p>
+<p>首先安装ipykernel：conda install ipykernel</p>
+<p>在虚拟环境下创建kernel文件：conda install -n 环境名称 ipykernel</p>
+<p>激活conda环境： source activate 环境名称</p>
+<p>将环境写入notebook的kernel中</p>
+<p>python -m ipykernel install –user –name 环境名称 –display-name “Python (环境名称)”</p>
+<p>打开notebook服务器：jupyter notebook</p>
+<p>浏览器打开对应地址，新建python，就会有对应的环境提示了</p>
+<p>如果经常需要用jupyter notebook，那么最好在创建虚拟环境的时候便安装好ipykernel，</p>
+<p>命令：conda create -n 环境名称 python=3.5 ipykernel</p>
+<p><strong>删除kernel环境：</strong></p>
+<p>jupyter kernelspec remove 环境名称</p>
+<p><strong>查看kernel环境：</strong></p>
+<p>jupyter kernelspec list</p>
 
           
         
@@ -1335,7 +626,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://developer-hq.github.io/2022/12/22/qbittorrent%E8%AE%BE%E7%BD%AE/">
+    <link itemprop="mainEntityOfPage" href="https://developer-hq.github.io/2023/03/30/%E8%BF%81%E7%A7%BB%E5%AD%A6%E4%B9%A0/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="">
@@ -1354,7 +645,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2022/12/22/qbittorrent%E8%AE%BE%E7%BD%AE/" itemprop="url">qbittorrent设置</a></h1>
+                <a class="post-title-link" href="/2023/03/30/%E8%BF%81%E7%A7%BB%E5%AD%A6%E4%B9%A0/" itemprop="url">迁移学习</a></h1>
         
 
         <div class="post-meta">
@@ -1366,8 +657,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2022-12-22T15:47:27+08:00">
-                2022-12-22
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2023-03-30T11:11:05+08:00">
+                2023-03-30
               </time>
             
 
@@ -1406,9 +697,35 @@
       
         
           
-            <p><a target="_blank" rel="noopener" href="https://imnks.com/4777.html">https://imnks.com/4777.html</a></p>
-<p>解压出data文件夹，覆盖到/var/packages/qBittorrent/target/qBittorrent_conf目录里面，停用再启动套件生效！</p>
-<p><a target="_blank" rel="noopener" href="https://github.com/qbittorrent/search-plugins">https://github.com/qbittorrent/search-plugins</a></p>
+            <h3 id="调用模型"><a href="#调用模型" class="headerlink" title="调用模型"></a>调用模型</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> torchvision</span><br><span class="line"><span class="keyword">from</span> torchvison <span class="keyword">import</span> models</span><br><span class="line">model_ft=models.resnet152()</span><br></pre></td></tr></table></figure>
+
+<p>可以直接使用<code>model_ft.fc</code>调用其中某层，并可以直接修改该层结构</p>
+<h3 id="官网示例"><a href="#官网示例" class="headerlink" title="官网示例"></a>官网示例</h3><p>下载后的模型会保存在<strong>用户/.cache/torch/checkpoints</strong>下</p>
+<ul>
+<li><p><code>model_ft = models.resnet152(pretrained=use_pretrained)</code></p>
+</li>
+<li><p>pretrained用不用人家训练好的数据</p>
+</li>
+<li><p><code>num_ftrs = model_ft.fc.in_features</code><br><code>model_ft.fc = nn.Sequential(nn.Linear(num_ftrs, 102),nn.LogSoftmax(dim=1))</code></p>
+<ul>
+<li>直接修改其中某层，将fc层重新做成全连接层，输入为原输入2048，输出结果为102</li>
+</ul>
+</li>
+<li><p><code>set_parameter_requires_grad(model_ft, feature_extract)</code></p>
+<ul>
+<li>设置是否使用梯度，用梯度就代表着还要训练模型参数，不用梯度就代表着直接使用别人的参数，就不再训练了</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">def initialize_model(model_name, num_classes, feature_extract, use_pretrained=True):</span><br><span class="line">    # 选择合适的模型，不同模型的初始化方法稍微有点区别</span><br><span class="line">    model_ft = None</span><br><span class="line">    input_size = 0</span><br><span class="line"></span><br><span class="line">    if model_name == &quot;resnet&quot;:</span><br><span class="line">        &quot;&quot;&quot; Resnet152</span><br><span class="line">        &quot;&quot;&quot;</span><br><span class="line">        model_ft = models.resnet152(pretrained=use_pretrained)</span><br><span class="line">        set_parameter_requires_grad(model_ft, feature_extract)</span><br><span class="line">        num_ftrs = model_ft.fc.in_features</span><br><span class="line">        model_ft.fc = nn.Sequential(nn.Linear(num_ftrs, 102),</span><br><span class="line">                                   nn.LogSoftmax(dim=1))</span><br><span class="line">        input_size = 224</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<h3 id="一般先训练自己新建的层，然后再整体训练一下"><a href="#一般先训练自己新建的层，然后再整体训练一下" class="headerlink" title="一般先训练自己新建的层，然后再整体训练一下"></a>一般先训练自己新建的层，然后再整体训练一下</h3><h3 id="是否冻住某些层"><a href="#是否冻住某些层" class="headerlink" title="是否冻住某些层"></a>是否冻住某些层</h3><p>关闭梯度就属于冻住了</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">def set_parameter_requires_grad(model,feature_extracting):</span><br><span class="line">    if feature_extracting:</span><br><span class="line">        for param in model.parameters():</span><br><span class="line">            para.requires_grad=False</span><br></pre></td></tr></table></figure>
+
 
           
         
@@ -1457,7 +774,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://developer-hq.github.io/2022/12/22/aria2/">
+    <link itemprop="mainEntityOfPage" href="https://developer-hq.github.io/2023/03/28/google%E6%90%9C%E7%B4%A2/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="">
@@ -1476,7 +793,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2022/12/22/aria2/" itemprop="url">aria2</a></h1>
+                <a class="post-title-link" href="/2023/03/28/google%E6%90%9C%E7%B4%A2/" itemprop="url">google搜索</a></h1>
         
 
         <div class="post-meta">
@@ -1488,8 +805,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2022-12-22T13:25:38+08:00">
-                2022-12-22
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2023-03-28T14:36:42+08:00">
+                2023-03-28
               </time>
             
 
@@ -1528,60 +845,830 @@
       
         
           
-            <p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/37021947?from=groupmessage">https://zhuanlan.zhihu.com/p/37021947?from=groupmessage</a></p>
-<p>迅雷已经用了 10 年，一直把它看作是速度最快也最方便的下载工具，也一直买着迅雷会员。</p>
-<p>但，迅雷堕落了。</p>
-<pre><code>thunder:\\ 迅雷专属链接越来越少，下载基本是磁力链接、BT 种子；迅雷会员加速不再给力，大量资源速度为 0（会员虽然还有一年多，但已经没用了）；迅雷关闭旧版功能逼大家升级迅雷 U 享版，但升级后，才发现新版迅雷会强制接收所有下载。 有些小文件，我只想用浏览器直接下载。而一些不想下的链接，也会被迅雷非常敏感的感应到，强制下载，真的真的特别流氓。
-</code></pre>
-<p>为什么选择 Aria2？</p>
-<p>Aria2 下载比较全能，支持 BT 和磁力链接，性能也相当不错，速度不比迅雷慢。</p>
-<p>虽然没原生应用界面，配置也麻烦，但这些用懒人包就能轻松解决。<br>真·懒人包</p>
-<p>Aria2 真·懒人包无需配置，下载即用，适合不想折腾的人。</p>
-<p>真·懒人包：<a target="_blank" rel="noopener" href="https://www.seoipo.com/software/Aria2/">https://www.seoipo.com/software/Aria2/</a></p>
-<p>将懒人包解压到 D:\Aria2，点击 AriaNg 启动器.exe 即可开始下载。两个启动器任选其一，都集成了后端服务和前端 UI，无需启动其他程序。包内均为开源绿色软件，不涉及任何隐私和安装，更没病毒，360 误报拿它没办法。</p>
-<p>2022.11.20 重构启动器，更新 Aria2 1.36.0，AriaNG 1.3.2，并增加 bt-tracker 到 137，方便 BT 和磁力链接提速。</p>
-<p>功能新增：任务开始、完成和错误时，推送系统通知，aria2.conf 特别功能区块设置通知的开启与关闭，建议来自 @我真的爱发明。</p>
-<p>最新版文章链接：<br>抛弃迅雷，Aria2 新手入门​<br>newzone.top/posts/2018-05-15-aria2_a_new_download_tool.html</p>
-<p>如果想从小白进阶，搞清 Aria2 背后设置的话，请往下看配置步骤。<br>Aria2 设置</p>
-<pre><code>下载 Aria2 快速设置包 或 备用链接，将其解压到存放文件夹，比如 D:\Aria2。
-官网下载 Aria2 程序（Windows 选择 aria2-1.36.0-win-64bit-build1.zip），然后解压到快速设置包的存放文件夹中，替代其中的 aria2c.exe 程序。
-</code></pre>
-<ol start="3">
-<li>点击 aria2.exe 启动 aria2，系统托盘区会同步出现应用图标。</li>
-<li>参照 懒人包配置 修改 aria2.conf，更多设置参考 aria2c 官方文档。^[Aria2 基础上手指南]</li>
+            <ol>
+<li>使用引号精确搜索（“”）</li>
+<li>使用连字符排除内容（-）</li>
+<li>使用星号填充内容（*）</li>
+<li>搜索指定范围（….）JavaScript in 2021….2022</li>
+<li>搜索指定站点内容（search:）search: bugstack.cn spring</li>
+<li>搜索指定文件类型内容（filetype）Java filetype:pdf</li>
+<li>查找多个关键字（AND）Java AND C++</li>
+<li>查找其中一个关键字（OR）Java OR C++</li>
+<li>查询关键字的定义（Define）Define: Java</li>
+<li>搜索相关内容（+）Java jvm+jdk</li>
+<li>查找相似网站（related）relate: bugstack.cn</li>
+<li>搜索指定站点内容（site）site: bugstack asm</li>
+<li>搜索指定时间范围（before、after）after: 2022 jvm java</li>
 </ol>
-<p>修改默认下载目录：</p>
-<p>conf # 文件的保存路径 (可使用绝对路径或相对路径), 默认：当前启动位置 dir=D:\Download #D:\Download 是我的默认下载目录</p>
-<p>修改服务器默认连接数：</p>
-<p>conf # 同一服务器连接数，添加时可指定，默认:1 max-connection-per-server=16</p>
-<p>开启 BT 下列设置：</p>
-<p>conf enable-dht=true bt-enable-lpd=true enable-peer-exchange=true</p>
-<p>在最后添加 BT trackers，配置列表时重新获取 最新 trackers 列表, tracker 中用 , 隔开。</p>
-<h1 id="bt-tracker-更新，解决-Aria2-BT-下载速度慢没速度的问题"><a href="#bt-tracker-更新，解决-Aria2-BT-下载速度慢没速度的问题" class="headerlink" title="bt-tracker 更新，解决 Aria2 BT 下载速度慢没速度的问题"></a>bt-tracker 更新，解决 Aria2 BT 下载速度慢没速度的问题</h1><p>bt-tracker=udp://tracker.opentrackr.org:1337/announce,udp://9.rarbg.com:2810/announce,udp://tracker.openbittorrent.com:6969/announce,udp://opentracker.i2p.rocks:6969/announce,<a target="_blank" rel="noopener" href="https://opentracker.i2p.rocks/announce,http://tracker.openbittorrent.com:80/announce,udp://tracker.torrent.eu.org:451/announce,udp://open.stealth.si:80/announce,udp://vibe.sleepyinternetfun.xyz:1738/announce,udp://tracker2.dler.org:80/announce,udp://tracker1.bt.moack.co.kr:80/announce,udp://tracker.zemoj.com:6969/announce,udp://tracker.tiny-vps.com:6969/announce,udp://tracker.theoks.net:6969/announce,udp://tracker.publictracker.xyz:6969/announce,udp://tracker.monitorit4.me:6969/announce,udp://tracker.moeking.me:6969/announce,udp://tracker.lelux.fi:6969/announce,udp://tracker.dler.org:6969/announce,udp://tracker.army:6969/announce">https://opentracker.i2p.rocks:443/announce,http://tracker.openbittorrent.com:80/announce,udp://tracker.torrent.eu.org:451/announce,udp://open.stealth.si:80/announce,udp://vibe.sleepyinternetfun.xyz:1738/announce,udp://tracker2.dler.org:80/announce,udp://tracker1.bt.moack.co.kr:80/announce,udp://tracker.zemoj.com:6969/announce,udp://tracker.tiny-vps.com:6969/announce,udp://tracker.theoks.net:6969/announce,udp://tracker.publictracker.xyz:6969/announce,udp://tracker.monitorit4.me:6969/announce,udp://tracker.moeking.me:6969/announce,udp://tracker.lelux.fi:6969/announce,udp://tracker.dler.org:6969/announce,udp://tracker.army:6969/announce</a></p>
-<p>其他设置不大常用，有时间的话，你可以慢慢调整。</p>
-<ol start="5">
-<li>Aira2 没有原生应用界面，输入网址 <a target="_blank" rel="noopener" href="http://aria2c.com/">http://aria2c.com</a> 使用第三方下载界面。该页面自动与本地的 aira2c 程序关联，实现下载管理，建议把其收藏到书签，方便使用。^[aria2 懒人安装教程]</li>
-</ol>
-<p>如果出现「Aria2 RPC 服务器错误」，检查 JSON-RPC Path 是否为 <a target="_blank" rel="noopener" href="http://localhost:6800/jsonrpc%E3%80%82%E5%A6%82%E6%9E%9C%E4%BE%9D%E7%84%B6%E6%8A%A5%E9%94%99%EF%BC%8C%E5%88%99%E8%AF%B4%E6%98%8E">http://localhost:6800/jsonrpc。如果依然报错，则说明</a> aria2.conf 配置错了，推荐下载 真·懒人包。<br>Aria2 进阶<br>更换 Aria2 界面</p>
-<p>AriaNg 和传统下载软件界面类似，使用简单。</p>
-<p>使用方法：下载并解压 AriaNg，运行目录下的 index.html，打开 Aria2 WebUI 界面，将页面链接收藏到书签，方便后续使用 Aria2。</p>
-<p>如果 AriaNg 页面出现报错，则从页面左侧进入 AriaNg 设置 - RPC，检查 RPC 地址，默认地址为 localhost:6800。<br>Aira2 下载预热</p>
-<p>Aira2 下载预热是 BT 下载前的必备步骤，否则速度容易很慢。</p>
-<p>找个热门影视的 BT 种子 (千万建议是种子，而不是磁力链接)，然后下一波，挂着做种。过几个小时后退出 Aria2，或者等 Aria2 会话自动保存，你会发现 dht.dat 从空文件变成有数据了，这时下载速度就会正常很多。</p>
-<pre><code>很多 BT 客户端一样，Aria2 有个 dht.dat 文件 (开启 ipv6 还有个 dht6.dat)，这玩意用于存储一种叫做 DHT Routing Table 的东西，DHT 网络由无数节点组成，你接触到一个后能通过它接触到更多的节点，Aria2 我记得是有内置的节点，但是！如果你在 Aria2 第一次运行的时候直接下载磁力链接或者冷门种子，你很可能遇到连 MetaData 都无法获取的情况，这就是因为第一次只是初始化 dht.dat 文件，你本地不存在 DHT Routing Table 的缓存，所以你无法从 DHT 网络中获取足够的数据。^[解决 Aria2 BT 下载速度慢没速度的问题]
-</code></pre>
-<p>接管浏览器下载</p>
-<p>如果想用 Aria2 接管浏览器的下载管理，需安装插件扩展。</p>
-<pre><code>Chrome：添加到 aria2，也可以从 国内搬运地址 下载，懒人包已内置该扩展。 有的 Chrome 浏览器无法直接安装 .crx 格式的扩展，需将文件解压到新文件夹「xxx」，然后在浏览器地址栏输入 chrome://extensions/ 开启开发者模式，点击加载已解压的扩展程序，选中刚才解压的文件夹「xxx」。Firefox：Aria2 Download Manager Integration，配置可参考下方的 Chrome 扩展设置。
-</code></pre>
-<p>扩展「添加到 aria2」安装好后，右键扩展图标，点击 选项 - 设置，设置如下：</p>
-<pre><code>最小监视：10 M，低于该容量将由浏览器下载。如果 Aria2 要接手所有下载，可以将最小监视设为 0.001。JSON-RPC 链接：http://localhost:6800/jsonrpc。
-</code></pre>
-<p>注意：「添加到 aria2」图标显示 en 方为开启状态，dis 为关闭状态，点击图标可以切换使用状态。<br>Aria2 启动器</p>
-<p>每次启动 Aria2 下载，总要执行两次，打开 WebUI 链接和 aria2c 两个文件，比较麻烦。因此，我用 AutoHotKey 做了个启动器，可以检测 aria2c 运行状态并一键打开下载界面，简化 Aria 启动。</p>
-<p>下载 Aria2 启动器，然后将其解压到 Aria2 运行目录，比如 D:\Aria2。Aria2 启动器包含两种方式，二选一即可。</p>
-<pre><code>AriaNg 启动器（推荐）：使用 AriaNg 本地版作下载管理界面。使用该启动器前，需将 AriaNg 解压到 Aria2 目录下，并将文件夹名改为 AriaNg，执行页面 index.html 位于 Aria2\AriaNg\index.html。Aria2c 启动器：将 https://aria2c.com 作为默认下载界面。该设置较旧，需确保 JSON-RPC Path 为 http://localhost:6800/jsonrpc。
-</code></pre>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://developer-hq.github.io/2023/03/28/%E5%9B%BE%E5%83%8F%E8%AF%86%E5%88%AB%E5%AE%9E%E6%88%98/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2023/03/28/%E5%9B%BE%E5%83%8F%E8%AF%86%E5%88%AB%E5%AE%9E%E6%88%98/" itemprop="url">图像识别实战</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2023-03-28T14:22:18+08:00">
+                2023-03-28
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="torchvision"><a href="#torchvision" class="headerlink" title="torchvision"></a>torchvision</h1><ul>
+<li>torchvision.datasets<ul>
+<li>有常用数据集</li>
+<li>常用方法，怎么存放数据</li>
+</ul>
+</li>
+<li>torchvision.models<ul>
+<li>经典网络实现</li>
+<li>可以用来做迁移学习</li>
+</ul>
+</li>
+<li>torchvision.transform<ul>
+<li>对数据进行预处理，如图像增强</li>
+</ul>
+</li>
+</ul>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://developer-hq.github.io/2023/03/28/%E6%B3%A8%E5%86%8Cgpt/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2023/03/28/%E6%B3%A8%E5%86%8Cgpt/" itemprop="url">注册gpt</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2023-03-28T11:48:18+08:00">
+                2023-03-28
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>梯子</p>
+<p><a target="_blank" rel="noopener" href="https://portal.shadowsocks.au/aff.php?aff=55285">https://portal.shadowsocks.au/aff.php?aff=55285</a></p>
+<p><a target="_blank" rel="noopener" href="https://paofu.cloud/">https://paofu.cloud</a></p>
+<p>SMS</p>
+<p><a target="_blank" rel="noopener" href="https://www.ejiema.com/appweb/t1.html%EF%BC%88%E5%9B%BD%E5%86%85%EF%BC%89">https://www.ejiema.com/appweb/t1.html（国内）</a></p>
+<p><a target="_blank" rel="noopener" href="https://onlinesim.io/v2/numbers/">https://onlinesim.io/v2/numbers/</a></p>
+<p>注册hotmai邮箱</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://developer-hq.github.io/2023/03/27/CNN/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2023/03/27/CNN/" itemprop="url">CNN</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2023-03-27T19:21:29+08:00">
+                2023-03-27
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="CNN"><a href="#CNN" class="headerlink" title="CNN"></a>CNN</h1><h3 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h3><p>卷积神经网络的输入就是图像本身，如28x28x1，而非传统神经网络拉平后的值784</p>
+<h3 id="结构"><a href="#结构" class="headerlink" title="结构"></a>结构</h3><p><img src="/2023/03/27/CNN/image-20230327220001654.png" alt="image-20230327220001654"></p>
+<h3 id="卷积"><a href="#卷积" class="headerlink" title="卷积"></a>卷积</h3><p>原始数据h * w * c<br>例如一只猫，不同位置的特征重要性不一样，眼睛、胡须等更重要。<br>卷积就是要把图像分割成不同的小块，得到新的特征图</p>
+<p>卷积要有个权重参数矩阵，使得特征提取后效果最好</p>
+<p><img src="/2023/03/27/CNN/27/CNN/image-20230327215931332.png" alt="image-20230327215931332"></p>
+<p>上图中：</p>
+<ul>
+<li>原始数据$32\times32\times3$，为简便，只取一个通道$32\times32\times1$</li>
+<li>取5x5的部分进行卷积</li>
+<li>$filter$权重<br>$<br>W_{3\times3}=<br>\begin{bmatrix}<br> 0 &amp; 1 &amp; 2 \<br> 2 &amp; 2 &amp; 0 \<br> 0 &amp; 1 &amp; 2<br>\end{bmatrix}<br>$</li>
+<li>对特征矩阵中的元素<br>$Z_{i,j}=\sum_{i=1}^3 \sum_{j=1}^3 X_{i,j} \cdot W_{i,j}$</li>
+<li>计算得到卷积后特征矩阵$<br>Z_{3\times3}=<br>\begin{bmatrix}<br> 12 &amp; 12 &amp; 17 \<br> 10 &amp; 17 &amp; 19 \<br> 9 &amp; 6 &amp; 14<br>\end{bmatrix}<br>$</li>
+</ul>
+<h3 id="图片"><a href="#图片" class="headerlink" title="图片"></a>图片</h3><p><img src="/2023/03/27/CNN/image-20230327220013237.png" alt="image-20230327220013237"></p>
+<ul>
+<li>RGB三通道</li>
+<li>计算时分别卷积处理R,G,B三个通道的数据，再将得到的特征值加到一起</li>
+<li>有几个通道就得有几个filter（用来算特征值的），计算方法计算用内积做计算（对应位置相乘再加一起），三个filter分别算出来三个数，然后相加就得到特征值，通过这种方法可以算出来上图左上角特征值是3</li>
+<li>可以有多个filter，对同一个数据，可以用多卷积核提取特征，丰富特征</li>
+<li>得到多个特征图之后再堆叠在一起，如32x32x3卷积后得到28x28x6的特征图（6个filter）</li>
+<li>多次卷积：原始图片-卷积-特征图1-卷积-特征图2-…</li>
+<li>同一个卷积层的filter卷积核的规格大小得相同</li>
+</ul>
+<h3 id="卷积参数"><a href="#卷积参数" class="headerlink" title="卷积参数"></a>卷积参数</h3><ul>
+<li>滑动窗口步长：步长小，粒度就比较小；步长大，粒度就比较大</li>
+<li>一般图像任务选步长为1</li>
+<li>Conv也可以应用于文本领域：文本可以是一个长方形的数据，不同任务卷积核和步长均有所不同</li>
+<li>卷积核尺寸</li>
+<li>一般最小卷积核3x3</li>
+<li>最常见就是卷积核3x3，步长为1</li>
+<li>边缘填充</li>
+<li></li>
+<li>卷积核个数</li>
+</ul>
+<h3 id="ResNet"><a href="#ResNet" class="headerlink" title="ResNet"></a>ResNet</h3><p><a target="_blank" rel="noopener" href="https://nn.labml.ai/resnet/index.html">https://nn.labml.ai/resnet/index.html</a></p>
+<p><img src="/2023/03/27/CNN/residual_block.svg" alt="img"></p>
+<h1 id="CNN实现"><a href="#CNN实现" class="headerlink" title="CNN实现"></a>CNN实现</h1><h3 id="读取数据"><a href="#读取数据" class="headerlink" title="读取数据"></a>读取数据</h3><ul>
+<li>构建训练集、测试集</li>
+<li>DataLoader迭代数据</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"># metadata</span><br><span class="line">input_size = 28 # 图像大小28*28*1</span><br><span class="line">num_class = 10 # 标签种类</span><br><span class="line">num_epochs = 3 # 训练的总循环数</span><br><span class="line">batch_size = 64 # 一个批次的大小：64张图</span><br><span class="line"></span><br><span class="line"># 训练集</span><br><span class="line">train_dataset=datasets.MNIST(root=&#x27;./data/&#x27;,</span><br><span class="line">                            train=True,</span><br><span class="line">                            transform=transforms.ToTensor(),</span><br><span class="line">                            download=True)</span><br><span class="line"># 训练集</span><br><span class="line">test_dataset=datasets.MNIST(root=&#x27;./data/&#x27;,</span><br><span class="line">                            train=False,</span><br><span class="line">                            transform=transforms.ToTensor(),</span><br><span class="line">                            )</span><br><span class="line"># 构建batch数据</span><br><span class="line">train_loader = torch.utils.data.DataLoader(dataset=train_dataset,</span><br><span class="line">                                          batch_size=batch_size,</span><br><span class="line">                                          shuffle=True)</span><br><span class="line">test_loader = torch.utils.data.DataLoader(dataset=test_dataset,</span><br><span class="line">                                          batch_size=batch_size,</span><br><span class="line">                                          shuffle=True)</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="模型"><a href="#模型" class="headerlink" title="模型"></a>模型</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">CNN</span>(nn.Module):</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="built_in">super</span>(CNN,self).__init__()</span><br><span class="line">        </span><br><span class="line">        <span class="comment"># 第一个卷积模块</span></span><br><span class="line">        self.conv1=nn.Sequential( <span class="comment"># 输入大小（1,28,28），conv1代表第一个卷积模块</span></span><br><span class="line">            nn.Conv2d(</span><br><span class="line">                in_channels=<span class="number">1</span>,    <span class="comment"># 输入通道数</span></span><br><span class="line">                out_channels=<span class="number">16</span>,  <span class="comment"># 输出通道数，即有16个filter生成16个特征图</span></span><br><span class="line">                kernel_size=<span class="number">5</span>,    <span class="comment"># filter的大小</span></span><br><span class="line">                stride=<span class="number">1</span>,         <span class="comment"># 步长=1</span></span><br><span class="line">                padding=<span class="number">2</span>,        <span class="comment"># 边缘填充</span></span><br><span class="line">            ),                    <span class="comment"># 卷积层输出大小为16x28x28</span></span><br><span class="line">            <span class="comment"># 输出层宽度 = （输入层宽度 + 2 * padding大小 - 卷积核宽度 + 1） / 步长</span></span><br><span class="line">            nn.ReLU(), <span class="comment"># relu层</span></span><br><span class="line">            nn.MaxPool2d(kernel_size=<span class="number">2</span>) <span class="comment"># 池化层，使用maxpooling，4个里面挑最大的一个，输出为16x14x14</span></span><br><span class="line">        )</span><br><span class="line">        </span><br><span class="line">        <span class="comment"># 第二个卷积模块</span></span><br><span class="line">        self.conv2=nn.Sequential( <span class="comment"># 输入大小（16,14,14）</span></span><br><span class="line">            nn.Conv2d(<span class="number">16</span>,<span class="number">32</span>,<span class="number">5</span>,<span class="number">1</span>,<span class="number">2</span>),                    <span class="comment"># 卷积层输出大小为32x14x14</span></span><br><span class="line">            nn.ReLU(), </span><br><span class="line">            nn.MaxPool2d(kernel_size=<span class="number">2</span>) <span class="comment"># 输出为32x7x7</span></span><br><span class="line">        )</span><br><span class="line">        </span><br><span class="line">        <span class="comment"># 输出模块</span></span><br><span class="line">        self.out = nn.Linear(<span class="number">32</span>*<span class="number">7</span>*<span class="number">7</span>,<span class="number">10</span>)</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">def</span> <span class="title function_">forward</span>(<span class="params">self,x</span>):</span><br><span class="line">            x = self.conv1(x)</span><br><span class="line">            x = self.conv2(x)</span><br><span class="line">            <span class="comment"># flatten，将每个batch的x拉平，结果为(batch_size, 32x7x7)</span></span><br><span class="line">            x = x.view(x.size(<span class="number">0</span>),-<span class="number">1</span>)</span><br><span class="line">            output=self.out(x)</span><br><span class="line">            <span class="keyword">return</span> output</span><br></pre></td></tr></table></figure>
+
+<h3 id="评估函数"><a href="#评估函数" class="headerlink" title="评估函数"></a>评估函数</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">accurace</span>(<span class="params">prediction,labels</span>):</span><br><span class="line">    pred=torch.<span class="built_in">max</span>(prediction.data,<span class="number">1</span>)[<span class="number">1</span>] </span><br><span class="line">    <span class="comment"># torch.max返回一个列表，包含输入tensor中所有元素的最大值和该值的索引,[0]为该值，[1]为索引</span></span><br><span class="line">    rights=pred.eq(labels.data,view_as(pred)).<span class="built_in">sum</span>()</span><br><span class="line">    <span class="keyword">return</span> rights,<span class="built_in">len</span>(labels)</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="torch-max"><a href="#torch-max" class="headerlink" title="torch.max"></a>torch.max</h4><p>torch.max返回一个列表，包含输入tensor中所有元素的最大值和该值的索引,[0]为该值，[1]为索引</p>
+<p>所以取 <code>pred=torch.max(prediction.data,1)[1] </code>就能得到预测的分类</p>
+<p><img src="/2023/03/27/CNN/image-20230328113431362.png" alt="image-20230328113431362"></p>
+<h3 id="训练"><a href="#训练" class="headerlink" title="训练"></a>训练</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line"># GPU加速</span><br><span class="line">device=torch.device(&quot;cuda:0&quot; if torch.cuda.is_available() else &quot;cpu&quot;)</span><br><span class="line"></span><br><span class="line"># 实例化</span><br><span class="line">net=CNN().to(device)</span><br><span class="line"></span><br><span class="line"># 损失函数交叉熵，优化器adam</span><br><span class="line">criterion=nn.CrossEntropyLoss()</span><br><span class="line">optimizer=optim.Adam(net.parameters(),lr=0.01)</span><br><span class="line"></span><br><span class="line"># 开始训练</span><br><span class="line">for epoch in range(num_epochs):</span><br><span class="line">    #当前epoch的结果保存下来</span><br><span class="line">    train_rights = [] </span><br><span class="line">    </span><br><span class="line">    for batch_idx, (data, target) in enumerate(train_loader):  #针对容器中的每一个批进行循环</span><br><span class="line">        data=data.to(device)</span><br><span class="line">        target=target.to(device)</span><br><span class="line">        </span><br><span class="line">        net.train()                             </span><br><span class="line">        output = net(data)</span><br><span class="line">        loss = criterion(output, target) </span><br><span class="line">        optimizer.zero_grad() </span><br><span class="line">        loss.backward() </span><br><span class="line">        optimizer.step() </span><br><span class="line">        right = accuracy(output, target) </span><br><span class="line">        train_rights.append(right) </span><br><span class="line"></span><br><span class="line">    </span><br><span class="line">        if batch_idx % 100 == 0: </span><br><span class="line">            </span><br><span class="line">            net.eval() </span><br><span class="line">            val_rights = [] </span><br><span class="line">            </span><br><span class="line">            for (data, target) in test_loader:</span><br><span class="line">                data=data.to(device)</span><br><span class="line">                target=target.to(device)</span><br><span class="line">                output = net(data)</span><br><span class="line">                right = accuracy(output, target) </span><br><span class="line">                val_rights.append(right)</span><br><span class="line">                </span><br><span class="line">            #准确率计算</span><br><span class="line">            train_r = (sum([tup[0] for tup in train_rights]), sum([tup[1] for tup in train_rights]))</span><br><span class="line">            val_r = (sum([tup[0] for tup in val_rights]), sum([tup[1] for tup in val_rights]))</span><br><span class="line"></span><br><span class="line">            print(&#x27;当前epoch: &#123;&#125; [&#123;&#125;/&#123;&#125; (&#123;:.0f&#125;%)]\t损失: &#123;:.6f&#125;\t训练集准确率: &#123;:.2f&#125;%\t测试集正确率: &#123;:.2f&#125;%&#x27;.format(</span><br><span class="line">                epoch, batch_idx * batch_size, len(train_loader.dataset),</span><br><span class="line">                100. * batch_idx / len(train_loader), </span><br><span class="line">                loss.data, </span><br><span class="line">                100. * train_r[0].cpu().numpy() / train_r[1], </span><br><span class="line">                100. * val_r[0].cpu().numpy() / val_r[1]))</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+
+
+<h3 id="gpu加速"><a href="#gpu加速" class="headerlink" title="gpu加速"></a>gpu加速</h3><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_41012765/article/details/128089337">https://blog.csdn.net/weixin_41012765/article/details/128089337</a></p>
+<ul>
+<li>需要将模型传到gpu</li>
+</ul>
+<figure class="highlight plaintext"><figcaption><span>GPU加速</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">device=torch.device(&quot;cuda:0&quot; if torch.cuda.is_available() else &quot;cpu&quot;)</span><br><span class="line"></span><br><span class="line"># 实例化</span><br><span class="line">net=CNN().to(device)</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>需要将每个循环用到的tensor传到gpu</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">for (data, target) in test_loader:</span><br><span class="line">                data=data.to(device)</span><br><span class="line">                target=target.to(device)</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">for batch_idx, (data, target) in enumerate(train_loader):  #针对容器中的每一个批进行循环</span><br><span class="line">        data=data.to(device)</span><br><span class="line">        target=target.to(device)</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="model-tain-model-eval"><a href="#model-tain-model-eval" class="headerlink" title="model.tain(), model.eval()"></a>model.tain(), model.eval()</h3><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_42730750/article/details/123822902">https://blog.csdn.net/qq_42730750/article/details/123822902</a></p>
+<p>使用过<code>pytorch</code>深度学习框架的小伙伴们肯定知道，通常我们在训练模型前会加上<code>model.train()</code>这行代码，或者干脆不加，而在测试模型前会加上<code>model.test()</code>这行代码。</p>
+<h3 id="backward-optim-step"><a href="#backward-optim-step" class="headerlink" title="backward(), optim.step()"></a>backward(), optim.step()</h3><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/x2196/article/details/121234661">https://blog.csdn.net/x2196/article/details/121234661</a></p>
+<p>bp神经网络：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">for epoch in range(num_epoch):</span><br><span class="line">    for i, data in enumerate(train_loader):</span><br><span class="line">        optimizer.zero_grad()  </span><br><span class="line">        # 用 optimizer 將 model 參數的 gradient 歸零</span><br><span class="line">        </span><br><span class="line">        train_pred = model(data[0].cuda())   </span><br><span class="line">        # 利用 model 得到預測的機率分佈 這邊實際上就是去呼叫 model 的 forward 函數</span><br><span class="line">        </span><br><span class="line">        batch_loss = loss(train_pred, data[1].cuda())  </span><br><span class="line">        # 計算 loss （注意 prediction 跟 label 必須同時在 CPU 或是 GPU 上）</span><br><span class="line">        </span><br><span class="line">        batch_loss.backward()  </span><br><span class="line">        # 利用 back propagation 算出每個參數的 gradient</span><br><span class="line">        </span><br><span class="line">        optimizer.step()  </span><br><span class="line">        # 以 optimizer 用 gradient 更新參數值</span><br></pre></td></tr></table></figure>
+
+<p><strong>1.backward函数到底干了什么？</strong><br>CSDN有很多资料，backward函数其实就是计算梯度，只是计算。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">x=th.ones(1,requires_grad=True)</span><br><span class="line">z=x+1</span><br><span class="line">y=z**3</span><br><span class="line">t=y+2</span><br><span class="line">m=t*6</span><br><span class="line"></span><br><span class="line">m.backward()</span><br><span class="line">print(x.grad)</span><br></pre></td></tr></table></figure>
+
+<p>输出</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tensor([72.])</span><br></pre></td></tr></table></figure>
+
+<p>参考：<a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_24884193/article/details/109517890">https://blog.csdn.net/qq_24884193/article/details/109517890</a></p>
+<p><strong>2.那么optim.step()函数做了什么呢？</strong></p>
+<p>本质上就是对计算出来的梯度就行最优化，不赘述。</p>
+<p><strong>3.Loss函数和backward函数有什么关系？</strong><br>其实Loss函数就是相当于对CNN网络的输出再进行了一次function（函数），这个function（函数）的输出就叫做loss，我们对loss求backward，即loss.backward（），下面代码就是最简单的例子，只不过m不是卷积神经网络的输出,而是简单的线性函数。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">x=th.ones(1,requires_grad=True)</span><br><span class="line">z=x+1</span><br><span class="line">y=z**3</span><br><span class="line">t=y+2</span><br><span class="line">m=t*6</span><br><span class="line">loss=Loss(m) #具体的参数，由不同的Loss函数确定</span><br><span class="line">loss.backward()</span><br></pre></td></tr></table></figure>
+
+<p><strong>4.我看Loss函数的传参并没有传递model的参数，如果保存梯度呢？</strong><br>这个问题其实上个问题其实可以回答，Loss函数传递的类型是tensor，其中包括grad属性，用来保存对应的梯度值。<br>并且tensor类型会记录网络结构（参考问题3中，对loss计算梯度，可以递归的计算出 loss对x的微分），所以虽然计算Loss没有传递model参数，但实际上tensor类型的参数中已经有了。</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://developer-hq.github.io/2023/03/27/LaTex/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2023/03/27/LaTex/" itemprop="url">LaTex</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2023-03-27T18:39:42+08:00">
+                2023-03-27
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="LaTex"><a href="#LaTex" class="headerlink" title="LaTex"></a>LaTex</h1><h4 id="入门教程："><a href="#入门教程：" class="headerlink" title="入门教程："></a>入门教程：</h4><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/pipisorry/article/details/54571521">https://blog.csdn.net/pipisorry/article/details/54571521</a></p>
+<h4 id="常用公式："><a href="#常用公式：" class="headerlink" title="常用公式："></a>常用公式：</h4><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_45277161/article/details/117909378">https://blog.csdn.net/weixin_45277161/article/details/117909378</a></p>
+<h4 id="点乘：a-cdot-b"><a href="#点乘：a-cdot-b" class="headerlink" title="点乘：a \cdot b"></a>点乘：a \cdot b</h4><p>$a \cdot b$</p>
+<h4 id="叉乘：a-times-b"><a href="#叉乘：a-times-b" class="headerlink" title="叉乘：a \times b"></a>叉乘：a \times b</h4><p>$a \times b$</p>
+<h4 id="除以：a-div-b"><a href="#除以：a-div-b" class="headerlink" title="除以：a \div b"></a>除以：a \div b</h4><p>$a \div b$</p>
+<hr>
+<h1 id="矩阵、求和、乘法例子"><a href="#矩阵、求和、乘法例子" class="headerlink" title="矩阵、求和、乘法例子"></a>矩阵、求和、乘法例子</h1><ul>
+<li>原始数据$32\times32\times3$，为简便，只取一个通道$32\times32\times1$</li>
+<li>取5x5的部分进行卷积</li>
+<li>$filter$权重$<br>W_{3\times3}=<br>\begin{bmatrix}<br> 0 &amp; 1 &amp; 2 \<br> 2 &amp; 2 &amp; 0 \<br> 0 &amp; 1 &amp; 2<br>\end{bmatrix}<br>$</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">W_&#123;3\times3&#125;=</span><br><span class="line">\begin&#123;bmatrix&#125;</span><br><span class="line"> 0 &amp; 1 &amp; 2 \\</span><br><span class="line"> 2 &amp; 2 &amp; 0 \\</span><br><span class="line"> 0 &amp; 1 &amp; 2</span><br><span class="line">\end&#123;bmatrix&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<ul>
+<li>对特征矩阵中的元素<br>$Z_{i,j}=\sum_{i=1}^3 \sum_{j=1}^3 X_{i,j} \cdot W_{i,j}$</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$Z_&#123;i,j&#125;=\sum_&#123;i=1&#125;^3 \sum_&#123;j=1&#125;^3 X_&#123;i,j&#125; \cdot W_&#123;i,j&#125;$</span><br></pre></td></tr></table></figure>
+
+
+
+<ul>
+<li>计算得到卷积后特征矩阵$<br>Z_{3\times3}=<br>\begin{bmatrix}<br> 12 &amp; 12 &amp; 17 \<br> 10 &amp; 17 &amp; 19 \<br> 9 &amp; 6 &amp; 14<br>\end{bmatrix}<br>$</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">$</span><br><span class="line">Z_&#123;3\times3&#125;=</span><br><span class="line">\begin&#123;bmatrix&#125;</span><br><span class="line"> 12 &amp; 12 &amp; 17 \\</span><br><span class="line"> 10 &amp; 17 &amp; 19 \\</span><br><span class="line"> 9 &amp; 6 &amp; 14</span><br><span class="line">\end&#123;bmatrix&#125;</span><br><span class="line">$</span><br></pre></td></tr></table></figure>
+
+
+
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://developer-hq.github.io/2023/03/27/Docker%E5%AE%89%E8%A3%85mysql/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2023/03/27/Docker%E5%AE%89%E8%A3%85mysql/" itemprop="url">Docker安装mysql</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2023-03-27T12:39:42+08:00">
+                2023-03-27
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="DockerCompose的方式部署mysql"><a href="#DockerCompose的方式部署mysql" class="headerlink" title="DockerCompose的方式部署mysql"></a>DockerCompose的方式部署mysql</h1><ul>
+<li><p>在用户文件夹下新建docker\mysql\</p>
+</li>
+<li><p>在mysql文件夹内新建docker-compose.yml</p>
+</li>
+<li><p>docker-compose.yml：</p>
+</li>
+</ul>
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">version:</span> <span class="string">&#x27;5.7&#x27;</span></span><br><span class="line"><span class="attr">services:</span></span><br><span class="line"><span class="attr">mysql:</span></span><br><span class="line">  <span class="attr">image:</span> <span class="string">mysql</span></span><br><span class="line">  <span class="attr">hostname:</span> <span class="string">mysql</span></span><br><span class="line">  <span class="attr">ports:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="number">3306</span><span class="string">:3306</span></span><br><span class="line">  <span class="attr">restart:</span> <span class="string">always</span></span><br><span class="line">  <span class="attr">environment:</span></span><br><span class="line">    <span class="attr">MYSQL_ROOT_PASSWORD:</span> <span class="string">abc123</span></span><br><span class="line">  <span class="attr">volumes:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">//d/mysql/data:/var/lib/mysql/</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">//d/mysql/data:/var/log/mysql/</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p><strong>端口映射</strong></p>
+<ul>
+<li>宿主机端口：容器端口</li>
+</ul>
+</li>
+<li><p><strong>volumes</strong></p>
+<ul>
+<li><p>这行就是映射了一下数据库的文件，将数据库文件映射到d盘mysql/data文件夹里面，可以修改成其他的文件夹</p>
+</li>
+<li><p><strong>//d 就可以表示d盘</strong></p>
+</li>
+</ul>
+</li>
+<li><p><strong>docker-compose</strong></p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_43296313/article/details/127246893">https://blog.csdn.net/weixin_43296313/article/details/127246893</a></li>
+</ul>
+</li>
+<li><p>菜鸟教程</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://www.runoob.com/docker/docker-compose.html">https://www.runoob.com/docker/docker-compose.html</a></li>
+</ul>
+</li>
+</ul>
+<hr>
+<h1 id="使用-Compose-命令构建和运行您的应用"><a href="#使用-Compose-命令构建和运行您的应用" class="headerlink" title="使用 Compose 命令构建和运行您的应用"></a>使用 Compose 命令构建和运行您的应用</h1><p>在测试目录中，执行以下命令来启动应用程序：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker-compose up</span><br></pre></td></tr></table></figure>
+
+<p>如果你想在后台执行该服务可以加上 -d 参数：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker-compose up -d</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<hr>
+<h2 id="连接Mysql"><a href="#连接Mysql" class="headerlink" title="连接Mysql"></a>连接Mysql</h2><ul>
+<li><p>默认数据库mysql，密码abc123</p>
+</li>
+<li><p>没有mysql驱动</p>
+</li>
+</ul>
+<p>前往：<a target="_blank" rel="noopener" href="https://downloads.mysql.com/archives/c-j/">https://downloads.mysql.com/archives/c-j/</a></p>
+<p><img src="/2023/03/27/Docker%E5%AE%89%E8%A3%85mysql/image-20230327180443901.png" alt="image-20230327180443901"></p>
+<p>选择platform independent，下载zip的那个，解压后得到jar文件</p>
+<img src="/2023/03/27/Docker%E5%AE%89%E8%A3%85mysql/image-20230327180537738.png" alt="image-20230327180537738" style="zoom:50%;">
+
+
+
+<p>在编辑驱动设置-库中</p>
+<img src="/2023/03/27/Docker%E5%AE%89%E8%A3%85mysql/image-20230327180616145.png" alt="image-20230327180616145" style="zoom:50%;">
+
+
+
 
           
         
@@ -1621,7 +1708,7 @@
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/3/">&lt;i class&#x3D;&quot;fa fa-angle-left&quot;&gt;&lt;&#x2F;i&gt;</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/5/">&lt;i class&#x3D;&quot;fa fa-angle-right&quot;&gt;&lt;&#x2F;i&gt;</a>
+    <a class="extend prev" rel="prev" href="/page/3/">&lt;i class&#x3D;&quot;fa fa-angle-left&quot;&gt;&lt;&#x2F;i&gt;</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><span class="space">&hellip;</span><a class="page-number" href="/page/8/">8</a><a class="extend next" rel="next" href="/page/5/">&lt;i class&#x3D;&quot;fa fa-angle-right&quot;&gt;&lt;&#x2F;i&gt;</a>
   </nav>
 
 
@@ -1668,7 +1755,7 @@
                 <a href="/">
     
               
-                  <span class="site-state-item-count">60</span>
+                  <span class="site-state-item-count">75</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
