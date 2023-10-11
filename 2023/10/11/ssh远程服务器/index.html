@@ -79,15 +79,15 @@
 
 
 
-<meta name="description" content="执行多条命令用&amp;&amp;连接 12@echo offcmd &#x2F;c start python C:\Users\74420\Desktop\login\run.py">
+<meta name="description" content="NVIDIA1nvidia-smi -loop 5  隔5秒打印一次 1      SSHopenssh生成公钥私钥 公钥放到远程文件夹 常用指令1conda activate nlp_deploy &amp;&amp; cd HQ&#x2F;FocalNet&#x2F;  tmux列出对话 1tmux list-sessions  回到对话 1tmux attach-session -t your-session-">
 <meta property="og:type" content="article">
-<meta property="og:title" content="cmd">
-<meta property="og:url" content="https://developer-hq.github.io/2022/11/07/cmd/index.html">
+<meta property="og:title" content="ssh远程服务器">
+<meta property="og:url" content="https://developer-hq.github.io/2023/10/11/ssh%E8%BF%9C%E7%A8%8B%E6%9C%8D%E5%8A%A1%E5%99%A8/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="执行多条命令用&amp;&amp;连接 12@echo offcmd &#x2F;c start python C:\Users\74420\Desktop\login\run.py">
+<meta property="og:description" content="NVIDIA1nvidia-smi -loop 5  隔5秒打印一次 1      SSHopenssh生成公钥私钥 公钥放到远程文件夹 常用指令1conda activate nlp_deploy &amp;&amp; cd HQ&#x2F;FocalNet&#x2F;  tmux列出对话 1tmux list-sessions  回到对话 1tmux attach-session -t your-session-">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2022-11-07T06:44:42.000Z">
-<meta property="article:modified_time" content="2022-11-07T06:46:10.852Z">
+<meta property="article:published_time" content="2023-10-11T12:55:19.000Z">
+<meta property="article:modified_time" content="2023-10-11T15:41:36.272Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary">
 
@@ -119,13 +119,13 @@
 
 
 
-  <link rel="canonical" href="https://developer-hq.github.io/2022/11/07/cmd/"/>
+  <link rel="canonical" href="https://developer-hq.github.io/2023/10/11/ssh远程服务器/"/>
 
 
 
 
 
-  <title>cmd | Hexo</title>
+  <title>ssh远程服务器 | Hexo</title>
   
 
 
@@ -232,7 +232,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://developer-hq.github.io/2022/11/07/cmd/">
+    <link itemprop="mainEntityOfPage" href="https://developer-hq.github.io/2023/10/11/ssh%E8%BF%9C%E7%A8%8B%E6%9C%8D%E5%8A%A1%E5%99%A8/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="">
@@ -249,7 +249,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">cmd</h1>
+          <h1 class="post-title" itemprop="name headline">ssh远程服务器</h1>
         
 
         <div class="post-meta">
@@ -261,8 +261,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2022-11-07T14:44:42+08:00">
-                2022-11-07
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2023-10-11T20:55:19+08:00">
+                2023-10-11
               </time>
             
 
@@ -299,8 +299,47 @@
       
 
       
-        <p>执行多条命令用&amp;&amp;连接</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">@echo off</span><br><span class="line">cmd /c start python C:\Users\74420\Desktop\login\run.py</span><br></pre></td></tr></table></figure>
+        <h1 id="NVIDIA"><a href="#NVIDIA" class="headerlink" title="NVIDIA"></a>NVIDIA</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nvidia-smi -loop 5</span><br></pre></td></tr></table></figure>
+
+<p>隔5秒打印一次</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<h1 id="SSH"><a href="#SSH" class="headerlink" title="SSH"></a>SSH</h1><p>openssh生成公钥私钥</p>
+<p>公钥放到远程文件夹</p>
+<h1 id="常用指令"><a href="#常用指令" class="headerlink" title="常用指令"></a>常用指令</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">conda activate nlp_deploy &amp;&amp; cd HQ/FocalNet/</span><br></pre></td></tr></table></figure>
+
+<h3 id="tmux"><a href="#tmux" class="headerlink" title="tmux"></a>tmux</h3><p>列出对话</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tmux list-sessions</span><br></pre></td></tr></table></figure>
+
+<p>回到对话</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tmux attach-session -t your-session-name</span><br></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">tmux new-session -s session-name  # 创建一个新会话并为其指定名称</span><br><span class="line">tmux rename-session -t old-session-name new-session-name  # 重命名会话的名称</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<p>train-1011</p>
+<p>实验室V100</p>
+<p>tmux</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">train exp3，大的那个focalnet_tiny_lrf_sparsercnn_3x</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">train-base exp2，base那个focalnet_base_lrf</span><br></pre></td></tr></table></figure>
+
+<p>本地笔记本</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">focalnet_tiny_lrf exp3</span><br></pre></td></tr></table></figure>
+
+<p>实验室3070</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">focalnet_tiny_srf exp</span><br></pre></td></tr></table></figure>
+
+
       
     </div>
     
@@ -324,8 +363,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2022/11/06/%E7%AE%80%E5%8D%95%E5%A4%9A%E7%BA%BF%E7%A8%8B/" rel="next" title="简单多线程">
-                <i class="fa fa-chevron-left"></i> 简单多线程
+              <a href="/2023/10/09/yolo/" rel="next" title="yolo">
+                <i class="fa fa-chevron-left"></i> yolo
               </a>
             
           </div>
@@ -333,10 +372,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2022/11/08/%E7%BA%BF%E6%80%A7%E7%B3%BB%E7%BB%9F%E7%90%86%E8%AE%BA/" rel="prev" title="线性系统理论">
-                线性系统理论 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -388,8 +423,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -432,6 +476,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#NVIDIA"><span class="nav-number">1.</span> <span class="nav-text">NVIDIA</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#SSH"><span class="nav-number">2.</span> <span class="nav-text">SSH</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%B8%B8%E7%94%A8%E6%8C%87%E4%BB%A4"><span class="nav-number">3.</span> <span class="nav-text">常用指令</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#tmux"><span class="nav-number">3.0.1.</span> <span class="nav-text">tmux</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
