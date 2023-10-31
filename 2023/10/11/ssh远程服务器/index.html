@@ -79,17 +79,19 @@
 
 
 
-<meta name="description" content="NVIDIA1nvidia-smi -loop 5  隔5秒打印一次 1      SSHopenssh生成公钥私钥 公钥放到远程文件夹 常用指令1conda activate nlp_deploy &amp;&amp; cd HQ&#x2F;FocalNet&#x2F;  tmux列出对话 1tmux list-sessions  回到对话 1tmux attach-session -t your-session-">
+<meta name="description" content="NVIDIA1nvidia-smi -loop 5  隔5秒打印一次 1      SSHopenssh生成公钥私钥 公钥放到远程文件夹 常用指令1conda activate nlp_deploy &amp;&amp; cd HQ&#x2F;FocalNet&#x2F;  tmux列出对话 1tmux list-sessions  回到对话 1tmux attach-session -t  1tmux attach">
 <meta property="og:type" content="article">
 <meta property="og:title" content="ssh远程服务器">
 <meta property="og:url" content="https://developer-hq.github.io/2023/10/11/ssh%E8%BF%9C%E7%A8%8B%E6%9C%8D%E5%8A%A1%E5%99%A8/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="NVIDIA1nvidia-smi -loop 5  隔5秒打印一次 1      SSHopenssh生成公钥私钥 公钥放到远程文件夹 常用指令1conda activate nlp_deploy &amp;&amp; cd HQ&#x2F;FocalNet&#x2F;  tmux列出对话 1tmux list-sessions  回到对话 1tmux attach-session -t your-session-">
+<meta property="og:description" content="NVIDIA1nvidia-smi -loop 5  隔5秒打印一次 1      SSHopenssh生成公钥私钥 公钥放到远程文件夹 常用指令1conda activate nlp_deploy &amp;&amp; cd HQ&#x2F;FocalNet&#x2F;  tmux列出对话 1tmux list-sessions  回到对话 1tmux attach-session -t  1tmux attach">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://developer-hq.github.io/2023/10/11/ssh%E8%BF%9C%E7%A8%8B%E6%9C%8D%E5%8A%A1%E5%99%A8/image-20231012145854953.png">
 <meta property="article:published_time" content="2023-10-11T12:55:19.000Z">
-<meta property="article:modified_time" content="2023-10-11T15:41:36.272Z">
+<meta property="article:modified_time" content="2023-10-14T02:49:19.573Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://developer-hq.github.io/2023/10/11/ssh%E8%BF%9C%E7%A8%8B%E6%9C%8D%E5%8A%A1%E5%99%A8/image-20231012145854953.png">
 
 
 
@@ -312,10 +314,12 @@
 <p>公钥放到远程文件夹</p>
 <h1 id="常用指令"><a href="#常用指令" class="headerlink" title="常用指令"></a>常用指令</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">conda activate nlp_deploy &amp;&amp; cd HQ/FocalNet/</span><br></pre></td></tr></table></figure>
 
-<h3 id="tmux"><a href="#tmux" class="headerlink" title="tmux"></a>tmux</h3><p>列出对话</p>
+<h1 id="tmux"><a href="#tmux" class="headerlink" title="tmux"></a>tmux</h1><p>列出对话</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tmux list-sessions</span><br></pre></td></tr></table></figure>
 
 <p>回到对话</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tmux attach-session -t</span><br></pre></td></tr></table></figure>
+
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tmux attach-session -t your-session-name</span><br></pre></td></tr></table></figure>
 
 
@@ -324,6 +328,9 @@
 
 
 
+<p>打开鼠标</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tmux setw -g mouse on</span><br></pre></td></tr></table></figure>
+
 
 
 <p>train-1011</p>
@@ -331,14 +338,25 @@
 <p>tmux</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">train exp3，大的那个focalnet_tiny_lrf_sparsercnn_3x</span><br></pre></td></tr></table></figure>
 
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">train-base exp2，base那个focalnet_base_lrf</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">train-base exp2，base那个focalnet_base_lrf device1 lrf效果不好</span><br><span class="line">train-base exp7，base那个focalnet_base_srf device 1 用srf</span><br></pre></td></tr></table></figure>
 
 <p>本地笔记本</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">focalnet_tiny_lrf exp3</span><br></pre></td></tr></table></figure>
 
 <p>实验室3070</p>
+<p>1011晚上</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">focalnet_tiny_srf exp</span><br></pre></td></tr></table></figure>
 
+<p>1012早上</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">focalnet_tiny_srf exp3</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<p>/home/gv1001107/HQ/FocalNet/runs/train/exp2/weights/last.pt</p>
+<p>yolo原始模型</p>
+<p><img src="/2023/10/11/ssh%E8%BF%9C%E7%A8%8B%E6%9C%8D%E5%8A%A1%E5%99%A8/image-20231012145854953.png" alt="image-20231012145854953"></p>
 
       
     </div>
@@ -372,6 +390,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2023/10/25/Screeps/" rel="prev" title="Screeps">
+                Screeps <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -449,7 +471,7 @@
                 <a href="/">
     
               
-                  <span class="site-state-item-count">76</span>
+                  <span class="site-state-item-count">77</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -486,7 +508,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#NVIDIA"><span class="nav-number">1.</span> <span class="nav-text">NVIDIA</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#SSH"><span class="nav-number">2.</span> <span class="nav-text">SSH</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%B8%B8%E7%94%A8%E6%8C%87%E4%BB%A4"><span class="nav-number">3.</span> <span class="nav-text">常用指令</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#tmux"><span class="nav-number">3.0.1.</span> <span class="nav-text">tmux</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#NVIDIA"><span class="nav-number">1.</span> <span class="nav-text">NVIDIA</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#SSH"><span class="nav-number">2.</span> <span class="nav-text">SSH</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%B8%B8%E7%94%A8%E6%8C%87%E4%BB%A4"><span class="nav-number">3.</span> <span class="nav-text">常用指令</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#tmux"><span class="nav-number">4.</span> <span class="nav-text">tmux</span></a></li></ol></div>
             
 
           </div>
