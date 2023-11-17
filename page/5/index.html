@@ -229,6 +229,222 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://developer-hq.github.io/2023/03/27/CNN/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2023/03/27/CNN/" itemprop="url">CNN</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2023-03-27T19:21:29+08:00">
+                2023-03-27
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="CNN"><a href="#CNN" class="headerlink" title="CNN"></a>CNN</h1><h3 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h3><p>卷积神经网络的输入就是图像本身，如28x28x1，而非传统神经网络拉平后的值784</p>
+<h3 id="结构"><a href="#结构" class="headerlink" title="结构"></a>结构</h3><p><img src="/2023/03/27/CNN/image-20230327220001654.png" alt="image-20230327220001654"></p>
+<h3 id="卷积"><a href="#卷积" class="headerlink" title="卷积"></a>卷积</h3><p>原始数据h * w * c<br>例如一只猫，不同位置的特征重要性不一样，眼睛、胡须等更重要。<br>卷积就是要把图像分割成不同的小块，得到新的特征图</p>
+<p>卷积要有个权重参数矩阵，使得特征提取后效果最好</p>
+<p><img src="/2023/03/27/CNN/27/CNN/image-20230327215931332.png" alt="image-20230327215931332"></p>
+<p>上图中：</p>
+<ul>
+<li>原始数据$32\times32\times3$，为简便，只取一个通道$32\times32\times1$</li>
+<li>取5x5的部分进行卷积</li>
+<li>$filter$权重<br>$<br>W_{3\times3}=<br>\begin{bmatrix}<br> 0 &amp; 1 &amp; 2 \<br> 2 &amp; 2 &amp; 0 \<br> 0 &amp; 1 &amp; 2<br>\end{bmatrix}<br>$</li>
+<li>对特征矩阵中的元素<br>$Z_{i,j}=\sum_{i=1}^3 \sum_{j=1}^3 X_{i,j} \cdot W_{i,j}$</li>
+<li>计算得到卷积后特征矩阵$<br>Z_{3\times3}=<br>\begin{bmatrix}<br> 12 &amp; 12 &amp; 17 \<br> 10 &amp; 17 &amp; 19 \<br> 9 &amp; 6 &amp; 14<br>\end{bmatrix}<br>$</li>
+</ul>
+<h3 id="图片"><a href="#图片" class="headerlink" title="图片"></a>图片</h3><p><img src="/2023/03/27/CNN/image-20230327220013237.png" alt="image-20230327220013237"></p>
+<ul>
+<li>RGB三通道</li>
+<li>计算时分别卷积处理R,G,B三个通道的数据，再将得到的特征值加到一起</li>
+<li>有几个通道就得有几个filter（用来算特征值的），计算方法计算用内积做计算（对应位置相乘再加一起），三个filter分别算出来三个数，然后相加就得到特征值，通过这种方法可以算出来上图左上角特征值是3</li>
+<li>可以有多个filter，对同一个数据，可以用多卷积核提取特征，丰富特征</li>
+<li>得到多个特征图之后再堆叠在一起，如32x32x3卷积后得到28x28x6的特征图（6个filter）</li>
+<li>多次卷积：原始图片-卷积-特征图1-卷积-特征图2-…</li>
+<li>同一个卷积层的filter卷积核的规格大小得相同</li>
+</ul>
+<h3 id="卷积参数"><a href="#卷积参数" class="headerlink" title="卷积参数"></a>卷积参数</h3><ul>
+<li>滑动窗口步长：步长小，粒度就比较小；步长大，粒度就比较大</li>
+<li>一般图像任务选步长为1</li>
+<li>Conv也可以应用于文本领域：文本可以是一个长方形的数据，不同任务卷积核和步长均有所不同</li>
+<li>卷积核尺寸</li>
+<li>一般最小卷积核3x3</li>
+<li>最常见就是卷积核3x3，步长为1</li>
+<li>边缘填充</li>
+<li></li>
+<li>卷积核个数</li>
+</ul>
+<h3 id="ResNet"><a href="#ResNet" class="headerlink" title="ResNet"></a>ResNet</h3><p><a target="_blank" rel="noopener" href="https://nn.labml.ai/resnet/index.html">https://nn.labml.ai/resnet/index.html</a></p>
+<p><img src="/2023/03/27/CNN/residual_block.svg" alt="img"></p>
+<h1 id="CNN实现"><a href="#CNN实现" class="headerlink" title="CNN实现"></a>CNN实现</h1><h3 id="读取数据"><a href="#读取数据" class="headerlink" title="读取数据"></a>读取数据</h3><ul>
+<li>构建训练集、测试集</li>
+<li>DataLoader迭代数据</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"># metadata</span><br><span class="line">input_size = 28 # 图像大小28*28*1</span><br><span class="line">num_class = 10 # 标签种类</span><br><span class="line">num_epochs = 3 # 训练的总循环数</span><br><span class="line">batch_size = 64 # 一个批次的大小：64张图</span><br><span class="line"></span><br><span class="line"># 训练集</span><br><span class="line">train_dataset=datasets.MNIST(root=&#x27;./data/&#x27;,</span><br><span class="line">                            train=True,</span><br><span class="line">                            transform=transforms.ToTensor(),</span><br><span class="line">                            download=True)</span><br><span class="line"># 训练集</span><br><span class="line">test_dataset=datasets.MNIST(root=&#x27;./data/&#x27;,</span><br><span class="line">                            train=False,</span><br><span class="line">                            transform=transforms.ToTensor(),</span><br><span class="line">                            )</span><br><span class="line"># 构建batch数据</span><br><span class="line">train_loader = torch.utils.data.DataLoader(dataset=train_dataset,</span><br><span class="line">                                          batch_size=batch_size,</span><br><span class="line">                                          shuffle=True)</span><br><span class="line">test_loader = torch.utils.data.DataLoader(dataset=test_dataset,</span><br><span class="line">                                          batch_size=batch_size,</span><br><span class="line">                                          shuffle=True)</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="模型"><a href="#模型" class="headerlink" title="模型"></a>模型</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">CNN</span>(nn.Module):</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="built_in">super</span>(CNN,self).__init__()</span><br><span class="line">        </span><br><span class="line">        <span class="comment"># 第一个卷积模块</span></span><br><span class="line">        self.conv1=nn.Sequential( <span class="comment"># 输入大小（1,28,28），conv1代表第一个卷积模块</span></span><br><span class="line">            nn.Conv2d(</span><br><span class="line">                in_channels=<span class="number">1</span>,    <span class="comment"># 输入通道数</span></span><br><span class="line">                out_channels=<span class="number">16</span>,  <span class="comment"># 输出通道数，即有16个filter生成16个特征图</span></span><br><span class="line">                kernel_size=<span class="number">5</span>,    <span class="comment"># filter的大小</span></span><br><span class="line">                stride=<span class="number">1</span>,         <span class="comment"># 步长=1</span></span><br><span class="line">                padding=<span class="number">2</span>,        <span class="comment"># 边缘填充</span></span><br><span class="line">            ),                    <span class="comment"># 卷积层输出大小为16x28x28</span></span><br><span class="line">            <span class="comment"># 输出层宽度 = （输入层宽度 + 2 * padding大小 - 卷积核宽度 + 1） / 步长</span></span><br><span class="line">            nn.ReLU(), <span class="comment"># relu层</span></span><br><span class="line">            nn.MaxPool2d(kernel_size=<span class="number">2</span>) <span class="comment"># 池化层，使用maxpooling，4个里面挑最大的一个，输出为16x14x14</span></span><br><span class="line">        )</span><br><span class="line">        </span><br><span class="line">        <span class="comment"># 第二个卷积模块</span></span><br><span class="line">        self.conv2=nn.Sequential( <span class="comment"># 输入大小（16,14,14）</span></span><br><span class="line">            nn.Conv2d(<span class="number">16</span>,<span class="number">32</span>,<span class="number">5</span>,<span class="number">1</span>,<span class="number">2</span>),                    <span class="comment"># 卷积层输出大小为32x14x14</span></span><br><span class="line">            nn.ReLU(), </span><br><span class="line">            nn.MaxPool2d(kernel_size=<span class="number">2</span>) <span class="comment"># 输出为32x7x7</span></span><br><span class="line">        )</span><br><span class="line">        </span><br><span class="line">        <span class="comment"># 输出模块</span></span><br><span class="line">        self.out = nn.Linear(<span class="number">32</span>*<span class="number">7</span>*<span class="number">7</span>,<span class="number">10</span>)</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">def</span> <span class="title function_">forward</span>(<span class="params">self,x</span>):</span><br><span class="line">            x = self.conv1(x)</span><br><span class="line">            x = self.conv2(x)</span><br><span class="line">            <span class="comment"># flatten，将每个batch的x拉平，结果为(batch_size, 32x7x7)</span></span><br><span class="line">            x = x.view(x.size(<span class="number">0</span>),-<span class="number">1</span>)</span><br><span class="line">            output=self.out(x)</span><br><span class="line">            <span class="keyword">return</span> output</span><br></pre></td></tr></table></figure>
+
+<h3 id="评估函数"><a href="#评估函数" class="headerlink" title="评估函数"></a>评估函数</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">accurace</span>(<span class="params">prediction,labels</span>):</span><br><span class="line">    pred=torch.<span class="built_in">max</span>(prediction.data,<span class="number">1</span>)[<span class="number">1</span>] </span><br><span class="line">    <span class="comment"># torch.max返回一个列表，包含输入tensor中所有元素的最大值和该值的索引,[0]为该值，[1]为索引</span></span><br><span class="line">    rights=pred.eq(labels.data,view_as(pred)).<span class="built_in">sum</span>()</span><br><span class="line">    <span class="keyword">return</span> rights,<span class="built_in">len</span>(labels)</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="torch-max"><a href="#torch-max" class="headerlink" title="torch.max"></a>torch.max</h4><p>torch.max返回一个列表，包含输入tensor中所有元素的最大值和该值的索引,[0]为该值，[1]为索引</p>
+<p>所以取 <code>pred=torch.max(prediction.data,1)[1] </code>就能得到预测的分类</p>
+<p><img src="/2023/03/27/CNN/image-20230328113431362.png" alt="image-20230328113431362"></p>
+<h3 id="训练"><a href="#训练" class="headerlink" title="训练"></a>训练</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line"># GPU加速</span><br><span class="line">device=torch.device(&quot;cuda:0&quot; if torch.cuda.is_available() else &quot;cpu&quot;)</span><br><span class="line"></span><br><span class="line"># 实例化</span><br><span class="line">net=CNN().to(device)</span><br><span class="line"></span><br><span class="line"># 损失函数交叉熵，优化器adam</span><br><span class="line">criterion=nn.CrossEntropyLoss()</span><br><span class="line">optimizer=optim.Adam(net.parameters(),lr=0.01)</span><br><span class="line"></span><br><span class="line"># 开始训练</span><br><span class="line">for epoch in range(num_epochs):</span><br><span class="line">    #当前epoch的结果保存下来</span><br><span class="line">    train_rights = [] </span><br><span class="line">    </span><br><span class="line">    for batch_idx, (data, target) in enumerate(train_loader):  #针对容器中的每一个批进行循环</span><br><span class="line">        data=data.to(device)</span><br><span class="line">        target=target.to(device)</span><br><span class="line">        </span><br><span class="line">        net.train()                             </span><br><span class="line">        output = net(data)</span><br><span class="line">        loss = criterion(output, target) </span><br><span class="line">        optimizer.zero_grad() </span><br><span class="line">        loss.backward() </span><br><span class="line">        optimizer.step() </span><br><span class="line">        right = accuracy(output, target) </span><br><span class="line">        train_rights.append(right) </span><br><span class="line"></span><br><span class="line">    </span><br><span class="line">        if batch_idx % 100 == 0: </span><br><span class="line">            </span><br><span class="line">            net.eval() </span><br><span class="line">            val_rights = [] </span><br><span class="line">            </span><br><span class="line">            for (data, target) in test_loader:</span><br><span class="line">                data=data.to(device)</span><br><span class="line">                target=target.to(device)</span><br><span class="line">                output = net(data)</span><br><span class="line">                right = accuracy(output, target) </span><br><span class="line">                val_rights.append(right)</span><br><span class="line">                </span><br><span class="line">            #准确率计算</span><br><span class="line">            train_r = (sum([tup[0] for tup in train_rights]), sum([tup[1] for tup in train_rights]))</span><br><span class="line">            val_r = (sum([tup[0] for tup in val_rights]), sum([tup[1] for tup in val_rights]))</span><br><span class="line"></span><br><span class="line">            print(&#x27;当前epoch: &#123;&#125; [&#123;&#125;/&#123;&#125; (&#123;:.0f&#125;%)]\t损失: &#123;:.6f&#125;\t训练集准确率: &#123;:.2f&#125;%\t测试集正确率: &#123;:.2f&#125;%&#x27;.format(</span><br><span class="line">                epoch, batch_idx * batch_size, len(train_loader.dataset),</span><br><span class="line">                100. * batch_idx / len(train_loader), </span><br><span class="line">                loss.data, </span><br><span class="line">                100. * train_r[0].cpu().numpy() / train_r[1], </span><br><span class="line">                100. * val_r[0].cpu().numpy() / val_r[1]))</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+
+
+<h3 id="gpu加速"><a href="#gpu加速" class="headerlink" title="gpu加速"></a>gpu加速</h3><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_41012765/article/details/128089337">https://blog.csdn.net/weixin_41012765/article/details/128089337</a></p>
+<ul>
+<li>需要将模型传到gpu</li>
+</ul>
+<figure class="highlight plaintext"><figcaption><span>GPU加速</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">device=torch.device(&quot;cuda:0&quot; if torch.cuda.is_available() else &quot;cpu&quot;)</span><br><span class="line"></span><br><span class="line"># 实例化</span><br><span class="line">net=CNN().to(device)</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>需要将每个循环用到的tensor传到gpu</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">for (data, target) in test_loader:</span><br><span class="line">                data=data.to(device)</span><br><span class="line">                target=target.to(device)</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">for batch_idx, (data, target) in enumerate(train_loader):  #针对容器中的每一个批进行循环</span><br><span class="line">        data=data.to(device)</span><br><span class="line">        target=target.to(device)</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="model-tain-model-eval"><a href="#model-tain-model-eval" class="headerlink" title="model.tain(), model.eval()"></a>model.tain(), model.eval()</h3><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_42730750/article/details/123822902">https://blog.csdn.net/qq_42730750/article/details/123822902</a></p>
+<p>使用过<code>pytorch</code>深度学习框架的小伙伴们肯定知道，通常我们在训练模型前会加上<code>model.train()</code>这行代码，或者干脆不加，而在测试模型前会加上<code>model.test()</code>这行代码。</p>
+<h3 id="backward-optim-step"><a href="#backward-optim-step" class="headerlink" title="backward(), optim.step()"></a>backward(), optim.step()</h3><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/x2196/article/details/121234661">https://blog.csdn.net/x2196/article/details/121234661</a></p>
+<p>bp神经网络：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">for epoch in range(num_epoch):</span><br><span class="line">    for i, data in enumerate(train_loader):</span><br><span class="line">        optimizer.zero_grad()  </span><br><span class="line">        # 用 optimizer 將 model 參數的 gradient 歸零</span><br><span class="line">        </span><br><span class="line">        train_pred = model(data[0].cuda())   </span><br><span class="line">        # 利用 model 得到預測的機率分佈 這邊實際上就是去呼叫 model 的 forward 函數</span><br><span class="line">        </span><br><span class="line">        batch_loss = loss(train_pred, data[1].cuda())  </span><br><span class="line">        # 計算 loss （注意 prediction 跟 label 必須同時在 CPU 或是 GPU 上）</span><br><span class="line">        </span><br><span class="line">        batch_loss.backward()  </span><br><span class="line">        # 利用 back propagation 算出每個參數的 gradient</span><br><span class="line">        </span><br><span class="line">        optimizer.step()  </span><br><span class="line">        # 以 optimizer 用 gradient 更新參數值</span><br></pre></td></tr></table></figure>
+
+<p><strong>1.backward函数到底干了什么？</strong><br>CSDN有很多资料，backward函数其实就是计算梯度，只是计算。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">x=th.ones(1,requires_grad=True)</span><br><span class="line">z=x+1</span><br><span class="line">y=z**3</span><br><span class="line">t=y+2</span><br><span class="line">m=t*6</span><br><span class="line"></span><br><span class="line">m.backward()</span><br><span class="line">print(x.grad)</span><br></pre></td></tr></table></figure>
+
+<p>输出</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tensor([72.])</span><br></pre></td></tr></table></figure>
+
+<p>参考：<a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_24884193/article/details/109517890">https://blog.csdn.net/qq_24884193/article/details/109517890</a></p>
+<p><strong>2.那么optim.step()函数做了什么呢？</strong></p>
+<p>本质上就是对计算出来的梯度就行最优化，不赘述。</p>
+<p><strong>3.Loss函数和backward函数有什么关系？</strong><br>其实Loss函数就是相当于对CNN网络的输出再进行了一次function（函数），这个function（函数）的输出就叫做loss，我们对loss求backward，即loss.backward（），下面代码就是最简单的例子，只不过m不是卷积神经网络的输出,而是简单的线性函数。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">x=th.ones(1,requires_grad=True)</span><br><span class="line">z=x+1</span><br><span class="line">y=z**3</span><br><span class="line">t=y+2</span><br><span class="line">m=t*6</span><br><span class="line">loss=Loss(m) #具体的参数，由不同的Loss函数确定</span><br><span class="line">loss.backward()</span><br></pre></td></tr></table></figure>
+
+<p><strong>4.我看Loss函数的传参并没有传递model的参数，如果保存梯度呢？</strong><br>这个问题其实上个问题其实可以回答，Loss函数传递的类型是tensor，其中包括grad属性，用来保存对应的梯度值。<br>并且tensor类型会记录网络结构（参考问题3中，对loss计算梯度，可以递归的计算出 loss对x的微分），所以虽然计算Loss没有传递model参数，但实际上tensor类型的参数中已经有了。</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://developer-hq.github.io/2023/03/27/LaTex/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1325,8 +1541,8 @@
           
             <h1 id="Git"><a href="#Git" class="headerlink" title="Git"></a>Git</h1><h2 id="git-init"><a href="#git-init" class="headerlink" title="git init"></a>git init</h2><p>初始化本地仓库</p>
 <h2 id="基本配置"><a href="#基本配置" class="headerlink" title="基本配置"></a>基本配置</h2><p>git config –global user.name “hq”</p>
-<p>git config –global user.email “<a href="mailto:&#55;&#52;&#52;&#x32;&#48;&#52;&#53;&#x34;&#x31;&#64;&#113;&#113;&#46;&#99;&#x6f;&#109;">&#55;&#52;&#52;&#x32;&#48;&#52;&#53;&#x34;&#x31;&#64;&#113;&#113;&#46;&#99;&#x6f;&#109;</a>“</p>
-<p>ssh-keygen -t <a target="_blank" rel="noopener" href="https://so.csdn.net/so/search?q=rsa&spm=1001.2101.3001.7020">rsa</a> -C “<a href="mailto:&#55;&#52;&#52;&#x32;&#48;&#52;&#x35;&#x34;&#x31;&#64;&#x71;&#x71;&#46;&#99;&#111;&#x6d;">&#55;&#52;&#52;&#x32;&#48;&#52;&#x35;&#x34;&#x31;&#64;&#x71;&#x71;&#46;&#99;&#111;&#x6d;</a>“</p>
+<p>git config –global user.email “<a href="mailto:&#55;&#x34;&#52;&#50;&#48;&#52;&#53;&#52;&#x31;&#64;&#x71;&#x71;&#46;&#x63;&#111;&#x6d;">&#55;&#x34;&#52;&#50;&#48;&#52;&#53;&#52;&#x31;&#64;&#x71;&#x71;&#46;&#x63;&#111;&#x6d;</a>“</p>
+<p>ssh-keygen -t <a target="_blank" rel="noopener" href="https://so.csdn.net/so/search?q=rsa&spm=1001.2101.3001.7020">rsa</a> -C “<a href="mailto:&#55;&#x34;&#x34;&#x32;&#x30;&#52;&#53;&#x34;&#49;&#x40;&#x71;&#x71;&#x2e;&#x63;&#111;&#109;">&#55;&#x34;&#x34;&#x32;&#x30;&#52;&#53;&#x34;&#49;&#x40;&#x71;&#x71;&#x2e;&#x63;&#111;&#109;</a>“</p>
 <p>然后打开C:\Users\HQ \ .ssh 里面的id_rsa.pub，复制到</p>
 <p><a target="_blank" rel="noopener" href="https://github.com/settings/keys">https://github.com/settings/keys</a></p>
 <p>（登录github，然点头像，setting，然后左边SSH and GPG keys）</p>
@@ -1340,7 +1556,7 @@
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git remote rm name  # 删除远程仓库</span><br><span class="line">git remote rename old_name new_name  # 修改仓库名</span><br></pre></td></tr></table></figure>
 
 <p>在github上创建仓库，复制仓库的ssh地址</p>
-<p>git remote add origin <a href="mailto:&#103;&#x69;&#x74;&#64;&#x67;&#x69;&#116;&#x68;&#x75;&#98;&#x2e;&#99;&#111;&#x6d;">&#103;&#x69;&#x74;&#64;&#x67;&#x69;&#116;&#x68;&#x75;&#98;&#x2e;&#99;&#111;&#x6d;</a>:CHINA-N01/Document.git</p>
+<p>git remote add origin <a href="mailto:&#x67;&#105;&#116;&#64;&#103;&#105;&#116;&#x68;&#x75;&#x62;&#46;&#x63;&#x6f;&#x6d;">&#x67;&#105;&#116;&#64;&#103;&#105;&#116;&#x68;&#x75;&#x62;&#46;&#x63;&#x6f;&#x6d;</a>:CHINA-N01/Document.git</p>
 <h2 id="git-add"><a href="#git-add" class="headerlink" title="git add"></a>git add</h2><h2 id="git-commit-m-‘本次提交的说明’"><a href="#git-commit-m-‘本次提交的说明’" class="headerlink" title="git commit -m ‘本次提交的说明’"></a>git commit -m ‘本次提交的说明’</h2><h2 id="git-push"><a href="#git-push" class="headerlink" title="git push"></a>git push</h2><p>git push origin与git push -u origin master的区别</p>
 <p>上面命令表示，将当前分支推送到origin主机的对应分支。 </p>
 <p>如果当前分支只有一个追踪分支，那么<a target="_blank" rel="noopener" href="https://so.csdn.net/so/search?q=%E4%B8%BB%E6%9C%BA%E5%90%8D&spm=1001.2101.3001.7020">主机名</a>都可以省略。 </p>
@@ -1511,152 +1727,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://developer-hq.github.io/2023/03/13/%E6%BF%80%E6%B4%BBwindows-office/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2023/03/13/%E6%BF%80%E6%B4%BBwindows-office/" itemprop="url">激活windows、office</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2023-03-13T12:39:42+08:00">
-                2023-03-13
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="github仓库"><a href="#github仓库" class="headerlink" title="github仓库"></a>github仓库</h1><p><a target="_blank" rel="noopener" href="https://github.com/massgravel/Microsoft-Activation-Scripts/releases/tag/1.7">Release v1.7 Goodbye to Gatherosstate.exe · massgravel/Microsoft-Activation-Scripts · GitHub</a></p>
-<h4 id="链接"><a href="#链接" class="headerlink" title="链接"></a>链接</h4><p><strong><a target="_blank" rel="noopener" href="https://github.com/massgravel/Microsoft-Activation-Scripts/releases/tag/1.7">https://github.com/massgravel/Microsoft-Activation-Scripts/releases/tag/1.7</a></strong></p>
-<h3 id="Download-How-to-use-it"><a href="#Download-How-to-use-it" class="headerlink" title="Download / How to use it?"></a>Download / How to use it?</h3><h4 id="Method-1-PowerShell"><a href="#Method-1-PowerShell" class="headerlink" title="Method 1 - PowerShell"></a>Method 1 - PowerShell</h4><ul>
-<li>On Windows 10/11, right click on windows start menu, select PowerShell or Terminal.</li>
-<li>Copy-paste the below code and press enter</li>
-</ul>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">irm https://massgrave.dev/get | iex</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>You will see the activation options, follow onscreen instructions.</li>
-<li>That’s all.</li>
-</ul>
-<h4 id="Method-2-Traditional"><a href="#Method-2-Traditional" class="headerlink" title="Method 2 - Traditional"></a>Method 2 - Traditional</h4><ul>
-<li>Download the file named <code>MAS_1.7_Password_1234.7z</code> from here</li>
-<li>Extract this file with a 3rd party archive manager, such as <a target="_blank" rel="noopener" href="https://www.7-zip.org/download.html">7zip</a></li>
-<li>Password is 1234</li>
-<li>In extracted folder, find the folder named All-In-One-Version</li>
-<li>Run the file named MAS_AIO.cmd</li>
-<li>You will see the activation options, follow onscreen instructions.</li>
-<li>That’s all.</li>
-</ul>
-<p>To run the scripts in unattended mode, check <a target="_blank" rel="noopener" href="https://massgrave.dev/command_line_switches.html">here</a></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"> File: MAS_1.7_Password_1234.7z</span><br><span class="line">SHA-1: 67A4D41BBEB8B24A5F893644AC63F91F931A2A75</span><br></pre></td></tr></table></figure>
-
-<p><strong>Password: 1234</strong></p>
-<hr>
-<p>Homepage: <a target="_blank" rel="noopener" href="https://massgrave.dev/">https://massgrave.dev/</a></p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1708,7 +1778,7 @@
                 <a href="/">
     
               
-                  <span class="site-state-item-count">77</span>
+                  <span class="site-state-item-count">78</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
