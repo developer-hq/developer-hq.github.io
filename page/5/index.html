@@ -229,6 +229,549 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://developer-hq.github.io/2023/03/30/%E8%BF%81%E7%A7%BB%E5%AD%A6%E4%B9%A0/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2023/03/30/%E8%BF%81%E7%A7%BB%E5%AD%A6%E4%B9%A0/" itemprop="url">迁移学习</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2023-03-30T11:11:05+08:00">
+                2023-03-30
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="调用模型"><a href="#调用模型" class="headerlink" title="调用模型"></a>调用模型</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> torchvision</span><br><span class="line"><span class="keyword">from</span> torchvison <span class="keyword">import</span> models</span><br><span class="line">model_ft=models.resnet152()</span><br></pre></td></tr></table></figure>
+
+<p>可以直接使用<code>model_ft.fc</code>调用其中某层，并可以直接修改该层结构</p>
+<h3 id="官网示例"><a href="#官网示例" class="headerlink" title="官网示例"></a>官网示例</h3><p>下载后的模型会保存在<strong>用户/.cache/torch/checkpoints</strong>下</p>
+<ul>
+<li><p><code>model_ft = models.resnet152(pretrained=use_pretrained)</code></p>
+</li>
+<li><p>pretrained用不用人家训练好的数据</p>
+</li>
+<li><p><code>num_ftrs = model_ft.fc.in_features</code><br><code>model_ft.fc = nn.Sequential(nn.Linear(num_ftrs, 102),nn.LogSoftmax(dim=1))</code></p>
+<ul>
+<li>直接修改其中某层，将fc层重新做成全连接层，输入为原输入2048，输出结果为102</li>
+</ul>
+</li>
+<li><p><code>set_parameter_requires_grad(model_ft, feature_extract)</code></p>
+<ul>
+<li>设置是否使用梯度，用梯度就代表着还要训练模型参数，不用梯度就代表着直接使用别人的参数，就不再训练了</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">def initialize_model(model_name, num_classes, feature_extract, use_pretrained=True):</span><br><span class="line">    # 选择合适的模型，不同模型的初始化方法稍微有点区别</span><br><span class="line">    model_ft = None</span><br><span class="line">    input_size = 0</span><br><span class="line"></span><br><span class="line">    if model_name == &quot;resnet&quot;:</span><br><span class="line">        &quot;&quot;&quot; Resnet152</span><br><span class="line">        &quot;&quot;&quot;</span><br><span class="line">        model_ft = models.resnet152(pretrained=use_pretrained)</span><br><span class="line">        set_parameter_requires_grad(model_ft, feature_extract)</span><br><span class="line">        num_ftrs = model_ft.fc.in_features</span><br><span class="line">        model_ft.fc = nn.Sequential(nn.Linear(num_ftrs, 102),</span><br><span class="line">                                   nn.LogSoftmax(dim=1))</span><br><span class="line">        input_size = 224</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<h3 id="一般先训练自己新建的层，然后再整体训练一下"><a href="#一般先训练自己新建的层，然后再整体训练一下" class="headerlink" title="一般先训练自己新建的层，然后再整体训练一下"></a>一般先训练自己新建的层，然后再整体训练一下</h3><h3 id="是否冻住某些层"><a href="#是否冻住某些层" class="headerlink" title="是否冻住某些层"></a>是否冻住某些层</h3><p>关闭梯度就属于冻住了</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">def set_parameter_requires_grad(model,feature_extracting):</span><br><span class="line">    if feature_extracting:</span><br><span class="line">        for param in model.parameters():</span><br><span class="line">            para.requires_grad=False</span><br></pre></td></tr></table></figure>
+
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://developer-hq.github.io/2023/03/28/google%E6%90%9C%E7%B4%A2/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2023/03/28/google%E6%90%9C%E7%B4%A2/" itemprop="url">google搜索</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2023-03-28T14:36:42+08:00">
+                2023-03-28
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <ol>
+<li>使用引号精确搜索（“”）</li>
+<li>使用连字符排除内容（-）</li>
+<li>使用星号填充内容（*）</li>
+<li>搜索指定范围（….）JavaScript in 2021….2022</li>
+<li>搜索指定站点内容（search:）search: bugstack.cn spring</li>
+<li>搜索指定文件类型内容（filetype）Java filetype:pdf</li>
+<li>查找多个关键字（AND）Java AND C++</li>
+<li>查找其中一个关键字（OR）Java OR C++</li>
+<li>查询关键字的定义（Define）Define: Java</li>
+<li>搜索相关内容（+）Java jvm+jdk</li>
+<li>查找相似网站（related）relate: bugstack.cn</li>
+<li>搜索指定站点内容（site）site: bugstack asm</li>
+<li>搜索指定时间范围（before、after）after: 2022 jvm java</li>
+</ol>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://developer-hq.github.io/2023/03/28/%E5%9B%BE%E5%83%8F%E8%AF%86%E5%88%AB%E5%AE%9E%E6%88%98/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2023/03/28/%E5%9B%BE%E5%83%8F%E8%AF%86%E5%88%AB%E5%AE%9E%E6%88%98/" itemprop="url">图像识别实战</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2023-03-28T14:22:18+08:00">
+                2023-03-28
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="torchvision"><a href="#torchvision" class="headerlink" title="torchvision"></a>torchvision</h1><ul>
+<li>torchvision.datasets<ul>
+<li>有常用数据集</li>
+<li>常用方法，怎么存放数据</li>
+</ul>
+</li>
+<li>torchvision.models<ul>
+<li>经典网络实现</li>
+<li>可以用来做迁移学习</li>
+</ul>
+</li>
+<li>torchvision.transform<ul>
+<li>对数据进行预处理，如图像增强</li>
+</ul>
+</li>
+</ul>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://developer-hq.github.io/2023/03/28/%E6%B3%A8%E5%86%8Cgpt/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2023/03/28/%E6%B3%A8%E5%86%8Cgpt/" itemprop="url">注册gpt</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2023-03-28T11:48:18+08:00">
+                2023-03-28
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>梯子</p>
+<p><a target="_blank" rel="noopener" href="https://portal.shadowsocks.au/aff.php?aff=55285">https://portal.shadowsocks.au/aff.php?aff=55285</a></p>
+<p><a target="_blank" rel="noopener" href="https://paofu.cloud/">https://paofu.cloud</a></p>
+<p>SMS</p>
+<p><a target="_blank" rel="noopener" href="https://www.ejiema.com/appweb/t1.html%EF%BC%88%E5%9B%BD%E5%86%85%EF%BC%89">https://www.ejiema.com/appweb/t1.html（国内）</a></p>
+<p><a target="_blank" rel="noopener" href="https://onlinesim.io/v2/numbers/">https://onlinesim.io/v2/numbers/</a></p>
+<p>注册hotmai邮箱</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://developer-hq.github.io/2023/03/27/CNN/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -545,6 +1088,16 @@
 
 
 
+<h1 id="安装配置"><a href="#安装配置" class="headerlink" title="安装配置"></a>安装配置</h1><p>2023-11</p>
+<p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/166523064">https://zhuanlan.zhihu.com/p/166523064</a></p>
+<p>官网下载，exe文件自己下载就行，然后后面能跳出来一个镜像选择阿里云</p>
+<p>vscode安装插件</p>
+<p>修改配置json</p>
+<p><strong>注 11 ：</strong>为了更方便进行编译，可对其设置快捷键，设置快捷键步骤如下：</p>
+<p><img src="/2023/03/27/LaTex/v2-f9c5c82990dbeac2895ec2593bbff1c5_720w.webp" alt="img"></p>
+<h3 id="快捷键"><a href="#快捷键" class="headerlink" title="快捷键"></a>快捷键</h3><p>==将快捷键设置为<strong>Ctrl+Alt+L</strong>==</p>
+<p><strong>b.</strong> 快捷键</p>
+<p>选中 tex 文件中任意的代码，然后按<strong>Ctrl+Alt+V</strong>，出现编译好的 pdf 页面。该快捷键为默认设置。若您想要更改，可以根据上文进行配置。</p>
 
           
         
@@ -1167,571 +1720,11 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://developer-hq.github.io/2023/03/20/python%E7%BC%96%E8%BE%91word%E6%96%87%E6%A1%A3/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2023/03/20/python%E7%BC%96%E8%BE%91word%E6%96%87%E6%A1%A3/" itemprop="url">python编辑word文档</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2023-03-20T16:39:42+08:00">
-                2023-03-20
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_44872198/article/details/120332224">https://blog.csdn.net/weixin_44872198/article/details/120332224</a></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">import docxtpl</span><br><span class="line">from docxtpl import DocxTemplate</span><br><span class="line">from docx.shared import Mm, Pt</span><br><span class="line">tpl = DocxTemplate(&#x27;demo.docx&#x27;)</span><br><span class="line"># 对要插入的图片进行处理，这里的docxtpl，默认只有InlineImage（嵌入式插入图片，参数也只有width和height设置图片宽高）</span><br><span class="line"># AnchorImage是自己处理之后的可以插入浮动图片的类pos_x和pos_y用于定位图片位置。</span><br><span class="line"># img2_path = docxtpl.AnchorImage(tpl, &#x27;2.png&#x27;, width=Mm(15), height=Mm(10), pos_x=Pt(480), pos_y=Pt(490))</span><br><span class="line"># img3_path = docxtpl.AnchorImage(tpl, &#x27;3.png&#x27;, width=Mm(15), height=Mm(10), pos_x=Pt(460), pos_y=Pt(530))</span><br><span class="line"># img4_path = docxtpl.AnchorImage(tpl, &#x27;4.png&#x27;, width=Mm(15), height=Mm(10), pos_x=Pt(460), pos_y=Pt(570))</span><br><span class="line"># 定义模板的替换数据</span><br><span class="line">month=&#x27;3&#x27;</span><br><span class="line">day=&#x27;20&#x27;</span><br><span class="line">content = &#123;</span><br><span class="line">    &quot;time&quot; : &#x27;2023&#x27;+month+day, &quot;place&quot; : &#x27;000&#x27;, &quot;teacher&quot; : &#x27;000&#x27;,</span><br><span class="line">    &quot;stuname&quot; : &#x27;stu&#x27;, &quot;stuid&quot; : &#x27;000000&#x27;, &quot;text&quot; : &#x27;abcd&#x27;,</span><br><span class="line">    # &quot;img2&quot; : img2_path,</span><br><span class="line">    # &quot;img3&quot; : img3_path,</span><br><span class="line">    # &quot;img4&quot; : img4_path</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">tpl.render(content)</span><br><span class="line">tpl.save(&#x27;save.docx&#x27;)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://developer-hq.github.io/2023/03/19/DOCKER/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2023/03/19/DOCKER/" itemprop="url">Docker</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2023-03-19T20:39:42+08:00">
-                2023-03-19
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="DOCKER"><a href="#DOCKER" class="headerlink" title="DOCKER"></a>DOCKER</h1><h2 id="教程"><a href="#教程" class="headerlink" title="教程"></a>教程</h2><h3 id="中文文档"><a href="#中文文档" class="headerlink" title="中文文档"></a>中文文档</h3><p><a target="_blank" rel="noopener" href="https://docker.easydoc.net/doc/81170005/cCewZWoN/lTKfePfP">https://docker.easydoc.net/doc/81170005/cCewZWoN/lTKfePfP</a></p>
-<h3 id="官方文档"><a href="#官方文档" class="headerlink" title="官方文档"></a>官方文档</h3><p><a target="_blank" rel="noopener" href="https://docs.docker.com/get-started/">https://docs.docker.com/get-started/</a></p>
-<h2 id="加装hyper-v"><a href="#加装hyper-v" class="headerlink" title="加装hyper v"></a>加装hyper v</h2><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/null111666/article/details/103958158">https://blog.csdn.net/null111666/article/details/103958158</a></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">pushd &quot;%~dp0&quot;</span><br><span class="line"></span><br><span class="line">dir /b %SystemRoot%\servicing\Packages\*Hyper-V*.mum &gt;hyper-v.txt</span><br><span class="line"></span><br><span class="line">for /f %%i in (&#x27;findstr /i . hyper-v.txt 2^&gt;nul&#x27;) do dism /online /norestart /add-package:&quot;%SystemRoot%\servicing\Packages\%%i&quot;</span><br><span class="line"></span><br><span class="line">del hyper-v.txt</span><br><span class="line"></span><br><span class="line">Dism /online /enable-feature /featurename:Microsoft-Hyper-V-All /LimitAccess /ALL</span><br></pre></td></tr></table></figure>
-
-<h2 id="Ubuntu镜像"><a href="#Ubuntu镜像" class="headerlink" title="Ubuntu镜像"></a>Ubuntu镜像</h2><p><a target="_blank" rel="noopener" href="https://hub.docker.com/_/ubuntu?tab=tags">https://hub.docker.com/_/ubuntu?tab=tags</a></p>
-<p>anaconda镜像</p>
-<p><a target="_blank" rel="noopener" href="https://mirrors.tuna.tsinghua.edu.cn/anaconda/archive/">https://mirrors.tuna.tsinghua.edu.cn/anaconda/archive/</a></p>
-<h2 id="docker-run"><a href="#docker-run" class="headerlink" title="docker run"></a>docker run</h2><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/m0_38027358/article/details/87376517">https://blog.csdn.net/m0_38027358/article/details/87376517</a></p>
-<p>docker run -it -p 180:180 haoquan1999/ai_composer  /bin/bash</p>
-<p>docker run -it -p 180:180 heroku/heroku:18 /bin/bash</p>
-<p>docker run -it -p 180:180 ubuntu:16.04 /bin/bash</p>
-<p>docker run -it -p 180:180 haoquan1999/ai_composer  /bin/bash</p>
-<p>docker run -it -p 80:80 tensorflow/tensorflow:0.8.0 /bin/bash</p>
-<p><strong>-i:</strong> 以交互模式运行容器，通常与 -t 同时使用；</p>
-<p><strong>-t:</strong> 为容器重新分配一个伪输入终端，通常与 -i 同时使用；</p>
-<p><strong>-p:</strong> 指定端口映射，格式为：主机(宿主)端口:容器端口 </p>
-<h2 id="docker-start"><a href="#docker-start" class="headerlink" title="docker start"></a>docker start</h2><p><a target="_blank" rel="noopener" href="https://zhidao.baidu.com/question/245146971591809124.html">https://zhidao.baidu.com/question/245146971591809124.html</a></p>
-<p>docker start -ia <containerid></containerid></p>
-<h2 id="docker位置"><a href="#docker位置" class="headerlink" title="docker位置"></a>docker位置</h2><p>wsl默认保存在C:\Users&lt;主机名&gt;\AppData\Local下</p>
-<h2 id="TensorFlow"><a href="#TensorFlow" class="headerlink" title="TensorFlow"></a>TensorFlow</h2><p><a target="_blank" rel="noopener" href="https://hub.docker.com/r/tensorflow/tensorflow/tags?page=1&amp;ordering=-last_updated">https://hub.docker.com/r/tensorflow/tensorflow/tags?page=1&amp;ordering=-last_updated</a></p>
-<p>docker pull tensorflow/tensorflow:0.8.0</p>
-<p><a target="_blank" rel="noopener" href="https://www.tensorflow.org/install/docker">https://www.tensorflow.org/install/docker</a></p>
-<h2 id="保存镜像"><a href="#保存镜像" class="headerlink" title="保存镜像"></a>保存镜像</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker commit -m=&quot;has update&quot; -a=&quot;hq&quot; e218edb10161 memo:v2</span><br></pre></td></tr></table></figure>
-
-<p>各个参数说明：</p>
-<ul>
-<li><strong>-m:</strong> 提交的描述信息</li>
-<li><strong>-a:</strong> 指定镜像作者</li>
-<li><strong>e218edb10161：</strong>容器 ID</li>
-<li><strong>runoob/ubuntu:v2:</strong> 指定要创建的目标镜像名</li>
-</ul>
-<p>我们可以使用 <strong>docker images</strong> 命令来查看我们的新镜像 <strong>runoob/ubuntu:v2</strong>：</p>
-<p><a target="_blank" rel="noopener" href="https://www.runoob.com/docker/docker-image-usage.html">https://www.runoob.com/docker/docker-image-usage.html</a></p>
-<h2 id="上传镜像"><a href="#上传镜像" class="headerlink" title="上传镜像"></a>上传镜像</h2><p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/lgjlife/p/10982565.html">https://www.cnblogs.com/lgjlife/p/10982565.html</a></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker push haoquan1999S/ubuntu:vim  </span><br></pre></td></tr></table></figure>
-
-<p>必须是dockerhub的用户名/项目名称:版本</p>
-<h2 id="Docker镜像源"><a href="#Docker镜像源" class="headerlink" title="Docker镜像源"></a>Docker镜像源</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  &quot;builder&quot;: &#123;</span><br><span class="line">    &quot;gc&quot;: &#123;</span><br><span class="line">      &quot;defaultKeepStorage&quot;: &quot;20GB&quot;,</span><br><span class="line">      &quot;enabled&quot;: true</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  &quot;experimental&quot;: false,</span><br><span class="line">  &quot;features&quot;: &#123;</span><br><span class="line">    &quot;buildkit&quot;: true</span><br><span class="line">  &#125;,</span><br><span class="line">  &quot;registry-mirrors&quot;: [</span><br><span class="line">    &quot;https://2g028uyf.mirror.aliyuncs.com&quot;</span><br><span class="line">  ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="Docker自启动"><a href="#Docker自启动" class="headerlink" title="Docker自启动"></a>Docker自启动</h2><h3 id="执行多条shell"><a href="#执行多条shell" class="headerlink" title="执行多条shell"></a>执行多条shell</h3><p>sh -c “ls &amp;&amp; echo ‘——-‘ &amp;&amp;  ls”</p>
-<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_30642267/article/details/98671653">https://blog.csdn.net/weixin_30642267/article/details/98671653</a></p>
-<h3 id="自启动"><a href="#自启动" class="headerlink" title="自启动"></a>自启动</h3><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_37312838/article/details/115710209">https://blog.csdn.net/qq_37312838/article/details/115710209</a></p>
-<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_34173549/article/details/79824541">https://blog.csdn.net/qq_34173549/article/details/79824541</a></p>
-<h3 id="自启动命令-端口转发-挂载文件夹"><a href="#自启动命令-端口转发-挂载文件夹" class="headerlink" title="自启动命令+端口转发+挂载文件夹"></a>自启动命令+端口转发+挂载文件夹</h3><p>docker run -p 5001:5000 -p 1999:1999 –restart=always -v /autorun:/home/autorun  -it ai_composer:v2 </p>
-<h3 id="自启动命令-端口转发-自动运行"><a href="#自启动命令-端口转发-自动运行" class="headerlink" title="自启动命令+端口转发+自动运行"></a>自启动命令+端口转发+自动运行</h3><p>docker run -p 5001:5000 -p 1999:1999 –restart=always  -it interface sh -c “cd home/AI_Composer &amp;&amp; python generateMusicInterFace.py”</p>
-<h3 id="自启动命令-端口转发-自动运行-后台运行（-d）"><a href="#自启动命令-端口转发-自动运行-后台运行（-d）" class="headerlink" title="自启动命令+端口转发+自动运行+后台运行（-d）"></a>自启动命令+端口转发+自动运行+后台运行（-d）</h3><p>docker run -p 5001:5000 -p 1999:1999 –restart=always  -d interface sh -c “cd home/AI_Composer &amp;&amp; python generateMusicInterFace.py”</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://developer-hq.github.io/2023/03/19/Git/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2023/03/19/Git/" itemprop="url">Git</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2023-03-19T20:39:42+08:00">
-                2023-03-19
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="Git"><a href="#Git" class="headerlink" title="Git"></a>Git</h1><h2 id="git-init"><a href="#git-init" class="headerlink" title="git init"></a>git init</h2><p>初始化本地仓库</p>
-<h2 id="基本配置"><a href="#基本配置" class="headerlink" title="基本配置"></a>基本配置</h2><p>git config –global user.name “hq”</p>
-<p>git config –global user.email “<a href="mailto:&#55;&#x34;&#52;&#50;&#48;&#52;&#53;&#52;&#x31;&#64;&#x71;&#x71;&#46;&#x63;&#111;&#x6d;">&#55;&#x34;&#52;&#50;&#48;&#52;&#53;&#52;&#x31;&#64;&#x71;&#x71;&#46;&#x63;&#111;&#x6d;</a>“</p>
-<p>ssh-keygen -t <a target="_blank" rel="noopener" href="https://so.csdn.net/so/search?q=rsa&spm=1001.2101.3001.7020">rsa</a> -C “<a href="mailto:&#55;&#x34;&#x34;&#x32;&#x30;&#52;&#53;&#x34;&#49;&#x40;&#x71;&#x71;&#x2e;&#x63;&#111;&#109;">&#55;&#x34;&#x34;&#x32;&#x30;&#52;&#53;&#x34;&#49;&#x40;&#x71;&#x71;&#x2e;&#x63;&#111;&#109;</a>“</p>
-<p>然后打开C:\Users\HQ \ .ssh 里面的id_rsa.pub，复制到</p>
-<p><a target="_blank" rel="noopener" href="https://github.com/settings/keys">https://github.com/settings/keys</a></p>
-<p>（登录github，然点头像，setting，然后左边SSH and GPG keys）</p>
-<h2 id="远程仓库设置"><a href="#远程仓库设置" class="headerlink" title="远程仓库设置"></a>远程仓库设置</h2><p>添加远程版本库：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git remote add [shortname] [url]</span><br></pre></td></tr></table></figure>
-
-<p>shortname 为本地的版本库，例如：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"># 提交到 Github</span><br><span class="line">$ git remote add origin git@github.com:tianqixin/runoob-git-test.git</span><br><span class="line">$ git push -u origin master</span><br></pre></td></tr></table></figure>
-
-<p>其他</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git remote rm name  # 删除远程仓库</span><br><span class="line">git remote rename old_name new_name  # 修改仓库名</span><br></pre></td></tr></table></figure>
-
-<p>在github上创建仓库，复制仓库的ssh地址</p>
-<p>git remote add origin <a href="mailto:&#x67;&#105;&#116;&#64;&#103;&#105;&#116;&#x68;&#x75;&#x62;&#46;&#x63;&#x6f;&#x6d;">&#x67;&#105;&#116;&#64;&#103;&#105;&#116;&#x68;&#x75;&#x62;&#46;&#x63;&#x6f;&#x6d;</a>:CHINA-N01/Document.git</p>
-<h2 id="git-add"><a href="#git-add" class="headerlink" title="git add"></a>git add</h2><h2 id="git-commit-m-‘本次提交的说明’"><a href="#git-commit-m-‘本次提交的说明’" class="headerlink" title="git commit -m ‘本次提交的说明’"></a>git commit -m ‘本次提交的说明’</h2><h2 id="git-push"><a href="#git-push" class="headerlink" title="git push"></a>git push</h2><p>git push origin与git push -u origin master的区别</p>
-<p>上面命令表示，将当前分支推送到origin主机的对应分支。 </p>
-<p>如果当前分支只有一个追踪分支，那么<a target="_blank" rel="noopener" href="https://so.csdn.net/so/search?q=%E4%B8%BB%E6%9C%BA%E5%90%8D&spm=1001.2101.3001.7020">主机名</a>都可以省略。 </p>
-<p>$ git push 如果当前分支与多个主机存在追踪关系，那么这个时候-u选项会指定一个默认主机，这样后面就可以不加任何参数使用git push。</p>
-<p>$ git push -u origin master 上面命令将本地的master分支推送到origin主机，同时指定origin为默认主机，后面就可以不加任何参数使用git push了。</p>
-<p> 不带任何参数的git push，默认只推送当前分支，这叫做simple方式。此外，还有一种matching方式，会推送所有有对应的远程分支的本地分支。Git 2.0版本之前，默认采用matching方法，现在改为默认采用simple方式。</p>
-<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_15899635/article/details/88421585">https://blog.csdn.net/qq_15899635/article/details/88421585</a></p>
-<p>第一次push用</p>
-<p>git push -u origin master</p>
-<h2 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h2><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/liuweixiao520/article/details/78971221">https://blog.csdn.net/liuweixiao520/article/details/78971221</a></p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://developer-hq.github.io/2023/03/18/SwitchOmega%E4%BB%A3%E7%90%86/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2023/03/18/SwitchOmega%E4%BB%A3%E7%90%86/" itemprop="url">SwitchOmega</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2023-03-18T14:39:42+08:00">
-                2023-03-18
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>规则列表</p>
-<p><a target="_blank" rel="noopener" href="http://raw.githubusercontent.com/gfwlist/gfwlist/master/gfwlist.txt">http://raw.githubusercontent.com/gfwlist/gfwlist/master/gfwlist.txt</a></p>
-<p>仓库</p>
-<p><a target="_blank" rel="noopener" href="https://github.com/developer-hq/SwitchOmegaBackup">https://github.com/developer-hq/SwitchOmegaBackup</a></p>
-<p>原始文件</p>
-<p><a target="_blank" rel="noopener" href="https://raw.githubusercontent.com/developer-hq/SwitchOmegaBackup/master/OmegaOptions.bak">https://raw.githubusercontent.com/developer-hq/SwitchOmegaBackup/master/OmegaOptions.bak</a></p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/4/">&lt;i class&#x3D;&quot;fa fa-angle-left&quot;&gt;&lt;&#x2F;i&gt;</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><span class="page-number current">5</span><a class="page-number" href="/page/6/">6</a><span class="space">&hellip;</span><a class="page-number" href="/page/8/">8</a><a class="extend next" rel="next" href="/page/6/">&lt;i class&#x3D;&quot;fa fa-angle-right&quot;&gt;&lt;&#x2F;i&gt;</a>
+    <a class="extend prev" rel="prev" href="/page/4/">&lt;i class&#x3D;&quot;fa fa-angle-left&quot;&gt;&lt;&#x2F;i&gt;</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><span class="page-number current">5</span><a class="page-number" href="/page/6/">6</a><span class="space">&hellip;</span><a class="page-number" href="/page/9/">9</a><a class="extend next" rel="next" href="/page/6/">&lt;i class&#x3D;&quot;fa fa-angle-right&quot;&gt;&lt;&#x2F;i&gt;</a>
   </nav>
 
 
@@ -1778,7 +1771,7 @@
                 <a href="/">
     
               
-                  <span class="site-state-item-count">78</span>
+                  <span class="site-state-item-count">82</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
