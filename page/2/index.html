@@ -229,6 +229,426 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://developer-hq.github.io/2023/10/08/docker+FocalNet/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2023/10/08/docker+FocalNet/" itemprop="url">Untitled</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2023-10-08T22:53:12+08:00">
+                2023-10-08
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="docker-FocalNet"><a href="#docker-FocalNet" class="headerlink" title="docker+FocalNet"></a>docker+FocalNet</h1><h1 id="docker"><a href="#docker" class="headerlink" title="docker"></a>docker</h1><p>拉取cuda11.7</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker pull nvidia/cuda:11.7.1-devel-ubuntu22.04</span><br></pre></td></tr></table></figure>
+
+<p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/572320455">https://zhuanlan.zhihu.com/p/572320455</a></p>
+<p>运行容器</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run --rm --gpus all nvidia/cuda:11.0.3-base-ubuntu20.04 nvidia-smi</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run -it --rm --name test --gpus all ubuntu:latest</span><br></pre></td></tr></table></figure>
+
+<p>配置环境</p>
+<p>注意：</p>
+<p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/linhaifeng/p/16108285.html">https://www.cnblogs.com/linhaifeng/p/16108285.html</a></p>
+<p>\1. 显卡驱动在所有方式中，都要先安装好，容器是不会有显卡驱动的，一台物理机的显卡只对应一个显卡驱动，当显卡驱动安装好后（即使未安装cuda），也可以使用命令nvidia-smi</p>
+<p>\2. nvidia-smi显示的是显卡驱动对应的cuda版本，nvcc -V 显示的运行是cuda的版本<br>补充</p>
+<h3 id="pytorch"><a href="#pytorch" class="headerlink" title="pytorch"></a>pytorch</h3><h5 id="拉取"><a href="#拉取" class="headerlink" title="拉取"></a>拉取</h5><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker pull pytorch/pytorch:2.0.1-cuda11.7-cudnn8-runtime</span><br></pre></td></tr></table></figure>
+
+<h5 id="运行"><a href="#运行" class="headerlink" title="运行"></a>运行</h5><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run --rm --gpus all -it --name pytorch_env pytorch/pytorch:2.0.1-cuda11.7-cudnn8-runtime /bin/bash</span><br></pre></td></tr></table></figure>
+
+<h5 id="4-设置映射目录"><a href="#4-设置映射目录" class="headerlink" title="4.设置映射目录"></a>4.设置映射目录</h5><p>在容器中，我们通常需要读取外部主机文件，因此需要在启动时指定映射目录。下面我们将把主机上的/home/user/data目录映射到容器的/data目录。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">docker run --rm --gpus all -it \</span><br><span class="line">--name railway_detect \</span><br><span class="line">-v C:\Users\74420\Desktop\yolo\railwaydetect\input:/usr/local/serving/input/ \</span><br><span class="line">-v C:\Users\74420\Desktop\yolo\railwaydetect\:/usr/local/railwaydetect/ \</span><br><span class="line">pytorch/pytorch:2.0.1-cuda11.7-cudnn8-runtime \</span><br><span class="line">/bin/bash</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h5 id="powershell"><a href="#powershell" class="headerlink" title="powershell"></a>powershell</h5><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">docker run --rm --gpus all -it `</span><br><span class="line">--name bjgydax_test `</span><br><span class="line">-v C:\Users\74420\Desktop\yolo\railwaydetect\input: /usr/local/serving/input/ `</span><br><span class="line">-v C:\Users\74420\Desktop\yolo\bjgydax\:/usr/local/railwaydetect/ `</span><br><span class="line">bjgydax:latest `</span><br><span class="line">/bin/bash</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<h5 id="5-进入容器"><a href="#5-进入容器" class="headerlink" title="5.进入容器"></a>5.进入容器</h5><p>最后，我们使用docker exec命令进入容器。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker exec -it --rm --gpus all pytorch_test /bin/bash</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="debug"><a href="#debug" class="headerlink" title="debug"></a>debug</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">docker run --rm --gpus all -it --name railway_detect -v C:\Users\74420\Desktop\yolo\railwaydetect\input:/usr/local/serving/input/ railway-detect /bin/bash</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">docker run --rm --gpus all -it `</span><br><span class="line">--name railway_detect `</span><br><span class="line">-v C:\Users\74420\Desktop\yolo\railwaydetect\input:/usr/local/serving/input/ `</span><br><span class="line">railway-detect `</span><br><span class="line">/bin/bash</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<h3 id="换源"><a href="#换源" class="headerlink" title="换源"></a>换源</h3><p>更换Ubuntu的软件源可以帮助加速软件包的下载和更新，同时也可以解决一些网络访问问题。以下是在Ubuntu上更换软件源的一般步骤：</p>
+<p><strong>请注意：在更换软件源之前，请确保备份系统数据，以防发生意外情况。</strong></p>
+<ol>
+<li><p><strong>备份源列表文件</strong>：</p>
+<p>在更改软件源之前，首先备份你的源列表文件，以便在需要时恢复到默认设置。你可以使用以下命令备份源列表文件：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bash</span><br></pre></td></tr></table></figure></li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo cp /etc/apt/sources.list /etc/apt/sources.list.backup</span><br></pre></td></tr></table></figure>
+
+<p><strong>选择新的源</strong>：</p>
+<p>你可以根据你的地理位置和网络情况选择一个合适的Ubuntu软件源。以下是一些常见的软件源：</p>
+<ul>
+<li>默认源（官方源）：默认情况下，Ubuntu使用官方源，通常速度较慢。</li>
+<li>阿里云源：适用于中国大陆用户，提供了更快的下载速度。</li>
+<li>清华大学源：提供了较快的下载速度和稳定的服务。</li>
+</ul>
+<p><strong>编辑源列表文件</strong>：</p>
+<p>使用文本编辑器（例如<code>nano</code>或<code>vim</code>）来编辑源列表文件。以下是编辑源列表文件的示例命令：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">bash</span><br><span class="line">sudo vim /etc/apt/sources.list</span><br></pre></td></tr></table></figure>
+
+<p>在编辑器中，将原来的源替换为你选择的新源。例如，如果要使用阿里云源，可以将以下行添加到文件中：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">bash</span><br><span class="line">deb http://mirrors.aliyun.com/ubuntu/ focal main restricted universe multiverse</span><br><span class="line">deb http://mirrors.aliyun.com/ubuntu/ focal-security main restricted universe multiverse</span><br><span class="line">deb http://mirrors.aliyun.com/ubuntu/ focal-updates main restricted universe multiverse</span><br><span class="line">deb http://mirrors.aliyun.com/ubuntu/ focal-proposed main restricted universe multiverse</span><br><span class="line">deb http://mirrors.aliyun.com/ubuntu/ focal-backports main restricted universe multiverse</span><br></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"># 默认注释了源码镜像以提高 apt update 速度，如有需要可自行取消注释</span><br><span class="line">deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ focal main restricted universe multiverse</span><br><span class="line"># deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ focal main restricted universe multiverse</span><br><span class="line">deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ focal-updates main restricted universe multiverse</span><br><span class="line"># deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ focal-updates main restricted universe multiverse</span><br><span class="line">deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ focal-backports main restricted universe multiverse</span><br><span class="line"># deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ focal-backports main restricted universe multiverse</span><br><span class="line">deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ focal-security main restricted universe multiverse</span><br><span class="line"># deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ focal-security main restricted universe multiverse</span><br><span class="line"></span><br><span class="line"># 预发布软件源，不建议启用</span><br><span class="line"># deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ focal-proposed main restricted universe multiverse</span><br><span class="line"># deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ focal-proposed main restricted universe multiverse</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+<p>请根据你选择的源进行相应的修改。</p>
+<p><strong>更新软件包信息</strong>：</p>
+<p>保存源列表文件后，运行以下命令来更新软件包信息：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">bash</span><br><span class="line">sudo apt-get update</span><br></pre></td></tr></table></figure>
+
+<p>这将从新的源获取软件包信息。</p>
+<p><strong>升级系统</strong>：</p>
+<p>如果需要，你可以运行以下命令来升级系统中的所有软件包：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bash</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get upgrade</span><br></pre></td></tr></table></figure>
+
+<p>这将安装新的软件包版本。</p>
+<p>完成以上步骤后，你的Ubuntu系统将使用你选择的新软件源来获取软件包。请注意，根据你的地理位置和网络情况，不同的源可能会有不同的速度和可用性。如果在使用新源后遇到问题，你可以随时恢复到默认的官方源，方法是将备份的源列表文件恢复到<code>/etc/apt/sources.list</code></p>
+<h5 id="待安装包"><a href="#待安装包" class="headerlink" title="待安装包"></a>待安装包</h5><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">apt install vim &amp;&amp;</span><br><span class="line">apt install docker &amp;&amp;</span><br><span class="line">apt install git &amp;&amp;</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="项目迁移"><a href="#项目迁移" class="headerlink" title="项目迁移"></a>项目迁移</h3><h5 id="挂载"><a href="#挂载" class="headerlink" title="挂载"></a>挂载</h5><h5 id="复制到容器本地"><a href="#复制到容器本地" class="headerlink" title="复制到容器本地"></a>复制到容器本地</h5><h3 id="输入输出"><a href="#输入输出" class="headerlink" title="输入输出"></a>输入输出</h3><p>清空文件夹单独增加一个模块def refresh_output():</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">def refresh_output():</span><br><span class="line"></span><br><span class="line">    directory_path=ROOT / &#x27;output&#x27;</span><br><span class="line">    def delete_contents_of_directory(directory_path):</span><br><span class="line">        try:</span><br><span class="line">            for item in os.listdir(directory_path):</span><br><span class="line">                item_path = os.path.join(directory_path, item)</span><br><span class="line">                if os.path.isfile(item_path):</span><br><span class="line">                    os.remove(item_path)</span><br><span class="line">                elif os.path.isdir(item_path):</span><br><span class="line">                    shutil.rmtree(item_path)</span><br><span class="line">            print(f&quot;Deleted all contents of directory: &#123;directory_path&#125;&quot;)</span><br><span class="line">        except Exception as e:</span><br><span class="line">            print(f&quot;An error occurred: &#123;str(e)&#125;&quot;)</span><br><span class="line"></span><br><span class="line">    # 要删除的目录路径</span><br><span class="line">    directory_to_clear = &quot;output&quot;  # 请替换为你的目录路径</span><br><span class="line"></span><br><span class="line">    # 调用函数来删除目录下的所有内容</span><br><span class="line">    delete_contents_of_directory(directory_to_clear)</span><br></pre></td></tr></table></figure>
+
+<p>输出格式，统一txt和jpg文件名，放到images和labels两个文件夹里面</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">def output():</span><br><span class="line"></span><br><span class="line">    # 指定图片所在目录和标签所在目录</span><br><span class="line">    image_dir = ROOT / &#x27;output&#x27;  # 指定图片所在目录</span><br><span class="line">    label_dir = ROOT / &#x27;output/labels&#x27;  # 指定标签所在目录</span><br><span class="line"></span><br><span class="line">    # 确保images目录存在，如果不存在则创建</span><br><span class="line">    images_output_dir = os.path.join(image_dir, &quot;images&quot;)</span><br><span class="line">    os.makedirs(images_output_dir, exist_ok=True)</span><br><span class="line"></span><br><span class="line">    # 获取所有jpg文件</span><br><span class="line">    jpg_files = [f for f in os.listdir(image_dir) if f.endswith(&quot;.jpg&quot;)]</span><br><span class="line"></span><br><span class="line">    # 遍历所有jpg文件</span><br><span class="line">    for jpg_file in jpg_files:</span><br><span class="line">        # 构建对应的txt文件名</span><br><span class="line">        txt_file = os.path.splitext(jpg_file)[0] + &quot;.txt&quot;</span><br><span class="line">        txt_file_path = os.path.join(label_dir, txt_file)</span><br><span class="line"></span><br><span class="line">        # 移动jpg文件到images目录下</span><br><span class="line">        src_jpg_path = os.path.join(image_dir, jpg_file)</span><br><span class="line">        dest_jpg_path = os.path.join(images_output_dir, jpg_file)</span><br><span class="line">        shutil.move(src_jpg_path, dest_jpg_path)</span><br><span class="line"></span><br><span class="line">        # 如果对应的txt文件不存在，则创建一个空的txt文件</span><br><span class="line">        if not os.path.exists(txt_file_path):</span><br><span class="line">            open(txt_file_path, &#x27;w&#x27;).close()</span><br></pre></td></tr></table></figure>
+
+
+
+<p>路径修改下面三个parser</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">parser.add_argument(&#x27;--project&#x27;, default=ROOT / &#x27;runs/detect&#x27;, help=&#x27;save results to project/name&#x27;)</span><br><span class="line">parser.add_argument(&#x27;--name&#x27;, default=&#x27;exp&#x27;, help=&#x27;save results to project/name&#x27;)</span><br><span class="line">parser.add_argument(&#x27;--exist-ok&#x27;, action=&#x27;store_true&#x27;, help=&#x27;existing project/name ok, do not increment&#x27;)</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="docker-save"><a href="#docker-save" class="headerlink" title="docker save"></a>docker save</h3><p>先打包成image</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker commit 7d8f railway-detect</span><br></pre></td></tr></table></figure>
+
+<p>再save到本地</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker save -o C:\Users\74420\Desktop\railway-detect.tar railway-detect</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker save -o C:\Users\74420\Desktop\bjgydax.tar bjgydax</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+<h1 id="FocalNet"><a href="#FocalNet" class="headerlink" title="FocalNet"></a>FocalNet</h1><h2 id="YOLOV5改进-具有焦点调制模块的FocalNet"><a href="#YOLOV5改进-具有焦点调制模块的FocalNet" class="headerlink" title="YOLOV5改进-具有焦点调制模块的FocalNet"></a>YOLOV5改进-具有焦点调制模块的FocalNet</h2><p> <a target="_blank" rel="noopener" href="https://b23.tv/57o5eTk">https://b23.tv/57o5eTk</a></p>
+<h2 id="官方项目"><a href="#官方项目" class="headerlink" title="官方项目"></a>官方项目</h2><h3 id="win下socket有问题，转到linux下"><a href="#win下socket有问题，转到linux下" class="headerlink" title="win下socket有问题，转到linux下"></a>win下socket有问题，转到linux下</h3><p>把项目挂载过去</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker cp C:\Users\74420\Desktop\focalnet 582d:/workspace/focalnet</span><br></pre></td></tr></table></figure>
+
+<p>仍然有问题，amp配置不好</p>
+<h3 id="Test"><a href="#Test" class="headerlink" title="Test"></a>Test</h3><p>To evaluate a pre-trained FocalNets on ImageNet val, run:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python -m torch.distributed.launch --nproc_per_node &lt;num-of-gpus-to-use&gt; --master_port 12345 main.py --eval --cfg &lt;config-file&gt; --resume &lt;checkpoint&gt; --data-path &lt;imagenet-path&gt; </span><br></pre></td></tr></table></figure>
+
+<p>​    </p>
+<p>For example, to evaluate the <code>FocalNet-B</code> with a single GPU:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python -m torch.distributed.launch --nproc_per_node 1 --master_port 12345 main.py --eval --cfg configs/focalnet_base_srf.yaml --resume focalnet_base_srf.pth --data-path &lt;imagenet-path&gt;</span><br></pre></td></tr></table></figure>
+
+<p>​    </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python -m torch.distributed.launch --nproc_per_node 1 --master_port 12345 main.py --eval --cfg configs/focalnet_base_srf.yaml --resume focalnet_base_srf.pth --data-path C:\Users\74420\Desktop\focalnet\dataset\dataset_1010</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<h1 id="yolo"><a href="#yolo" class="headerlink" title="yolo"></a>yolo</h1><h2 id="model"><a href="#model" class="headerlink" title="model"></a>model</h2><p>best model</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">D:\ST_train_LBN\yolov5-6.1-backbone\runs\train\finetune_pruned_exp\competation_yolov5m\weights</span><br></pre></td></tr></table></figure>
+
+
+
+<p>augmentations.py/letterbox</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br></pre></td><td class="code"><pre><span class="line"># Process predictions</span><br><span class="line">       for i, det in enumerate(pred):  # per image</span><br><span class="line">           seen += 1</span><br><span class="line">           if webcam:  # batch_size &gt;= 1</span><br><span class="line">               p, im0, frame = path[i], im0s[i].copy(), dataset.count</span><br><span class="line">               s += f&#x27;&#123;i&#125;: &#x27;</span><br><span class="line">           else:</span><br><span class="line">               p, im0, frame = path, im0s.copy(), getattr(dataset, &#x27;frame&#x27;, 0)</span><br><span class="line"></span><br><span class="line">           p = Path(p)  # to Path</span><br><span class="line">           save_path = str(save_dir / p.name)  # im.jpg</span><br><span class="line">           txt_path = str(save_dir / &#x27;labels&#x27; / p.stem) + (&#x27;&#x27; if dataset.mode == &#x27;image&#x27; else f&#x27;_&#123;frame&#125;&#x27;)  # im.txt</span><br><span class="line">           s += &#x27;%gx%g &#x27; % im.shape[2:]  # print string</span><br><span class="line">           imc = im0.copy() if save_crop else im0  # for save_crop</span><br><span class="line">           annotator = Annotator(im0, line_width=line_thickness, example=str(names))</span><br><span class="line">           if len(det):</span><br><span class="line">               if retina_masks:</span><br><span class="line">                   # scale bbox first the crop masks</span><br><span class="line">                   det[:, :4] = scale_boxes(im.shape[2:], det[:, :4], im0.shape).round()  # rescale boxes to im0 size</span><br><span class="line">                   masks = process_mask_native(proto[i], det[:, 6:], det[:, :4], im0.shape[:2])  # HWC</span><br><span class="line">               else:</span><br><span class="line">                   masks = process_mask(proto[i], det[:, 6:], det[:, :4], im.shape[2:], upsample=True)  # HWC</span><br><span class="line">                   det[:, :4] = scale_boxes(im.shape[2:], det[:, :4], im0.shape).round()  # rescale boxes to im0 size</span><br><span class="line"></span><br><span class="line">               # Segments</span><br><span class="line">               if save_txt:</span><br><span class="line">                   segments = [</span><br><span class="line">                       scale_segments(im0.shape if retina_masks else im.shape[2:], x, im0.shape, normalize=True)</span><br><span class="line">                       for x in reversed(masks2segments(masks))]</span><br><span class="line"></span><br><span class="line">               # Print results</span><br><span class="line">               for c in det[:, 5].unique():</span><br><span class="line">                   n = (det[:, 5] == c).sum()  # detections per class</span><br><span class="line">                   s += f&quot;&#123;n&#125; &#123;names[int(c)]&#125;&#123;&#x27;s&#x27; * (n &gt; 1)&#125;, &quot;  # add to string</span><br><span class="line"></span><br><span class="line">               # Mask plotting</span><br><span class="line">               annotator.masks(</span><br><span class="line">                   masks,</span><br><span class="line">                   colors=[colors(x, True) for x in det[:, 5]],</span><br><span class="line">                   im_gpu=torch.as_tensor(im0, dtype=torch.float16).to(device).permute(2, 0, 1).flip(0).contiguous() /</span><br><span class="line">                   255 if retina_masks else im[i])</span><br><span class="line"></span><br><span class="line">               # Write results</span><br><span class="line">               for j, (*xyxy, conf, cls) in enumerate(reversed(det[:, :6])):</span><br><span class="line">                   if save_txt:  # Write to file</span><br><span class="line">                       seg = segments[j].reshape(-1)  # (n,2) to (n*2)</span><br><span class="line">                       line = (cls, *seg, conf) if save_conf else (cls, *seg)  # label format</span><br><span class="line">                       with open(f&#x27;&#123;txt_path&#125;.txt&#x27;, &#x27;a&#x27;) as f:</span><br><span class="line">                           f.write((&#x27;%g &#x27; * len(line)).rstrip() % line + &#x27;\n&#x27;)</span><br><span class="line"></span><br><span class="line">                   if save_img or save_crop or view_img:  # Add bbox to image</span><br><span class="line">                       c = int(cls)  # integer class</span><br><span class="line">                       label = None if hide_labels else (names[c] if hide_conf else f&#x27;&#123;names[c]&#125; &#123;conf:.2f&#125;&#x27;)</span><br><span class="line">                       annotator.box_label(xyxy, label, color=colors(c, True))</span><br><span class="line">                       # annotator.draw.polygon(segments[j], outline=colors(c, True), width=3)</span><br><span class="line">                   if save_crop:</span><br><span class="line">                       save_one_box(xyxy, imc, file=save_dir / &#x27;crops&#x27; / names[c] / f&#x27;&#123;p.stem&#125;.jpg&#x27;, BGR=True)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<h2 id="try"><a href="#try" class="headerlink" title="try"></a>try</h2><p>输出txt：</p>
+<p>predict.py parser –save-txt default true</p>
+<p>save-conf true 置信度</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">parser.add_argument(&#x27;--save-txt&#x27;, default=True, help=&#x27;save results to *.txt&#x27;)</span><br><span class="line">parser.add_argument(&#x27;--save-conf&#x27;, default=True, help=&#x27;save confidences in --save-txt labels&#x27;)</span><br></pre></td></tr></table></figure>
+
+
+
+<p>修改输出坐标</p>
+<p>detect.py or predict.py</p>
+<p>不输出seg，输出xyxy</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"># Write results</span><br><span class="line">                for j, (*xyxy, conf, cls) in enumerate(reversed(det[:, :6])):</span><br><span class="line">                    # xyxy是目标坐标x1y1,x2y2，左上角0,0</span><br><span class="line">                    if save_txt:  # Write to file</span><br><span class="line">                        seg = segments[j].reshape(-1)  # (n,2) to (n*2)</span><br><span class="line">                        line0 = (cls, *seg, conf) if save_conf else (cls, *seg)  # label format</span><br><span class="line">                        # with open(f&#x27;&#123;txt_path&#125;.txt&#x27;, &#x27;a&#x27;) as f:</span><br><span class="line">                        #     f.write((&#x27;%g &#x27; * len(line)).rstrip() % line + &#x27;\n&#x27;)</span><br><span class="line">                        # 上面的line:cls类别，seg目标的分割信息，目标的边界框/轮廓，conf置信度，需要将save_conf设为TRUE</span><br><span class="line"></span><br><span class="line">                        line = (cls, *xyxy, conf) if save_conf else (cls, *xyxy)</span><br><span class="line">                        with open(f&#x27;&#123;txt_path&#125;.txt&#x27;, &#x27;a&#x27;) as f:</span><br><span class="line">                            formatted_line = &#x27; &#x27;.join([&#x27;%g&#x27; % item for item in line]) + &#x27;\n&#x27;</span><br><span class="line">                            f.write(formatted_line)</span><br><span class="line"></span><br><span class="line">                    if save_img or save_crop or view_img:  # Add bbox to image</span><br><span class="line">                        c = int(cls)  # integer class</span><br><span class="line">                        label = None if hide_labels else (names[c] if hide_conf else f&#x27;&#123;names[c]&#125; &#123;conf:.2f&#125;&#x27;)</span><br><span class="line">                        annotator.box_label(xyxy, label, color=colors(c, True))</span><br><span class="line">                        # annotator.draw.polygon(segments[j], outline=colors(c, True), width=3)</span><br><span class="line">                    if save_crop:</span><br><span class="line">                        save_one_box(xyxy, imc, file=save_dir / &#x27;crops&#x27; / names[c] / f&#x27;&#123;p.stem&#125;.jpg&#x27;, BGR=True)</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="预测"><a href="#预测" class="headerlink" title="预测"></a>预测</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">$ python segment/predict.py --weights yolov5s-seg.pt --source 0                               # webcam</span><br><span class="line">                                                              img.jpg                         # image</span><br><span class="line">                                                              vid.mp4                         # video</span><br><span class="line">                                                              screen                          # screenshot</span><br><span class="line">                                                              path/                           # directory</span><br><span class="line">                                                              list.txt                        # list of images</span><br><span class="line">                                                              list.streams                    # list of streams</span><br><span class="line">                                                              &#x27;path/*.jpg&#x27;                    # glob</span><br><span class="line">                                                              &#x27;https://youtu.be/LNwODJXcvt4&#x27;  # YouTube</span><br><span class="line">                                                              &#x27;rtsp://example.com/media.mp4&#x27;  # RTSP, RTMP, HTTP stream</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="文件目录"><a href="#文件目录" class="headerlink" title="文件目录"></a>文件目录</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/usr/local/serving</span><br></pre></td></tr></table></figure>
+
+<p>把项目拉到这里，输入输出自然就在</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">/usr/local/serving/input</span><br><span class="line">/usr/local/serving/output/images</span><br><span class="line">/usr/local/serving/output/labels</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="运行命令："><a href="#运行命令：" class="headerlink" title="运行命令："></a>运行命令：</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd /usr/local/serving/ &amp;&amp; </span><br><span class="line">python3 detect.py</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="提交"><a href="#提交" class="headerlink" title="提交"></a>提交</h2><p><img src="/2023/10/08/docker+FocalNet/image-20231010191218938.png" alt="image-20231010191218938"></p>
+<p>HQ:<br>输入指令：cd /usr/local/serving/ &amp;&amp; python3 detect.py</p>
+<p>HQ:<br>输出图像：带目标框的检测效果图保存至<br>/usr/local/serving/output/images</p>
+<p>HQ:<br><img src="/2023/10/08/docker+FocalNet/image-20231010191236168.png" alt="image-20231010191236168"></p>
+<p>HQ:<br>输出txt：若该图片中无目标，仍需保存原始图片和空 txt 文件，名称与图片名称保存一致<br>保存至/usr/local/serving/output/labels</p>
+<p>HQ:<br><img src="/2023/10/08/docker+FocalNet/image-20231010191240185.png" alt="image-20231010191240185"></p>
+<p>HQ:<br>标识：identifying.txt，保存至/usr/local/serving/output/</p>
+<p>HQ:<br>输入文件夹：/usr/local/serving/input，目前挂载的宿主机文件夹</p>
+<p>HQ:<br><img src="/2023/10/08/docker+FocalNet/image-20231010191244507.png" alt="image-20231010191244507"></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://developer-hq.github.io/2023/10/07/HomeAssistant/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2023/10/07/HomeAssistant/" itemprop="url">HomeAssistant</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2023-10-07T15:49:48+08:00">
+                2023-10-07
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p><a target="_blank" rel="noopener" href="https://www.bilibili.com/read/cv15944396/">https://www.bilibili.com/read/cv15944396/</a></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://developer-hq.github.io/2023/10/07/Assistant/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1438,280 +1858,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://developer-hq.github.io/2023/06/06/%E7%A7%BB%E5%8A%A8%E7%AB%AFvpn%E9%85%8D%E7%BD%AE/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2023/06/06/%E7%A7%BB%E5%8A%A8%E7%AB%AFvpn%E9%85%8D%E7%BD%AE/" itemprop="url">移动端vpn配置</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2023-06-06T22:58:52+08:00">
-                2023-06-06
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="移动端vpn配置"><a href="#移动端vpn配置" class="headerlink" title="移动端vpn配置"></a>移动端vpn配置</h1><p>解决疑似cdn节点问题导致的b站、微信、知乎卡顿</p>
-<p>==<strong>使用shadowrock</strong>==</p>
-<p><a target="_blank" rel="noopener" href="https://johnshall.github.io/Shadowrocket-ADBlock-Rules-Forever/#">https://johnshall.github.io/Shadowrocket-ADBlock-Rules-Forever/#</a></p>
-<h2 id="规则使用方法"><a href="#规则使用方法" class="headerlink" title="规则使用方法"></a>规则使用方法</h2><p>方法一：用 Safari 或 ShadowRocket 扫描二维码即可。<br> 方法二：在 ShadowRocket 应用中，进入 [配置] 页面，点击右上角加号，将规则文件地址粘贴到 url 处，点击“下载”即可。</p>
-<p>最好让 ShadowRocket 断开并重新连接一次，以确保新的规则文件生效。</p>
-<h2 id="如何自动更新"><a href="#如何自动更新" class="headerlink" title="如何自动更新"></a>如何自动更新</h2><p>步骤一：安装<a target="_blank" rel="noopener" href="https://www.icloud.com/shortcuts/20bd590bc99e4ef0a157d2fe6e8c273d">捷径</a>，并填写规则文件地址；<br> 步骤二：打开“快捷指令”下方的“自动化”，轻击右上角加号，点击“创建个人自动化”，选择“特定时间”，设定时间为 8:05  或更晚的时间（规则生成需要一定时间），点击下一步，点击添加操作，选择 APP  栏，找到快捷指令，选择“运行快捷指令”，点击浅色“快捷指令”，选择“Shadowrocket  规则自动更新”，点击下一步，关闭运行前询问（可选），点击完成即可。</p>
-<p>如果出现无法正常跳转 Safari 对 google.cn 的请求的情况，请在每次更新后点击规则后方的ℹ️，点击 HTTPS 解密，将 HTTPS 解密关闭，返回，再开启，即可正常跳转。</p>
-<p><strong>==使用黑名单模式==</strong></p>
-<h2 id="黑名单过滤-广告"><a href="#黑名单过滤-广告" class="headerlink" title="黑名单过滤 + 广告"></a>黑名单过滤 + 广告</h2><p>黑名单中包含了境外网站中无法访问的那些，对不确定的网站则默认直连。</p>
-<ul>
-<li>代理：被墙的网站（GFWList）</li>
-<li>直连：正常的网站</li>
-<li>包含广告过滤</li>
-</ul>
-<p>规则地址：<a target="_blank" rel="noopener" href="https://johnshall.github.io/Shadowrocket-ADBlock-Rules-Forever/sr_top500_banlist_ad.conf">https://johnshall.github.io/Shadowrocket-ADBlock-Rules-Forever/sr_top500_banlist_ad.conf</a></p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://developer-hq.github.io/2023/06/04/%E5%AD%A6%E4%B9%A0%E7%8E%87%E8%A1%B0%E5%87%8F/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2023/06/04/%E5%AD%A6%E4%B9%A0%E7%8E%87%E8%A1%B0%E5%87%8F/" itemprop="url">学习率衰减</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2023-06-04T11:45:20+08:00">
-                2023-06-04
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="学习率衰减"><a href="#学习率衰减" class="headerlink" title="学习率衰减"></a>学习率衰减</h1><p>学习率衰减是在训练过程中逐渐减小学习率的一种常用策略，它有助于模型在训练后期更加精细地调整参数。下面是几种常见的学习率衰减方法及其在PyTorch中的实现方式：</p>
-<ol>
-<li>学习率衰减的步进调整：</li>
-</ol>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">python</span><br><span class="line">import torch.optim as optim</span><br><span class="line"></span><br><span class="line">optimizer = optim.SGD(model.parameters(), lr=0.1)  # 定义优化器，初始学习率为0.1</span><br><span class="line">scheduler = optim.lr_scheduler.StepLR(optimizer, step_size=5, gamma=0.1)  # 学习率每隔step_size个epoch衰减为原来的gamma倍</span><br><span class="line"></span><br><span class="line"># 在训练循环中的每个epoch后调用</span><br><span class="line">scheduler.step()  # 更新学习率</span><br></pre></td></tr></table></figure>
-
-<ol>
-<li>学习率衰减的余弦退火：</li>
-</ol>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">python</span><br><span class="line">import torch.optim as optim</span><br><span class="line">import math</span><br><span class="line"></span><br><span class="line">optimizer = optim.SGD(model.parameters(), lr=0.1)  # 定义优化器，初始学习率为0.1</span><br><span class="line">scheduler = optim.lr_scheduler.CosineAnnealingLR(optimizer, T_max=10)  # 学习率按余弦函数衰减，T_max为衰减的总epoch数</span><br><span class="line"></span><br><span class="line"># 在训练循环中的每个epoch后调用</span><br><span class="line">scheduler.step()  # 更新学习率</span><br></pre></td></tr></table></figure>
-
-<ol>
-<li>学习率衰减的指数调整：</li>
-</ol>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">python</span><br><span class="line">import torch.optim as optim</span><br><span class="line"></span><br><span class="line">optimizer = optim.SGD(model.parameters(), lr=0.1)  # 定义优化器，初始学习率为0.1</span><br><span class="line">scheduler = optim.lr_scheduler.ExponentialLR(optimizer, gamma=0.9)  # 学习率每个epoch按gamma指数衰减</span><br><span class="line"></span><br><span class="line"># 在训练循环中的每个epoch后调用</span><br><span class="line">scheduler.step()  # 更新学习率</span><br></pre></td></tr></table></figure>
-
-<p>这些是一些常见的学习率衰减方法，但还有其他方法可供选择。在PyTorch中，您可以使用<code>torch.optim.lr_scheduler</code>模块中提供的不同学习率调度器来实现这些方法。根据您的需求和实际情况，选择合适的学习率衰减策略，并将其与您的优化器结合使用，在训练循环中适时调用<code>scheduler.step()</code>来更新学习率。</p>
-<h1 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> torch</span><br><span class="line"><span class="keyword">import</span> torch.nn <span class="keyword">as</span> nn</span><br><span class="line"><span class="keyword">import</span> torch.optim <span class="keyword">as</span> optim</span><br><span class="line"><span class="keyword">import</span> torchvision</span><br><span class="line"><span class="keyword">import</span> torchvision.transforms <span class="keyword">as</span> transforms</span><br><span class="line"></span><br><span class="line"><span class="comment"># 定义模型</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Net</span>(nn.Module):</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="built_in">super</span>(Net, self).__init__()</span><br><span class="line">        self.fc = nn.Linear(<span class="number">784</span>, <span class="number">10</span>)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">forward</span>(<span class="params">self, x</span>):</span><br><span class="line">        x = x.view(-<span class="number">1</span>, <span class="number">784</span>)</span><br><span class="line">        x = self.fc(x)</span><br><span class="line">        <span class="keyword">return</span> x</span><br><span class="line"></span><br><span class="line"><span class="comment"># 加载数据集</span></span><br><span class="line">transform = transforms.Compose([</span><br><span class="line">    transforms.ToTensor(),</span><br><span class="line">    transforms.Normalize((<span class="number">0.5</span>,), (<span class="number">0.5</span>,))</span><br><span class="line">])</span><br><span class="line">trainset = torchvision.datasets.MNIST(root=<span class="string">&#x27;./data&#x27;</span>, train=<span class="literal">True</span>, download=<span class="literal">True</span>, transform=transform)</span><br><span class="line">trainloader = torch.utils.data.DataLoader(trainset, batch_size=<span class="number">64</span>, shuffle=<span class="literal">True</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 初始化模型和优化器</span></span><br><span class="line">model = Net()</span><br><span class="line">optimizer = optim.SGD(model.parameters(), lr=<span class="number">0.1</span>)</span><br><span class="line">scheduler = optim.lr_scheduler.StepLR(optimizer, step_size=<span class="number">5</span>, gamma=<span class="number">0.1</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 训练循环</span></span><br><span class="line">num_epochs = <span class="number">10</span></span><br><span class="line"><span class="keyword">for</span> epoch <span class="keyword">in</span> <span class="built_in">range</span>(num_epochs):</span><br><span class="line">    running_loss = <span class="number">0.0</span></span><br><span class="line">    <span class="keyword">for</span> i, data <span class="keyword">in</span> <span class="built_in">enumerate</span>(trainloader, <span class="number">0</span>):</span><br><span class="line">        inputs, labels = data</span><br><span class="line"></span><br><span class="line">        <span class="comment"># 清除梯度</span></span><br><span class="line">        optimizer.zero_grad()</span><br><span class="line"></span><br><span class="line">        <span class="comment"># 前向传播、损失计算和反向传播</span></span><br><span class="line">        outputs = model(inputs)</span><br><span class="line">        loss = nn.CrossEntropyLoss()(outputs, labels)</span><br><span class="line">        loss.backward()</span><br><span class="line"></span><br><span class="line">        <span class="comment"># 更新参数</span></span><br><span class="line">        optimizer.step()  <span class="comment"># 不需要调用 if scheduler is used</span></span><br><span class="line"></span><br><span class="line">        running_loss += loss.item()</span><br><span class="line">    scheduler.step()</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 打印每个epoch的损失</span></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&#x27;Epoch [&#123;&#125;/&#123;&#125;], Loss: &#123;:.4f&#125;&#x27;</span>.<span class="built_in">format</span>(epoch+<span class="number">1</span>, num_epochs, running_loss))</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;Training Finished.&#x27;</span>)</span><br></pre></td></tr></table></figure>
-
-<p>在这个示例中，我们定义了一个简单的全连接神经网络模型（<code>Net</code>类），使用MNIST数据集进行训练。在训练循环中，我们首先清除梯度，然后进行正常的前向传播、损失计算和反向传播。然后，我们调用<code>optimizer.step()</code>来更新模型的参数，并调用<code>scheduler.step()</code>来更新学习率。最后，我们打印每个epoch的损失。</p>
-<p>请根据您的具体情况和需求，对代码进行适当的调整和修改。这个示例提供了一个基本框架，可用于实现学习率衰减的训练过程。</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1763,7 +1909,7 @@
                 <a href="/">
     
               
-                  <span class="site-state-item-count">82</span>
+                  <span class="site-state-item-count">84</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -1804,7 +1950,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2023</span>
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2024</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>

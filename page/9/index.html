@@ -229,6 +229,249 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://developer-hq.github.io/2022/10/20/python-docx/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2022/10/20/python-docx/" itemprop="url">python-docx</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2022-10-20T11:41:58+08:00">
+                2022-10-20
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br></pre></td><td class="code"><pre><span class="line">import docx.enum.text</span><br><span class="line">from docx import Document</span><br><span class="line">from docx.document import Document as Doc</span><br><span class="line">import xlrd</span><br><span class="line">import re</span><br><span class="line"></span><br><span class="line"># import xlrd</span><br><span class="line"># #打开excel</span><br><span class="line"># wb = xlrd.open_workbook(&#x27;test_user_data.xlsx&#x27;)</span><br><span class="line"># #按工作簿定位工作表</span><br><span class="line"># sh = wb.sheet_by_name(&#x27;TestUserLogin&#x27;)</span><br><span class="line"># print(sh.nrows)#有效数据行数</span><br><span class="line"># print(sh.ncols)#有效数据列数</span><br><span class="line"># print(sh.cell(0,0).value)#输出第一行第一列的值</span><br><span class="line"># print(sh.row_values(0))#输出第一行的所有值</span><br><span class="line"># #将数据和标题组合成字典</span><br><span class="line"># print(dict(zip(sh.row_values(0),sh.row_values(1))))</span><br><span class="line"># #遍历excel，打印所有数据</span><br><span class="line"># for i in range(sh.nrows):</span><br><span class="line">#   print(sh.row_values(i))</span><br><span class="line">def get_data():</span><br><span class="line">    import xlrd</span><br><span class="line">    # 打开excel</span><br><span class="line">wb = xlrd.open_workbook(&#x27;信息学部二级关注名单（本科生）.xlsx&#x27;)</span><br><span class="line">    # 按工作簿定位工作表</span><br><span class="line">sh = wb.sheet_by_index(0)</span><br><span class="line">    print(sh.nrows)  # 有效数据行数</span><br><span class="line">print(sh.ncols)  # 有效数据列数</span><br><span class="line">print(sh.cell(0, 0).value)  # 输出第一行第一列的值</span><br><span class="line">print(sh.row_values(0))  # 输出第一行的所有值</span><br><span class="line"># 将数据和标题组合成字典</span><br><span class="line">data=[]</span><br><span class="line">    # 遍历excel，打印所有数据</span><br><span class="line">for i in range(sh.nrows):</span><br><span class="line">        data.append(dict(zip(sh.row_values(0), sh.row_values(i))))</span><br><span class="line">    print(data)</span><br><span class="line">    return data</span><br><span class="line"></span><br><span class="line"># 获取文档路径，循环读取内容</span><br><span class="line">doc = Document(&#x27;2022约谈记录表（可提前打印备用）.docx&#x27;)  # type: Doc</span><br><span class="line"># name,id,collage,teacher,month,day=get_data()</span><br><span class="line">data=get_data()</span><br><span class="line"></span><br><span class="line">newdoc=Document()</span><br><span class="line">id =0</span><br><span class="line">doc_=[]</span><br><span class="line">while id &lt; len(data):</span><br><span class="line">    for no, p in enumerate(doc.paragraphs):</span><br><span class="line">        if no==40:</span><br><span class="line">            doc_.append(&#x27;\n\n&#x27;)</span><br><span class="line">        if no==20:</span><br><span class="line">            doc_.append(&#x27;\n\n\n&#x27;)</span><br><span class="line">        p_str = p.text</span><br><span class="line">        p_str = p.text</span><br><span class="line"></span><br><span class="line">        pt=p.text</span><br><span class="line">        # print(no, p.text)</span><br><span class="line">p_style=p.style</span><br><span class="line">        if &#x27;姓名&#x27; in p.text:</span><br><span class="line">            stu=data[id]</span><br><span class="line">            id+=1</span><br><span class="line">p_str=re.sub(&#x27;姓名&#x27;,&#x27;姓名：&#x27;+stu[&quot;姓名&quot;], p_str)</span><br><span class="line">            p_str=re.sub(&#x27;学号&#x27;,&#x27;学号：&#x27;+str(stu[&quot;编号&quot;]).split(&#x27;.&#x27;)[0], p_str)</span><br><span class="line">            p_str=re.sub(&#x27;学院&#x27;,&#x27;学院：信息学部&#x27;, p_str)</span><br><span class="line">            p_str=re.sub(&#x27;访谈教师&#x27;,&#x27;访谈教师：刘诗桐&#x27;, p_str)</span><br><span class="line">            p_str=re.sub(&#x27;月&#x27;,&#x27;10月&#x27;, p_str)</span><br><span class="line">            p_str=re.sub(&#x27;日&#x27;,&#x27;19日&#x27;, p_str)</span><br><span class="line"></span><br><span class="line">            print(p_str)</span><br><span class="line">            p.text=p_str</span><br><span class="line">            # p.text.replace(p.text,p_str)</span><br><span class="line">print(p.text)</span><br><span class="line">        doc_.append(p.text)</span><br><span class="line">        p.text=pt</span><br><span class="line">        # newdoc.add_paragraph(p_str,p_style)</span><br><span class="line">for i in doc_:</span><br><span class="line">    doc.add_paragraph(i)</span><br><span class="line">doc.save(&#x27;记录1.docx&#x27;)</span><br><span class="line"># print(newdoc.paragraphs)</span><br></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://developer-hq.github.io/2022/10/20/vscode-markdown/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2022/10/20/vscode-markdown/" itemprop="url">vscode markdown</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2022-10-20T01:42:01+08:00">
+                2022-10-20
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>Hexo + VSCode 插入 Markdown 图片解决办法：<br><a target="_blank" rel="noopener" href="https://www.cnblogs.com/himeka/p/16407020.html">https://www.cnblogs.com/himeka/p/16407020.html</a></p>
+<p>vscode markdown WYSIWYG 所见即所得编辑和预览<br>markdown preview enhenced插件<br>输入F1调出命令框，输入mpe</p>
+<p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/zhaoqingqing/p/16776754.html">https://www.cnblogs.com/zhaoqingqing/p/16776754.html</a></p>
+<p>快捷键<br><a target="_blank" rel="noopener" href="https://www.freesion.com/article/8266638493/">https://www.freesion.com/article/8266638493/</a></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://developer-hq.github.io/2022/10/20/hexo%E9%83%A8%E7%BD%B2%E6%96%87%E6%A1%A3/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -535,7 +778,7 @@
                 <a href="/">
     
               
-                  <span class="site-state-item-count">82</span>
+                  <span class="site-state-item-count">84</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -576,7 +819,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2023</span>
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2024</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>
