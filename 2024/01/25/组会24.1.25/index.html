@@ -1,0 +1,805 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="en">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="组会24.1.25目前进展 学习UE 基本操作 图形控制 蓝图基础   ADTLink项目 运行 试用功能 分析蓝图    UE基础 项目入口.uproject文件  蓝图编辑器  这里的蓝图关卡好像有问题，只有开始界面的东西，项目初始化一堆报错  基本操作 actor 上下左右移动旋转 旋转 q选中对象 e旋转      几何体    顺畅转移开发视角：  按住鼠标右键wasd前后左右，qe上下">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="https://developer-hq.github.io/2024/01/25/%E7%BB%84%E4%BC%9A24.1.25/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="组会24.1.25目前进展 学习UE 基本操作 图形控制 蓝图基础   ADTLink项目 运行 试用功能 分析蓝图    UE基础 项目入口.uproject文件  蓝图编辑器  这里的蓝图关卡好像有问题，只有开始界面的东西，项目初始化一堆报错  基本操作 actor 上下左右移动旋转 旋转 q选中对象 e旋转      几何体    顺畅转移开发视角：  按住鼠标右键wasd前后左右，qe上下">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://developer-hq.github.io/2024/01/25/%E7%BB%84%E4%BC%9A24.1.25/74420/AppData/Roaming/Typora/typora-user-images/image-20240124142615864.png">
+<meta property="og:image" content="https://developer-hq.github.io/2024/01/25/%E7%BB%84%E4%BC%9A24.1.25/74420/AppData/Roaming/Typora/typora-user-images/image-20240124142832323.png">
+<meta property="og:image" content="https://developer-hq.github.io/2024/01/25/%E7%BB%84%E4%BC%9A24.1.25/74420/AppData/Roaming/Typora/typora-user-images/image-20240124142928803.png">
+<meta property="og:image" content="https://developer-hq.github.io/2024/01/25/%E7%BB%84%E4%BC%9A24.1.25/74420/AppData/Roaming/Typora/typora-user-images/image-20240124225635509.png">
+<meta property="og:image" content="https://developer-hq.github.io/2024/01/25/%E7%BB%84%E4%BC%9A24.1.25/74420/AppData/Roaming/Typora/typora-user-images/image-20240125120222340.png">
+<meta property="og:image" content="https://developer-hq.github.io/2024/01/25/%E7%BB%84%E4%BC%9A24.1.25/image-20240125121701073.png">
+<meta property="og:image" content="https://developer-hq.github.io/2024/01/25/%E7%BB%84%E4%BC%9A24.1.25/image-20240125122225275.png">
+<meta property="og:image" content="https://developer-hq.github.io/2024/01/25/%E7%BB%84%E4%BC%9A24.1.25/image-20240125122449175.png">
+<meta property="og:image" content="https://developer-hq.github.io/2024/01/25/%E7%BB%84%E4%BC%9A24.1.25/image-20240125122636953.png">
+<meta property="og:image" content="https://developer-hq.github.io/2024/01/25/%E7%BB%84%E4%BC%9A24.1.25/image-20240125130706922.png">
+<meta property="og:image" content="https://developer-hq.github.io/2024/01/25/%E7%BB%84%E4%BC%9A24.1.25/image-20240125131021851.png">
+<meta property="og:image" content="https://developer-hq.github.io/2024/01/25/%E7%BB%84%E4%BC%9A24.1.25/image-20240125132349657.png">
+<meta property="og:image" content="https://developer-hq.github.io/2024/01/25/%E7%BB%84%E4%BC%9A24.1.25/image-20240125132514667.png">
+<meta property="og:image" content="https://developer-hq.github.io/2024/01/25/%E7%BB%84%E4%BC%9A24.1.25/image-20240125132917311.png">
+<meta property="og:image" content="https://developer-hq.github.io/2024/01/25/%E7%BB%84%E4%BC%9A24.1.25/image-20240125133422959.png">
+<meta property="og:image" content="https://developer-hq.github.io/2024/01/25/%E7%BB%84%E4%BC%9A24.1.25/image-20240125133348377.png">
+<meta property="og:image" content="https://developer-hq.github.io/2024/01/25/%E7%BB%84%E4%BC%9A24.1.25/image-20240125133646913.png">
+<meta property="og:image" content="https://developer-hq.github.io/2024/01/25/%E7%BB%84%E4%BC%9A24.1.25/image-20240125134059955.png">
+<meta property="article:published_time" content="2024-01-25T04:15:58.251Z">
+<meta property="article:modified_time" content="2024-01-25T05:43:44.457Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://developer-hq.github.io/2024/01/25/%E7%BB%84%E4%BC%9A24.1.25/74420/AppData/Roaming/Typora/typora-user-images/image-20240124142615864.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://developer-hq.github.io/2024/01/25/组会24.1.25/"/>
+
+
+
+
+
+  <title> | Hexo</title>
+  
+
+
+
+
+
+
+
+
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Hexo</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://developer-hq.github.io/2024/01/25/%E7%BB%84%E4%BC%9A24.1.25/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline"></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2024-01-25T12:15:58+08:00">
+                2024-01-25
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="组会24-1-25"><a href="#组会24-1-25" class="headerlink" title="组会24.1.25"></a>组会24.1.25</h1><h1 id="目前进展"><a href="#目前进展" class="headerlink" title="目前进展"></a>目前进展</h1><ul>
+<li>学习UE<ul>
+<li>基本操作</li>
+<li>图形控制</li>
+<li>蓝图基础</li>
+</ul>
+</li>
+<li>ADTLink项目<ul>
+<li>运行</li>
+<li>试用功能</li>
+<li>分析蓝图</li>
+</ul>
+</li>
+</ul>
+<h1 id="UE基础"><a href="#UE基础" class="headerlink" title="UE基础"></a>UE基础</h1><ul>
+<li>项目入口.uproject文件</li>
+<li><img src="./74420/AppData/Roaming/Typora/typora-user-images/image-20240124142615864.png" alt="image-20240124142615864"></li>
+<li>蓝图编辑器</li>
+<li><img src="./74420/AppData/Roaming/Typora/typora-user-images/image-20240124142832323.png" alt="image-20240124142832323"></li>
+<li>这里的蓝图关卡好像有问题，只有开始界面的东西，项目初始化一堆报错</li>
+<li><img src="./74420/AppData/Roaming/Typora/typora-user-images/image-20240124142928803.png" alt="image-20240124142928803"></li>
+<li>基本操作</li>
+<li>actor</li>
+<li>上下左右移动旋转</li>
+<li>旋转<ul>
+<li>q选中对象</li>
+<li>e旋转</li>
+</ul>
+</li>
+</ul>
+<p><img src="./74420/AppData/Roaming/Typora/typora-user-images/image-20240124225635509.png" alt="image-20240124225635509"></p>
+<ul>
+<li>几何体</li>
+</ul>
+<p><img src="./74420/AppData/Roaming/Typora/typora-user-images/image-20240125120222340.png" alt="image-20240125120222340"></p>
+<ul>
+<li><p>顺畅转移开发视角：</p>
+<ul>
+<li>按住鼠标右键wasd前后左右，qe上下，c可以预览聚焦</li>
+</ul>
+</li>
+<li><p>对齐</p>
+<ul>
+<li><img src="/2024/01/25/%E7%BB%84%E4%BC%9A24.1.25/image-20240125121701073.png" alt="image-20240125121701073" style="zoom:50%;"></li>
+<li>如可以调每次旋转90度，缩放一倍</li>
+</ul>
+</li>
+<li><p>快速定位目标</p>
+<ul>
+<li>右边对象选中按f或双击</li>
+<li>选中一个对象，ctrl+b可以看文件位置<ul>
+<li><img src="/2024/01/25/%E7%BB%84%E4%BC%9A24.1.25/image-20240125122225275.png" alt="image-20240125122225275"></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>切换默认地图</p>
+<ul>
+<li>ctrl+space打开内容浏览器，选择要用的地图，预览</li>
+<li>编辑-项目设置，搜索默认地图进行更改</li>
+<li><img src="/2024/01/25/%E7%BB%84%E4%BC%9A24.1.25/image-20240125122449175.png" alt="image-20240125122449175"></li>
+</ul>
+</li>
+</ul>
+<h1 id="新手教程"><a href="#新手教程" class="headerlink" title="新手教程"></a>新手教程</h1><p><a target="_blank" rel="noopener" href="https://gitee.com/timetzhang/LECTURE.UnrealEngine?_from=gitee_search">https://gitee.com/timetzhang/LECTURE.UnrealEngine?_from=gitee_search</a></p>
+<ul>
+<li><p>打开初学者地图</p>
+<ul>
+<li>ctrl+space打开内容浏览器，选择StarterMap</li>
+<li><img src="/2024/01/25/%E7%BB%84%E4%BC%9A24.1.25/image-20240125122636953.png" alt="image-20240125122636953"></li>
+</ul>
+</li>
+<li><p>项目结构和文件夹命名</p>
+</li>
+<li><p>把放置actor面板放在左边</p>
+<ul>
+<li><img src="/2024/01/25/%E7%BB%84%E4%BC%9A24.1.25/image-20240125130706922.png" alt="image-20240125130706922"></li>
+</ul>
+</li>
+<li><p>光源</p>
+<ul>
+<li>点光源、定向光源<ul>
+<li><img src="/2024/01/25/%E7%BB%84%E4%BC%9A24.1.25/image-20240125131021851.png" alt="image-20240125131021851"></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>玩家出生点</p>
+</li>
+<li><p>物理引擎</p>
+</li>
+<li><p>蓝图</p>
+<ul>
+<li>创建第一个蓝图actor</li>
+<li>新建蓝图文件夹Blueprint，在文件夹里右键，新建一个蓝图类，命名BP_helloworld</li>
+<li><img src="/2024/01/25/%E7%BB%84%E4%BC%9A24.1.25/image-20240125132349657.png" alt="image-20240125132349657"></li>
+<li><img src="/2024/01/25/%E7%BB%84%E4%BC%9A24.1.25/image-20240125132514667.png" alt="image-20240125132514667"></li>
+<li>盒状触发器，box collision</li>
+<li>文本渲染器，text</li>
+<li><img src="/2024/01/25/%E7%BB%84%E4%BC%9A24.1.25/image-20240125132917311.png" alt="image-20240125132917311"></li>
+</ul>
+</li>
+<li><p>编写一段蓝图代码</p>
+<ul>
+<li>当人走进框，就把hello world变成hello</li>
+<li>添加事件，组件开始重叠时</li>
+<li>与对box右键添加一样</li>
+<li><img src="/2024/01/25/%E7%BB%84%E4%BC%9A24.1.25/image-20240125133422959.png" alt="image-20240125133422959"></li>
+<li><img src="/2024/01/25/%E7%BB%84%E4%BC%9A24.1.25/image-20240125133348377.png" alt="image-20240125133348377"></li>
+<li>text render拖过来，右边那个圈拉出去，新建set text事件，然后把set text的value提升为变量，编译，然后修改变量值</li>
+<li><img src="/2024/01/25/%E7%BB%84%E4%BC%9A24.1.25/image-20240125133646913.png" alt="image-20240125133646913"></li>
+<li>运行，走进hello world变成hello</li>
+<li><img src="/2024/01/25/%E7%BB%84%E4%BC%9A24.1.25/image-20240125134059955.png" alt="image-20240125134059955"></li>
+</ul>
+</li>
+</ul>
+<h1 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h1><ul>
+<li>这个项目初始化编辑器资产导入有问题，蓝图打不开</li>
+</ul>
+<h1 id="后续工作"><a href="#后续工作" class="headerlink" title="后续工作"></a>后续工作</h1><ul>
+<li>新手教程深入理解</li>
+<li>学习使用蓝图</li>
+<li>学习通信接口</li>
+</ul>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2024/01/17/%E6%95%B0%E5%AD%97%E5%AD%AA%E7%94%9F/" rel="next" title="_数字孪生">
+                <i class="fa fa-chevron-left"></i> _数字孪生
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name"></p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/">
+    
+              
+                  <span class="site-state-item-count">86</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%BB%84%E4%BC%9A24-1-25"><span class="nav-number">1.</span> <span class="nav-text">组会24.1.25</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%9B%AE%E5%89%8D%E8%BF%9B%E5%B1%95"><span class="nav-number">2.</span> <span class="nav-text">目前进展</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#UE%E5%9F%BA%E7%A1%80"><span class="nav-number">3.</span> <span class="nav-text">UE基础</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%96%B0%E6%89%8B%E6%95%99%E7%A8%8B"><span class="nav-number">4.</span> <span class="nav-text">新手教程</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%97%AE%E9%A2%98"><span class="nav-number">5.</span> <span class="nav-text">问题</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%90%8E%E7%BB%AD%E5%B7%A5%E4%BD%9C"><span class="nav-number">6.</span> <span class="nav-text">后续工作</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2024</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">John Doe</span>
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

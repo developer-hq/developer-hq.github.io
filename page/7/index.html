@@ -229,6 +229,280 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://developer-hq.github.io/2023/01/21/typora/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2023/01/21/typora/" itemprop="url">typora</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2023-01-21T17:07:46+08:00">
+                2023-01-21
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p><a target="_blank" rel="noopener" href="https://www.52pojie.cn/thread-1552190-1-1.html">https://www.52pojie.cn/thread-1552190-1-1.html</a></p>
+<h1 id="下载链接"><a href="#下载链接" class="headerlink" title="下载链接"></a>下载链接</h1><p><a target="_blank" rel="noopener" href="https://www.typora.io/windows/dev_release.html">https://www.typora.io/windows/dev_release.html</a></p>
+<h1 id="快速打开"><a href="#快速打开" class="headerlink" title="快速打开"></a>快速打开</h1><p><img src="/2023/01/21/typora/image-20230327214449911.png" alt="image-20230327214449911"></p>
+<p>将<strong>启动选项</strong>改为打开上次的目录，可以用==ctrl+p==快速打开博客文件夹的文件</p>
+<h1 id="windows注册表处理"><a href="#windows注册表处理" class="headerlink" title="windows注册表处理"></a>windows注册表处理</h1><p>将typora升级的服务关掉</p>
+<h1 id="插入图片"><a href="#插入图片" class="headerlink" title="插入图片"></a>插入图片</h1><h2 id="本地图片"><a href="#本地图片" class="headerlink" title="本地图片"></a>本地图片</h2><p>博客的 Markdown 文档都存储在 <code>source/_posts</code> 下，然后博客相关图片都存在 <code>source/images</code> 下，接着来修改 typora 的设置。</p>
+<p>打开 <code>文件 - 偏好设置 - 图像</code> 进行修改如下图修改</p>
+<p><img src="/2023/01/21/typora/image-20221026151600614.png" alt="image-20221026151600614"></p>
+<p>这样拖拽或粘贴过来的图片会自动复制到 <code>source/images</code> 下面，不过这样只是可以在 typora 中查看图片了，要想在 hexo 中查看就需要图片路径与服务器中相符合， <code>source/images</code> 文件夹下的图片在 hexo 中可以用如 <code>/images/abc.png</code> 的路径访问到，而 typora 可以设置图片根目录，设置完了后图片路径都是 <code>/images/abc.png</code> 这样的，这样一配合就解决了图片路径问题，具体做法是在 <code>格式 - 图像 - 设置图片根目录</code> 中 将 <code>source</code> 文件夹设置为图片根目录，也可在每篇 Markdown 文档中 YAML Front Matter 中添加 <code>typora-root-url: ..</code>，或者直接在 <code>scaffolds</code> 中的模板里直接添加，这样每次 <code>hexo new post</code> 时就会自动生成了。</p>
+<h1 id="我的修改："><a href="#我的修改：" class="headerlink" title="我的修改："></a>我的修改：</h1><p><img src="/2023/01/21/typora/image-20230121171131496.png" alt="image-20230121171131496"></p>
+<h1 id="高亮-高亮快捷键"><a href="#高亮-高亮快捷键" class="headerlink" title="高亮+高亮快捷键"></a>高亮+高亮快捷键</h1><p>偏好设置-markdown-markdown扩展语法</p>
+<p>打开高亮</p>
+<p><img src="/2023/01/21/typora/image-20230121172108685.png" alt="image-20230121172108685"></p>
+<p>打开C:\Users\74420\AppData\Roaming\Typora\conf</p>
+<p>conf.user.json</p>
+<p><a target="_blank" rel="noopener" href="https://support.typora.io/Shortcut-Keys/#windows--linux">https://support.typora.io/Shortcut-Keys/#windows--linux</a></p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">&quot;keyBinding&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span>            </span><br><span class="line">  <span class="attr">&quot;Highlight&quot;</span><span class="punctuation">:</span> <span class="string">&quot;Ctrl+H&quot;</span>    </span><br><span class="line"><span class="punctuation">&#125;</span><span class="punctuation">,</span>   </span><br></pre></td></tr></table></figure>
+
+<p>keybinding中增加highlight项</p>
+<h1 id="typora常用快捷键"><a href="#typora常用快捷键" class="headerlink" title="typora常用快捷键"></a>typora常用快捷键</h1><p>1.自己设置的高亮：CTRL+H</p>
+<p>2.打开文件，可以直接搜索所有md文件：CTRL+P</p>
+<h1 id="typora-win-hexo快捷使用配置"><a href="#typora-win-hexo快捷使用配置" class="headerlink" title="typora + win + hexo快捷使用配置"></a>typora + win + hexo快捷使用配置</h1><h2 id="bat文件："><a href="#bat文件：" class="headerlink" title="bat文件："></a>bat文件：</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cmd /k <span class="string">&quot;start C:\Users\74420\blog\source\_posts\_newblog.md&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>打开hexo文件夹中的博客，便可以用ctrl p快捷打开其他md文件</p>
+<h2 id="bat文件修改图标："><a href="#bat文件修改图标：" class="headerlink" title="bat文件修改图标："></a>bat文件修改图标：</h2><p><a target="_blank" rel="noopener" href="https://zhidao.baidu.com/question/1891961152976068668.html">https://zhidao.baidu.com/question/1891961152976068668.html</a></p>
+<p>bat文件修改不了，可以创建快捷方式，修改快捷方式的图标</p>
+<p><img src="/2023/01/21/typora/image-20230121211002217.png" alt="image-20230121211002217"></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://developer-hq.github.io/2023/01/17/%E7%81%AB%E7%8B%90%E4%BE%BF%E6%8D%B7%E4%BD%BF%E7%94%A8/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2023/01/17/%E7%81%AB%E7%8B%90%E4%BE%BF%E6%8D%B7%E4%BD%BF%E7%94%A8/" itemprop="url">火狐便捷使用</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2023-01-17T13:31:19+08:00">
+                2023-01-17
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p><a target="_blank" rel="noopener" href="https://xiazai.zol.com.cn/jiqiao/40369.html">https://xiazai.zol.com.cn/jiqiao/40369.html</a></p>
+<p>2：Alt+D</p>
+<p>　　你可以使用该快捷键直接把光标转到火狐的地址栏。</p>
+<p>6：Ctrl+Tab</p>
+<p>　　Ctrl+Tab可以帮你在不同火狐标签间轻松切换。</p>
+<p>6：Ctrl+Shift+Tab</p>
+<p>　　向上切换标签页</p>
+<p>9：鼠标中键</p>
+<p>　　这不是一个键盘快捷键但是是一个很好的快捷键。指向任何一个链接并按下鼠标中键（即滚轮），然后该页面会在新标签打开。</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://developer-hq.github.io/2023/01/13/%E5%8A%A8%E6%89%8B%E5%AD%A6%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1323,251 +1597,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://developer-hq.github.io/2022/11/08/%E7%BA%BF%E6%80%A7%E7%B3%BB%E7%BB%9F%E7%90%86%E8%AE%BA/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2022/11/08/%E7%BA%BF%E6%80%A7%E7%B3%BB%E7%BB%9F%E7%90%86%E8%AE%BA/" itemprop="url">线性系统理论</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2022-11-08T18:46:09+08:00">
-                2022-11-08
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>第二章P11<br>状态空间模型<br>质量-弹簧-阻尼器（m-k-f）系统<br><img src="/2022/11/08/%E7%BA%BF%E6%80%A7%E7%B3%BB%E7%BB%9F%E7%90%86%E8%AE%BA/2022-11-08-18-47-32.png"></p>
-<p><img src="/2022/11/08/%E7%BA%BF%E6%80%A7%E7%B3%BB%E7%BB%9F%E7%90%86%E8%AE%BA/2022-11-08-18-47-51.png"></p>
-<p>线性系统代表着系统的输入是向量、输出也是向量，线性系统代表着一系列线性变换</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">微分方程为什么可以用来表示线性系统</span><br><span class="line">https://blog.csdn.net/qq_41736609/article/details/99763485</span><br></pre></td></tr></table></figure>
-
-<p>微分方程可以用来表示状态空间</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://developer-hq.github.io/2022/11/07/cmd/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2022/11/07/cmd/" itemprop="url">cmd</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2022-11-07T14:44:42+08:00">
-                2022-11-07
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>执行多条命令用&amp;&amp;连接</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">@echo off</span><br><span class="line">cmd /c start python C:\Users\74420\Desktop\login\run.py</span><br></pre></td></tr></table></figure>
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1619,7 +1648,7 @@
                 <a href="/">
     
               
-                  <span class="site-state-item-count">84</span>
+                  <span class="site-state-item-count">86</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>

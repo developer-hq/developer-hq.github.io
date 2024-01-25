@@ -229,6 +229,342 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://developer-hq.github.io/2023/10/11/ssh%E8%BF%9C%E7%A8%8B%E6%9C%8D%E5%8A%A1%E5%99%A8/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2023/10/11/ssh%E8%BF%9C%E7%A8%8B%E6%9C%8D%E5%8A%A1%E5%99%A8/" itemprop="url">ssh远程服务器</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2023-10-11T20:55:19+08:00">
+                2023-10-11
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="NVIDIA"><a href="#NVIDIA" class="headerlink" title="NVIDIA"></a>NVIDIA</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nvidia-smi -loop 5</span><br></pre></td></tr></table></figure>
+
+<p>隔5秒打印一次</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<h1 id="SSH"><a href="#SSH" class="headerlink" title="SSH"></a>SSH</h1><p>openssh生成公钥私钥</p>
+<p>公钥放到远程文件夹</p>
+<h1 id="常用指令"><a href="#常用指令" class="headerlink" title="常用指令"></a>常用指令</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">conda activate nlp_deploy &amp;&amp; cd HQ/FocalNet/</span><br></pre></td></tr></table></figure>
+
+<h1 id="tmux"><a href="#tmux" class="headerlink" title="tmux"></a>tmux</h1><p>列出对话</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tmux list-sessions</span><br></pre></td></tr></table></figure>
+
+<p>回到对话</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tmux attach-session -t</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tmux attach-session -t your-session-name</span><br></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">tmux new-session -s session-name  # 创建一个新会话并为其指定名称</span><br><span class="line">tmux rename-session -t old-session-name new-session-name  # 重命名会话的名称</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+<p>打开鼠标</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tmux setw -g mouse on</span><br></pre></td></tr></table></figure>
+
+
+
+<p>train-1011</p>
+<p>实验室V100</p>
+<p>tmux</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">train exp3，大的那个focalnet_tiny_lrf_sparsercnn_3x</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">train-base exp2，base那个focalnet_base_lrf device1 lrf效果不好</span><br><span class="line">train-base exp7，base那个focalnet_base_srf device 1 用srf</span><br></pre></td></tr></table></figure>
+
+<p>本地笔记本</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">focalnet_tiny_lrf exp3</span><br></pre></td></tr></table></figure>
+
+<p>实验室3070</p>
+<p>1011晚上</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">focalnet_tiny_srf exp</span><br></pre></td></tr></table></figure>
+
+<p>1012早上</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">focalnet_tiny_srf exp3</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<p>/home/gv1001107/HQ/FocalNet/runs/train/exp2/weights/last.pt</p>
+<p>yolo原始模型</p>
+<p><img src="/2023/10/11/ssh%E8%BF%9C%E7%A8%8B%E6%9C%8D%E5%8A%A1%E5%99%A8/image-20231012145854953.png" alt="image-20231012145854953"></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://developer-hq.github.io/2023/10/09/yolo/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2023/10/09/yolo/" itemprop="url">yolo</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2023-10-09T19:24:17+08:00">
+                2023-10-09
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="环境"><a href="#环境" class="headerlink" title="环境"></a>环境</h1><h3 id="官方项目"><a href="#官方项目" class="headerlink" title="官方项目"></a>官方项目</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone https://github.com/ultralytics/yolov5</span><br></pre></td></tr></table></figure>
+
+<p>用哪个模型就把<code>.pt</code>模型下载下来放到models文件夹</p>
+<p><img src="/2023/10/09/yolo/image-20231009192605348.png" alt="image-20231009192605348"></p>
+<h3 id="video"><a href="#video" class="headerlink" title="video"></a>video</h3><p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1tM411a7it/?spm_id_from=333.999.0.0&amp;vd_source=3d040baeb67aeceb2bba9c7169a67a96">https://www.bilibili.com/video/BV1tM411a7it/?spm_id_from=333.999.0.0&amp;vd_source=3d040baeb67aeceb2bba9c7169a67a96</a></p>
+<h3 id="script"><a href="#script" class="headerlink" title="script"></a>script</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone https://github.com/z1069614715/objectdetection_script/tree/master/yolo</span><br></pre></td></tr></table></figure>
+
+<h3 id="dataset"><a href="#dataset" class="headerlink" title="dataset"></a>dataset</h3><p>type:</p>
+<ul>
+<li>VOC<ul>
+<li>xml2txt.py<ul>
+<li>postfix-&gt; image type, jpg or png</li>
+<li>image, xml, txt path</li>
+<li>run: python xml2txt.py</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>yolo格式直接改这个<ul>
+<li>data.yaml<ul>
+<li>类别数nc</li>
+<li>类别名称names</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="train"><a href="#train" class="headerlink" title="train"></a>train</h3><p>设置参数，快速上手</p>
+<p>weight权重，刚才下载的yolov5n.pt</p>
+<p>cfg配置文件，models里面，对应权重</p>
+<p>data，数据集文件</p>
+<p>hyp，超参数</p>
+<p>epoch</p>
+<p>device，显卡，cpu</p>
+<p>worker，线程，可以填0（慢，但不会报错）</p>
+<p>改完就可以训练了</p>
+<p>训练好的权重可以在runs/train/exp/weights下找到</p>
+<h3 id="validation"><a href="#validation" class="headerlink" title="validation"></a>validation</h3><p>导入训练好的权重（改weight）</p>
+<p>精度：数据集很密集，调iou-thres</p>
+<p>task</p>
+<h1 id="预测"><a href="#预测" class="headerlink" title="预测"></a>预测</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">$ python segment/predict.py --weights yolov5s-seg.pt --source 0                               # webcam</span><br><span class="line">                                                              img.jpg                         # image</span><br><span class="line">                                                              vid.mp4                         # video</span><br><span class="line">                                                              screen                          # screenshot</span><br><span class="line">                                                              path/                           # directory</span><br><span class="line">                                                              list.txt                        # list of images</span><br><span class="line">                                                              list.streams                    # list of streams</span><br><span class="line">                                                              &#x27;path/*.jpg&#x27;                    # glob</span><br><span class="line">                                                              &#x27;https://youtu.be/LNwODJXcvt4&#x27;  # YouTube</span><br><span class="line">                                                              &#x27;rtsp://example.com/media.mp4&#x27;  # RTSP, RTMP, HTTP stream</span><br></pre></td></tr></table></figure>
+
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://developer-hq.github.io/2023/10/08/docker+FocalNet/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1544,320 +1880,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://developer-hq.github.io/2023/06/12/j4125%E5%AE%89%E8%A3%85esxi/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2023/06/12/j4125%E5%AE%89%E8%A3%85esxi/" itemprop="url">j4125安装esxi</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2023-06-12T12:45:20+08:00">
-                2023-06-12
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1y14y1A7at/?spm_id_from=333.788.recommend_more_video.0&amp;vd_source=3d040baeb67aeceb2bba9c7169a67a96">https://www.bilibili.com/video/BV1y14y1A7at/?spm_id_from=333.788.recommend_more_video.0&amp;vd_source=3d040baeb67aeceb2bba9c7169a67a96</a></p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://developer-hq.github.io/2023/06/11/esxi%E5%85%8B%E9%9A%86%E8%BF%81%E7%A7%BB/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2023/06/11/esxi%E5%85%8B%E9%9A%86%E8%BF%81%E7%A7%BB/" itemprop="url">esxi克隆迁移</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2023-06-11T15:04:06+08:00">
-                2023-06-11
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p><a target="_blank" rel="noopener" href="https://www.6hu.cc/archives/118343.html">https://www.6hu.cc/archives/118343.html</a></p>
-<p>因为去年底开端SSD和内存大幅降价，ITGeeker技能奇客就想着给自己的小主机升个级，换个三星1G的980<a target="_blank" rel="noopener" href="https://www.6hu.cc/archives/tag/%E7%A1%AC%E7%9B%98">硬盘</a>，再加了一根32G的金士顿32G内存。</p>
-<h3 id="1-封闭虚拟机，用ovftool-exe导出完整的ova备份。"><a href="#1-封闭虚拟机，用ovftool-exe导出完整的ova备份。" class="headerlink" title="1. 封闭虚拟机，用ovftool.exe导出完整的ova备份。"></a>1. 封闭虚拟机，用ovftool.exe导出完整的ova备份。</h3><p>之前用的250G固态硬盘，装了三个虚拟机，其它两个只需关停后, 在Windows体系用ovftool.exe就可以备份出ova或许ovf文件。</p>
-<blockquote>
-<p>关于要导成ova仍是ovf，ITGeeker技能奇客觉得区别不大吧，ova是单文件，ovf是多文件的方式。</p>
-<p>by itgeeker.net</p>
-</blockquote>
-<p>因为我用的是Esxi 8 体系，VMware官方下载ovftool的时分有这么一个提示：Note: OVF Tool 4.5 for  vSphere 8.0 is here at this location, not in the drop-down menu.  假如你也用的Esxi 8体系，那么直接到下面的地址下载ovftool吧：</p>
-<p>developer.vmware.com/web/tool/4.…</p>
-<p>解紧缩下载好的文件后，用CMD指令进入目录，然后运转：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ovftool.exe vi://root:YOUR PASSWORD@ESXI 8 IP OR DOMAIN/istore F:\ITGeekerBackupFolder\ESXi\BKN5100_ovftool_bk\istore-2023-02-01.ova</span><br></pre></td></tr></table></figure>
-
-<blockquote>
-<p>留意修改你的暗码、主机IP和备份路径</p>
-</blockquote>
-<blockquote>
-<p>备份之前要<strong>封闭虚拟主机的运转</strong>，否则提示无法备份之类的过错提示。</p>
-</blockquote>
-<p>可是，ITGeeker技能奇客碰到的问题是：Esxi 8主机现在是作为主<a target="_blank" rel="noopener" href="https://www.6hu.cc/archives/tag/%E8%B7%AF%E7%94%B1">路由</a>器在运用，假如封闭OpenWRT之后就无法访问Esxi 8 主机了。</p>
-<blockquote>
-<p><strong>主路由虚拟机OpenWrt不能封闭，所以此路不通。</strong></p>
-</blockquote>
-<h2 id="2-运用dd指令，完整克隆esxi-8主机"><a href="#2-运用dd指令，完整克隆esxi-8主机" class="headerlink" title="2. 运用dd指令，完整克隆esxi 8主机"></a>2. 运用dd指令，完整克隆esxi 8主机</h2><p>这个留意听起来很不错的，只需把主机完整的备份位img文件，然后用rufu东西把img写入到新的硬盘就可以啦</p>
-<h5 id="先用指令找出体系硬盘的参数"><a href="#先用指令找出体系硬盘的参数" class="headerlink" title="先用指令找出体系硬盘的参数"></a><strong>先用指令找出体系硬盘的参数</strong></h5><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ls -l /dev/disks/# 然后选择一个后边不跟冒号和数字1，5，6，7等的那个，例如：</span><br><span class="line">t10.NVMe<span class="strong">____</span>LITEON<span class="emphasis">_CA32D8D256<span class="strong">____</span><span class="strong">____</span><span class="strong">____</span><span class="strong">____</span><span class="strong">____</span><span class="strong">____</span>AA50085056032300</span></span><br></pre></td></tr></table></figure>
-
-<h5 id="再运用DD指令备份"><a href="#再运用DD指令备份" class="headerlink" title="再运用DD指令备份"></a>再运用DD指令备份</h5><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">dd if=/dev/disks/t10.NVMe<span class="strong">____</span>LITEON<span class="emphasis">_CA32D8D256<span class="strong">____</span><span class="strong">____</span><span class="strong">____</span><span class="strong">____</span><span class="strong">____</span><span class="strong">____</span>AA50085056032300 of=/vmfs/volumes/datastore1/ESXi8_</span>bkn5100<span class="emphasis">_all.img</span></span><br><span class="line"><span class="emphasis"># 假如忧虑文件太大，可以添加gzip进行紧缩</span></span><br><span class="line"><span class="emphasis">dd if=/dev/disks/t10.NVMe<span class="strong">____</span>LITEON_</span>CA32D8D256<span class="strong">____</span><span class="strong">____</span><span class="strong">____</span><span class="strong">____</span><span class="strong">____</span><span class="strong">____</span>AA50085056032300 | gzip &gt; /vmfs/volumes/datastore1/ESXi8<span class="emphasis">_bkn5100_</span>all.img.gz</span><br></pre></td></tr></table></figure>
-
-<p>事实上，250G的SSD，装置Esxi 8之后，留给datastore的空间只有111G</p>
-<p>​    </p>
-<p><a target="_blank" rel="noopener" href="https://www.6hu.cc/files/2023/02/1677502459-a1ca8b8175438d0.png"><img src="/2023/06/11/esxi%E5%85%8B%E9%9A%86%E8%BF%81%E7%A7%BB/1677502459-a1ca8b8175438d0.png" alt="Esxi 8 更换Nvme硬盘后 如何迁移Esxi主机和虚拟机到新硬盘"></a></p>
-<p>ITGeeker技能奇客在装置了3个虚拟机后，空间只剩55G左右了，再怎样紧缩仍是不够大。</p>
-<blockquote>
-<p><strong>空间不足，抛弃！</strong></p>
-</blockquote>
-<h3 id="运用DiskGenius克隆旧的硬盘到新的三星980硬盘上"><a href="#运用DiskGenius克隆旧的硬盘到新的三星980硬盘上" class="headerlink" title="运用DiskGenius克隆旧的硬盘到新的三星980硬盘上"></a>运用DiskGenius克隆旧的硬盘到新的三星980硬盘上</h3><p>本来ITGeeker技能奇客是想用DiskGenius把硬盘克隆成文件存到电脑，然后再转换到新硬盘，不过DiskGenius的这个功能需求付费才行。</p>
-<p>所以下载了傲梅来备份硬盘，傲梅却是免费开放这个功能，可是试了几回都失败了，也不知道是啥原因。</p>
-<p>DiskGenius把硬盘克隆到另一个硬盘却是免费的，只好拆了我的飞龙峡谷NUC，把新的三星980硬盘装上去，然后把原先的Esxi  8的硬盘插入nvme移动硬盘盒（幸亏我还有一个硬盘盒），因为刚好拆了飞龙峡谷NUC的体系盘，只好用微PE  U盘发动DiskGenius，克隆旧硬盘到新硬盘当中，速度还可以，整个过程花费11分钟不到一点。</p>
-<p>终于克隆成功了，赶忙转到G31的主机开机，接上显示器，Esxi 8发动一切正常，<a target="_blank" rel="noopener" href="https://www.6hu.cc/archives/tag/%E6%B5%8F%E8%A7%88%E5%99%A8">浏览器</a>登录Esxi 8主机，看到虚拟机都不能正常运转了，原因是找不到虚拟机文件了，Esxi 8自己的体系文件到都是正常。</p>
-<h4 id="第一波：处理过错“-尚未在主机-上装备数据存储-”的问题"><a href="#第一波：处理过错“-尚未在主机-上装备数据存储-”的问题" class="headerlink" title="第一波：处理过错“**尚未在主机 上装备数据存储**”的问题"></a>第一波：处理过错“**尚未在主机 上装备数据<a target="_blank" rel="noopener" href="https://www.6hu.cc/archives/tag/%E5%AD%98%E5%82%A8">存储</a>**”的问题</h4><p>处理方案：先运用ssh登录到Esxi 8主机（需先敞开ssh服务）</p>
-<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">esxcfg-volume -l Scanning for VMFS-6 host activity (4096 bytes/HB, 1024 HBs).VMFS UUID/label: 63a1884d-cc084b52-f293-60beb4079214/datastore1Can mount: YesCan resignature: YesExtent name: t10.NVMe<span class="strong">____</span>Samsung<span class="emphasis">_SSD_</span>980<span class="emphasis">_1TB<span class="strong">____</span><span class="strong">____</span><span class="strong">____</span><span class="strong">____</span><span class="strong">____</span>_</span>D9BBA121AS382500:5  range: 0 - 112895 (MB)</span><br><span class="line"><span class="section">#运用esxcfg-volume -M 指令以相同的签名从头挂载VMFS卷（-M 表明持久性，-m 表明非持久性）</span></span><br><span class="line">esxcfg-volume -M 63a1884d-cc084b52-f293-60beb4079214</span><br></pre></td></tr></table></figure>
-
-<p>运用esxcfg-volume -M从头挂载VMFS的UUID即可处理。</p>
-<h4 id="第二波：处理过错“无法扩展-VMFS-数据存储-datastore1-–-无法更新”的问题"><a href="#第二波：处理过错“无法扩展-VMFS-数据存储-datastore1-–-无法更新”的问题" class="headerlink" title="第二波：处理过错“无法扩展 VMFS 数据存储 datastore1 – 无法更新”的问题"></a>第二波：处理过错“<strong>无法扩展 VMFS 数据存储 datastore1 – 无法更新</strong>”的问题</h4><p>硬盘变大了，天然首先想到的是要把添加的空间用起来，所以乎运用Esxi 8的操作界面测验展开现有VMFS空间，可是失败了：“无法扩展 VMFS 数据存储 datastore1 – 无法更新”，再怎样刷新或许从头扫描硬盘都无济于事。</p>
-<p>​    </p>
-<p><a target="_blank" rel="noopener" href="https://www.6hu.cc/files/2023/02/1677502464-d3b157477f2423f.png"><img src="/2023/06/11/esxi%E5%85%8B%E9%9A%86%E8%BF%81%E7%A7%BB/1677502464-d3b157477f2423f.png" alt="Esxi 8 更换Nvme硬盘后 如何迁移Esxi主机和虚拟机到新硬盘"></a></p>
-<p>所以一顿查找，找到了用指令行来处理的办法，相同需求先敞开Esxi 8主机的SSH服务，再用<a target="_blank" rel="noopener" href="https://www.6hu.cc/archives/tag/shell">Shell</a>登录到主机。</p>
-<h5 id="首先，承认一下VMFS分区的存储设备标识符"><a href="#首先，承认一下VMFS分区的存储设备标识符" class="headerlink" title="首先，承认一下VMFS分区的存储设备标识符"></a>首先，承认一下VMFS分区的存储设备标识符</h5><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ls -l /dev/disks/</span><br><span class="line"><span class="section">#一般终究一个就是VMFS分区，你也可以再Esxi 8的存储-硬盘设备-分区图中检查并承认是否正确</span></span><br><span class="line">t10.NVMe<span class="strong">____</span>Samsung<span class="emphasis">_SSD_</span>980<span class="emphasis">_1TB<span class="strong">____</span><span class="strong">____</span><span class="strong">____</span><span class="strong">____</span><span class="strong">____</span>_</span>D9BBA121AS382500:5</span><br></pre></td></tr></table></figure>
-
-<p>我的是第五个分区，后边有冒号和数字5的就是，Esxi 8和之前的Esxi 6和7的盘符有很大区别，之前一般mpx.开头，相似<strong>mpx.vmhba0:C0:T0:L0</strong>这样的，Esxi 8的会更长些。</p>
-<h5 id="然后，用分区东西PARTEDUTIL检查硬盘各分区的开端和完毕扇区"><a href="#然后，用分区东西PARTEDUTIL检查硬盘各分区的开端和完毕扇区" class="headerlink" title="然后，用分区东西PARTEDUTIL检查硬盘各分区的开端和完毕扇区"></a>然后，用分区东西PARTEDUTIL检查硬盘各分区的开端和完毕扇区</h5><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">partedUtil getptbl &quot;/vmfs/devices/disks/t10.NVMe<span class="strong">____</span>Samsung<span class="emphasis">_SSD_</span>980<span class="emphasis">_1TB<span class="strong">____</span><span class="strong">____</span><span class="strong">____</span><span class="strong">____</span><span class="strong">____</span>_</span>D9BBA121AS382500&quot;gpt121601 255 63 19535251681 64 204863 C12A7328F81F11D2BA4B00A0C93EC93B systemPartition 1282 208896 8595455 EBD0A0A2B9E5443387C068B6B72699C7 linuxNative 03 8597504 16984063 EBD0A0A2B9E5443387C068B6B72699C7 linuxNative 04 16986112 268435455 4EB2EA3978554790A79EFAE495E21F8D vmfsl 05 268437504 1953525133 AA31E02A400F11DB9590000C2911D1B8 vmfs 0</span><br></pre></td></tr></table></figure>
-
-<h5 id="然后，获取硬盘终究的扇区"><a href="#然后，获取硬盘终究的扇区" class="headerlink" title="然后，获取硬盘终究的扇区"></a>然后，获取硬盘终究的扇区</h5><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">partedUtil getUsableSectors &quot;/vmfs/devices/disks/t10.NVMe<span class="strong">____</span>Samsung<span class="emphasis">_SSD_</span>980<span class="emphasis">_1TB<span class="strong">____</span><span class="strong">____</span><span class="strong">____</span><span class="strong">____</span><span class="strong">____</span>_</span>D9BBA121AS382500&quot;34 1953525134</span><br></pre></td></tr></table></figure>
-
-<h5 id="指定分区的起始扇区和所需的完毕扇区，调整VMFS分区巨细"><a href="#指定分区的起始扇区和所需的完毕扇区，调整VMFS分区巨细" class="headerlink" title="指定分区的起始扇区和所需的完毕扇区，调整VMFS分区巨细"></a>指定分区的起始扇区和所需的完毕扇区，调整VMFS分区巨细</h5><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">partedUtil resize &quot;/vmfs/devices/disks/Device&quot; 分区数字码 开端扇区 完毕扇区#开端扇区为第5区的开端扇区，完毕扇区为硬盘终究扇区减去1的值，这儿要运转的指令：</span><br><span class="line">partedUtil resize &quot;/vmfs/devices/disks/t10.NVMe<span class="strong">____</span>Samsung<span class="emphasis">_SSD_</span>980<span class="emphasis">_1TB<span class="strong">____</span><span class="strong">____</span><span class="strong">____</span><span class="strong">____</span><span class="strong">____</span>_</span>D9BBA121AS382500&quot; 5 268437504 1953525133</span><br></pre></td></tr></table></figure>
-
-<blockquote>
-<p>假如partedUtil resize指令运转失败：”<strong>在内核无法从头读取 /dev/Device 上的分区表（设备或资源繁忙）。</strong>“请测验从头引导 ESXi 主机再试一遍。</p>
-</blockquote>
-<blockquote>
-<p>ITGeeker技能奇客运转该指令无过错，可是空间没有实践扩展，在分区图检查是扩展了空间，但在实践存储datastore里面实践没有扩张空间，无法运用新的空间，失败！</p>
-</blockquote>
-<h3 id="第三波：处理过错指令行partedUtil无法resize的问题"><a href="#第三波：处理过错指令行partedUtil无法resize的问题" class="headerlink" title="第三波：处理过错指令行partedUtil无法resize的问题"></a>第三波：处理过错指令行partedUtil无法resize的问题</h3><p>假如第二波并未实践扩展空间的话，那么需求采用进一步的措施来处理扩容问题了。</p>
-<blockquote>
-<p>为此，您必须先“刊出”数据存储区上的所有虚拟机，然后“卸载”数据存储区。</p>
-<p>定心此操作不会丢掉任何数据的</p>
-</blockquote>
-<p>​    </p>
-<p><a target="_blank" rel="noopener" href="https://www.6hu.cc/files/2023/02/1677502469-bdccb2a77bfead0.png"><img src="/2023/06/11/esxi%E5%85%8B%E9%9A%86%E8%BF%81%E7%A7%BB/1677502469-bdccb2a77bfead0.png" alt="Esxi 8 更换Nvme硬盘后 如何迁移Esxi主机和虚拟机到新硬盘"></a></p>
-<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">esxcfg-volume --listScanning for VMFS-6 host activity (4096 bytes/HB, 1024 HBs).VMFS UUID/label: 63a19a4d-cc084b52-f293-60beb4079214/datastore1Can mount: YesCan resignature: YesExtent name: t10.NVMe<span class="strong">____</span>Samsung<span class="emphasis">_SSD_</span>980<span class="emphasis">_1TB<span class="strong">____</span><span class="strong">____</span><span class="strong">____</span><span class="strong">____</span><span class="strong">____</span>_</span>D9BBA121AS382500:5  range: 0 - 112895 (MB)# esxcfg-volume --list承认你的硬盘标识符和UUID，然后从头签名您的UUID：esxcfg-volume --resignature 63a19a4d-cc084b52-f293-60beb4079214vmkfstools -V# 接下来运用vmkfstools --growfs &quot;/vmfs/devices/disks/devicename:partition#&quot; &quot;/vmfs/devices/disks/扩张分区，后边输入两遍相同的待扩张分区盘符。例如：vmkfstools --growfs &quot;/vmfs/devices/disks/t10.NVMe<span class="strong">____</span>Samsung<span class="emphasis">_SSD_</span>980<span class="emphasis">_1TB<span class="strong">____</span><span class="strong">____</span><span class="strong">____</span><span class="strong">____</span><span class="strong">____</span>_</span>D9BBA121AS382500:5&quot; &quot;/vmfs/devices/disks/t10.NVMe<span class="strong">____</span>Samsung<span class="emphasis">_SSD_</span>980<span class="emphasis">_1TB<span class="strong">____</span><span class="strong">____</span><span class="strong">____</span><span class="strong">____</span><span class="strong">____</span>_</span>D9BBA121AS382500:5&quot;</span><br></pre></td></tr></table></figure>
-
-<p>至此，我的Esxi 8主机一切康复正常。</p>
-<h3 id="注：未接显示器引起的另一起血案"><a href="#注：未接显示器引起的另一起血案" class="headerlink" title="注：未接显示器引起的另一起血案"></a><strong>注：未接显示器引起的另一起血案</strong></h3><p>不知你是否看过我之前一遍关于没接显示器无法发动华硕主板的文章：折腾了一周的硬盘Raid方案 主机始结尾不亮故障分析 原来是华硕主板的显卡Bug</p>
-<p>这次相同发生在倍控G31  N5100的小主机上了，因为把它作为软路由，所以就放在弱电箱周围，天然无法接显示器。所以我测试的时分拿到电脑边，接上显示器，每次都正常，只需一放到弱电箱那儿不接显示器，始终无法找到Esxi 8主机，OpenWRT虚拟机也无法自动发动，折腾了N次终究才想到可能是没接显示的原因。</p>
-<p>所以找到倍控客服，客服让加工程师的微信，果不然仍是那句：“扣电池试试吧”。哎，当工程师仍是挺简单的，出问题了，扣主板电池吧，之前碰到无法开机，也是这么一句。</p>
-<p>这回还问了我装了啥体系，回答Esxi 8，你装Esxi 7试试吧，我叻个去</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1909,7 +1931,7 @@
                 <a href="/">
     
               
-                  <span class="site-state-item-count">84</span>
+                  <span class="site-state-item-count">86</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
