@@ -229,6 +229,153 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://developer-hq.github.io/2023/06/14/ESXI6-7%E8%9E%83%E8%9F%B9%E7%BD%91%E5%8D%A18111/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2023/06/14/ESXI6-7%E8%9E%83%E8%9F%B9%E7%BD%91%E5%8D%A18111/" itemprop="url">ESXI6.7螃蟹网卡8111</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2023-06-14T23:37:25+08:00">
+                2023-06-14
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="网卡"><a href="#网卡" class="headerlink" title="网卡"></a>网卡</h1><p>==螃蟹卡只有6.7有支持==</p>
+<p><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/b7be4ae3c76e">https://www.jianshu.com/p/b7be4ae3c76e</a></p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/Lakers_66/article/details/125454642">https://blog.csdn.net/Lakers_66/article/details/125454642</a></p>
+<p>救命了：</p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/lmlinli/article/details/126825648">https://blog.csdn.net/lmlinli/article/details/126825648</a></p>
+<h1 id="直通sata"><a href="#直通sata" class="headerlink" title="直通sata"></a>直通sata</h1><ul>
+<li><p>ssh到esxi</p>
+</li>
+<li><p>输入vi /etc/vmware/passthru.map</p>
+</li>
+<li><p>添加以下代码，注意对齐，如图：</p>
+<p>#Intel Corporation Device a382</p>
+<p>8086 a382 d3d0   fasle</p>
+</li>
+</ul>
+<img src="/2023/06/14/ESXI6-7%E8%9E%83%E8%9F%B9%E7%BD%91%E5%8D%A18111/image-20230615113605605.png" alt="image-20230615113605605" style="zoom:80%;">
+
+
+
+<h1 id="ASM1166直通"><a href="#ASM1166直通" class="headerlink" title="ASM1166直通"></a>ASM1166直通</h1><p>需要在</p>
+<ul>
+<li>/etc/vmware/passthru.map</li>
+</ul>
+<p>加上asm的控制器</p>
+<p><img src="/2023/06/14/ESXI6-7%E8%9E%83%E8%9F%B9%E7%BD%91%E5%8D%A18111/image-20230618232249464.png" alt="image-20230618232249464"></p>
+<h1 id="esxi读进来u盘"><a href="#esxi读进来u盘" class="headerlink" title="esxi读进来u盘"></a>esxi读进来u盘</h1><p><a target="_blank" rel="noopener" href="https://wp.gxnas.com/8228.html">https://wp.gxnas.com/8228.html</a></p>
+<h1 id="ESXI使用系统U盘做存储"><a href="#ESXI使用系统U盘做存储" class="headerlink" title="ESXI使用系统U盘做存储"></a>ESXI使用系统U盘做存储</h1><p> a.打开esxi ssh并root登录<br> b.进入/vmfs/devices/disks目录。shell:cd /vmfs/devices/disks<br>  c.列出磁盘 shell:ls<br>    6.0通常是mpx.vmhba32:C0:T0:L0，但6.5不不同，可能是以naa开始。通常规律是有一个前缀想同，后面带有：1,5,6,7,8类似的:数字很可能就是<br>    esxi的系统盘（不带”:数字”的那个）。本文以mpx.vmhba32:C0:T0:L0为例<br>    还可通过partedUtil getptbl mpx.vmhba32:C0:T0:L0 查看分区信息以确认设备<br>   d.查看分区<br>     shell:partedUtil getptbl mpx.vmhba32:C0:T0:L0<br>     显示输出：<br>     gpt<br>   2088 255 63 <strong>33554432</strong><br>   1 64 8191 C12A7328F81F11D2BA4B00A0C93EC93B systemPartition 128<br>   5 8224 520191 EBD0A0A2B9E5443387C068B6B72699C7 linuxNative 0<br>   6 520224 1032191 EBD0A0A2B9E5443387C068B6B72699C7 linuxNative 0<br>   7 1032224 1257471 9D27538040AD11DBBF97000C2911D1B8 vmkDiagnostic 0<br>   8 1257504 1843199 EBD0A0A2B9E5443387C068B6B72699C7 linuxNative 0<br>   9 1843200 7086079 9D27538040AD11DBBF97000C2911D1B8 vmkDiagnostic 0<br> c.获取上文中红色部分值（红色部分每个人是不同的），将其-34 (减34) 替换如下shell中的红色的数字（复制出shell部分到写字板，然后将上面的数字减去34以后的值，复制到esxi shell中执行）<br>     为什么是34，我也不清楚，我是试出来的最小值，还有个-48出现的也比较频繁。网上大都说是-2048.这都没问题。<br> partedUtil setptbl mpx.vmhba32:C0:T0:L0 gpt <br> “1 64 8191 C12A7328F81F11D2BA4B00A0C93EC93B 128” <br> “5 8224 520191 EBD0A0A2B9E5443387C068B6B72699C7 0” <br> “6 520224 1032191 EBD0A0A2B9E5443387C068B6B72699C7 0” <br> “7 1032224 1257471 9D27538040AD11DBBF97000C2911D1B8 0” <br> “8 1257504 1843199 EBD0A0A2B9E5443387C068B6B72699C7 0” <br> “9 1843200 7086079 9D27538040AD11DBBF97000C2911D1B8 0” <br> “2 7086080 15472639 EBD0A0A2B9E5443387C068B6B72699C7 0” <br> “3 15472640 <strong>33554398</strong> AA31E02A400F11DB9590000C2911D1B8 0”<br> d.创建存储：<br> shell:vmkfstools -C vmfs5 -b 1m -S UsbDatastore mpx.vmhba32:C0:T0:L0:3<br> 完成后即可在client里看到一个UsbDatastore的存储了，可在上面建虚拟机。<br> 4.总结<br>     u盘由于速度原因，建议不要其建立大的虚拟机文件，否则经常会导致存储丢失（也可能是我u盘有点问题）。比合适的是做黑裙虚拟机，通过iso启动，当然像ros，openwrt这类小的系统也是没问题的，总之就是减少u盘操作。</p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/RGBBB/article/details/125556676">https://blog.csdn.net/RGBBB/article/details/125556676</a></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://developer-hq.github.io/2023/06/12/j4125%E5%AE%89%E8%A3%85esxi/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1685,134 +1832,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://developer-hq.github.io/2023/04/29/%E5%9C%A8%E8%B5%84%E6%BA%90%E7%AE%A1%E7%90%86%E5%99%A8%E4%B8%AD%E6%89%93%E5%BC%80%E5%BD%93%E5%89%8D%E8%B7%AF%E5%BE%84/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2023/04/29/%E5%9C%A8%E8%B5%84%E6%BA%90%E7%AE%A1%E7%90%86%E5%99%A8%E4%B8%AD%E6%89%93%E5%BC%80%E5%BD%93%E5%89%8D%E8%B7%AF%E5%BE%84/" itemprop="url">CMD在资源管理器中打开当前路径</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2023-04-29T23:40:10+08:00">
-                2023-04-29
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="【Windows-命令行】CMD-在资源管理器中打开当前路径"><a href="#【Windows-命令行】CMD-在资源管理器中打开当前路径" class="headerlink" title="【Windows 命令行】CMD 在资源管理器中打开当前路径"></a>【Windows 命令行】CMD 在资源管理器中打开当前路径</h1><p>输出：<code>explorer %cd%</code>回车</p>
-<hr>
-<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/u014636245/article/details/89889671">https://blog.csdn.net/u014636245/article/details/89889671</a></p>
-<p>CMD中利用资源管理器打开当前路径</p>
-<p>在cmd中需要查看文件夹对应资源时，手动打开十分不便，利用explorer命令可以便捷的打开对应的路径：</p>
-<p>输出：explorer %cd%回车<br>在这里插入图片描述<br>效果：<br>在这里插入图片描述<br>解释</p>
-<p>%cd%为current directory,系统环境变量，表示当前目录位置，可以输出确认：<br>在这里插入图片描述<br>exploreor是资源管理器的命令，可以接受path路径作为输入。</p>
-<p>ref:<br><a target="_blank" rel="noopener" href="https://wenwen.sogou.com/z/q825809466.htm">https://wenwen.sogou.com/z/q825809466.htm</a><br><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/30219402">https://zhuanlan.zhihu.com/p/30219402</a><br>explorer params:<br><a target="_blank" rel="noopener" href="https://blog.csdn.net/yunyu5120/article/details/6024506">https://blog.csdn.net/yunyu5120/article/details/6024506</a><br><a target="_blank" rel="noopener" href="https://blog.csdn.net/zhuzhuyule/article/details/51063148">https://blog.csdn.net/zhuzhuyule/article/details/51063148</a></p>
-<p>在这里插入图片描述</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1864,7 +1883,7 @@
                 <a href="/">
     
               
-                  <span class="site-state-item-count">86</span>
+                  <span class="site-state-item-count">87</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>

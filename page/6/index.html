@@ -229,6 +229,164 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://developer-hq.github.io/2023/03/27/LaTex/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2023/03/27/LaTex/" itemprop="url">LaTex</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2023-03-27T18:39:42+08:00">
+                2023-03-27
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="LaTex"><a href="#LaTex" class="headerlink" title="LaTex"></a>LaTex</h1><h4 id="入门教程："><a href="#入门教程：" class="headerlink" title="入门教程："></a>入门教程：</h4><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/pipisorry/article/details/54571521">https://blog.csdn.net/pipisorry/article/details/54571521</a></p>
+<h4 id="常用公式："><a href="#常用公式：" class="headerlink" title="常用公式："></a>常用公式：</h4><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_45277161/article/details/117909378">https://blog.csdn.net/weixin_45277161/article/details/117909378</a></p>
+<h4 id="点乘：a-cdot-b"><a href="#点乘：a-cdot-b" class="headerlink" title="点乘：a \cdot b"></a>点乘：a \cdot b</h4><p>$a \cdot b$</p>
+<h4 id="叉乘：a-times-b"><a href="#叉乘：a-times-b" class="headerlink" title="叉乘：a \times b"></a>叉乘：a \times b</h4><p>$a \times b$</p>
+<h4 id="除以：a-div-b"><a href="#除以：a-div-b" class="headerlink" title="除以：a \div b"></a>除以：a \div b</h4><p>$a \div b$</p>
+<hr>
+<h1 id="矩阵、求和、乘法例子"><a href="#矩阵、求和、乘法例子" class="headerlink" title="矩阵、求和、乘法例子"></a>矩阵、求和、乘法例子</h1><ul>
+<li>原始数据$32\times32\times3$，为简便，只取一个通道$32\times32\times1$</li>
+<li>取5x5的部分进行卷积</li>
+<li>$filter$权重$<br>W_{3\times3}=<br>\begin{bmatrix}<br> 0 &amp; 1 &amp; 2 \<br> 2 &amp; 2 &amp; 0 \<br> 0 &amp; 1 &amp; 2<br>\end{bmatrix}<br>$</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">W_&#123;3\times3&#125;=</span><br><span class="line">\begin&#123;bmatrix&#125;</span><br><span class="line"> 0 &amp; 1 &amp; 2 \\</span><br><span class="line"> 2 &amp; 2 &amp; 0 \\</span><br><span class="line"> 0 &amp; 1 &amp; 2</span><br><span class="line">\end&#123;bmatrix&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<ul>
+<li>对特征矩阵中的元素<br>$Z_{i,j}=\sum_{i=1}^3 \sum_{j=1}^3 X_{i,j} \cdot W_{i,j}$</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$Z_&#123;i,j&#125;=\sum_&#123;i=1&#125;^3 \sum_&#123;j=1&#125;^3 X_&#123;i,j&#125; \cdot W_&#123;i,j&#125;$</span><br></pre></td></tr></table></figure>
+
+
+
+<ul>
+<li>计算得到卷积后特征矩阵$<br>Z_{3\times3}=<br>\begin{bmatrix}<br> 12 &amp; 12 &amp; 17 \<br> 10 &amp; 17 &amp; 19 \<br> 9 &amp; 6 &amp; 14<br>\end{bmatrix}<br>$</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">$</span><br><span class="line">Z_&#123;3\times3&#125;=</span><br><span class="line">\begin&#123;bmatrix&#125;</span><br><span class="line"> 12 &amp; 12 &amp; 17 \\</span><br><span class="line"> 10 &amp; 17 &amp; 19 \\</span><br><span class="line"> 9 &amp; 6 &amp; 14</span><br><span class="line">\end&#123;bmatrix&#125;</span><br><span class="line">$</span><br></pre></td></tr></table></figure>
+
+
+
+<h1 id="安装配置"><a href="#安装配置" class="headerlink" title="安装配置"></a>安装配置</h1><p>2023-11</p>
+<p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/166523064">https://zhuanlan.zhihu.com/p/166523064</a></p>
+<p>官网下载，exe文件自己下载就行，然后后面能跳出来一个镜像选择阿里云</p>
+<p>vscode安装插件</p>
+<p>修改配置json</p>
+<p><strong>注 11 ：</strong>为了更方便进行编译，可对其设置快捷键，设置快捷键步骤如下：</p>
+<p><img src="/2023/03/27/LaTex/v2-f9c5c82990dbeac2895ec2593bbff1c5_720w.webp" alt="img"></p>
+<h3 id="快捷键"><a href="#快捷键" class="headerlink" title="快捷键"></a>快捷键</h3><p>==将快捷键设置为<strong>Ctrl+Alt+L</strong>==</p>
+<p><strong>b.</strong> 快捷键</p>
+<p>选中 tex 文件中任意的代码，然后按<strong>Ctrl+Alt+V</strong>，出现编译好的 pdf 页面。该快捷键为默认设置。若您想要更改，可以根据上文进行配置。</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://developer-hq.github.io/2023/03/27/Docker%E5%AE%89%E8%A3%85mysql/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1177,8 +1335,8 @@
           
             <h1 id="Git"><a href="#Git" class="headerlink" title="Git"></a>Git</h1><h2 id="git-init"><a href="#git-init" class="headerlink" title="git init"></a>git init</h2><p>初始化本地仓库</p>
 <h2 id="基本配置"><a href="#基本配置" class="headerlink" title="基本配置"></a>基本配置</h2><p>git config –global user.name “hq”</p>
-<p>git config –global user.email “<a href="mailto:&#x37;&#x34;&#x34;&#50;&#48;&#52;&#x35;&#x34;&#x31;&#x40;&#113;&#113;&#x2e;&#99;&#x6f;&#x6d;">&#x37;&#x34;&#x34;&#50;&#48;&#52;&#x35;&#x34;&#x31;&#x40;&#113;&#113;&#x2e;&#99;&#x6f;&#x6d;</a>“</p>
-<p>ssh-keygen -t <a target="_blank" rel="noopener" href="https://so.csdn.net/so/search?q=rsa&spm=1001.2101.3001.7020">rsa</a> -C “<a href="mailto:&#x37;&#x34;&#52;&#50;&#48;&#52;&#x35;&#x34;&#49;&#64;&#113;&#113;&#x2e;&#x63;&#111;&#x6d;">&#x37;&#x34;&#52;&#50;&#48;&#52;&#x35;&#x34;&#49;&#64;&#113;&#113;&#x2e;&#x63;&#111;&#x6d;</a>“</p>
+<p>git config –global user.email “<a href="mailto:&#55;&#x34;&#52;&#x32;&#x30;&#52;&#x35;&#52;&#x31;&#x40;&#113;&#x71;&#x2e;&#99;&#x6f;&#x6d;">&#55;&#x34;&#52;&#x32;&#x30;&#52;&#x35;&#52;&#x31;&#x40;&#113;&#x71;&#x2e;&#99;&#x6f;&#x6d;</a>“</p>
+<p>ssh-keygen -t <a target="_blank" rel="noopener" href="https://so.csdn.net/so/search?q=rsa&spm=1001.2101.3001.7020">rsa</a> -C “<a href="mailto:&#55;&#x34;&#52;&#50;&#48;&#52;&#53;&#52;&#49;&#x40;&#113;&#113;&#46;&#99;&#x6f;&#x6d;">&#55;&#x34;&#52;&#50;&#48;&#52;&#53;&#52;&#49;&#x40;&#113;&#113;&#46;&#99;&#x6f;&#x6d;</a>“</p>
 <p>然后打开C:\Users\HQ \ .ssh 里面的id_rsa.pub，复制到</p>
 <p><a target="_blank" rel="noopener" href="https://github.com/settings/keys">https://github.com/settings/keys</a></p>
 <p>（登录github，然点头像，setting，然后左边SSH and GPG keys）</p>
@@ -1192,7 +1350,7 @@
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git remote rm name  # 删除远程仓库</span><br><span class="line">git remote rename old_name new_name  # 修改仓库名</span><br></pre></td></tr></table></figure>
 
 <p>在github上创建仓库，复制仓库的ssh地址</p>
-<p>git remote add origin <a href="mailto:&#x67;&#x69;&#116;&#x40;&#103;&#x69;&#116;&#104;&#117;&#98;&#x2e;&#x63;&#x6f;&#x6d;">&#x67;&#x69;&#116;&#x40;&#103;&#x69;&#116;&#104;&#117;&#98;&#x2e;&#x63;&#x6f;&#x6d;</a>:CHINA-N01/Document.git</p>
+<p>git remote add origin <a href="mailto:&#x67;&#105;&#x74;&#x40;&#103;&#105;&#116;&#x68;&#117;&#x62;&#x2e;&#99;&#x6f;&#x6d;">&#x67;&#105;&#x74;&#x40;&#103;&#105;&#116;&#x68;&#117;&#x62;&#x2e;&#99;&#x6f;&#x6d;</a>:CHINA-N01/Document.git</p>
 <h2 id="git-add"><a href="#git-add" class="headerlink" title="git add"></a>git add</h2><h2 id="git-commit-m-‘本次提交的说明’"><a href="#git-commit-m-‘本次提交的说明’" class="headerlink" title="git commit -m ‘本次提交的说明’"></a>git commit -m ‘本次提交的说明’</h2><h2 id="git-push"><a href="#git-push" class="headerlink" title="git push"></a>git push</h2><p>git push origin与git push -u origin master的区别</p>
 <p>上面命令表示，将当前分支推送到origin主机的对应分支。 </p>
 <p>如果当前分支只有一个追踪分支，那么<a target="_blank" rel="noopener" href="https://so.csdn.net/so/search?q=%E4%B8%BB%E6%9C%BA%E5%90%8D&spm=1001.2101.3001.7020">主机名</a>都可以省略。 </p>
@@ -1509,140 +1667,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://developer-hq.github.io/2023/01/25/word%E5%AE%8F%E8%AE%BE%E7%BD%AE/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2023/01/25/word%E5%AE%8F%E8%AE%BE%E7%BD%AE/" itemprop="url">word宏设置</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2023-01-25T23:39:42+08:00">
-                2023-01-25
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="normal-dotm位置："><a href="#normal-dotm位置：" class="headerlink" title="normal.dotm位置："></a>normal.dotm位置：</h1><p>C:\Users\74420\AppData\Roaming\Microsoft\Templates</p>
-<p>C:\Users \ {username} \ AppData\Roaming\Microsoft\Templates</p>
-<h1 id="快捷键设置"><a href="#快捷键设置" class="headerlink" title="快捷键设置"></a>快捷键设置</h1><p><img src="/2023/01/25/word%E5%AE%8F%E8%AE%BE%E7%BD%AE/image-20230125233705531.png" alt="image-20230125233705531"></p>
-<p>zotero引用：ctrl alt z</p>
-<p>插入引用的参考文献表：ctrl alt a</p>
-<h2 id="如何给word中的zotero插件添加快捷键"><a href="#如何给word中的zotero插件添加快捷键" class="headerlink" title="如何给word中的zotero插件添加快捷键"></a>如何给word中的zotero插件添加快捷键</h2><p><a target="_blank" rel="noopener" href="http://www.360doc.com/content/22/1121/17/73176036_1056951157.shtml">http://www.360doc.com/content/22/1121/17/73176036_1056951157.shtml</a></p>
-<p>利用word自带的快捷键设置功能：</p>
-<p>主要是为添加文献、添加笔记、添加参考目录、刷新和更改参考样式等。</p>
-<p>解决每次添加文献需要重复用鼠标点击添加文献按钮的操作用快捷键代替；</p>
-<p>步骤一；关闭所有的打开word文档，在Word中点击依次点击“文件”-“选项”-“自定义功能区”-键盘快捷方式后面的“自定义”。</p>
-<p>步骤二：在“类别”下面找到“宏”，在右侧找到需要添加快捷键的zotero命令，有如下命令可以选择。</p>
-<p>此处以“ZoteroAddEditionCitation”为例，,再点击“请按新快捷键”下面的空白框。然后在键盘上按下需要设置的键盘，如Alt+M（指同时按下Alt和M键），然后点击“指定”</p>
-<p>注意所设定快捷键为word软件内的快捷键，可以与全局与快捷键冲突，但是不要与word中其他的操作快捷键冲突。</p>
-<p>本文为window操作系统的操作：</p>
-<p><img src="/2023/01/25/word%E5%AE%8F%E8%AE%BE%E7%BD%AE/image-20230408144135330.png" alt="image-20230408144135330"></p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1694,7 +1718,7 @@
                 <a href="/">
     
               
-                  <span class="site-state-item-count">86</span>
+                  <span class="site-state-item-count">87</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>

@@ -229,6 +229,194 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://developer-hq.github.io/2024/01/31/%E7%BB%84%E4%BC%9A2024-2-1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2024/01/31/%E7%BB%84%E4%BC%9A2024-2-1/" itemprop="url">组会2024.2.1</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2024-01-31T11:05:41+08:00">
+                2024-01-31
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="目前进展"><a href="#目前进展" class="headerlink" title="目前进展"></a>目前进展</h1><ul>
+<li>官方视频</li>
+<li>官方文档</li>
+<li>ue教程<ul>
+<li>脚本编辑</li>
+<li>火焰效果蓝图</li>
+</ul>
+</li>
+</ul>
+<h1 id="官方视频"><a href="#官方视频" class="headerlink" title="官方视频"></a>官方视频</h1><p><a target="_blank" rel="noopener" href="https://www.unrealengine.com/zh-CN/blog/webinar-visualizing-data-in-digital-twins-with-unreal-engine">https://www.unrealengine.com/zh-CN/blog/webinar-visualizing-data-in-digital-twins-with-unreal-engine</a></p>
+<p>WSP插件，包含：</p>
+<ul>
+<li>一个使用传感器收集数据的实体装置</li>
+<li>3D副本</li>
+</ul>
+<p>粒子系统——Nigara</p>
+<p>扫描导入模型</p>
+<p>模拟—云服务</p>
+<p>显示的窗口使用了UE web应用，可以直接连服务器后端</p>
+<p>视频里面也进行了安装部署，但是也是需要这个ADT的插件</p>
+<h1 id="官方文档"><a href="#官方文档" class="headerlink" title="官方文档"></a>官方文档</h1><p><a target="_blank" rel="noopener" href="https://github.com/Azure-Samples/azure-digital-twins-unreal-integration">https://github.com/Azure-Samples/azure-digital-twins-unreal-integration</a></p>
+<p><img src="/2024/01/31/%E7%BB%84%E4%BC%9A2024-2-1/image-20240131114146369.png" alt="image-20240131114146369"></p>
+<h2 id="安装说明"><a href="#安装说明" class="headerlink" title="安装说明"></a>安装说明</h2><p><img src="/2024/01/31/%E7%BB%84%E4%BC%9A2024-2-1/image-20240201003148381.png" alt="image-20240201003148381"></p>
+<p>github上给了下载链接，下下来就是石老师给的那个两个包</p>
+<h3 id="部署说明"><a href="#部署说明" class="headerlink" title="部署说明"></a>部署说明</h3><p><img src="/2024/01/31/%E7%BB%84%E4%BC%9A2024-2-1/image-20240201003415538.png" alt="image-20240201003415538"></p>
+<p>要把ADTLink安装到引擎</p>
+<p><img src="/2024/01/31/%E7%BB%84%E4%BC%9A2024-2-1/image-20240201003534780.png" alt="image-20240201003534780"></p>
+<p>应该是必须要ADT插件才能用他这个项目</p>
+<h3 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h3><ul>
+<li><p>ADT插件已经下架</p>
+</li>
+<li><p>尝试打包整个sam文件夹，但是好像也不太行</p>
+</li>
+</ul>
+<h1 id="UE教程"><a href="#UE教程" class="headerlink" title="UE教程"></a>UE教程</h1><h2 id="脚本"><a href="#脚本" class="headerlink" title="脚本"></a>脚本</h2><h3 id="构造脚本"><a href="#构造脚本" class="headerlink" title="构造脚本"></a>构造脚本</h3><p>构造函数，创建这个类的时候执行的函数</p>
+<p>把构造脚本放到场景里来就会执行</p>
+<p>通过构造脚本添加栅栏</p>
+<p><img src="/2024/01/31/%E7%BB%84%E4%BC%9A2024-2-1/image-20240201132749179.png" alt="image-20240201132749179"></p>
+<p><img src="/2024/01/31/%E7%BB%84%E4%BC%9A2024-2-1/image-20240201132801536.png" alt="image-20240201132801536"></p>
+<p><img src="/2024/01/31/%E7%BB%84%E4%BC%9A2024-2-1/image-20240201132841910.png" alt="image-20240201132841910"></p>
+<p>添加到场景</p>
+<p>通过代码动态添加，比如一堆栅栏</p>
+<h3 id="for循环"><a href="#for循环" class="headerlink" title="for循环"></a>for循环</h3><p><img src="/2024/01/31/%E7%BB%84%E4%BC%9A2024-2-1/image-20240201133229690.png" alt="image-20240201133229690"></p>
+<p>打印字符串</p>
+<p>——没找着输出</p>
+<p><strong>打印多个栅栏</strong></p>
+<p><img src="/2024/01/31/%E7%BB%84%E4%BC%9A2024-2-1/image-20240201135032308.png" alt="image-20240201135032308"></p>
+<p>for loop循环</p>
+<p>随机单位向量</p>
+<p>随机float处理坐标</p>
+<p>生成网格体</p>
+<p>设置网格体</p>
+<p>设置物理效果</p>
+<p><img src="/2024/01/31/%E7%BB%84%E4%BC%9A2024-2-1/image-20240201135141379.png" alt="image-20240201135141379"></p>
+<p><strong>数组</strong></p>
+<p><img src="/2024/01/31/%E7%BB%84%E4%BC%9A2024-2-1/image-20240201135754815.png" alt="image-20240201135754815"></p>
+<p>变量-组件-创建变量，数据类型选静态网格体</p>
+<p>细节-变量-变量类型，修改为数组</p>
+<p>编译</p>
+<p>默认值-添加</p>
+<p><strong>生成</strong></p>
+<p>把数组fences拖进来</p>
+<p>随机产生一个整数作为索引</p>
+<p>用get获取数组中某个元素</p>
+<p>把元素作为set static mesh的new mesh的输入</p>
+<p>生成随机数</p>
+<p><img src="/2024/01/31/%E7%BB%84%E4%BC%9A2024-2-1/image-20240201140137082.png" alt="image-20240201140137082"></p>
+<p><img src="/2024/01/31/%E7%BB%84%E4%BC%9A2024-2-1/image-20240201140128118.png" alt="image-20240201140128118"></p>
+<p><img src="/2024/01/31/%E7%BB%84%E4%BC%9A2024-2-1/image-20240201140114737.png" alt="image-20240201140114737"></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://developer-hq.github.io/2024/01/25/%E7%BB%84%E4%BC%9A24.1.25/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -424,6 +612,7 @@
 <li>学习使用蓝图</li>
 <li>学习通信接口</li>
 </ul>
+<p><img src="/2024/01/25/%E7%BB%84%E4%BC%9A24.1.25/image-20240313175035173.png" alt="image-20240313175035173"></p>
 
           
         
@@ -1489,254 +1678,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://developer-hq.github.io/2023/10/25/Screeps/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2023/10/25/Screeps/" itemprop="url">Screeps</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2023-10-25T20:17:07+08:00">
-                2023-10-25
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="教程"><a href="#教程" class="headerlink" title="教程"></a>教程</h1><h3 id="1-basic"><a href="#1-basic" class="headerlink" title="1.basic"></a>1.basic</h3><p>获取creep</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Game.spawns[&#x27;Spawn1&#x27;].spawnCreep( [WORK, CARRY, MOVE], &#x27;Harvester1&#x27; );</span><br></pre></td></tr></table></figure>
-
-<p>采矿</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">module.exports.loop = function () &#123;</span><br><span class="line">    var creep = Game.creeps[&#x27;Harvester1&#x27;];</span><br><span class="line">    var sources = creep.room.find(FIND_SOURCES);</span><br><span class="line">    if(creep.harvest(sources[0]) == ERR_NOT_IN_RANGE) &#123;</span><br><span class="line">        creep.moveTo(sources[0]);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>多个creep</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">module.exports.loop = function () &#123;</span><br><span class="line">    for(var name in Game.creeps) &#123;</span><br><span class="line">        var creep = Game.creeps[name];</span><br><span class="line"></span><br><span class="line">        if(creep.store.getFreeCapacity() &gt; 0) &#123;</span><br><span class="line">            var sources = creep.room.find(FIND_SOURCES);</span><br><span class="line">            if(creep.harvest(sources[0]) == ERR_NOT_IN_RANGE) &#123;</span><br><span class="line">                creep.moveTo(sources[0]);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        else &#123;</span><br><span class="line">            if(creep.transfer(Game.spawns[&#x27;Spawn1&#x27;], RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) &#123;</span><br><span class="line">                creep.moveTo(Game.spawns[&#x27;Spawn1&#x27;]);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>创建模块role.harvester</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">var roleHarvester = &#123;</span><br><span class="line"></span><br><span class="line">    /** @param &#123;Creep&#125; creep **/</span><br><span class="line">    run: function(creep) &#123;</span><br><span class="line">	    if(creep.store.getFreeCapacity() &gt; 0) &#123;</span><br><span class="line">            var sources = creep.room.find(FIND_SOURCES);</span><br><span class="line">            if(creep.harvest(sources[0]) == ERR_NOT_IN_RANGE) &#123;</span><br><span class="line">                creep.moveTo(sources[0]);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        else &#123;</span><br><span class="line">            if(creep.transfer(Game.spawns[&#x27;Spawn1&#x27;], RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) &#123;</span><br><span class="line">                creep.moveTo(Game.spawns[&#x27;Spawn1&#x27;]);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">module.exports = roleHarvester;</span><br></pre></td></tr></table></figure>
-
-<p>主函数调用</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">var roleHarvester = require(&#x27;role.harvester&#x27;);</span><br><span class="line"></span><br><span class="line">module.exports.loop = function () &#123;</span><br><span class="line"></span><br><span class="line">    for(var name in Game.creeps) &#123;</span><br><span class="line">        var creep = Game.creeps[name];</span><br><span class="line">        roleHarvester.run(creep);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
-<h3 id="2-upgrading-controller"><a href="#2-upgrading-controller" class="headerlink" title="2.upgrading controller"></a>2.upgrading controller</h3><p>升级控制器</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Game.spawns[&#x27;Spawn1&#x27;].spawnCreep( [WORK, CARRY, MOVE], &#x27;Upgrader1&#x27; );</span><br></pre></td></tr></table></figure>
-
-<p>把role写到内存里</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Game.creeps[&#x27;Harvester1&#x27;].memory.role = &#x27;harvester&#x27;; </span><br><span class="line">Game.creeps[&#x27;Upgrader1&#x27;].memory.role = &#x27;upgrader&#x27;;</span><br></pre></td></tr></table></figure>
-
-<p>role.upgrader</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">var roleUpgrader = &#123;</span><br><span class="line"></span><br><span class="line">    /** @param &#123;Creep&#125; creep **/</span><br><span class="line">    run: function(creep) &#123;</span><br><span class="line">	    if(creep.store[RESOURCE_ENERGY] == 0) &#123;</span><br><span class="line">            var sources = creep.room.find(FIND_SOURCES);</span><br><span class="line">            if(creep.harvest(sources[0]) == ERR_NOT_IN_RANGE) &#123;</span><br><span class="line">                creep.moveTo(sources[0]);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        else &#123;</span><br><span class="line">            if(creep.upgradeController(creep.room.controller) == ERR_NOT_IN_RANGE) &#123;</span><br><span class="line">                creep.moveTo(creep.room.controller);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">module.exports = roleUpgrader;</span><br></pre></td></tr></table></figure>
-
-<p>修改main，让upgrader上线</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">var roleHarvester = require(&#x27;role.harvester&#x27;);</span><br><span class="line">var roleUpgrader = require(&#x27;role.upgrader&#x27;);</span><br><span class="line"></span><br><span class="line">module.exports.loop = function () &#123;</span><br><span class="line"></span><br><span class="line">    for(var name in Game.creeps) &#123;</span><br><span class="line">        var creep = Game.creeps[name];</span><br><span class="line">        if(creep.memory.role == &#x27;harvester&#x27;) &#123;</span><br><span class="line">            roleHarvester.run(creep);</span><br><span class="line">        &#125;</span><br><span class="line">        if(creep.memory.role == &#x27;upgrader&#x27;) &#123;</span><br><span class="line">            roleUpgrader.run(creep);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>如此就升级了controller</p>
-<p>重要提示： 如果您没有在 20,000 个游戏时间内升级控制器，它就会降低一级。达到 0 级时，您将失去对房间的控制，其他玩家将可以自由占领房间。确保至少有一个小兵定期执行升级控制器功能。</p>
-<h3 id="3-建东西"><a href="#3-建东西" class="headerlink" title="3.建东西"></a>3.建东西</h3><p>控制器升级后可以使用一些新结构：城墙、城垛和延伸部分。我们将在下一节教程中讨论城墙和城垛，现在让我们来谈谈扩展部分。要建造更大的蠕虫，就需要扩展部分。只有一种身体部位的蠕虫效果很差。赋予它多个工作部位会使它的工作速度成比例地提高。然而，这样的蠕虫成本很高，一个单独的产卵只能包含 300 个能量单位。如果要建造超过 300 能量单位的蠕虫，就需要对产卵进行扩展。</p>
-<p>第二个 “控制器 “关卡有 5 个扩展项供您建造。每个新关卡都会增加这一数量。</p>
-<p>您可以在房间的任意位置放置扩展装置，而且无论距离多远，都可以使用它们。在本教程中，我们已经放置了相应的建筑地点，以方便您的使用。</p>
-<p>生成builder</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Game.spawns[&#x27;Spawn1&#x27;].spawnCreep( [WORK, CARRY, MOVE], &#x27;Builder1&#x27;,</span><br><span class="line">    &#123; memory: &#123; role: &#x27;builder&#x27; &#125; &#125; );</span><br></pre></td></tr></table></figure>
-
-<p>定义role.builder</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">var roleBuilder = &#123;</span><br><span class="line"></span><br><span class="line">    /** @param &#123;Creep&#125; creep **/</span><br><span class="line">    run: function(creep) &#123;</span><br><span class="line"></span><br><span class="line">	    if(creep.memory.building &amp;&amp; creep.store[RESOURCE_ENERGY] == 0) &#123;</span><br><span class="line">            creep.memory.building = false;</span><br><span class="line">            creep.say(&#x27;🔄 harvest&#x27;);</span><br><span class="line">	    &#125;</span><br><span class="line">	    if(!creep.memory.building &amp;&amp; creep.store.getFreeCapacity() == 0) &#123;</span><br><span class="line">	        creep.memory.building = true;</span><br><span class="line">	        creep.say(&#x27;🚧 build&#x27;);</span><br><span class="line">	    &#125;</span><br><span class="line"></span><br><span class="line">	    if(creep.memory.building) &#123;</span><br><span class="line">	        var targets = creep.room.find(FIND_CONSTRUCTION_SITES);</span><br><span class="line">            if(targets.length) &#123;</span><br><span class="line">                if(creep.build(targets[0]) == ERR_NOT_IN_RANGE) &#123;</span><br><span class="line">                    creep.moveTo(targets[0], &#123;visualizePathStyle: &#123;stroke: &#x27;#ffffff&#x27;&#125;&#125;);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">	    &#125;</span><br><span class="line">	    else &#123;</span><br><span class="line">	        var sources = creep.room.find(FIND_SOURCES);</span><br><span class="line">            if(creep.harvest(sources[0]) == ERR_NOT_IN_RANGE) &#123;</span><br><span class="line">                creep.moveTo(sources[0], &#123;visualizePathStyle: &#123;stroke: &#x27;#ffaa00&#x27;&#125;&#125;);</span><br><span class="line">            &#125;</span><br><span class="line">	    &#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">module.exports = roleBuilder;</span><br></pre></td></tr></table></figure>
-
-<p>main调用</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">var roleHarvester = require(&#x27;role.harvester&#x27;);</span><br><span class="line">var roleBuilder = require(&#x27;role.builder&#x27;);</span><br><span class="line"></span><br><span class="line">module.exports.loop = function () &#123;</span><br><span class="line"></span><br><span class="line">    for(var name in Game.creeps) &#123;</span><br><span class="line">        var creep = Game.creeps[name];</span><br><span class="line">        if(creep.memory.role == &#x27;harvester&#x27;) &#123;</span><br><span class="line">            roleHarvester.run(creep);</span><br><span class="line">        &#125;</span><br><span class="line">        if(creep.memory.role == &#x27;builder&#x27;) &#123;</span><br><span class="line">            roleBuilder.run(creep);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>要维护扩展空间，就需要让收割机不仅能将能量输送到产卵点，还能将能量输送到扩展空间。为此，您可以使用 Game.structures 对象，或者借助 Room.find(FIND_STRUCTURES) 在房间内搜索。在这两种情况下，您都需要根据 structure.structureType == STRUCTURE_EXTENSION（或者，structure instanceof StructureExtension）这一条件来过滤项目列表，并像之前一样检查它们的能量负载。</p>
-<p>修改role.harvest</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">var roleHarvester = &#123;</span><br><span class="line"></span><br><span class="line">    /** @param &#123;Creep&#125; creep **/</span><br><span class="line">    run: function(creep) &#123;</span><br><span class="line">	    if(creep.store.getFreeCapacity() &gt; 0) &#123;</span><br><span class="line">            var sources = creep.room.find(FIND_SOURCES);</span><br><span class="line">            if(creep.harvest(sources[0]) == ERR_NOT_IN_RANGE) &#123;</span><br><span class="line">                creep.moveTo(sources[0], &#123;visualizePathStyle: &#123;stroke: &#x27;#ffaa00&#x27;&#125;&#125;);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        else &#123;</span><br><span class="line">            var targets = creep.room.find(FIND_STRUCTURES, &#123;</span><br><span class="line">                    filter: (structure) =&gt; &#123;</span><br><span class="line">                        return (structure.structureType == STRUCTURE_EXTENSION || structure.structureType == STRUCTURE_SPAWN) &amp;&amp;</span><br><span class="line">                            structure.store.getFreeCapacity(RESOURCE_ENERGY) &gt; 0;</span><br><span class="line">                    &#125;</span><br><span class="line">            &#125;);</span><br><span class="line">            if(targets.length &gt; 0) &#123;</span><br><span class="line">                if(creep.transfer(targets[0], RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) &#123;</span><br><span class="line">                    creep.moveTo(targets[0], &#123;visualizePathStyle: &#123;stroke: &#x27;#ffffff&#x27;&#125;&#125;);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">module.exports = roleHarvester;</span><br></pre></td></tr></table></figure>
-
-<p>要了解房间内的能源总量，可以使用 Room.energyAvailable 属性。让我们将该属性的输出添加到控制台中，以便在填充扩展程序时对其进行跟踪。</p>
-<p>为所有 5 个分机和再生器注入能量。</p>
-<p>我们的卵子和延伸体总共有 550 个能量单位。这些能量足以建造一个身体为[WORK,WORK,WORK,WORK,CARRY,MOVE,MOVE]的蠕虫。这种蠕虫的工作速度是普通蠕虫的 4 倍。它的身体更重，所以我们要再给它增加一个 MOVE。不过，两部分的移动速度仍不足以达到小型快速蠕虫的移动速度，因为小型快速蠕虫需要 4 倍移动或修建道路。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Game.spawns[&#x27;Spawn1&#x27;].spawnCreep( [WORK,WORK,WORK,WORK,CARRY,MOVE,MOVE],</span><br><span class="line">    &#x27;HarvesterBig&#x27;,</span><br><span class="line">    &#123; memory: &#123; role: &#x27;harvester&#x27; &#125; &#125; );</span><br></pre></td></tr></table></figure>
-
-<p>因此，通过升级您的控制器、建造新的扩展设备和更强大的小兵，您可以大大提高殖民地工作的效率。此外，用更少的大型蠕虫取代大量的小型蠕虫，还能节省控制它们所需的 CPU 资源，而这正是在线模式的重要前提。</p>
-<p>下一节，我们将讨论如何设置自动制造新蠕虫。</p>
-<h3 id="4-自动造screeps"><a href="#4-自动造screeps" class="headerlink" title="4.自动造screeps"></a>4.自动造screeps</h3><p>到目前为止，我们都是直接在控制台中创建新的蠕虫。经常这样做并不是个好主意，因为 “蠕虫 “的理念就是让你的蚁群自己控制自己。如果你能教会你的 “卵 “自己在房间里制造蠕虫，你就会做得很好。</p>
-<p>这是一个相当复杂的话题，许多玩家花费数月时间来完善和改进他们的自动生成代码。但让我们至少尝试一些简单的方法，并掌握一些基本原则。</p>
-<p>当老的蠕虫因年龄或其他原因死亡时，您就必须创建新的蠕虫。由于游戏中没有报告特定小兵死亡的事件，最简单的方法就是计算所需小兵的数量，如果少于规定值，就开始制造。</p>
-<p>有几种方法可以计算所需类型的蠕虫数量。其中一种方法是借助 _.filter 函数过滤 Game.creeps，并使用其内存中的角色。让我们试着这样做，并在控制台中显示小人的数量。</p>
-<p>在控制台中加入使用角色收割机计算的小兵数量输出。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">var roleHarvester = require(&#x27;role.harvester&#x27;);</span><br><span class="line">var roleUpgrader = require(&#x27;role.upgrader&#x27;);</span><br><span class="line"></span><br><span class="line">module.exports.loop = function () &#123;</span><br><span class="line"></span><br><span class="line">    var harvesters = _.filter(Game.creeps, (creep) =&gt; creep.memory.role == &#x27;harvester&#x27;);</span><br><span class="line">    console.log(&#x27;Harvesters: &#x27; + harvesters.length);</span><br><span class="line"></span><br><span class="line">    for(var name in Game.creeps) &#123;</span><br><span class="line">        var creep = Game.creeps[name];</span><br><span class="line">        if(creep.memory.role == &#x27;harvester&#x27;) &#123;</span><br><span class="line">            roleHarvester.run(creep);</span><br><span class="line">        &#125;</span><br><span class="line">        if(creep.memory.role == &#x27;upgrader&#x27;) &#123;</span><br><span class="line">            roleUpgrader.run(creep);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>比方说，我们希望在任何时候都至少有两台收割机。最简单的方法就是每次发现少于这个数量时运行 StructureSpawn.spawnCreep。您可以不定义其名称（在这种情况下会自动给出），但不要忘记定义所需的角色。</p>
-<p>我们还可以添加一些新的 RoomVisual 调用，以便可视化正在生成的蠕虫。</p>
-<p>在主模块中添加 StructureSpawn.spawnCreep 的逻辑。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">var roleHarvester = require(&#x27;role.harvester&#x27;);</span><br><span class="line">var roleUpgrader = require(&#x27;role.upgrader&#x27;);</span><br><span class="line"></span><br><span class="line">module.exports.loop = function () &#123;</span><br><span class="line"></span><br><span class="line">    var harvesters = _.filter(Game.creeps, (creep) =&gt; creep.memory.role == &#x27;harvester&#x27;);</span><br><span class="line">    console.log(&#x27;Harvesters: &#x27; + harvesters.length);</span><br><span class="line"></span><br><span class="line">    if(harvesters.length &lt; 2) &#123;</span><br><span class="line">        var newName = &#x27;Harvester&#x27; + Game.time;</span><br><span class="line">        console.log(&#x27;Spawning new harvester: &#x27; + newName);</span><br><span class="line">        Game.spawns[&#x27;Spawn1&#x27;].spawnCreep([WORK,CARRY,MOVE], newName, </span><br><span class="line">            &#123;memory: &#123;role: &#x27;harvester&#x27;&#125;&#125;);        </span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    if(Game.spawns[&#x27;Spawn1&#x27;].spawning) &#123; </span><br><span class="line">        var spawningCreep = Game.creeps[Game.spawns[&#x27;Spawn1&#x27;].spawning.name];</span><br><span class="line">        Game.spawns[&#x27;Spawn1&#x27;].room.visual.text(</span><br><span class="line">            &#x27;🛠️&#x27; + spawningCreep.memory.role,</span><br><span class="line">            Game.spawns[&#x27;Spawn1&#x27;].pos.x + 1, </span><br><span class="line">            Game.spawns[&#x27;Spawn1&#x27;].pos.y, </span><br><span class="line">            &#123;align: &#x27;left&#x27;, opacity: 0.8&#125;);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    for(var name in Game.creeps) &#123;</span><br><span class="line">        var creep = Game.creeps[name];</span><br><span class="line">        if(creep.memory.role == &#x27;harvester&#x27;) &#123;</span><br><span class="line">            roleHarvester.run(creep);</span><br><span class="line">        &#125;</span><br><span class="line">        if(creep.memory.role == &#x27;upgrader&#x27;) &#123;</span><br><span class="line">            roleUpgrader.run(creep);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>现在，让我们来模拟收割机死亡的情况。现在，你可以通过控制台或右侧的属性面板向蠕虫发出自杀命令。</p>
-<p>让其中一个收割者自杀。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Game.creeps[&#x27;Builder52477994&#x27;].suicide()</span><br></pre></td></tr></table></figure>
-
-<p>这里有一点很重要，那就是死亡蠕虫的内存不会被清除，而是会保留下来以供以后再次使用。如果每次创建的蠕虫名称都是随机的，可能会导致内存溢出，因此应在每个 tick 开始时（蠕虫创建代码之前）清除内存。</p>
-<p>添加清除内存的代码。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">var roleHarvester = require(&#x27;role.harvester&#x27;);</span><br><span class="line">var roleUpgrader = require(&#x27;role.upgrader&#x27;);</span><br><span class="line"></span><br><span class="line">module.exports.loop = function () &#123;</span><br><span class="line"></span><br><span class="line">    module.exports = roleHarvester;</span><br><span class="line"></span><br><span class="line">    for(var name in Game.creeps) &#123;</span><br><span class="line">        var creep = Game.creeps[name];</span><br><span class="line">        if(creep.memory.role == &#x27;harvester&#x27;) &#123;</span><br><span class="line">            roleHarvester.run(creep);</span><br><span class="line">        &#125;</span><br><span class="line">        if(creep.memory.role == &#x27;upgrader&#x27;) &#123;</span><br><span class="line">            roleUpgrader.run(creep);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>现在，逝者的记忆已被遗忘，这为我们节省了资源。</p>
-<p>除了在旧的蠕虫死亡后创建新的蠕虫外，还有另一种方法可以保持所需的蠕虫数量：StructureSpawn.renewCreep 方法。蠕虫老化在教程中是禁用的，因此我们建议您自行熟悉。</p>
-<h3 id="5-防御"><a href="#5-防御" class="headerlink" title="5.防御"></a>5.防御</h3><p>抵御攻击的最可靠方法就是使用房间安全模式。在安全模式下，其他蠕虫无法在房间里使用任何有害的方法（但你仍然可以抵御陌生人的攻击）。</p>
-<p>安全模式是通过房间控制器激活的，控制器上应该有可供使用的激活程序。让我们用一次激活来打开我们房间的安全模式。</p>
-<p>激活安全模式。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Game.spawns[&#x27;Spawn1&#x27;].room.controller.activateSafeMode();</span><br></pre></td></tr></table></figure>
-
-<p>塔楼是主动防御房间的最简单方法。它们使用能量，可以瞄准房间中的任何小兵进行攻击或治疗。效果取决于塔与目标之间的距离。</p>
-<p>首先，让我们为新塔打下基础。您可以在墙内设置任何您想设置的地方，并借助上面板上的 “建造 “按钮在那里放置建筑工地。</p>
-<p>放置塔楼的建筑工地（手动或使用下面的代码）。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Game.spawns[&#x27;Spawn1&#x27;].room.createConstructionSite( 23, 22, STRUCTURE_TOWER );</span><br></pre></td></tr></table></figure>
-
-<p>高塔会消耗能量，因此我们要设置收割机的角色，让它与其他结构物一起为高塔提供能量。为此，您需要在收割机针对的结构过滤器中添加 STRUCTURE_TOWER 常量。</p>
-<p>将 STRUCTURE_TOWER 添加到模块 role.harvester 中，然后等待能量出现在塔中。</p>
-<p>role.harvester</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">var roleHarvester = &#123;</span><br><span class="line"></span><br><span class="line">    /** @param &#123;Creep&#125; creep **/</span><br><span class="line">    run: function(creep) &#123;</span><br><span class="line">	    if(creep.store.getFreeCapacity() &gt; 0) &#123;</span><br><span class="line">            var sources = creep.room.find(FIND_SOURCES);</span><br><span class="line">            if(creep.harvest(sources[0]) == ERR_NOT_IN_RANGE) &#123;</span><br><span class="line">                creep.moveTo(sources[0], &#123;visualizePathStyle: &#123;stroke: &#x27;#ffaa00&#x27;&#125;&#125;);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        else &#123;</span><br><span class="line">            var targets = creep.room.find(FIND_STRUCTURES, &#123;</span><br><span class="line">                    filter: (structure) =&gt; &#123;</span><br><span class="line">                        return (structure.structureType == STRUCTURE_EXTENSION ||</span><br><span class="line">                                structure.structureType == STRUCTURE_SPAWN ||</span><br><span class="line">                                structure.structureType == STRUCTURE_TOWER) &amp;&amp; </span><br><span class="line">                                structure.store.getFreeCapacity(RESOURCE_ENERGY) &gt; 0;</span><br><span class="line">                    &#125;</span><br><span class="line">            &#125;);</span><br><span class="line">            if(targets.length &gt; 0) &#123;</span><br><span class="line">                if(creep.transfer(targets[0], RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) &#123;</span><br><span class="line">                    creep.moveTo(targets[0], &#123;visualizePathStyle: &#123;stroke: &#x27;#ffffff&#x27;&#125;&#125;);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">module.exports = roleHarvester;</span><br></pre></td></tr></table></figure>
-
-<p>很好，你的塔已经可以使用了！</p>
-<p>和爬行一样，塔也有几种类似的方法：攻击、治疗和修复。每次行动消耗 10 个能量单位。我们需要在发现最近的敌人蠕虫时对其使用攻击。请记住，距离是至关重要的：相同的能量消耗下，效果可以强数倍！</p>
-<p>要直接获取塔楼对象，可以使用右侧面板中的 ID 和 Game.getObjectById 方法。</p>
-<p>在塔的帮助下摧毁敌人的小兵。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">var roleHarvester = require(&#x27;role.harvester&#x27;);</span><br><span class="line">var roleUpgrader = require(&#x27;role.upgrader&#x27;);</span><br><span class="line">var roleBuilder = require(&#x27;role.builder&#x27;);</span><br><span class="line"></span><br><span class="line">module.exports.loop = function () &#123;</span><br><span class="line"></span><br><span class="line">    var tower = Game.getObjectById(&#x27;e24e85f11ef1ef37ef3d24a1&#x27;);</span><br><span class="line">    if(tower) &#123;</span><br><span class="line">        var closestHostile = tower.pos.findClosestByRange(FIND_HOSTILE_CREEPS);</span><br><span class="line">        if(closestHostile) &#123;</span><br><span class="line">            tower.attack(closestHostile);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    for(var name in Game.creeps) &#123;</span><br><span class="line">        var creep = Game.creeps[name];</span><br><span class="line">        if(creep.memory.role == &#x27;harvester&#x27;) &#123;</span><br><span class="line">            roleHarvester.run(creep);</span><br><span class="line">        &#125;</span><br><span class="line">        if(creep.memory.role == &#x27;upgrader&#x27;) &#123;</span><br><span class="line">            roleUpgrader.run(creep);</span><br><span class="line">        &#125;</span><br><span class="line">        if(creep.memory.role == &#x27;builder&#x27;) &#123;</span><br><span class="line">            roleBuilder.run(creep);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>敌人的小兵被消灭了，我们的殖民地可以松口气了。不过，入侵者在短暂的攻击中损坏了一些墙壁。你最好设置自动修复功能。</p>
-<p>小兵和防御塔都可以修复损坏的建筑。让我们尝试用塔来修复。我们需要使用方法 repair。你还需要 Room.find 方法和一个过滤器来定位损坏的墙壁。</p>
-<p>请注意，由于墙壁不属于任何玩家，因此查找它们需要使用常量 FIND_STRUCTURES，而不是 FIND_MY_STRUCTURES。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">var roleHarvester = require(&#x27;role.harvester&#x27;);</span><br><span class="line">var roleUpgrader = require(&#x27;role.upgrader&#x27;);</span><br><span class="line">var roleBuilder = require(&#x27;role.builder&#x27;);</span><br><span class="line"></span><br><span class="line">module.exports.loop = function () &#123;</span><br><span class="line"></span><br><span class="line">    var tower = Game.getObjectById(&#x27;e24e85f11ef1ef37ef3d24a1&#x27;);</span><br><span class="line">    if(tower) &#123;</span><br><span class="line">        var closestDamagedStructure = tower.pos.findClosestByRange(FIND_STRUCTURES, &#123;</span><br><span class="line">            filter: (structure) =&gt; structure.hits &lt; structure.hitsMax</span><br><span class="line">        &#125;);</span><br><span class="line">        if(closestDamagedStructure) &#123;</span><br><span class="line">            tower.repair(closestDamagedStructure);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        var closestHostile = tower.pos.findClosestByRange(FIND_HOSTILE_CREEPS);</span><br><span class="line">        if(closestHostile) &#123;</span><br><span class="line">            tower.attack(closestHostile);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    for(var name in Game.creeps) &#123;</span><br><span class="line">        var creep = Game.creeps[name];</span><br><span class="line">        if(creep.memory.role == &#x27;harvester&#x27;) &#123;</span><br><span class="line">            roleHarvester.run(creep);</span><br><span class="line">        &#125;</span><br><span class="line">        if(creep.memory.role == &#x27;upgrader&#x27;) &#123;</span><br><span class="line">            roleUpgrader.run(creep);</span><br><span class="line">        &#125;</span><br><span class="line">        if(creep.memory.role == &#x27;builder&#x27;) &#123;</span><br><span class="line">            roleBuilder.run(creep);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
-<h1 id="else"><a href="#else" class="headerlink" title="else"></a>else</h1><h4 id="采矿"><a href="#采矿" class="headerlink" title="采矿"></a>采矿</h4><p>采矿的让他一直在矿上采集，用transfer运矿</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Game.spawns[&#x27;Spawn1&#x27;].spawnCreep([WORK,CARRY,MOVE,MOVE,MOVE], u, </span><br><span class="line">                &#123;memory: &#123;role: &#x27;bigharvester&#x27;&#125;&#125;);</span><br></pre></td></tr></table></figure>
-
-
-
-<h3 id="造extension"><a href="#造extension" class="headerlink" title="造extension"></a>造extension</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">for (var i = 25; i &lt;= 29; i++) &#123;</span><br><span class="line">   Game.spawns[&#x27;Spawn1&#x27;].room.createConstructionSite(26, 25, STRUCTURE_EXTENSION);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Game.spawns[&#x27;Spawn1&#x27;].room.createConstructionSite(26, 25, STRUCTURE_EXTENSION);</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-
-
-
-
-<h1 id="Nooby-Guide"><a href="#Nooby-Guide" class="headerlink" title="Nooby Guide"></a>Nooby Guide</h1><ul>
-<li><p>调用module</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">var roleHarvester=require(&#x27;role.harvester&#x27;);</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>通过creep的name调用</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">for(let name in Game.creeps)&#123;</span><br><span class="line">	var creep = Game.creeps[name];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>生成harvester</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">var name=Game.spawns.Spawn1.createCreep([WORK,WORK,CARRY,WORK], undefined,&#123;role: &#x27;harvester&#x27;,working:false&#125;);</span><br><span class="line">//输出名字</span><br><span class="line">if(!(name &lt; 0))&#123;</span><br><span class="line">	console.log(&quot;spawning new creep: &quot;+ name);</span><br><span class="line">&#125;</span><br><span class="line">//js里比较string和int会一直返回false</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>harvester参数</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">var minHarvesterNum=10</span><br><span class="line">var numberOfHarvester = _.sum(Game.creeps, (c) =&gt; c.memory.role ==&#x27;harvester&#x27;);</span><br><span class="line">console.log(numberOfHarvester)</span><br></pre></td></tr></table></figure></li>
-</ul>
-<h3 id="build-structure"><a href="#build-structure" class="headerlink" title="build structure"></a>build structure</h3><p>- </p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1788,7 +1729,7 @@
                 <a href="/">
     
               
-                  <span class="site-state-item-count">86</span>
+                  <span class="site-state-item-count">87</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
